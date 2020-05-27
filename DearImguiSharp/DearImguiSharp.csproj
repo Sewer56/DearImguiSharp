@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Enable code-gen for Windows platforms -->
+    <SharpGenPlatforms Include="Windows" />
+    <SharpGenMapping Include="Mapping.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpGen.Runtime" Version="1.2.1" />
+    <PackageReference Include="SharpGen.Runtime.COM" Version="1.2.0" />
+    <PackageReference Include="SharpGenTools.Sdk" Version="1.2.1" PrivateAssets="All">
+      <IncludeAssets>All</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

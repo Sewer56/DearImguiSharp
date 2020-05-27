@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config id="dear-imgui-sharp" xmlns="urn:SharpGen.Config">
+  <assembly>DearImguiSharp</assembly>
+  <namespace>DearImguiSharp</namespace>
+  <depends>SharpGen.Runtime</depends>
+  <depends>SharpGen.Runtime.COM</depends>
+
+  <sdk name="StdLib" />
+  <sdk name="WindowsSdk" version="10.0.18362.0" />
+
+  <include-dir override="true">$(THIS_CONFIG_PATH)/../imgui-native/imgui/examples</include-dir>
+  <include-dir override="true">$(THIS_CONFIG_PATH)/../imgui-native/imgui</include-dir>
+  <include-dir override="true">$(THIS_CONFIG_PATH)/../imgui-native</include-dir>
+
+  <!-- Extensions -->
+  <!-- 
+  <include file="imgui_native.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imgui_impl_dx9.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imgui_impl_dx10.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imgui_impl_dx11.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imgui_impl_win32.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  -->
+
+  <include file="sharpgentoolstest.h" namespace="DearImguiSharp.Autogen" attach="true" />
+
+  <!-- Main -->
+  <!-- 
+  <include file="imgui.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imgui_internal.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imstb_rectpack.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imstb_textedit.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  <include file="imstb_truetype.h" namespace="DearImguiSharp.Autogen" attach="true" />
+  -->
+
+  <extension>
+    <create class="DearImguiSharp.Native" visibility="public static" />
+    <define struct="DearImguiSharp.Manual.ImGuiStoragePair" />
+    <define struct="DearImguiSharp.Manual.ImGuiTextRange" />
+    <define struct="DearImguiSharp.Manual.File" />
+    <define struct="DearImguiSharp.Manual.InterfacePtr" />
+
+    <define struct="System.Numerics.Vector2" sizeof="8" />
+    <define struct="System.Numerics.Vector3" sizeof="12" />
+    <define struct="System.Numerics.Vector4" sizeof="16" />
+  </extension>
+
+  <mapping>
+    <map function=".*" group="DearImguiSharp.Native" dll='"imgui.native.dll"'/>
+    <map struct=".*" native="true" />
+    <map enum=".*" />
+    <map enum-item=".*" />
+    <map field=".*" />
+  </mapping>
+
+  <bindings>
+
+    <!-- Useful Aliases -->
+    <bind from="ImVec2" to="System.Numerics.Vector2" />
+    <bind from="ImVec2_Simple" to="System.Numerics.Vector2" />
+    <bind from="ImVec3" to="System.Numerics.Vector3" />
+    <bind from="ImVec4" to="System.Numerics.Vector4" />
+    <bind from="ImVec4_Simple" to="System.Numerics.Vector4" />
+
+    <!-- Mark pointers from DirectX SDK as void* -->
+    <bind from="IDirect3DDevice9" to="DearImguiSharp.Manual.InterfacePtr" />
+    <bind from="ID3D10Device" to="DearImguiSharp.Manual.InterfacePtr" />
+    <bind from="ID3D11Device" to="DearImguiSharp.Manual.InterfacePtr" />
+    <bind from="ID3D11DeviceContext" to="DearImguiSharp.Manual.InterfacePtr" />
+
+    <!-- From Windows.h -->
+    <bind from="LONG_PTR" to="System.Int64" />
+    <bind from="HWND" to="System.Int32" />
+
+    <!-- C Standard Library -->
+    <bind from="FILE" to="DearImguiSharp.Manual.File" />
+
+    <!-- Nested Structs seem to have mapping issues by default. -->
+    <bind from="ImGuiStoragePair" to="DearImguiSharp.Manual.ImGuiStoragePair" />
+    <bind from="ImGuiTextRange" to="DearImguiSharp.Manual.ImGuiTextRange" />
+  </bindings>
+</config>
