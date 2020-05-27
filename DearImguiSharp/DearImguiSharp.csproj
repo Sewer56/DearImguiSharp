@@ -3,20 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Authors>Sewer56</Authors>
+    <Description>Wrapper for the Dear ImGui library with support for DX9, DX11 and Win32 implementations on Windows.</Description>
+    <PackageLicenseExpression>lgpl-3.0-only</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Enable code-gen for Windows platforms -->
-    <SharpGenPlatforms Include="Windows" />
-    <SharpGenMapping Include="Mapping.xml" />
-  </ItemGroup>
+    <Content Include="deps\cimgui\win-x86\cimgui.dll">
+      <PackagePath>runtimes/win-x86/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\win-x64\cimgui.dll">
+      <PackagePath>runtimes/win-x64/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
 
-  <ItemGroup>
-    <PackageReference Include="SharpGen.Runtime" Version="1.2.1" />
-    <PackageReference Include="SharpGen.Runtime.COM" Version="1.2.0" />
-    <PackageReference Include="SharpGenTools.Sdk" Version="1.2.1" PrivateAssets="All">
-      <IncludeAssets>All</IncludeAssets>
-    </PackageReference>
+    <Content Include="build\net40\DearImguiSharp.targets" />
   </ItemGroup>
 
 </Project>
