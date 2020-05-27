@@ -6,16 +6,35 @@ By itself, Dear ImGui does not care what technology you use for rendering; it si
 
 At the moment, the library only ships binaries for Windows. This is simply because I lack the motivation to compile, setup CI/CD and test on other Operating Systems. This specific version of the wrapper also ships with the example implementations for Win32, D3D9, 10 and 11 built-in; this is for my personal use.
 
+I built this because I believe that while it generates more optimal, convenient bindings, [ImGui.NET](https://github.com/mellinoe/ImGui.NET) is too fragile. The custom written binding generator is difficult to maintain and very often breaks between source library updates.
+
 ## Goals
 - Future-proof.
-	- Uses tried and tested Mono binding generator CppSharp.
+	- Uses tried and tested Mono binding generator [CppSharp](https://github.com/mono/CppSharp).
 	- Uses minimal code fixes/changes, in hope API changes wouldn't break things.
 
 - Vanilla
 	- No redefinitions of method names etc. 
 	- Makes it easy to use original C++ documentation for learning the library.
 
-## Building
+## Usage
+
+Aside from capitalization being modified to match general C# code using CppSharp, the library API should exactly match the original source library.
+
+All structures reside in the `DearImguiSharp` namespace.
+All functions reside in the `DearImguiSharp.ImGui` class.
+
+```csharp
+using DearImguiSharp;
+
+// Elsewhere in code.
+_context = ImGui.CreateContext(null);
+ImGui.StyleColorsDark(null);
+```
+
+Please note that the bindings don't have default values for some parameters; where a default value exists in the original API, you can pass null, 0 or the default value for the given type.
+
+## Building from Source
 - Clone this repository and its submodules.
 - Build [cimgui](https://github.com/cimgui/cimgui) using the instructions provided in its readme.
 - Replace headers (`cimgui.h`, `cimgui.cpp`, `cimgui_impl.h`) in `CodeGenerator` project with the ones created using cimgui.
