@@ -7,7 +7,7 @@
     <Description>Wrapper for the Dear ImGui library with support for DX9, DX11 and Win32 implementations on Windows.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.75.0</Version>
+    <Version>1.75.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

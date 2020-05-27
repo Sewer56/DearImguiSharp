@@ -21,8 +21,9 @@ I built this because I believe that while it generates more optimal, convenient 
 
 Aside from capitalization being modified to match general C# code using CppSharp, the library API should exactly match the original source library.
 
-All structures reside in the `DearImguiSharp` namespace.
-All functions reside in the `DearImguiSharp.ImGui` class.
+- All structures reside in the `DearImguiSharp` namespace.
+- All functions reside in the `DearImguiSharp.ImGui` class.
+- Some custom defined functions reside in `DearImguiSharp.ImGui.Custom`. These are hand-generated for user convenience; but might not be up to date 
 
 ```csharp
 using DearImguiSharp;

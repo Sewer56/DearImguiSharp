@@ -26,6 +26,9 @@ namespace CodeGenerator
 
             var options = driver.Options;
             options.GeneratorKind = GeneratorKind.CSharp;
+            options.GenerateDefaultValuesForArguments = true;
+            options.GenerateFinalizers = true;
+            options.GenerateSequentialLayout = true;
 
             var module = options.AddModule(libraryName);
             module.OutputNamespace = "DearImguiSharp";
@@ -44,6 +47,10 @@ namespace CodeGenerator
             driver.Context.TranslationUnitPasses.AddPass(new FunctionToInstanceMethodPass());
             driver.Context.TranslationUnitPasses.AddPass(new CheckDuplicatedNamesPass());
             driver.Context.TranslationUnitPasses.AddPass(new CheckFlagEnumsPass());
+            driver.Context.TranslationUnitPasses.AddPass(new FixDefaultParamValuesOfOverridesPass());
+            driver.Context.TranslationUnitPasses.AddPass(new HandleDefaultParamValuesPass());
+            driver.Context.TranslationUnitPasses.AddPass(new MakeProtectedNestedTypesPublicPass());
+            driver.Context.TranslationUnitPasses.AddPass(new SpecializationMethodsWithDependentPointersPass());
             driver.Context.GeneratorOutputPasses.AddPass(new RenameOutputPass());
         }
 
