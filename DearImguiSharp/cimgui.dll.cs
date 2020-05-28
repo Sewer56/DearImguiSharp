@@ -718,16 +718,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVector : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -846,16 +842,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVector_float : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -974,16 +966,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImWchar : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -1102,16 +1090,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImDrawVert : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -1235,16 +1219,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiSettingsHandler : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -1368,16 +1348,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImVec4 : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -1501,16 +1477,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiGroupData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -1634,16 +1606,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiID : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -1762,16 +1730,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiWindowPtr : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -1896,16 +1860,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiColumnData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2029,16 +1989,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiColorMod : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2162,16 +2118,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImVec2 : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2295,16 +2247,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImFontGlyph : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2428,16 +2376,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiTextRange : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2561,16 +2505,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiStoragePair : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2694,16 +2634,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiStyleMod : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2827,16 +2763,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImDrawChannel : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -2960,16 +2892,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImDrawListPtr : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -3094,16 +3022,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImU32 : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -3222,16 +3146,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiItemFlags : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -3350,16 +3270,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImFontAtlasCustomRect : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -3483,16 +3399,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiTabItem : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -3616,16 +3528,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiColumns : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -3749,16 +3657,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiShrinkWidthItem : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -3882,16 +3786,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVector_char : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4010,16 +3910,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImTextureID : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4125,16 +4021,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImFontPtr : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4259,16 +4151,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImFontConfig : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4392,16 +4280,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVector_int : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4520,16 +4404,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImDrawCmd : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4653,16 +4533,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiPtrOrIndex : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4786,16 +4662,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiPopupData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -4919,16 +4791,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImDrawIdx : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -5047,16 +4915,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVector_unsigned_char : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -5175,16 +5039,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiWindowSettings : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -5308,10 +5168,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImChunkStreamImGuiWindowSettings : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal Buf;
 
             [SuppressUnmanagedCodeSecurity]
@@ -5406,19 +5264,14 @@ namespace DearImguiSharp
 
     public unsafe partial class StbUndoRecord : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int @where;
 
-            [FieldOffset(4)]
             internal int insert_length;
 
-            [FieldOffset(8)]
             internal int delete_length;
 
-            [FieldOffset(12)]
             internal int char_storage;
 
             [SuppressUnmanagedCodeSecurity]
@@ -5550,25 +5403,18 @@ namespace DearImguiSharp
 
     public unsafe partial class StbUndoState : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 3596)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal fixed byte undo_rec[1584];
 
-            [FieldOffset(1584)]
             internal fixed ushort undo_char[999];
 
-            [FieldOffset(3582)]
             internal short undo_point;
 
-            [FieldOffset(3584)]
             internal short redo_point;
 
-            [FieldOffset(3588)]
             internal int undo_char_point;
 
-            [FieldOffset(3592)]
             internal int redo_char_point;
 
             [SuppressUnmanagedCodeSecurity]
@@ -5750,46 +5596,32 @@ namespace DearImguiSharp
 
     public unsafe partial class STB_TexteditState : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 3620)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int cursor;
 
-            [FieldOffset(4)]
             internal int select_start;
 
-            [FieldOffset(8)]
             internal int select_end;
 
-            [FieldOffset(12)]
             internal byte insert_mode;
 
-            [FieldOffset(13)]
             internal byte cursor_at_end_of_line;
 
-            [FieldOffset(14)]
             internal byte initialized;
 
-            [FieldOffset(15)]
             internal byte has_preferred_x;
 
-            [FieldOffset(16)]
             internal byte single_line;
 
-            [FieldOffset(17)]
             internal byte padding1;
 
-            [FieldOffset(18)]
             internal byte padding2;
 
-            [FieldOffset(19)]
             internal byte padding3;
 
-            [FieldOffset(20)]
             internal float preferred_x;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.StbUndoState.__Internal undostate;
 
             [SuppressUnmanagedCodeSecurity]
@@ -6040,25 +5872,18 @@ namespace DearImguiSharp
 
     public unsafe partial class StbTexteditRow : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal float x0;
 
-            [FieldOffset(4)]
             internal float x1;
 
-            [FieldOffset(8)]
             internal float baseline_y_delta;
 
-            [FieldOffset(12)]
             internal float ymin;
 
-            [FieldOffset(16)]
             internal float ymax;
 
-            [FieldOffset(20)]
             internal int num_chars;
 
             [SuppressUnmanagedCodeSecurity]
@@ -6216,13 +6041,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVec2 : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal float x;
 
-            [FieldOffset(4)]
             internal float y;
 
             [SuppressUnmanagedCodeSecurity]
@@ -6347,19 +6169,14 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVec4 : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal float x;
 
-            [FieldOffset(4)]
             internal float y;
 
-            [FieldOffset(8)]
             internal float z;
 
-            [FieldOffset(12)]
             internal float w;
 
             [SuppressUnmanagedCodeSecurity]
@@ -6491,115 +6308,78 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiStyle : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 948)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal float Alpha;
 
-            [FieldOffset(4)]
             internal global::DearImguiSharp.ImVec2.__Internal WindowPadding;
 
-            [FieldOffset(12)]
             internal float WindowRounding;
 
-            [FieldOffset(16)]
             internal float WindowBorderSize;
 
-            [FieldOffset(20)]
             internal global::DearImguiSharp.ImVec2.__Internal WindowMinSize;
 
-            [FieldOffset(28)]
             internal global::DearImguiSharp.ImVec2.__Internal WindowTitleAlign;
 
-            [FieldOffset(36)]
             internal int WindowMenuButtonPosition;
 
-            [FieldOffset(40)]
             internal float ChildRounding;
 
-            [FieldOffset(44)]
             internal float ChildBorderSize;
 
-            [FieldOffset(48)]
             internal float PopupRounding;
 
-            [FieldOffset(52)]
             internal float PopupBorderSize;
 
-            [FieldOffset(56)]
             internal global::DearImguiSharp.ImVec2.__Internal FramePadding;
 
-            [FieldOffset(64)]
             internal float FrameRounding;
 
-            [FieldOffset(68)]
             internal float FrameBorderSize;
 
-            [FieldOffset(72)]
             internal global::DearImguiSharp.ImVec2.__Internal ItemSpacing;
 
-            [FieldOffset(80)]
             internal global::DearImguiSharp.ImVec2.__Internal ItemInnerSpacing;
 
-            [FieldOffset(88)]
             internal global::DearImguiSharp.ImVec2.__Internal TouchExtraPadding;
 
-            [FieldOffset(96)]
             internal float IndentSpacing;
 
-            [FieldOffset(100)]
             internal float ColumnsMinSpacing;
 
-            [FieldOffset(104)]
             internal float ScrollbarSize;
 
-            [FieldOffset(108)]
             internal float ScrollbarRounding;
 
-            [FieldOffset(112)]
             internal float GrabMinSize;
 
-            [FieldOffset(116)]
             internal float GrabRounding;
 
-            [FieldOffset(120)]
             internal float TabRounding;
 
-            [FieldOffset(124)]
             internal float TabBorderSize;
 
-            [FieldOffset(128)]
             internal int ColorButtonPosition;
 
-            [FieldOffset(132)]
             internal global::DearImguiSharp.ImVec2.__Internal ButtonTextAlign;
 
-            [FieldOffset(140)]
             internal global::DearImguiSharp.ImVec2.__Internal SelectableTextAlign;
 
-            [FieldOffset(148)]
             internal global::DearImguiSharp.ImVec2.__Internal DisplayWindowPadding;
 
-            [FieldOffset(156)]
             internal global::DearImguiSharp.ImVec2.__Internal DisplaySafeAreaPadding;
 
-            [FieldOffset(164)]
             internal float MouseCursorScale;
 
-            [FieldOffset(168)]
             internal byte AntiAliasedLines;
 
-            [FieldOffset(169)]
             internal byte AntiAliasedFill;
 
-            [FieldOffset(172)]
             internal float CurveTessellationTol;
 
-            [FieldOffset(176)]
             internal float CircleSegmentMaxError;
 
-            [FieldOffset(180)]
             internal fixed byte Colors[768];
 
             [SuppressUnmanagedCodeSecurity]
@@ -7182,238 +6962,160 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiIO : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 5456)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int ConfigFlags;
 
-            [FieldOffset(4)]
             internal int BackendFlags;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVec2.__Internal DisplaySize;
 
-            [FieldOffset(16)]
             internal float DeltaTime;
 
-            [FieldOffset(20)]
             internal float IniSavingRate;
 
-            [FieldOffset(24)]
             internal global::System.IntPtr IniFilename;
 
-            [FieldOffset(32)]
             internal global::System.IntPtr LogFilename;
 
-            [FieldOffset(40)]
             internal float MouseDoubleClickTime;
 
-            [FieldOffset(44)]
             internal float MouseDoubleClickMaxDist;
 
-            [FieldOffset(48)]
             internal float MouseDragThreshold;
 
-            [FieldOffset(52)]
             internal fixed int KeyMap[22];
 
-            [FieldOffset(140)]
             internal float KeyRepeatDelay;
 
-            [FieldOffset(144)]
             internal float KeyRepeatRate;
 
-            [FieldOffset(152)]
             internal global::System.IntPtr UserData;
 
-            [FieldOffset(160)]
             internal global::System.IntPtr Fonts;
 
-            [FieldOffset(168)]
             internal float FontGlobalScale;
 
-            [FieldOffset(172)]
             internal byte FontAllowUserScaling;
 
-            [FieldOffset(176)]
             internal global::System.IntPtr FontDefault;
 
-            [FieldOffset(184)]
             internal global::DearImguiSharp.ImVec2.__Internal DisplayFramebufferScale;
 
-            [FieldOffset(192)]
             internal byte MouseDrawCursor;
 
-            [FieldOffset(193)]
             internal byte ConfigMacOSXBehaviors;
 
-            [FieldOffset(194)]
             internal byte ConfigInputTextCursorBlink;
 
-            [FieldOffset(195)]
             internal byte ConfigWindowsResizeFromEdges;
 
-            [FieldOffset(196)]
             internal byte ConfigWindowsMoveFromTitleBarOnly;
 
-            [FieldOffset(200)]
             internal float ConfigWindowsMemoryCompactTimer;
 
-            [FieldOffset(208)]
             internal global::System.IntPtr BackendPlatformName;
 
-            [FieldOffset(216)]
             internal global::System.IntPtr BackendRendererName;
 
-            [FieldOffset(224)]
             internal global::System.IntPtr BackendPlatformUserData;
 
-            [FieldOffset(232)]
             internal global::System.IntPtr BackendRendererUserData;
 
-            [FieldOffset(240)]
             internal global::System.IntPtr BackendLanguageUserData;
 
-            [FieldOffset(248)]
             internal global::System.IntPtr GetClipboardTextFn;
 
-            [FieldOffset(256)]
             internal global::System.IntPtr SetClipboardTextFn;
 
-            [FieldOffset(264)]
             internal global::System.IntPtr ClipboardUserData;
 
-            [FieldOffset(272)]
             internal global::System.IntPtr ImeSetInputScreenPosFn;
 
-            [FieldOffset(280)]
             internal global::System.IntPtr ImeWindowHandle;
 
-            [FieldOffset(288)]
             internal global::System.IntPtr RenderDrawListsFnUnused;
 
-            [FieldOffset(296)]
             internal global::DearImguiSharp.ImVec2.__Internal MousePos;
 
-            [FieldOffset(304)]
             internal fixed byte MouseDown[5];
 
-            [FieldOffset(312)]
             internal float MouseWheel;
 
-            [FieldOffset(316)]
             internal float MouseWheelH;
 
-            [FieldOffset(320)]
             internal byte KeyCtrl;
 
-            [FieldOffset(321)]
             internal byte KeyShift;
 
-            [FieldOffset(322)]
             internal byte KeyAlt;
 
-            [FieldOffset(323)]
             internal byte KeySuper;
 
-            [FieldOffset(324)]
             internal fixed byte KeysDown[512];
 
-            [FieldOffset(836)]
             internal fixed float NavInputs[21];
 
-            [FieldOffset(920)]
             internal byte WantCaptureMouse;
 
-            [FieldOffset(921)]
             internal byte WantCaptureKeyboard;
 
-            [FieldOffset(922)]
             internal byte WantTextInput;
 
-            [FieldOffset(923)]
             internal byte WantSetMousePos;
 
-            [FieldOffset(924)]
             internal byte WantSaveIniSettings;
 
-            [FieldOffset(925)]
             internal byte NavActive;
 
-            [FieldOffset(926)]
             internal byte NavVisible;
 
-            [FieldOffset(928)]
             internal float Framerate;
 
-            [FieldOffset(932)]
             internal int MetricsRenderVertices;
 
-            [FieldOffset(936)]
             internal int MetricsRenderIndices;
 
-            [FieldOffset(940)]
             internal int MetricsRenderWindows;
 
-            [FieldOffset(944)]
             internal int MetricsActiveWindows;
 
-            [FieldOffset(948)]
             internal int MetricsActiveAllocations;
 
-            [FieldOffset(952)]
             internal global::DearImguiSharp.ImVec2.__Internal MouseDelta;
 
-            [FieldOffset(960)]
             internal global::DearImguiSharp.ImVec2.__Internal MousePosPrev;
 
-            [FieldOffset(968)]
             internal fixed byte MouseClickedPos[40];
 
-            [FieldOffset(1008)]
             internal fixed double MouseClickedTime[5];
 
-            [FieldOffset(1048)]
             internal fixed byte MouseClicked[5];
 
-            [FieldOffset(1053)]
             internal fixed byte MouseDoubleClicked[5];
 
-            [FieldOffset(1058)]
             internal fixed byte MouseReleased[5];
 
-            [FieldOffset(1063)]
             internal fixed byte MouseDownOwned[5];
 
-            [FieldOffset(1068)]
             internal fixed byte MouseDownWasDoubleClick[5];
 
-            [FieldOffset(1076)]
             internal fixed float MouseDownDuration[5];
 
-            [FieldOffset(1096)]
             internal fixed float MouseDownDurationPrev[5];
 
-            [FieldOffset(1116)]
             internal fixed byte MouseDragMaxDistanceAbs[40];
 
-            [FieldOffset(1156)]
             internal fixed float MouseDragMaxDistanceSqr[5];
 
-            [FieldOffset(1176)]
             internal fixed float KeysDownDuration[512];
 
-            [FieldOffset(3224)]
             internal fixed float KeysDownDurationPrev[512];
 
-            [FieldOffset(5272)]
             internal fixed float NavInputsDownDuration[21];
 
-            [FieldOffset(5356)]
             internal fixed float NavInputsDownDurationPrev[21];
 
-            [FieldOffset(5440)]
             internal global::DearImguiSharp.ImVectorImWchar.__Internal InputQueueCharacters;
 
             [SuppressUnmanagedCodeSecurity]
@@ -8768,43 +8470,30 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiInputTextCallbackData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 56)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int EventFlag;
 
-            [FieldOffset(4)]
             internal int Flags;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr UserData;
 
-            [FieldOffset(16)]
             internal ushort EventChar;
 
-            [FieldOffset(20)]
             internal int EventKey;
 
-            [FieldOffset(24)]
             internal global::System.IntPtr Buf;
 
-            [FieldOffset(32)]
             internal int BufTextLen;
 
-            [FieldOffset(36)]
             internal int BufSize;
 
-            [FieldOffset(40)]
             internal byte BufDirty;
 
-            [FieldOffset(44)]
             internal int CursorPos;
 
-            [FieldOffset(48)]
             internal int SelectionStart;
 
-            [FieldOffset(52)]
             internal int SelectionEnd;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9040,19 +8729,14 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiSizeCallbackData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 32)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr UserData;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVec2.__Internal Pos;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVec2.__Internal CurrentSize;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.ImVec2.__Internal DesiredSize;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9190,31 +8874,22 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiPayload : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 64)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr Data;
 
-            [FieldOffset(8)]
             internal int DataSize;
 
-            [FieldOffset(12)]
             internal uint SourceId;
 
-            [FieldOffset(16)]
             internal uint SourceParentId;
 
-            [FieldOffset(20)]
             internal int DataFrameCount;
 
-            [FieldOffset(24)]
             internal fixed sbyte DataType[33];
 
-            [FieldOffset(57)]
             internal byte Preview;
 
-            [FieldOffset(58)]
             internal byte Delivery;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9409,10 +9084,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiOnceUponAFrame : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 4)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int RefFrame;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9505,16 +9178,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiTextFilter : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 280)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal fixed sbyte InputBuf[256];
 
-            [FieldOffset(256)]
             internal global::DearImguiSharp.ImVectorImGuiTextRange.__Internal Filters;
 
-            [FieldOffset(272)]
             internal int CountGrep;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9646,10 +9315,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiTextBuffer : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVector_char.__Internal Buf;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9754,10 +9421,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiStorage : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVectorImGuiStoragePair.__Internal Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9852,16 +9517,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVectorImGuiTabBar : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Size;
 
-            [FieldOffset(4)]
             internal int Capacity;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
@@ -9985,16 +9646,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImPoolImGuiTabBar : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 40)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVectorImGuiTabBar.__Internal Buf;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImGuiStorage.__Internal Map;
 
-            [FieldOffset(32)]
             internal int FreeIdx;
 
             [SuppressUnmanagedCodeSecurity]
@@ -10117,25 +9774,18 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiListClipper : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int DisplayStart;
 
-            [FieldOffset(4)]
             internal int DisplayEnd;
 
-            [FieldOffset(8)]
             internal int ItemsCount;
 
-            [FieldOffset(12)]
             internal int StepNo;
 
-            [FieldOffset(16)]
             internal float ItemsHeight;
 
-            [FieldOffset(20)]
             internal float StartPosY;
 
             [SuppressUnmanagedCodeSecurity]
@@ -10293,10 +9943,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImColor : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVec4.__Internal Value;
 
             [SuppressUnmanagedCodeSecurity]
@@ -10391,28 +10039,20 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawCmd : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 56)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint ElemCount;
 
-            [FieldOffset(4)]
             internal global::DearImguiSharp.ImVec4.__Internal ClipRect;
 
-            [FieldOffset(24)]
             internal global::System.IntPtr TextureId;
 
-            [FieldOffset(32)]
             internal uint VtxOffset;
 
-            [FieldOffset(36)]
             internal uint IdxOffset;
 
-            [FieldOffset(40)]
             internal global::System.IntPtr UserCallback;
 
-            [FieldOffset(48)]
             internal global::System.IntPtr UserCallbackData;
 
             [SuppressUnmanagedCodeSecurity]
@@ -10586,16 +10226,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawVert : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 20)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVec2.__Internal pos;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVec2.__Internal uv;
 
-            [FieldOffset(16)]
             internal uint col;
 
             [SuppressUnmanagedCodeSecurity]
@@ -10718,13 +10354,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawChannel : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 32)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVectorImDrawCmd.__Internal _CmdBuffer;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVectorImDrawIdx.__Internal _IdxBuffer;
 
             [SuppressUnmanagedCodeSecurity]
@@ -10834,16 +10467,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawListSplitter : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int _Current;
 
-            [FieldOffset(4)]
             internal int _Count;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVectorImDrawChannel.__Internal _Channels;
 
             [SuppressUnmanagedCodeSecurity]
@@ -10964,49 +10593,34 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawList : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 168)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVectorImDrawCmd.__Internal CmdBuffer;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVectorImDrawIdx.__Internal IdxBuffer;
 
-            [FieldOffset(32)]
             internal global::DearImguiSharp.ImVectorImDrawVert.__Internal VtxBuffer;
 
-            [FieldOffset(48)]
             internal int Flags;
 
-            [FieldOffset(56)]
             internal global::System.IntPtr _Data;
 
-            [FieldOffset(64)]
             internal global::System.IntPtr _OwnerName;
 
-            [FieldOffset(72)]
             internal uint _VtxCurrentOffset;
 
-            [FieldOffset(76)]
             internal uint _VtxCurrentIdx;
 
-            [FieldOffset(80)]
             internal global::System.IntPtr _VtxWritePtr;
 
-            [FieldOffset(88)]
             internal global::System.IntPtr _IdxWritePtr;
 
-            [FieldOffset(96)]
             internal global::DearImguiSharp.ImVectorImVec4.__Internal _ClipRectStack;
 
-            [FieldOffset(112)]
             internal global::DearImguiSharp.ImVectorImTextureID.__Internal _TextureIdStack;
 
-            [FieldOffset(128)]
             internal global::DearImguiSharp.ImVectorImVec2.__Internal _Path;
 
-            [FieldOffset(144)]
             internal global::DearImguiSharp.ImDrawListSplitter.__Internal _Splitter;
 
             [SuppressUnmanagedCodeSecurity]
@@ -11301,31 +10915,22 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 56)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal byte Valid;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr CmdLists;
 
-            [FieldOffset(16)]
             internal int CmdListsCount;
 
-            [FieldOffset(20)]
             internal int TotalIdxCount;
 
-            [FieldOffset(24)]
             internal int TotalVtxCount;
 
-            [FieldOffset(28)]
             internal global::DearImguiSharp.ImVec2.__Internal DisplayPos;
 
-            [FieldOffset(36)]
             internal global::DearImguiSharp.ImVec2.__Internal DisplaySize;
 
-            [FieldOffset(44)]
             internal global::DearImguiSharp.ImVec2.__Internal FramebufferScale;
 
             [SuppressUnmanagedCodeSecurity]
@@ -11521,64 +11126,44 @@ namespace DearImguiSharp
 
     public unsafe partial class ImFontConfig : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 136)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr FontData;
 
-            [FieldOffset(8)]
             internal int FontDataSize;
 
-            [FieldOffset(12)]
             internal byte FontDataOwnedByAtlas;
 
-            [FieldOffset(16)]
             internal int FontNo;
 
-            [FieldOffset(20)]
             internal float SizePixels;
 
-            [FieldOffset(24)]
             internal int OversampleH;
 
-            [FieldOffset(28)]
             internal int OversampleV;
 
-            [FieldOffset(32)]
             internal byte PixelSnapH;
 
-            [FieldOffset(36)]
             internal global::DearImguiSharp.ImVec2.__Internal GlyphExtraSpacing;
 
-            [FieldOffset(44)]
             internal global::DearImguiSharp.ImVec2.__Internal GlyphOffset;
 
-            [FieldOffset(56)]
             internal global::System.IntPtr GlyphRanges;
 
-            [FieldOffset(64)]
             internal float GlyphMinAdvanceX;
 
-            [FieldOffset(68)]
             internal float GlyphMaxAdvanceX;
 
-            [FieldOffset(72)]
             internal byte MergeMode;
 
-            [FieldOffset(76)]
             internal uint RasterizerFlags;
 
-            [FieldOffset(80)]
             internal float RasterizerMultiply;
 
-            [FieldOffset(84)]
             internal ushort EllipsisChar;
 
-            [FieldOffset(86)]
             internal fixed sbyte Name[40];
 
-            [FieldOffset(128)]
             internal global::System.IntPtr DstFont;
 
             [SuppressUnmanagedCodeSecurity]
@@ -11925,37 +11510,26 @@ namespace DearImguiSharp
 
     public unsafe partial class ImFontGlyph : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 40)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal ushort Codepoint;
 
-            [FieldOffset(4)]
             internal float AdvanceX;
 
-            [FieldOffset(8)]
             internal float X0;
 
-            [FieldOffset(12)]
             internal float Y0;
 
-            [FieldOffset(16)]
             internal float X1;
 
-            [FieldOffset(20)]
             internal float Y1;
 
-            [FieldOffset(24)]
             internal float U0;
 
-            [FieldOffset(28)]
             internal float V0;
 
-            [FieldOffset(32)]
             internal float U1;
 
-            [FieldOffset(36)]
             internal float V1;
 
             [SuppressUnmanagedCodeSecurity]
@@ -12165,10 +11739,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImFontGlyphRangesBuilder : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVectorImU32.__Internal UsedChars;
 
             [SuppressUnmanagedCodeSecurity]
@@ -12263,31 +11835,22 @@ namespace DearImguiSharp
 
     public unsafe partial class ImFontAtlasCustomRect : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 32)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint ID;
 
-            [FieldOffset(4)]
             internal ushort Width;
 
-            [FieldOffset(6)]
             internal ushort Height;
 
-            [FieldOffset(8)]
             internal ushort X;
 
-            [FieldOffset(10)]
             internal ushort Y;
 
-            [FieldOffset(12)]
             internal float GlyphAdvanceX;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVec2.__Internal GlyphOffset;
 
-            [FieldOffset(24)]
             internal global::System.IntPtr Font;
 
             [SuppressUnmanagedCodeSecurity]
@@ -12478,52 +12041,36 @@ namespace DearImguiSharp
 
     public unsafe partial class ImFontAtlas : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 120)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal byte Locked;
 
-            [FieldOffset(4)]
             internal int Flags;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr TexID;
 
-            [FieldOffset(16)]
             internal int TexDesiredWidth;
 
-            [FieldOffset(20)]
             internal int TexGlyphPadding;
 
-            [FieldOffset(24)]
             internal global::System.IntPtr TexPixelsAlpha8;
 
-            [FieldOffset(32)]
             internal global::System.IntPtr TexPixelsRGBA32;
 
-            [FieldOffset(40)]
             internal int TexWidth;
 
-            [FieldOffset(44)]
             internal int TexHeight;
 
-            [FieldOffset(48)]
             internal global::DearImguiSharp.ImVec2.__Internal TexUvScale;
 
-            [FieldOffset(56)]
             internal global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
 
-            [FieldOffset(64)]
             internal global::DearImguiSharp.ImVectorImFontPtr.__Internal Fonts;
 
-            [FieldOffset(80)]
             internal global::DearImguiSharp.ImVectorImFontAtlasCustomRect.__Internal CustomRects;
 
-            [FieldOffset(96)]
             internal global::DearImguiSharp.ImVectorImFontConfig.__Internal ConfigData;
 
-            [FieldOffset(112)]
             internal fixed int CustomRectIds[1];
 
             [SuppressUnmanagedCodeSecurity]
@@ -12819,58 +12366,40 @@ namespace DearImguiSharp
 
     public unsafe partial class ImFont : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 112)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVector_float.__Internal IndexAdvanceX;
 
-            [FieldOffset(16)]
             internal float FallbackAdvanceX;
 
-            [FieldOffset(20)]
             internal float FontSize;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.ImVectorImWchar.__Internal IndexLookup;
 
-            [FieldOffset(40)]
             internal global::DearImguiSharp.ImVectorImFontGlyph.__Internal Glyphs;
 
-            [FieldOffset(56)]
             internal global::System.IntPtr FallbackGlyph;
 
-            [FieldOffset(64)]
             internal global::DearImguiSharp.ImVec2.__Internal DisplayOffset;
 
-            [FieldOffset(72)]
             internal global::System.IntPtr ContainerAtlas;
 
-            [FieldOffset(80)]
             internal global::System.IntPtr ConfigData;
 
-            [FieldOffset(88)]
             internal short ConfigDataCount;
 
-            [FieldOffset(90)]
             internal ushort FallbackChar;
 
-            [FieldOffset(92)]
             internal ushort EllipsisChar;
 
-            [FieldOffset(94)]
             internal byte DirtyLookupTables;
 
-            [FieldOffset(96)]
             internal float Scale;
 
-            [FieldOffset(100)]
             internal float Ascent;
 
-            [FieldOffset(104)]
             internal float Descent;
 
-            [FieldOffset(108)]
             internal int MetricsTotalSurface;
 
             [SuppressUnmanagedCodeSecurity]
@@ -13194,10 +12723,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImBoolVector : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVector_int.__Internal Storage;
 
             [SuppressUnmanagedCodeSecurity]
@@ -13292,10 +12819,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVec1 : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 4)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal float x;
 
             [SuppressUnmanagedCodeSecurity]
@@ -13388,13 +12913,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImVec2ih : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 4)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal short x;
 
-            [FieldOffset(2)]
             internal short y;
 
             [SuppressUnmanagedCodeSecurity]
@@ -13500,13 +13022,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImRect : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVec2.__Internal Min;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVec2.__Internal Max;
 
             [SuppressUnmanagedCodeSecurity]
@@ -13616,16 +13135,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiDataTypeInfo : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal ulong Size;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr PrintFmt;
 
-            [FieldOffset(16)]
             internal global::System.IntPtr ScanFmt;
 
             [SuppressUnmanagedCodeSecurity]
@@ -13762,13 +13277,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiColorMod : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 20)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Col;
 
-            [FieldOffset(4)]
             internal global::DearImguiSharp.ImVec4.__Internal BackupValue;
 
             [SuppressUnmanagedCodeSecurity]
@@ -13876,16 +13388,12 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiStyleMod : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 12)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int VarIdx;
 
-            [FieldOffset(4)]
             internal fixed int BackupInt[2];
 
-            [FieldOffset(4)]
             internal fixed float BackupFloat[2];
 
             [SuppressUnmanagedCodeSecurity]
@@ -14026,34 +13534,24 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiGroupData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 44)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVec2.__Internal BackupCursorPos;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVec2.__Internal BackupCursorMaxPos;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVec1.__Internal BackupIndent;
 
-            [FieldOffset(20)]
             internal global::DearImguiSharp.ImVec1.__Internal BackupGroupOffset;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.ImVec2.__Internal BackupCurrLineSize;
 
-            [FieldOffset(32)]
             internal float BackupCurrLineTextBaseOffset;
 
-            [FieldOffset(36)]
             internal uint BackupActiveIdIsAlive;
 
-            [FieldOffset(40)]
             internal byte BackupActiveIdPreviousFrameIsAlive;
 
-            [FieldOffset(41)]
             internal byte EmitItem;
 
             [SuppressUnmanagedCodeSecurity]
@@ -14260,22 +13758,16 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiMenuColumns : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 36)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal float Spacing;
 
-            [FieldOffset(4)]
             internal float Width;
 
-            [FieldOffset(8)]
             internal float NextWidth;
 
-            [FieldOffset(12)]
             internal fixed float Pos[3];
 
-            [FieldOffset(24)]
             internal fixed float NextWidths[3];
 
             [SuppressUnmanagedCodeSecurity]
@@ -14442,55 +13934,38 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiInputTextState : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 3728)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint ID;
 
-            [FieldOffset(4)]
             internal int CurLenW;
 
-            [FieldOffset(8)]
             internal int CurLenA;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVectorImWchar.__Internal TextW;
 
-            [FieldOffset(32)]
             internal global::DearImguiSharp.ImVector_char.__Internal TextA;
 
-            [FieldOffset(48)]
             internal global::DearImguiSharp.ImVector_char.__Internal InitialTextA;
 
-            [FieldOffset(64)]
             internal byte TextAIsValid;
 
-            [FieldOffset(68)]
             internal int BufCapacityA;
 
-            [FieldOffset(72)]
             internal float ScrollX;
 
-            [FieldOffset(76)]
             internal global::DearImguiSharp.STB_TexteditState.__Internal Stb;
 
-            [FieldOffset(3696)]
             internal float CursorAnim;
 
-            [FieldOffset(3700)]
             internal byte CursorFollow;
 
-            [FieldOffset(3701)]
             internal byte SelectedAllMouseLock;
 
-            [FieldOffset(3704)]
             internal int UserFlags;
 
-            [FieldOffset(3712)]
             internal global::System.IntPtr UserCallback;
 
-            [FieldOffset(3720)]
             internal global::System.IntPtr UserCallbackData;
 
             [SuppressUnmanagedCodeSecurity]
@@ -14787,19 +14262,14 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiWindowSettings : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint ID;
 
-            [FieldOffset(4)]
             internal global::DearImguiSharp.ImVec2ih.__Internal Pos;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVec2ih.__Internal Size;
 
-            [FieldOffset(12)]
             internal byte Collapsed;
 
             [SuppressUnmanagedCodeSecurity]
@@ -14935,25 +14405,18 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiSettingsHandler : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 48)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr TypeName;
 
-            [FieldOffset(8)]
             internal uint TypeHash;
 
-            [FieldOffset(16)]
             internal global::System.IntPtr ReadOpenFn;
 
-            [FieldOffset(24)]
             internal global::System.IntPtr ReadLineFn;
 
-            [FieldOffset(32)]
             internal global::System.IntPtr WriteAllFn;
 
-            [FieldOffset(40)]
             internal global::System.IntPtr UserData;
 
             [SuppressUnmanagedCodeSecurity]
@@ -15123,28 +14586,20 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiPopupData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 48)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint PopupId;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Window;
 
-            [FieldOffset(16)]
             internal global::System.IntPtr SourceWindow;
 
-            [FieldOffset(24)]
             internal int OpenFrameCount;
 
-            [FieldOffset(28)]
             internal uint OpenParentId;
 
-            [FieldOffset(32)]
             internal global::DearImguiSharp.ImVec2.__Internal OpenPopupPos;
 
-            [FieldOffset(40)]
             internal global::DearImguiSharp.ImVec2.__Internal OpenMousePos;
 
             [SuppressUnmanagedCodeSecurity]
@@ -15329,19 +14784,14 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiColumnData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 28)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal float OffsetNorm;
 
-            [FieldOffset(4)]
             internal float OffsetNormBeforeResize;
 
-            [FieldOffset(8)]
             internal int Flags;
 
-            [FieldOffset(12)]
             internal global::DearImguiSharp.ImRect.__Internal ClipRect;
 
             [SuppressUnmanagedCodeSecurity]
@@ -15475,55 +14925,38 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiColumns : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 120)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint ID;
 
-            [FieldOffset(4)]
             internal int Flags;
 
-            [FieldOffset(8)]
             internal byte IsFirstFrame;
 
-            [FieldOffset(9)]
             internal byte IsBeingResized;
 
-            [FieldOffset(12)]
             internal int Current;
 
-            [FieldOffset(16)]
             internal int Count;
 
-            [FieldOffset(20)]
             internal float OffMinX;
 
-            [FieldOffset(24)]
             internal float OffMaxX;
 
-            [FieldOffset(28)]
             internal float LineMinY;
 
-            [FieldOffset(32)]
             internal float LineMaxY;
 
-            [FieldOffset(36)]
             internal float HostCursorPosY;
 
-            [FieldOffset(40)]
             internal float HostCursorMaxPosX;
 
-            [FieldOffset(44)]
             internal global::DearImguiSharp.ImRect.__Internal HostClipRect;
 
-            [FieldOffset(60)]
             internal global::DearImguiSharp.ImRect.__Internal HostWorkRect;
 
-            [FieldOffset(80)]
             internal global::DearImguiSharp.ImVectorImGuiColumnData.__Internal Columns;
 
-            [FieldOffset(96)]
             internal global::DearImguiSharp.ImDrawListSplitter.__Internal Splitter;
 
             [SuppressUnmanagedCodeSecurity]
@@ -15819,34 +15252,24 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawListSharedData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 208)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr Font;
 
-            [FieldOffset(16)]
             internal float FontSize;
 
-            [FieldOffset(20)]
             internal float CurveTessellationTol;
 
-            [FieldOffset(24)]
             internal float CircleSegmentMaxError;
 
-            [FieldOffset(28)]
             internal global::DearImguiSharp.ImVec4.__Internal ClipRectFullscreen;
 
-            [FieldOffset(44)]
             internal int InitialFlags;
 
-            [FieldOffset(48)]
             internal fixed byte CircleVtx12[96];
 
-            [FieldOffset(144)]
             internal fixed byte CircleSegmentCounts[64];
 
             [SuppressUnmanagedCodeSecurity]
@@ -16076,10 +15499,8 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawDataBuilder : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 32)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal fixed byte Layers[32];
 
             [SuppressUnmanagedCodeSecurity]
@@ -16185,28 +15606,20 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiNavMoveResult : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 48)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr Window;
 
-            [FieldOffset(8)]
             internal uint ID;
 
-            [FieldOffset(12)]
             internal uint FocusScopeId;
 
-            [FieldOffset(16)]
             internal float DistBox;
 
-            [FieldOffset(20)]
             internal float DistCenter;
 
-            [FieldOffset(24)]
             internal float DistAxial;
 
-            [FieldOffset(28)]
             internal global::DearImguiSharp.ImRect.__Internal RectRel;
 
             [SuppressUnmanagedCodeSecurity]
@@ -16384,49 +15797,34 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiNextWindowData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 104)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Flags;
 
-            [FieldOffset(4)]
             internal int PosCond;
 
-            [FieldOffset(8)]
             internal int SizeCond;
 
-            [FieldOffset(12)]
             internal int CollapsedCond;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVec2.__Internal PosVal;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.ImVec2.__Internal PosPivotVal;
 
-            [FieldOffset(32)]
             internal global::DearImguiSharp.ImVec2.__Internal SizeVal;
 
-            [FieldOffset(40)]
             internal global::DearImguiSharp.ImVec2.__Internal ContentSizeVal;
 
-            [FieldOffset(48)]
             internal byte CollapsedVal;
 
-            [FieldOffset(52)]
             internal global::DearImguiSharp.ImRect.__Internal SizeConstraintRect;
 
-            [FieldOffset(72)]
             internal global::System.IntPtr SizeCallback;
 
-            [FieldOffset(80)]
             internal global::System.IntPtr SizeCallbackUserData;
 
-            [FieldOffset(88)]
             internal float BgAlphaVal;
 
-            [FieldOffset(92)]
             internal global::DearImguiSharp.ImVec2.__Internal MenuBarOffsetMinVal;
 
             [SuppressUnmanagedCodeSecurity]
@@ -16701,22 +16099,16 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiNextItemData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 20)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Flags;
 
-            [FieldOffset(4)]
             internal float Width;
 
-            [FieldOffset(8)]
             internal uint FocusScopeId;
 
-            [FieldOffset(12)]
             internal int OpenCond;
 
-            [FieldOffset(16)]
             internal byte OpenVal;
 
             [SuppressUnmanagedCodeSecurity]
@@ -16861,13 +16253,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiShrinkWidthItem : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal int Index;
 
-            [FieldOffset(4)]
             internal float Width;
 
             [SuppressUnmanagedCodeSecurity]
@@ -16973,13 +16362,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiPtrOrIndex : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr Ptr;
 
-            [FieldOffset(8)]
             internal int Index;
 
             [SuppressUnmanagedCodeSecurity]
@@ -17085,529 +16471,354 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiContext : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 15792)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal byte Initialized;
 
-            [FieldOffset(1)]
             internal byte FontAtlasOwnedByContext;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImGuiIO.__Internal IO;
 
-            [FieldOffset(5464)]
             internal global::DearImguiSharp.ImGuiStyle.__Internal Style;
 
-            [FieldOffset(6416)]
             internal global::System.IntPtr Font;
 
-            [FieldOffset(6424)]
             internal float FontSize;
 
-            [FieldOffset(6428)]
             internal float FontBaseSize;
 
-            [FieldOffset(6432)]
             internal global::DearImguiSharp.ImDrawListSharedData.__Internal DrawListSharedData;
 
-            [FieldOffset(6640)]
             internal double Time;
 
-            [FieldOffset(6648)]
             internal int FrameCount;
 
-            [FieldOffset(6652)]
             internal int FrameCountEnded;
 
-            [FieldOffset(6656)]
             internal int FrameCountRendered;
 
-            [FieldOffset(6660)]
             internal byte WithinFrameScope;
 
-            [FieldOffset(6661)]
             internal byte WithinFrameScopeWithImplicitWindow;
 
-            [FieldOffset(6662)]
             internal byte WithinEndChild;
 
-            [FieldOffset(6664)]
             internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal Windows;
 
-            [FieldOffset(6680)]
             internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsFocusOrder;
 
-            [FieldOffset(6696)]
             internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsTempSortBuffer;
 
-            [FieldOffset(6712)]
             internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal CurrentWindowStack;
 
-            [FieldOffset(6728)]
             internal global::DearImguiSharp.ImGuiStorage.__Internal WindowsById;
 
-            [FieldOffset(6744)]
             internal int WindowsActiveCount;
 
-            [FieldOffset(6752)]
             internal global::System.IntPtr CurrentWindow;
 
-            [FieldOffset(6760)]
             internal global::System.IntPtr HoveredWindow;
 
-            [FieldOffset(6768)]
             internal global::System.IntPtr HoveredRootWindow;
 
-            [FieldOffset(6776)]
             internal global::System.IntPtr MovingWindow;
 
-            [FieldOffset(6784)]
             internal global::System.IntPtr WheelingWindow;
 
-            [FieldOffset(6792)]
             internal global::DearImguiSharp.ImVec2.__Internal WheelingWindowRefMousePos;
 
-            [FieldOffset(6800)]
             internal float WheelingWindowTimer;
 
-            [FieldOffset(6804)]
             internal uint HoveredId;
 
-            [FieldOffset(6808)]
             internal byte HoveredIdAllowOverlap;
 
-            [FieldOffset(6812)]
             internal uint HoveredIdPreviousFrame;
 
-            [FieldOffset(6816)]
             internal float HoveredIdTimer;
 
-            [FieldOffset(6820)]
             internal float HoveredIdNotActiveTimer;
 
-            [FieldOffset(6824)]
             internal uint ActiveId;
 
-            [FieldOffset(6828)]
             internal uint ActiveIdIsAlive;
 
-            [FieldOffset(6832)]
             internal float ActiveIdTimer;
 
-            [FieldOffset(6836)]
             internal byte ActiveIdIsJustActivated;
 
-            [FieldOffset(6837)]
             internal byte ActiveIdAllowOverlap;
 
-            [FieldOffset(6838)]
             internal byte ActiveIdHasBeenPressedBefore;
 
-            [FieldOffset(6839)]
             internal byte ActiveIdHasBeenEditedBefore;
 
-            [FieldOffset(6840)]
             internal byte ActiveIdHasBeenEditedThisFrame;
 
-            [FieldOffset(6844)]
             internal uint ActiveIdUsingNavDirMask;
 
-            [FieldOffset(6848)]
             internal uint ActiveIdUsingNavInputMask;
 
-            [FieldOffset(6856)]
             internal ulong ActiveIdUsingKeyInputMask;
 
-            [FieldOffset(6864)]
             internal global::DearImguiSharp.ImVec2.__Internal ActiveIdClickOffset;
 
-            [FieldOffset(6872)]
             internal global::System.IntPtr ActiveIdWindow;
 
-            [FieldOffset(6880)]
             internal global::DearImguiSharp.ImGuiInputSource ActiveIdSource;
 
-            [FieldOffset(6884)]
             internal int ActiveIdMouseButton;
 
-            [FieldOffset(6888)]
             internal uint ActiveIdPreviousFrame;
 
-            [FieldOffset(6892)]
             internal byte ActiveIdPreviousFrameIsAlive;
 
-            [FieldOffset(6893)]
             internal byte ActiveIdPreviousFrameHasBeenEditedBefore;
 
-            [FieldOffset(6896)]
             internal global::System.IntPtr ActiveIdPreviousFrameWindow;
 
-            [FieldOffset(6904)]
             internal uint LastActiveId;
 
-            [FieldOffset(6908)]
             internal float LastActiveIdTimer;
 
-            [FieldOffset(6912)]
             internal global::DearImguiSharp.ImGuiNextWindowData.__Internal NextWindowData;
 
-            [FieldOffset(7016)]
             internal global::DearImguiSharp.ImGuiNextItemData.__Internal NextItemData;
 
-            [FieldOffset(7040)]
             internal global::DearImguiSharp.ImVectorImGuiColorMod.__Internal ColorModifiers;
 
-            [FieldOffset(7056)]
             internal global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal StyleModifiers;
 
-            [FieldOffset(7072)]
             internal global::DearImguiSharp.ImVectorImFontPtr.__Internal FontStack;
 
-            [FieldOffset(7088)]
             internal global::DearImguiSharp.ImVectorImGuiPopupData.__Internal OpenPopupStack;
 
-            [FieldOffset(7104)]
             internal global::DearImguiSharp.ImVectorImGuiPopupData.__Internal BeginPopupStack;
 
-            [FieldOffset(7120)]
             internal global::System.IntPtr NavWindow;
 
-            [FieldOffset(7128)]
             internal uint NavId;
 
-            [FieldOffset(7132)]
             internal uint NavFocusScopeId;
 
-            [FieldOffset(7136)]
             internal uint NavActivateId;
 
-            [FieldOffset(7140)]
             internal uint NavActivateDownId;
 
-            [FieldOffset(7144)]
             internal uint NavActivatePressedId;
 
-            [FieldOffset(7148)]
             internal uint NavInputId;
 
-            [FieldOffset(7152)]
             internal uint NavJustTabbedId;
 
-            [FieldOffset(7156)]
             internal uint NavJustMovedToId;
 
-            [FieldOffset(7160)]
             internal uint NavJustMovedToFocusScopeId;
 
-            [FieldOffset(7164)]
             internal uint NavNextActivateId;
 
-            [FieldOffset(7168)]
             internal global::DearImguiSharp.ImGuiInputSource NavInputSource;
 
-            [FieldOffset(7172)]
             internal global::DearImguiSharp.ImRect.__Internal NavScoringRectScreen;
 
-            [FieldOffset(7188)]
             internal int NavScoringCount;
 
-            [FieldOffset(7192)]
             internal global::DearImguiSharp.ImGuiNavLayer NavLayer;
 
-            [FieldOffset(7196)]
             internal int NavIdTabCounter;
 
-            [FieldOffset(7200)]
             internal byte NavIdIsAlive;
 
-            [FieldOffset(7201)]
             internal byte NavMousePosDirty;
 
-            [FieldOffset(7202)]
             internal byte NavDisableHighlight;
 
-            [FieldOffset(7203)]
             internal byte NavDisableMouseHover;
 
-            [FieldOffset(7204)]
             internal byte NavAnyRequest;
 
-            [FieldOffset(7205)]
             internal byte NavInitRequest;
 
-            [FieldOffset(7206)]
             internal byte NavInitRequestFromMove;
 
-            [FieldOffset(7208)]
             internal uint NavInitResultId;
 
-            [FieldOffset(7212)]
             internal global::DearImguiSharp.ImRect.__Internal NavInitResultRectRel;
 
-            [FieldOffset(7228)]
             internal byte NavMoveFromClampedRefRect;
 
-            [FieldOffset(7229)]
             internal byte NavMoveRequest;
 
-            [FieldOffset(7232)]
             internal int NavMoveRequestFlags;
 
-            [FieldOffset(7236)]
             internal global::DearImguiSharp.ImGuiNavForward NavMoveRequestForward;
 
-            [FieldOffset(7240)]
             internal int NavMoveDir;
 
-            [FieldOffset(7244)]
             internal int NavMoveDirLast;
 
-            [FieldOffset(7248)]
             internal int NavMoveClipDir;
 
-            [FieldOffset(7256)]
             internal global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocal;
 
-            [FieldOffset(7304)]
             internal global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocalVisibleSet;
 
-            [FieldOffset(7352)]
             internal global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultOther;
 
-            [FieldOffset(7400)]
             internal global::System.IntPtr NavWindowingTarget;
 
-            [FieldOffset(7408)]
             internal global::System.IntPtr NavWindowingTargetAnim;
 
-            [FieldOffset(7416)]
             internal global::System.IntPtr NavWindowingList;
 
-            [FieldOffset(7424)]
             internal float NavWindowingTimer;
 
-            [FieldOffset(7428)]
             internal float NavWindowingHighlightAlpha;
 
-            [FieldOffset(7432)]
             internal byte NavWindowingToggleLayer;
 
-            [FieldOffset(7440)]
             internal global::System.IntPtr FocusRequestCurrWindow;
 
-            [FieldOffset(7448)]
             internal global::System.IntPtr FocusRequestNextWindow;
 
-            [FieldOffset(7456)]
             internal int FocusRequestCurrCounterRegular;
 
-            [FieldOffset(7460)]
             internal int FocusRequestCurrCounterTabStop;
 
-            [FieldOffset(7464)]
             internal int FocusRequestNextCounterRegular;
 
-            [FieldOffset(7468)]
             internal int FocusRequestNextCounterTabStop;
 
-            [FieldOffset(7472)]
             internal byte FocusTabPressed;
 
-            [FieldOffset(7480)]
             internal global::DearImguiSharp.ImDrawData.__Internal DrawData;
 
-            [FieldOffset(7536)]
             internal global::DearImguiSharp.ImDrawDataBuilder.__Internal DrawDataBuilder;
 
-            [FieldOffset(7568)]
             internal float DimBgRatio;
 
-            [FieldOffset(7576)]
             internal global::DearImguiSharp.ImDrawList.__Internal BackgroundDrawList;
 
-            [FieldOffset(7744)]
             internal global::DearImguiSharp.ImDrawList.__Internal ForegroundDrawList;
 
-            [FieldOffset(7912)]
             internal int MouseCursor;
 
-            [FieldOffset(7916)]
             internal byte DragDropActive;
 
-            [FieldOffset(7917)]
             internal byte DragDropWithinSourceOrTarget;
 
-            [FieldOffset(7920)]
             internal int DragDropSourceFlags;
 
-            [FieldOffset(7924)]
             internal int DragDropSourceFrameCount;
 
-            [FieldOffset(7928)]
             internal int DragDropMouseButton;
 
-            [FieldOffset(7936)]
             internal global::DearImguiSharp.ImGuiPayload.__Internal DragDropPayload;
 
-            [FieldOffset(8000)]
             internal global::DearImguiSharp.ImRect.__Internal DragDropTargetRect;
 
-            [FieldOffset(8016)]
             internal uint DragDropTargetId;
 
-            [FieldOffset(8020)]
             internal int DragDropAcceptFlags;
 
-            [FieldOffset(8024)]
             internal float DragDropAcceptIdCurrRectSurface;
 
-            [FieldOffset(8028)]
             internal uint DragDropAcceptIdCurr;
 
-            [FieldOffset(8032)]
             internal uint DragDropAcceptIdPrev;
 
-            [FieldOffset(8036)]
             internal int DragDropAcceptFrameCount;
 
-            [FieldOffset(8040)]
             internal global::DearImguiSharp.ImVector_unsigned_char.__Internal DragDropPayloadBufHeap;
 
-            [FieldOffset(8056)]
             internal fixed byte DragDropPayloadBufLocal[16];
 
-            [FieldOffset(8072)]
             internal global::System.IntPtr CurrentTabBar;
 
-            [FieldOffset(8080)]
             internal global::DearImguiSharp.ImPoolImGuiTabBar.__Internal TabBars;
 
-            [FieldOffset(8120)]
             internal global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal CurrentTabBarStack;
 
-            [FieldOffset(8136)]
             internal global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal ShrinkWidthBuffer;
 
-            [FieldOffset(8152)]
             internal global::DearImguiSharp.ImVec2.__Internal LastValidMousePos;
 
-            [FieldOffset(8160)]
             internal global::DearImguiSharp.ImGuiInputTextState.__Internal InputTextState;
 
-            [FieldOffset(11888)]
             internal global::DearImguiSharp.ImFont.__Internal InputTextPasswordFont;
 
-            [FieldOffset(12000)]
             internal uint TempInputTextId;
 
-            [FieldOffset(12004)]
             internal int ColorEditOptions;
 
-            [FieldOffset(12008)]
             internal float ColorEditLastHue;
 
-            [FieldOffset(12012)]
             internal float ColorEditLastSat;
 
-            [FieldOffset(12016)]
             internal fixed float ColorEditLastColor[3];
 
-            [FieldOffset(12028)]
             internal global::DearImguiSharp.ImVec4.__Internal ColorPickerRef;
 
-            [FieldOffset(12044)]
             internal byte DragCurrentAccumDirty;
 
-            [FieldOffset(12048)]
             internal float DragCurrentAccum;
 
-            [FieldOffset(12052)]
             internal float DragSpeedDefaultRatio;
 
-            [FieldOffset(12056)]
             internal float ScrollbarClickDeltaToGrabCenter;
 
-            [FieldOffset(12060)]
             internal int TooltipOverrideCount;
 
-            [FieldOffset(12064)]
             internal global::DearImguiSharp.ImVector_char.__Internal PrivateClipboard;
 
-            [FieldOffset(12080)]
             internal global::DearImguiSharp.ImVec2.__Internal PlatformImePos;
 
-            [FieldOffset(12088)]
             internal global::DearImguiSharp.ImVec2.__Internal PlatformImeLastPos;
 
-            [FieldOffset(12096)]
             internal byte SettingsLoaded;
 
-            [FieldOffset(12100)]
             internal float SettingsDirtyTimer;
 
-            [FieldOffset(12104)]
             internal global::DearImguiSharp.ImGuiTextBuffer.__Internal SettingsIniData;
 
-            [FieldOffset(12120)]
             internal global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal SettingsHandlers;
 
-            [FieldOffset(12136)]
             internal global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal SettingsWindows;
 
-            [FieldOffset(12152)]
             internal byte LogEnabled;
 
-            [FieldOffset(12156)]
             internal global::DearImguiSharp.ImGuiLogType LogType;
 
-            [FieldOffset(12160)]
             internal global::System.IntPtr LogFile;
 
-            [FieldOffset(12168)]
             internal global::DearImguiSharp.ImGuiTextBuffer.__Internal LogBuffer;
 
-            [FieldOffset(12184)]
             internal float LogLinePosY;
 
-            [FieldOffset(12188)]
             internal byte LogLineFirstItem;
 
-            [FieldOffset(12192)]
             internal int LogDepthRef;
 
-            [FieldOffset(12196)]
             internal int LogDepthToExpand;
 
-            [FieldOffset(12200)]
             internal int LogDepthToExpandDefault;
 
-            [FieldOffset(12204)]
             internal byte DebugItemPickerActive;
 
-            [FieldOffset(12208)]
             internal uint DebugItemPickerBreakId;
 
-            [FieldOffset(12212)]
             internal fixed float FramerateSecPerFrame[120];
 
-            [FieldOffset(12692)]
             internal int FramerateSecPerFrameIdx;
 
-            [FieldOffset(12696)]
             internal float FramerateSecPerFrameAccum;
 
-            [FieldOffset(12700)]
             internal int WantCaptureMouseNextFrame;
 
-            [FieldOffset(12704)]
             internal int WantCaptureKeyboardNextFrame;
 
-            [FieldOffset(12708)]
             internal int WantTextInputNextFrame;
 
-            [FieldOffset(12712)]
             internal fixed sbyte TempBuffer[3073];
 
             [SuppressUnmanagedCodeSecurity]
@@ -20154,133 +19365,90 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiWindowTempData : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 328)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVec2.__Internal CursorPos;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImVec2.__Internal CursorPosPrevLine;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVec2.__Internal CursorStartPos;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.ImVec2.__Internal CursorMaxPos;
 
-            [FieldOffset(32)]
             internal global::DearImguiSharp.ImVec2.__Internal CurrLineSize;
 
-            [FieldOffset(40)]
             internal global::DearImguiSharp.ImVec2.__Internal PrevLineSize;
 
-            [FieldOffset(48)]
             internal float CurrLineTextBaseOffset;
 
-            [FieldOffset(52)]
             internal float PrevLineTextBaseOffset;
 
-            [FieldOffset(56)]
             internal global::DearImguiSharp.ImVec1.__Internal Indent;
 
-            [FieldOffset(60)]
             internal global::DearImguiSharp.ImVec1.__Internal ColumnsOffset;
 
-            [FieldOffset(64)]
             internal global::DearImguiSharp.ImVec1.__Internal GroupOffset;
 
-            [FieldOffset(68)]
             internal uint LastItemId;
 
-            [FieldOffset(72)]
             internal int LastItemStatusFlags;
 
-            [FieldOffset(76)]
             internal global::DearImguiSharp.ImRect.__Internal LastItemRect;
 
-            [FieldOffset(92)]
             internal global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
 
-            [FieldOffset(108)]
             internal global::DearImguiSharp.ImGuiNavLayer NavLayerCurrent;
 
-            [FieldOffset(112)]
             internal int NavLayerCurrentMask;
 
-            [FieldOffset(116)]
             internal int NavLayerActiveMask;
 
-            [FieldOffset(120)]
             internal int NavLayerActiveMaskNext;
 
-            [FieldOffset(124)]
             internal uint NavFocusScopeIdCurrent;
 
-            [FieldOffset(128)]
             internal byte NavHideHighlightOneFrame;
 
-            [FieldOffset(129)]
             internal byte NavHasScroll;
 
-            [FieldOffset(130)]
             internal byte MenuBarAppending;
 
-            [FieldOffset(132)]
             internal global::DearImguiSharp.ImVec2.__Internal MenuBarOffset;
 
-            [FieldOffset(140)]
             internal global::DearImguiSharp.ImGuiMenuColumns.__Internal MenuColumns;
 
-            [FieldOffset(176)]
             internal int TreeDepth;
 
-            [FieldOffset(180)]
             internal uint TreeJumpToParentOnPopMask;
 
-            [FieldOffset(184)]
             internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal ChildWindows;
 
-            [FieldOffset(200)]
             internal global::System.IntPtr StateStorage;
 
-            [FieldOffset(208)]
             internal global::System.IntPtr CurrentColumns;
 
-            [FieldOffset(216)]
             internal int LayoutType;
 
-            [FieldOffset(220)]
             internal int ParentLayoutType;
 
-            [FieldOffset(224)]
             internal int FocusCounterRegular;
 
-            [FieldOffset(228)]
             internal int FocusCounterTabStop;
 
-            [FieldOffset(232)]
             internal int ItemFlags;
 
-            [FieldOffset(236)]
             internal float ItemWidth;
 
-            [FieldOffset(240)]
             internal float TextWrapPos;
 
-            [FieldOffset(248)]
             internal global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal ItemFlagsStack;
 
-            [FieldOffset(264)]
             internal global::DearImguiSharp.ImVector_float.__Internal ItemWidthStack;
 
-            [FieldOffset(280)]
             internal global::DearImguiSharp.ImVector_float.__Internal TextWrapPosStack;
 
-            [FieldOffset(296)]
             internal global::DearImguiSharp.ImVectorImGuiGroupData.__Internal GroupStack;
 
-            [FieldOffset(312)]
             internal fixed short StackSizesBackup[6];
 
             [SuppressUnmanagedCodeSecurity]
@@ -20963,232 +20131,156 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiWindow : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 960)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr Name;
 
-            [FieldOffset(8)]
             internal uint ID;
 
-            [FieldOffset(12)]
             internal int Flags;
 
-            [FieldOffset(16)]
             internal global::DearImguiSharp.ImVec2.__Internal Pos;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.ImVec2.__Internal Size;
 
-            [FieldOffset(32)]
             internal global::DearImguiSharp.ImVec2.__Internal SizeFull;
 
-            [FieldOffset(40)]
             internal global::DearImguiSharp.ImVec2.__Internal ContentSize;
 
-            [FieldOffset(48)]
             internal global::DearImguiSharp.ImVec2.__Internal ContentSizeExplicit;
 
-            [FieldOffset(56)]
             internal global::DearImguiSharp.ImVec2.__Internal WindowPadding;
 
-            [FieldOffset(64)]
             internal float WindowRounding;
 
-            [FieldOffset(68)]
             internal float WindowBorderSize;
 
-            [FieldOffset(72)]
             internal int NameBufLen;
 
-            [FieldOffset(76)]
             internal uint MoveId;
 
-            [FieldOffset(80)]
             internal uint ChildId;
 
-            [FieldOffset(84)]
             internal global::DearImguiSharp.ImVec2.__Internal Scroll;
 
-            [FieldOffset(92)]
             internal global::DearImguiSharp.ImVec2.__Internal ScrollMax;
 
-            [FieldOffset(100)]
             internal global::DearImguiSharp.ImVec2.__Internal ScrollTarget;
 
-            [FieldOffset(108)]
             internal global::DearImguiSharp.ImVec2.__Internal ScrollTargetCenterRatio;
 
-            [FieldOffset(116)]
             internal global::DearImguiSharp.ImVec2.__Internal ScrollbarSizes;
 
-            [FieldOffset(124)]
             internal byte ScrollbarX;
 
-            [FieldOffset(125)]
             internal byte ScrollbarY;
 
-            [FieldOffset(126)]
             internal byte Active;
 
-            [FieldOffset(127)]
             internal byte WasActive;
 
-            [FieldOffset(128)]
             internal byte WriteAccessed;
 
-            [FieldOffset(129)]
             internal byte Collapsed;
 
-            [FieldOffset(130)]
             internal byte WantCollapseToggle;
 
-            [FieldOffset(131)]
             internal byte SkipItems;
 
-            [FieldOffset(132)]
             internal byte Appearing;
 
-            [FieldOffset(133)]
             internal byte Hidden;
 
-            [FieldOffset(134)]
             internal byte IsFallbackWindow;
 
-            [FieldOffset(135)]
             internal byte HasCloseButton;
 
-            [FieldOffset(136)]
             internal sbyte ResizeBorderHeld;
 
-            [FieldOffset(138)]
             internal short BeginCount;
 
-            [FieldOffset(140)]
             internal short BeginOrderWithinParent;
 
-            [FieldOffset(142)]
             internal short BeginOrderWithinContext;
 
-            [FieldOffset(144)]
             internal uint PopupId;
 
-            [FieldOffset(148)]
             internal sbyte AutoFitFramesX;
 
-            [FieldOffset(149)]
             internal sbyte AutoFitFramesY;
 
-            [FieldOffset(150)]
             internal sbyte AutoFitChildAxises;
 
-            [FieldOffset(151)]
             internal byte AutoFitOnlyGrows;
 
-            [FieldOffset(152)]
             internal int AutoPosLastDirection;
 
-            [FieldOffset(156)]
             internal int HiddenFramesCanSkipItems;
 
-            [FieldOffset(160)]
             internal int HiddenFramesCannotSkipItems;
 
-            [FieldOffset(164)]
             internal int SetWindowPosAllowFlags;
 
-            [FieldOffset(168)]
             internal int SetWindowSizeAllowFlags;
 
-            [FieldOffset(172)]
             internal int SetWindowCollapsedAllowFlags;
 
-            [FieldOffset(176)]
             internal global::DearImguiSharp.ImVec2.__Internal SetWindowPosVal;
 
-            [FieldOffset(184)]
             internal global::DearImguiSharp.ImVec2.__Internal SetWindowPosPivot;
 
-            [FieldOffset(192)]
             internal global::DearImguiSharp.ImVectorImGuiID.__Internal IDStack;
 
-            [FieldOffset(208)]
             internal global::DearImguiSharp.ImGuiWindowTempData.__Internal DC;
 
-            [FieldOffset(536)]
             internal global::DearImguiSharp.ImRect.__Internal OuterRectClipped;
 
-            [FieldOffset(552)]
             internal global::DearImguiSharp.ImRect.__Internal InnerRect;
 
-            [FieldOffset(568)]
             internal global::DearImguiSharp.ImRect.__Internal InnerClipRect;
 
-            [FieldOffset(584)]
             internal global::DearImguiSharp.ImRect.__Internal WorkRect;
 
-            [FieldOffset(600)]
             internal global::DearImguiSharp.ImRect.__Internal ClipRect;
 
-            [FieldOffset(616)]
             internal global::DearImguiSharp.ImRect.__Internal ContentRegionRect;
 
-            [FieldOffset(632)]
             internal int LastFrameActive;
 
-            [FieldOffset(636)]
             internal float LastTimeActive;
 
-            [FieldOffset(640)]
             internal float ItemWidthDefault;
 
-            [FieldOffset(648)]
             internal global::DearImguiSharp.ImGuiStorage.__Internal StateStorage;
 
-            [FieldOffset(664)]
             internal global::DearImguiSharp.ImVectorImGuiColumns.__Internal ColumnsStorage;
 
-            [FieldOffset(680)]
             internal float FontWindowScale;
 
-            [FieldOffset(684)]
             internal int SettingsOffset;
 
-            [FieldOffset(688)]
             internal global::System.IntPtr DrawList;
 
-            [FieldOffset(696)]
             internal global::DearImguiSharp.ImDrawList.__Internal DrawListInst;
 
-            [FieldOffset(864)]
             internal global::System.IntPtr ParentWindow;
 
-            [FieldOffset(872)]
             internal global::System.IntPtr RootWindow;
 
-            [FieldOffset(880)]
             internal global::System.IntPtr RootWindowForTitleBarHighlight;
 
-            [FieldOffset(888)]
             internal global::System.IntPtr RootWindowForNav;
 
-            [FieldOffset(896)]
             internal global::System.IntPtr NavLastChildNavWindow;
 
-            [FieldOffset(904)]
             internal fixed uint NavLastIds[2];
 
-            [FieldOffset(912)]
             internal fixed byte NavRectRel[32];
 
-            [FieldOffset(944)]
             internal byte MemoryCompacted;
 
-            [FieldOffset(948)]
             internal int MemoryDrawListIdxCapacity;
 
-            [FieldOffset(952)]
             internal int MemoryDrawListVtxCapacity;
 
             [SuppressUnmanagedCodeSecurity]
@@ -22345,19 +21437,14 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiItemHoveredDataBackup : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 40)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint LastItemId;
 
-            [FieldOffset(4)]
             internal int LastItemStatusFlags;
 
-            [FieldOffset(8)]
             internal global::DearImguiSharp.ImRect.__Internal LastItemRect;
 
-            [FieldOffset(24)]
             internal global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
 
             [SuppressUnmanagedCodeSecurity]
@@ -22493,31 +21580,22 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiTabItem : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 32)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint ID;
 
-            [FieldOffset(4)]
             internal int Flags;
 
-            [FieldOffset(8)]
             internal int LastFrameVisible;
 
-            [FieldOffset(12)]
             internal int LastFrameSelected;
 
-            [FieldOffset(16)]
             internal int NameOffset;
 
-            [FieldOffset(20)]
             internal float Offset;
 
-            [FieldOffset(24)]
             internal float Width;
 
-            [FieldOffset(28)]
             internal float ContentWidth;
 
             [SuppressUnmanagedCodeSecurity]
@@ -22701,79 +21779,54 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiTabBar : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 128)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::DearImguiSharp.ImVectorImGuiTabItem.__Internal Tabs;
 
-            [FieldOffset(16)]
             internal uint ID;
 
-            [FieldOffset(20)]
             internal uint SelectedTabId;
 
-            [FieldOffset(24)]
             internal uint NextSelectedTabId;
 
-            [FieldOffset(28)]
             internal uint VisibleTabId;
 
-            [FieldOffset(32)]
             internal int CurrFrameVisible;
 
-            [FieldOffset(36)]
             internal int PrevFrameVisible;
 
-            [FieldOffset(40)]
             internal global::DearImguiSharp.ImRect.__Internal BarRect;
 
-            [FieldOffset(56)]
             internal float LastTabContentHeight;
 
-            [FieldOffset(60)]
             internal float OffsetMax;
 
-            [FieldOffset(64)]
             internal float OffsetMaxIdeal;
 
-            [FieldOffset(68)]
             internal float OffsetNextTab;
 
-            [FieldOffset(72)]
             internal float ScrollingAnim;
 
-            [FieldOffset(76)]
             internal float ScrollingTarget;
 
-            [FieldOffset(80)]
             internal float ScrollingTargetDistToVisibility;
 
-            [FieldOffset(84)]
             internal float ScrollingSpeed;
 
-            [FieldOffset(88)]
             internal int Flags;
 
-            [FieldOffset(92)]
             internal uint ReorderRequestTabId;
 
-            [FieldOffset(96)]
             internal sbyte ReorderRequestDir;
 
-            [FieldOffset(97)]
             internal byte WantLayout;
 
-            [FieldOffset(98)]
             internal byte VisibleTabWasSubmitted;
 
-            [FieldOffset(100)]
             internal short LastTabItemIdx;
 
-            [FieldOffset(104)]
             internal global::DearImguiSharp.ImVec2.__Internal FramePadding;
 
-            [FieldOffset(112)]
             internal global::DearImguiSharp.ImGuiTextBuffer.__Internal TabsNames;
 
             [SuppressUnmanagedCodeSecurity]
@@ -23173,13 +22226,10 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiTextRange : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal global::System.IntPtr b;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr e;
 
             [SuppressUnmanagedCodeSecurity]
@@ -23303,19 +22353,14 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiStoragePair : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
             internal uint key;
 
-            [FieldOffset(8)]
             internal int val_i;
 
-            [FieldOffset(8)]
             internal float val_f;
 
-            [FieldOffset(8)]
             internal global::System.IntPtr val_p;
 
             [SuppressUnmanagedCodeSecurity]
@@ -35434,7 +34479,6 @@ namespace DearImguiSharp
 
     public unsafe partial class ID3D11DeviceContext
     {
-        [StructLayout(LayoutKind.Explicit, Size = 0)]
         public partial struct __Internal
         {
         }
@@ -35479,7 +34523,6 @@ namespace DearImguiSharp
 
     public unsafe partial class ID3D11Device
     {
-        [StructLayout(LayoutKind.Explicit, Size = 0)]
         public partial struct __Internal
         {
         }
@@ -35524,7 +34567,6 @@ namespace DearImguiSharp
 
     public unsafe partial class IDirect3DDevice9
     {
-        [StructLayout(LayoutKind.Explicit, Size = 0)]
         public partial struct __Internal
         {
         }

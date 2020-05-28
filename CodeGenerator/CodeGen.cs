@@ -1,16 +1,15 @@
-﻿using System;
-using CppSharp;
+﻿using CppSharp;
 using System.Collections.Generic;
 using System.Linq;
 using CppSharp.AST;
-using CppSharp.AST.Extensions;
 using CppSharp.Generators;
-using CppSharp.Parser.AST;
+using CppSharp.Generators.CSharp;
 using CppSharp.Passes;
+using CppSharp.Types;
 using ASTContext = CppSharp.AST.ASTContext;
 using Declaration = CppSharp.AST.Declaration;
 using Namespace = CppSharp.AST.Namespace;
-using TypedefType = CppSharp.Parser.AST.TypedefType;
+using Type = CppSharp.AST.Type;
 
 namespace CodeGenerator
 {
@@ -27,7 +26,6 @@ namespace CodeGenerator
             var options = driver.Options;
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateDefaultValuesForArguments = true;
-            options.GenerateFinalizers = true;
             options.GenerateSequentialLayout = true;
 
             var module = options.AddModule(libraryName);
@@ -60,9 +58,7 @@ namespace CodeGenerator
             // This causes the type to expand to void**, but C# sets the field as IntPtr.
             // C# has no implicit cast for this.
             // We implement this property ourselves in the other project :3
-            var cls = ctx.FindCompleteClass("ImVectorImTextureID");
-            var dataProperty = cls.Properties.First(x => x.OriginalName == "Data");
-            dataProperty.Ignore = true;
+            IgnoreProperty("ImVectorImTextureID", "Data", ctx);
         }
 
         public void Preprocess(Driver driver, ASTContext ctx)
@@ -102,6 +98,12 @@ namespace CodeGenerator
         }
 
         private string GetNameWithoutPrefix(string name) => name.TrimStart("ig".ToCharArray());
+        private void IgnoreProperty(string className, string propertyName, ASTContext ctx)
+        {
+            var cls = ctx.FindCompleteClass(className);
+            var dataProperty = cls.Properties.First(x => x.OriginalName == propertyName);
+            dataProperty.Ignore = true;
+        }
     }
 
     public class RenameOutputPass : GeneratorOutputPass
