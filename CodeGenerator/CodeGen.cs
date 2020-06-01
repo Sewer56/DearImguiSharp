@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using CodeGenerator.Passes;
-using CppSharp.AST;
 using CppSharp.Generators;
-using CppSharp.Generators.CSharp;
 using CppSharp.Passes;
-using CppSharp.Types;
 using ASTContext = CppSharp.AST.ASTContext;
 using Declaration = CppSharp.AST.Declaration;
 using Namespace = CppSharp.AST.Namespace;
-using Type = CppSharp.AST.Type;
 
 namespace CodeGenerator
 {

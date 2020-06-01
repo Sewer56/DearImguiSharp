@@ -13137,7 +13137,7 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            public ulong Size;
+            public IntPtr Size;
 
             public global::System.IntPtr PrintFmt;
 
@@ -13217,7 +13217,7 @@ namespace DearImguiSharp
             __Instance = IntPtr.Zero;
         }
 
-        public ulong Size
+        public IntPtr Size
         {
             get
             {
@@ -22548,7 +22548,7 @@ namespace DearImguiSharp
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDebugCheckVersionAndDataLayout")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool DebugCheckVersionAndDataLayout([MarshalAs(UnmanagedType.LPUTF8Str)] string version_str, ulong sz_io, ulong sz_style, ulong sz_vec2, ulong sz_vec4, ulong sz_drawvert, ulong sz_drawidx);
+            public static extern bool DebugCheckVersionAndDataLayout([MarshalAs(UnmanagedType.LPUTF8Str)] string version_str, IntPtr sz_io, IntPtr sz_style, IntPtr sz_vec2, IntPtr sz_vec4, IntPtr sz_drawvert, IntPtr sz_drawidx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -23441,19 +23441,19 @@ namespace DearImguiSharp
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputText")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool InputText([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, ulong buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
+            public static extern bool InputText([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, IntPtr buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputTextMultiline")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool InputTextMultiline([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, ulong buf_size, global::DearImguiSharp.ImVec2.__Internal size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
+            public static extern bool InputTextMultiline([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, IntPtr buf_size, global::DearImguiSharp.ImVec2.__Internal size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputTextWithHint")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool InputTextWithHint([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string hint, sbyte* buf, ulong buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
+            public static extern bool InputTextWithHint([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string hint, sbyte* buf, IntPtr buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -23929,7 +23929,7 @@ namespace DearImguiSharp
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetDragDropPayload")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SetDragDropPayload([MarshalAs(UnmanagedType.LPUTF8Str)] string type, global::System.IntPtr data, ulong sz, int cond);
+            public static extern bool SetDragDropPayload([MarshalAs(UnmanagedType.LPUTF8Str)] string type, global::System.IntPtr data, IntPtr sz, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -24292,7 +24292,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLoadIniSettingsFromMemory")]
-            public static extern void LoadIniSettingsFromMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_data, ulong ini_size);
+            public static extern void LoadIniSettingsFromMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_data, IntPtr ini_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -24302,7 +24302,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSaveIniSettingsToMemory")]
-            public static extern global::System.IntPtr SaveIniSettingsToMemory(ulong* out_ini_size);
+            public static extern global::System.IntPtr SaveIniSettingsToMemory(IntPtr* out_ini_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -24312,7 +24312,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMemAlloc")]
-            public static extern global::System.IntPtr MemAlloc(ulong size);
+            public static extern global::System.IntPtr MemAlloc(IntPtr size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -25369,12 +25369,12 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImHashData")]
-            public static extern uint ImHashData(global::System.IntPtr data, ulong data_size, uint seed);
+            public static extern uint ImHashData(global::System.IntPtr data, IntPtr data_size, uint seed);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImHashStr")]
-            public static extern uint ImHashStr([MarshalAs(UnmanagedType.LPUTF8Str)] string data, ulong data_size, uint seed);
+            public static extern uint ImHashStr([MarshalAs(UnmanagedType.LPUTF8Str)] string data, IntPtr data_size, uint seed);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -25395,12 +25395,12 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrnicmp")]
-            public static extern int ImStrnicmp([MarshalAs(UnmanagedType.LPUTF8Str)] string str1, [MarshalAs(UnmanagedType.LPUTF8Str)] string str2, ulong count);
+            public static extern int ImStrnicmp([MarshalAs(UnmanagedType.LPUTF8Str)] string str1, [MarshalAs(UnmanagedType.LPUTF8Str)] string str2, IntPtr count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrncpy")]
-            public static extern void ImStrncpy(sbyte* dst, [MarshalAs(UnmanagedType.LPUTF8Str)] string src, ulong count);
+            public static extern void ImStrncpy(sbyte* dst, [MarshalAs(UnmanagedType.LPUTF8Str)] string src, IntPtr count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -25410,7 +25410,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrdupcpy")]
-            public static extern sbyte* ImStrdupcpy(sbyte* dst, ulong* p_dst_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string str);
+            public static extern sbyte* ImStrdupcpy(sbyte* dst, IntPtr* p_dst_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string str);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -25450,7 +25450,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFormatString")]
-            public static extern int ImFormatString(sbyte* buf, ulong buf_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern int ImFormatString(sbyte* buf, IntPtr buf_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -25465,7 +25465,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImParseFormatTrimDecorations")]
-            public static extern global::System.IntPtr ImParseFormatTrimDecorations([MarshalAs(UnmanagedType.LPUTF8Str)] string format, sbyte* buf, ulong buf_size);
+            public static extern global::System.IntPtr ImParseFormatTrimDecorations([MarshalAs(UnmanagedType.LPUTF8Str)] string format, sbyte* buf, IntPtr buf_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -25543,7 +25543,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFileLoadToMemory")]
-            public static extern global::System.IntPtr ImFileLoadToMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string filename, [MarshalAs(UnmanagedType.LPUTF8Str)] string mode, ulong* out_file_size, int padding_bytes);
+            public static extern global::System.IntPtr ImFileLoadToMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string filename, [MarshalAs(UnmanagedType.LPUTF8Str)] string mode, IntPtr* out_file_size, int padding_bytes);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -27338,7 +27338,7 @@ namespace DearImguiSharp
             __Internal.SetCurrentContext(__arg0);
         }
 
-        public static bool DebugCheckVersionAndDataLayout(string version_str, ulong sz_io, ulong sz_style, ulong sz_vec2, ulong sz_vec4, ulong sz_drawvert, ulong sz_drawidx)
+        public static bool DebugCheckVersionAndDataLayout(string version_str, IntPtr sz_io, IntPtr sz_style, IntPtr sz_vec2, IntPtr sz_vec4, IntPtr sz_drawvert, IntPtr sz_drawidx)
         {
             var __ret = __Internal.DebugCheckVersionAndDataLayout(version_str, sz_io, sz_style, sz_vec2, sz_vec4, sz_drawvert, sz_drawidx);
             return __ret;
@@ -28524,14 +28524,14 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static bool InputText(string label, sbyte* buf, ulong buf_size, int flags, global::DearImguiSharp.ImGuiInputTextCallback callback, global::System.IntPtr user_data)
+        public static bool InputText(string label, sbyte* buf, IntPtr buf_size, int flags, global::DearImguiSharp.ImGuiInputTextCallback callback, global::System.IntPtr user_data)
         {
             var __arg4 = callback == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(callback);
             var __ret = __Internal.InputText(label, buf, buf_size, flags, __arg4, user_data);
             return __ret;
         }
 
-        public static bool InputTextMultiline(string label, sbyte* buf, ulong buf_size, global::DearImguiSharp.ImVec2 size, int flags, global::DearImguiSharp.ImGuiInputTextCallback callback, global::System.IntPtr user_data)
+        public static bool InputTextMultiline(string label, sbyte* buf, IntPtr buf_size, global::DearImguiSharp.ImVec2 size, int flags, global::DearImguiSharp.ImGuiInputTextCallback callback, global::System.IntPtr user_data)
         {
             if (ReferenceEquals(size, null))
                 throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
@@ -28541,7 +28541,7 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static bool InputTextWithHint(string label, string hint, sbyte* buf, ulong buf_size, int flags, global::DearImguiSharp.ImGuiInputTextCallback callback, global::System.IntPtr user_data)
+        public static bool InputTextWithHint(string label, string hint, sbyte* buf, IntPtr buf_size, int flags, global::DearImguiSharp.ImGuiInputTextCallback callback, global::System.IntPtr user_data)
         {
             var __arg5 = callback == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(callback);
             var __ret = __Internal.InputTextWithHint(label, hint, buf, buf_size, flags, __arg5, user_data);
@@ -29125,7 +29125,7 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static bool SetDragDropPayload(string type, global::System.IntPtr data, ulong sz, int cond)
+        public static bool SetDragDropPayload(string type, global::System.IntPtr data, IntPtr sz, int cond)
         {
             var __ret = __Internal.SetDragDropPayload(type, data, sz, cond);
             return __ret;
@@ -29588,7 +29588,7 @@ namespace DearImguiSharp
             __Internal.LoadIniSettingsFromDisk(ini_filename);
         }
 
-        public static void LoadIniSettingsFromMemory(string ini_data, ulong ini_size)
+        public static void LoadIniSettingsFromMemory(string ini_data, IntPtr ini_size)
         {
             __Internal.LoadIniSettingsFromMemory(ini_data, ini_size);
         }
@@ -29598,9 +29598,9 @@ namespace DearImguiSharp
             __Internal.SaveIniSettingsToDisk(ini_filename);
         }
 
-        public static string SaveIniSettingsToMemory(ref ulong out_ini_size)
+        public static string SaveIniSettingsToMemory(ref IntPtr out_ini_size)
         {
-            fixed (ulong* __out_ini_size0 = &out_ini_size)
+            fixed (IntPtr* __out_ini_size0 = &out_ini_size)
             {
                 var __arg0 = __out_ini_size0;
                 var __ret = __Internal.SaveIniSettingsToMemory(__arg0);
@@ -29613,14 +29613,14 @@ namespace DearImguiSharp
             }
         }
 
-        public static void SetAllocatorFunctions(global::DearImguiSharp.Delegates.Func_IntPtr_ulong_IntPtr alloc_func, global::DearImguiSharp.Delegates.Action_IntPtr_IntPtr free_func, global::System.IntPtr user_data)
+        public static void SetAllocatorFunctions(global::DearImguiSharp.Delegates.Func_IntPtr_IntPtr_IntPtr alloc_func, global::DearImguiSharp.Delegates.Action_IntPtr_IntPtr free_func, global::System.IntPtr user_data)
         {
             var __arg0 = alloc_func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(alloc_func);
             var __arg1 = free_func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(free_func);
             __Internal.SetAllocatorFunctions(__arg0, __arg1, user_data);
         }
 
-        public static global::System.IntPtr MemAlloc(ulong size)
+        public static global::System.IntPtr MemAlloc(IntPtr size)
         {
             var __ret = __Internal.MemAlloc(size);
             return __ret;
@@ -31480,13 +31480,13 @@ namespace DearImguiSharp
             __Internal.ImFontSetFallbackChar(__arg0, c);
         }
 
-        public static uint ImHashData(global::System.IntPtr data, ulong data_size, uint seed)
+        public static uint ImHashData(global::System.IntPtr data, IntPtr data_size, uint seed)
         {
             var __ret = __Internal.ImHashData(data, data_size, seed);
             return __ret;
         }
 
-        public static uint ImHashStr(string data, ulong data_size, uint seed)
+        public static uint ImHashStr(string data, IntPtr data_size, uint seed)
         {
             var __ret = __Internal.ImHashStr(data, data_size, seed);
             return __ret;
@@ -31510,13 +31510,13 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static int ImStrnicmp(string str1, string str2, ulong count)
+        public static int ImStrnicmp(string str1, string str2, IntPtr count)
         {
             var __ret = __Internal.ImStrnicmp(str1, str2, count);
             return __ret;
         }
 
-        public static void ImStrncpy(sbyte* dst, string src, ulong count)
+        public static void ImStrncpy(sbyte* dst, string src, IntPtr count)
         {
             __Internal.ImStrncpy(dst, src, count);
         }
@@ -31527,9 +31527,9 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static sbyte* ImStrdupcpy(sbyte* dst, ref ulong p_dst_size, string str)
+        public static sbyte* ImStrdupcpy(sbyte* dst, ref IntPtr p_dst_size, string str)
         {
-            fixed (ulong* __p_dst_size1 = &p_dst_size)
+            fixed (IntPtr* __p_dst_size1 = &p_dst_size)
             {
                 var __arg1 = __p_dst_size1;
                 var __ret = __Internal.ImStrdupcpy(dst, __arg1, str);
@@ -31610,7 +31610,7 @@ namespace DearImguiSharp
             return global::System.Text.Encoding.UTF8.GetString((byte*) __ret, __length);
         }
 
-        public static int ImFormatString(sbyte* buf, ulong buf_size, string fmt)
+        public static int ImFormatString(sbyte* buf, IntPtr buf_size, string fmt)
         {
             var __ret = __Internal.ImFormatString(buf, buf_size, fmt);
             return __ret;
@@ -31638,7 +31638,7 @@ namespace DearImguiSharp
             return global::System.Text.Encoding.UTF8.GetString((byte*) __ret, __length);
         }
 
-        public static string ImParseFormatTrimDecorations(string format, sbyte* buf, ulong buf_size)
+        public static string ImParseFormatTrimDecorations(string format, sbyte* buf, IntPtr buf_size)
         {
             var __ret = __Internal.ImParseFormatTrimDecorations(format, buf, buf_size);
             if (__ret == global::System.IntPtr.Zero)
@@ -31757,9 +31757,9 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static global::System.IntPtr ImFileLoadToMemory(string filename, string mode, ref ulong out_file_size, int padding_bytes)
+        public static global::System.IntPtr ImFileLoadToMemory(string filename, string mode, ref IntPtr out_file_size, int padding_bytes)
         {
-            fixed (ulong* __out_file_size2 = &out_file_size)
+            fixed (IntPtr* __out_file_size2 = &out_file_size)
             {
                 var __arg2 = __out_file_size2;
                 var __ret = __Internal.ImFileLoadToMemory(filename, mode, __arg2, padding_bytes);
@@ -34808,7 +34808,7 @@ namespace DearImguiSharp
         public unsafe delegate float Func_float_IntPtr_int(global::System.IntPtr data, int idx);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-        public unsafe delegate global::System.IntPtr Func_IntPtr_ulong_IntPtr(ulong sz, global::System.IntPtr user_data);
+        public unsafe delegate global::System.IntPtr Func_IntPtr_IntPtr_IntPtr(IntPtr sz, global::System.IntPtr user_data);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         public unsafe delegate void Action_IntPtr_IntPtr(global::System.IntPtr ptr, global::System.IntPtr user_data);
