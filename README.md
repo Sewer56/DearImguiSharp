@@ -52,7 +52,6 @@ In that vein, you may check out [Reloaded.Imgui.Hook](https://github.com/Sewer56
 
 ## To Do
 
-- Modify CppSharp generator to auto-implement public constructors for interfaces.
 - Modify CppSharp generator to not redefine typedef'd void\*\* to IntPtr as this produces incorrect code (no implicit conversion from void\*\* to IntPtr).
 - Optimize wrapper by using more efficient bindings. (e.g. Map `ImVec2` to `System.Numerics.Vector2`).
 
