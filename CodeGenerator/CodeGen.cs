@@ -1,6 +1,7 @@
 ﻿using CppSharp;
 using System.Collections.Generic;
 using System.Linq;
+using CodeGenerator.Passes;
 using CppSharp.AST;
 using CppSharp.Generators;
 using CppSharp.Generators.CSharp;
@@ -49,7 +50,17 @@ namespace CodeGenerator
             driver.Context.TranslationUnitPasses.AddPass(new HandleDefaultParamValuesPass());
             driver.Context.TranslationUnitPasses.AddPass(new MakeProtectedNestedTypesPublicPass());
             driver.Context.TranslationUnitPasses.AddPass(new SpecializationMethodsWithDependentPointersPass());
+            driver.Context.TranslationUnitPasses.AddPass(new ConstructorToConversionOperatorPass());
             driver.Context.GeneratorOutputPasses.AddPass(new RenameOutputPass());
+            driver.Context.GeneratorOutputPasses.AddPass(new SetComponentsPublicPass());
+        }
+
+        public void Preprocess(Driver driver, ASTContext ctx)
+        {
+            foreach (var decl in ctx.FindDecl<Declaration>("GImGui"))
+                decl.Ignore = true;
+
+            RemovePrefix(ctx);
         }
 
         public void Postprocess(Driver driver, ASTContext ctx)
@@ -61,24 +72,13 @@ namespace CodeGenerator
             IgnoreProperty("ImVectorImTextureID", "Data", ctx);
         }
 
-        public void Preprocess(Driver driver, ASTContext ctx)
-        {
-            foreach (var decl in ctx.FindDecl<Declaration>("GImGui"))
-                decl.Ignore = true;
-            
-            RemovePrefix(ctx);
-        }
-
         private void RemovePrefix(ASTContext ctx)
         {
             foreach (var unit in ctx.TranslationUnits)
             {
-                foreach (Declaration decl in unit.Declarations)
+                foreach (var func in unit.Functions)
                 {
-                    if (decl.GetType().Name == "Function")
-                    {
-                        decl.Name = GetNameWithoutPrefix(decl.Name);
-                    }
+                    func.Name = GetNameWithoutPrefix(func.Name);
                 }
 
                 RecursiveRemovePrefix(unit.Namespaces, ctx);
@@ -103,19 +103,6 @@ namespace CodeGenerator
             var cls = ctx.FindCompleteClass(className);
             var dataProperty = cls.Properties.First(x => x.OriginalName == propertyName);
             dataProperty.Ignore = true;
-        }
-    }
-
-    public class RenameOutputPass : GeneratorOutputPass
-    {
-        public override void VisitGeneratorOutput(GeneratorOutput output)
-        {
-            var blocks = output.Outputs.SelectMany(i => i.FindBlocks(BlockKind.Unknown));
-            foreach (var block in blocks)
-            {
-                block.Text.StringBuilder.Replace("cimgui_impl", "ImGui");
-                block.Text.StringBuilder.Replace("cimgui", "ImGui");
-            }
         }
     }
 }

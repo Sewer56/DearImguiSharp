@@ -720,16 +720,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -762,7 +762,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVector(void* native, bool skipVTables = false)
+        public ImVector(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -844,16 +844,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_float@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -886,7 +886,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVector_float(void* native, bool skipVTables = false)
+        public ImVector_float(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -968,16 +968,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImWchar@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1010,7 +1010,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImWchar(void* native, bool skipVTables = false)
+        public ImVectorImWchar(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1092,16 +1092,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImDrawVert@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1134,7 +1134,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImDrawVert(void* native, bool skipVTables = false)
+        public ImVectorImDrawVert(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1221,16 +1221,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiSettingsHandler@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1263,7 +1263,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiSettingsHandler(void* native, bool skipVTables = false)
+        public ImVectorImGuiSettingsHandler(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1350,16 +1350,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImVec4@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1392,7 +1392,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImVec4(void* native, bool skipVTables = false)
+        public ImVectorImVec4(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1479,16 +1479,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiGroupData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1521,7 +1521,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiGroupData(void* native, bool skipVTables = false)
+        public ImVectorImGuiGroupData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1608,16 +1608,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiID@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1650,7 +1650,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiID(void* native, bool skipVTables = false)
+        public ImVectorImGuiID(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1732,16 +1732,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiWindowPtr@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1774,7 +1774,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiWindowPtr(void* native, bool skipVTables = false)
+        public ImVectorImGuiWindowPtr(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1862,16 +1862,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiColumnData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -1904,7 +1904,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiColumnData(void* native, bool skipVTables = false)
+        public ImVectorImGuiColumnData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -1991,16 +1991,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiColorMod@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2033,7 +2033,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiColorMod(void* native, bool skipVTables = false)
+        public ImVectorImGuiColorMod(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -2120,16 +2120,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImVec2@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2162,7 +2162,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImVec2(void* native, bool skipVTables = false)
+        public ImVectorImVec2(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -2249,16 +2249,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImFontGlyph@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2291,7 +2291,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImFontGlyph(void* native, bool skipVTables = false)
+        public ImVectorImFontGlyph(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -2378,16 +2378,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiTextRange@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2420,7 +2420,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiTextRange(void* native, bool skipVTables = false)
+        public ImVectorImGuiTextRange(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -2507,16 +2507,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiStoragePair@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2549,7 +2549,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiStoragePair(void* native, bool skipVTables = false)
+        public ImVectorImGuiStoragePair(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -2636,16 +2636,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiStyleMod@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2678,7 +2678,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiStyleMod(void* native, bool skipVTables = false)
+        public ImVectorImGuiStyleMod(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -2765,16 +2765,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImDrawChannel@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2807,7 +2807,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImDrawChannel(void* native, bool skipVTables = false)
+        public ImVectorImDrawChannel(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -2894,16 +2894,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImDrawListPtr@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -2936,7 +2936,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImDrawListPtr(void* native, bool skipVTables = false)
+        public ImVectorImDrawListPtr(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3024,16 +3024,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImU32@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3066,7 +3066,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImU32(void* native, bool skipVTables = false)
+        public ImVectorImU32(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3148,16 +3148,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiItemFlags@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3190,7 +3190,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiItemFlags(void* native, bool skipVTables = false)
+        public ImVectorImGuiItemFlags(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3272,16 +3272,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImFontAtlasCustomRect@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3314,7 +3314,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImFontAtlasCustomRect(void* native, bool skipVTables = false)
+        public ImVectorImFontAtlasCustomRect(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3401,16 +3401,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiTabItem@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3443,7 +3443,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiTabItem(void* native, bool skipVTables = false)
+        public ImVectorImGuiTabItem(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3530,16 +3530,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiColumns@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3572,7 +3572,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiColumns(void* native, bool skipVTables = false)
+        public ImVectorImGuiColumns(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3659,16 +3659,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiShrinkWidthItem@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3701,7 +3701,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiShrinkWidthItem(void* native, bool skipVTables = false)
+        public ImVectorImGuiShrinkWidthItem(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3788,16 +3788,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_char@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3830,7 +3830,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVector_char(void* native, bool skipVTables = false)
+        public ImVector_char(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -3912,16 +3912,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImTextureID@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -3954,7 +3954,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImTextureID(void* native, bool skipVTables = false)
+        public ImVectorImTextureID(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4023,16 +4023,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImFontPtr@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4065,7 +4065,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImFontPtr(void* native, bool skipVTables = false)
+        public ImVectorImFontPtr(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4153,16 +4153,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImFontConfig@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4195,7 +4195,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImFontConfig(void* native, bool skipVTables = false)
+        public ImVectorImFontConfig(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4282,16 +4282,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_int@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4324,7 +4324,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVector_int(void* native, bool skipVTables = false)
+        public ImVector_int(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4406,16 +4406,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImDrawCmd@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4448,7 +4448,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImDrawCmd(void* native, bool skipVTables = false)
+        public ImVectorImDrawCmd(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4535,16 +4535,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiPtrOrIndex@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4577,7 +4577,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiPtrOrIndex(void* native, bool skipVTables = false)
+        public ImVectorImGuiPtrOrIndex(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4664,16 +4664,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiPopupData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4706,7 +4706,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiPopupData(void* native, bool skipVTables = false)
+        public ImVectorImGuiPopupData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4793,16 +4793,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImDrawIdx@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4835,7 +4835,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImDrawIdx(void* native, bool skipVTables = false)
+        public ImVectorImDrawIdx(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -4917,16 +4917,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_unsigned_char@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -4959,7 +4959,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVector_unsigned_char(void* native, bool skipVTables = false)
+        public ImVector_unsigned_char(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -5041,16 +5041,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiWindowSettings@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -5083,7 +5083,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiWindowSettings(void* native, bool skipVTables = false)
+        public ImVectorImGuiWindowSettings(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -5170,12 +5170,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal Buf;
+            public global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal Buf;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImChunkStream_ImGuiWindowSettings@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -5208,7 +5208,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImChunkStreamImGuiWindowSettings(void* native, bool skipVTables = false)
+        public ImChunkStreamImGuiWindowSettings(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -5266,18 +5266,18 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int @where;
+            public int @where;
 
-            internal int insert_length;
+            public int insert_length;
 
-            internal int delete_length;
+            public int delete_length;
 
-            internal int char_storage;
+            public int char_storage;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0StbUndoRecord@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -5310,7 +5310,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected StbUndoRecord(void* native, bool skipVTables = false)
+        public StbUndoRecord(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -5405,22 +5405,22 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal fixed byte undo_rec[1584];
+            public fixed byte undo_rec[1584];
 
-            internal fixed ushort undo_char[999];
+            public fixed ushort undo_char[999];
 
-            internal short undo_point;
+            public short undo_point;
 
-            internal short redo_point;
+            public short redo_point;
 
-            internal int undo_char_point;
+            public int undo_char_point;
 
-            internal int redo_char_point;
+            public int redo_char_point;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0StbUndoState@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -5453,7 +5453,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected StbUndoState(void* native, bool skipVTables = false)
+        public StbUndoState(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -5598,36 +5598,36 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int cursor;
+            public int cursor;
 
-            internal int select_start;
+            public int select_start;
 
-            internal int select_end;
+            public int select_end;
 
-            internal byte insert_mode;
+            public byte insert_mode;
 
-            internal byte cursor_at_end_of_line;
+            public byte cursor_at_end_of_line;
 
-            internal byte initialized;
+            public byte initialized;
 
-            internal byte has_preferred_x;
+            public byte has_preferred_x;
 
-            internal byte single_line;
+            public byte single_line;
 
-            internal byte padding1;
+            public byte padding1;
 
-            internal byte padding2;
+            public byte padding2;
 
-            internal byte padding3;
+            public byte padding3;
 
-            internal float preferred_x;
+            public float preferred_x;
 
-            internal global::DearImguiSharp.StbUndoState.__Internal undostate;
+            public global::DearImguiSharp.StbUndoState.__Internal undostate;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0STB_TexteditState@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -5660,7 +5660,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected STB_TexteditState(void* native, bool skipVTables = false)
+        public STB_TexteditState(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -5874,22 +5874,22 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal float x0;
+            public float x0;
 
-            internal float x1;
+            public float x1;
 
-            internal float baseline_y_delta;
+            public float baseline_y_delta;
 
-            internal float ymin;
+            public float ymin;
 
-            internal float ymax;
+            public float ymax;
 
-            internal int num_chars;
+            public int num_chars;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0StbTexteditRow@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -5922,7 +5922,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected StbTexteditRow(void* native, bool skipVTables = false)
+        public StbTexteditRow(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -6043,19 +6043,19 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal float x;
+            public float x;
 
-            internal float y;
+            public float y;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVec2@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec2ih_ImVec2ihVec2")]
-            internal static extern global::System.IntPtr IhImVec2ihVec2(global::System.IntPtr __instance);
+            public static extern global::System.IntPtr IhImVec2ihVec2(global::System.IntPtr __instance);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -6088,7 +6088,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVec2(void* native, bool skipVTables = false)
+        public ImVec2(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -6171,18 +6171,18 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal float x;
+            public float x;
 
-            internal float y;
+            public float y;
 
-            internal float z;
+            public float z;
 
-            internal float w;
+            public float w;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVec4@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -6215,7 +6215,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVec4(void* native, bool skipVTables = false)
+        public ImVec4(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -6310,82 +6310,82 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal float Alpha;
+            public float Alpha;
 
-            internal global::DearImguiSharp.ImVec2.__Internal WindowPadding;
+            public global::DearImguiSharp.ImVec2.__Internal WindowPadding;
 
-            internal float WindowRounding;
+            public float WindowRounding;
 
-            internal float WindowBorderSize;
+            public float WindowBorderSize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal WindowMinSize;
+            public global::DearImguiSharp.ImVec2.__Internal WindowMinSize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal WindowTitleAlign;
+            public global::DearImguiSharp.ImVec2.__Internal WindowTitleAlign;
 
-            internal int WindowMenuButtonPosition;
+            public int WindowMenuButtonPosition;
 
-            internal float ChildRounding;
+            public float ChildRounding;
 
-            internal float ChildBorderSize;
+            public float ChildBorderSize;
 
-            internal float PopupRounding;
+            public float PopupRounding;
 
-            internal float PopupBorderSize;
+            public float PopupBorderSize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal FramePadding;
+            public global::DearImguiSharp.ImVec2.__Internal FramePadding;
 
-            internal float FrameRounding;
+            public float FrameRounding;
 
-            internal float FrameBorderSize;
+            public float FrameBorderSize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ItemSpacing;
+            public global::DearImguiSharp.ImVec2.__Internal ItemSpacing;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ItemInnerSpacing;
+            public global::DearImguiSharp.ImVec2.__Internal ItemInnerSpacing;
 
-            internal global::DearImguiSharp.ImVec2.__Internal TouchExtraPadding;
+            public global::DearImguiSharp.ImVec2.__Internal TouchExtraPadding;
 
-            internal float IndentSpacing;
+            public float IndentSpacing;
 
-            internal float ColumnsMinSpacing;
+            public float ColumnsMinSpacing;
 
-            internal float ScrollbarSize;
+            public float ScrollbarSize;
 
-            internal float ScrollbarRounding;
+            public float ScrollbarRounding;
 
-            internal float GrabMinSize;
+            public float GrabMinSize;
 
-            internal float GrabRounding;
+            public float GrabRounding;
 
-            internal float TabRounding;
+            public float TabRounding;
 
-            internal float TabBorderSize;
+            public float TabBorderSize;
 
-            internal int ColorButtonPosition;
+            public int ColorButtonPosition;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ButtonTextAlign;
+            public global::DearImguiSharp.ImVec2.__Internal ButtonTextAlign;
 
-            internal global::DearImguiSharp.ImVec2.__Internal SelectableTextAlign;
+            public global::DearImguiSharp.ImVec2.__Internal SelectableTextAlign;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DisplayWindowPadding;
+            public global::DearImguiSharp.ImVec2.__Internal DisplayWindowPadding;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DisplaySafeAreaPadding;
+            public global::DearImguiSharp.ImVec2.__Internal DisplaySafeAreaPadding;
 
-            internal float MouseCursorScale;
+            public float MouseCursorScale;
 
-            internal byte AntiAliasedLines;
+            public byte AntiAliasedLines;
 
-            internal byte AntiAliasedFill;
+            public byte AntiAliasedFill;
 
-            internal float CurveTessellationTol;
+            public float CurveTessellationTol;
 
-            internal float CircleSegmentMaxError;
+            public float CircleSegmentMaxError;
 
-            internal fixed byte Colors[768];
+            public fixed byte Colors[768];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiStyle@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -6418,7 +6418,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiStyle(void* native, bool skipVTables = false)
+        public ImGuiStyle(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -6964,164 +6964,164 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int ConfigFlags;
+            public int ConfigFlags;
 
-            internal int BackendFlags;
+            public int BackendFlags;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DisplaySize;
+            public global::DearImguiSharp.ImVec2.__Internal DisplaySize;
 
-            internal float DeltaTime;
+            public float DeltaTime;
 
-            internal float IniSavingRate;
+            public float IniSavingRate;
 
-            internal global::System.IntPtr IniFilename;
+            public global::System.IntPtr IniFilename;
 
-            internal global::System.IntPtr LogFilename;
+            public global::System.IntPtr LogFilename;
 
-            internal float MouseDoubleClickTime;
+            public float MouseDoubleClickTime;
 
-            internal float MouseDoubleClickMaxDist;
+            public float MouseDoubleClickMaxDist;
 
-            internal float MouseDragThreshold;
+            public float MouseDragThreshold;
 
-            internal fixed int KeyMap[22];
+            public fixed int KeyMap[22];
 
-            internal float KeyRepeatDelay;
+            public float KeyRepeatDelay;
 
-            internal float KeyRepeatRate;
+            public float KeyRepeatRate;
 
-            internal global::System.IntPtr UserData;
+            public global::System.IntPtr UserData;
 
-            internal global::System.IntPtr Fonts;
+            public global::System.IntPtr Fonts;
 
-            internal float FontGlobalScale;
+            public float FontGlobalScale;
 
-            internal byte FontAllowUserScaling;
+            public byte FontAllowUserScaling;
 
-            internal global::System.IntPtr FontDefault;
+            public global::System.IntPtr FontDefault;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DisplayFramebufferScale;
+            public global::DearImguiSharp.ImVec2.__Internal DisplayFramebufferScale;
 
-            internal byte MouseDrawCursor;
+            public byte MouseDrawCursor;
 
-            internal byte ConfigMacOSXBehaviors;
+            public byte ConfigMacOSXBehaviors;
 
-            internal byte ConfigInputTextCursorBlink;
+            public byte ConfigInputTextCursorBlink;
 
-            internal byte ConfigWindowsResizeFromEdges;
+            public byte ConfigWindowsResizeFromEdges;
 
-            internal byte ConfigWindowsMoveFromTitleBarOnly;
+            public byte ConfigWindowsMoveFromTitleBarOnly;
 
-            internal float ConfigWindowsMemoryCompactTimer;
+            public float ConfigWindowsMemoryCompactTimer;
 
-            internal global::System.IntPtr BackendPlatformName;
+            public global::System.IntPtr BackendPlatformName;
 
-            internal global::System.IntPtr BackendRendererName;
+            public global::System.IntPtr BackendRendererName;
 
-            internal global::System.IntPtr BackendPlatformUserData;
+            public global::System.IntPtr BackendPlatformUserData;
 
-            internal global::System.IntPtr BackendRendererUserData;
+            public global::System.IntPtr BackendRendererUserData;
 
-            internal global::System.IntPtr BackendLanguageUserData;
+            public global::System.IntPtr BackendLanguageUserData;
 
-            internal global::System.IntPtr GetClipboardTextFn;
+            public global::System.IntPtr GetClipboardTextFn;
 
-            internal global::System.IntPtr SetClipboardTextFn;
+            public global::System.IntPtr SetClipboardTextFn;
 
-            internal global::System.IntPtr ClipboardUserData;
+            public global::System.IntPtr ClipboardUserData;
 
-            internal global::System.IntPtr ImeSetInputScreenPosFn;
+            public global::System.IntPtr ImeSetInputScreenPosFn;
 
-            internal global::System.IntPtr ImeWindowHandle;
+            public global::System.IntPtr ImeWindowHandle;
 
-            internal global::System.IntPtr RenderDrawListsFnUnused;
+            public global::System.IntPtr RenderDrawListsFnUnused;
 
-            internal global::DearImguiSharp.ImVec2.__Internal MousePos;
+            public global::DearImguiSharp.ImVec2.__Internal MousePos;
 
-            internal fixed byte MouseDown[5];
+            public fixed byte MouseDown[5];
 
-            internal float MouseWheel;
+            public float MouseWheel;
 
-            internal float MouseWheelH;
+            public float MouseWheelH;
 
-            internal byte KeyCtrl;
+            public byte KeyCtrl;
 
-            internal byte KeyShift;
+            public byte KeyShift;
 
-            internal byte KeyAlt;
+            public byte KeyAlt;
 
-            internal byte KeySuper;
+            public byte KeySuper;
 
-            internal fixed byte KeysDown[512];
+            public fixed byte KeysDown[512];
 
-            internal fixed float NavInputs[21];
+            public fixed float NavInputs[21];
 
-            internal byte WantCaptureMouse;
+            public byte WantCaptureMouse;
 
-            internal byte WantCaptureKeyboard;
+            public byte WantCaptureKeyboard;
 
-            internal byte WantTextInput;
+            public byte WantTextInput;
 
-            internal byte WantSetMousePos;
+            public byte WantSetMousePos;
 
-            internal byte WantSaveIniSettings;
+            public byte WantSaveIniSettings;
 
-            internal byte NavActive;
+            public byte NavActive;
 
-            internal byte NavVisible;
+            public byte NavVisible;
 
-            internal float Framerate;
+            public float Framerate;
 
-            internal int MetricsRenderVertices;
+            public int MetricsRenderVertices;
 
-            internal int MetricsRenderIndices;
+            public int MetricsRenderIndices;
 
-            internal int MetricsRenderWindows;
+            public int MetricsRenderWindows;
 
-            internal int MetricsActiveWindows;
+            public int MetricsActiveWindows;
 
-            internal int MetricsActiveAllocations;
+            public int MetricsActiveAllocations;
 
-            internal global::DearImguiSharp.ImVec2.__Internal MouseDelta;
+            public global::DearImguiSharp.ImVec2.__Internal MouseDelta;
 
-            internal global::DearImguiSharp.ImVec2.__Internal MousePosPrev;
+            public global::DearImguiSharp.ImVec2.__Internal MousePosPrev;
 
-            internal fixed byte MouseClickedPos[40];
+            public fixed byte MouseClickedPos[40];
 
-            internal fixed double MouseClickedTime[5];
+            public fixed double MouseClickedTime[5];
 
-            internal fixed byte MouseClicked[5];
+            public fixed byte MouseClicked[5];
 
-            internal fixed byte MouseDoubleClicked[5];
+            public fixed byte MouseDoubleClicked[5];
 
-            internal fixed byte MouseReleased[5];
+            public fixed byte MouseReleased[5];
 
-            internal fixed byte MouseDownOwned[5];
+            public fixed byte MouseDownOwned[5];
 
-            internal fixed byte MouseDownWasDoubleClick[5];
+            public fixed byte MouseDownWasDoubleClick[5];
 
-            internal fixed float MouseDownDuration[5];
+            public fixed float MouseDownDuration[5];
 
-            internal fixed float MouseDownDurationPrev[5];
+            public fixed float MouseDownDurationPrev[5];
 
-            internal fixed byte MouseDragMaxDistanceAbs[40];
+            public fixed byte MouseDragMaxDistanceAbs[40];
 
-            internal fixed float MouseDragMaxDistanceSqr[5];
+            public fixed float MouseDragMaxDistanceSqr[5];
 
-            internal fixed float KeysDownDuration[512];
+            public fixed float KeysDownDuration[512];
 
-            internal fixed float KeysDownDurationPrev[512];
+            public fixed float KeysDownDurationPrev[512];
 
-            internal fixed float NavInputsDownDuration[21];
+            public fixed float NavInputsDownDuration[21];
 
-            internal fixed float NavInputsDownDurationPrev[21];
+            public fixed float NavInputsDownDurationPrev[21];
 
-            internal global::DearImguiSharp.ImVectorImWchar.__Internal InputQueueCharacters;
+            public global::DearImguiSharp.ImVectorImWchar.__Internal InputQueueCharacters;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiIO@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -7154,7 +7154,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiIO(void* native, bool skipVTables = false)
+        public ImGuiIO(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -8472,34 +8472,34 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int EventFlag;
+            public int EventFlag;
 
-            internal int Flags;
+            public int Flags;
 
-            internal global::System.IntPtr UserData;
+            public global::System.IntPtr UserData;
 
-            internal ushort EventChar;
+            public ushort EventChar;
 
-            internal int EventKey;
+            public int EventKey;
 
-            internal global::System.IntPtr Buf;
+            public global::System.IntPtr Buf;
 
-            internal int BufTextLen;
+            public int BufTextLen;
 
-            internal int BufSize;
+            public int BufSize;
 
-            internal byte BufDirty;
+            public byte BufDirty;
 
-            internal int CursorPos;
+            public int CursorPos;
 
-            internal int SelectionStart;
+            public int SelectionStart;
 
-            internal int SelectionEnd;
+            public int SelectionEnd;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiInputTextCallbackData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -8532,7 +8532,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiInputTextCallbackData(void* native, bool skipVTables = false)
+        public ImGuiInputTextCallbackData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -8731,18 +8731,18 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr UserData;
+            public global::System.IntPtr UserData;
 
-            internal global::DearImguiSharp.ImVec2.__Internal Pos;
+            public global::DearImguiSharp.ImVec2.__Internal Pos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal CurrentSize;
+            public global::DearImguiSharp.ImVec2.__Internal CurrentSize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DesiredSize;
+            public global::DearImguiSharp.ImVec2.__Internal DesiredSize;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiSizeCallbackData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -8775,7 +8775,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiSizeCallbackData(void* native, bool skipVTables = false)
+        public ImGuiSizeCallbackData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -8876,26 +8876,26 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
-            internal int DataSize;
+            public int DataSize;
 
-            internal uint SourceId;
+            public uint SourceId;
 
-            internal uint SourceParentId;
+            public uint SourceParentId;
 
-            internal int DataFrameCount;
+            public int DataFrameCount;
 
-            internal fixed sbyte DataType[33];
+            public fixed sbyte DataType[33];
 
-            internal byte Preview;
+            public byte Preview;
 
-            internal byte Delivery;
+            public byte Delivery;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiPayload@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -8928,7 +8928,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiPayload(void* native, bool skipVTables = false)
+        public ImGuiPayload(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9086,12 +9086,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int RefFrame;
+            public int RefFrame;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiOnceUponAFrame@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9124,7 +9124,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiOnceUponAFrame(void* native, bool skipVTables = false)
+        public ImGuiOnceUponAFrame(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9180,16 +9180,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal fixed sbyte InputBuf[256];
+            public fixed sbyte InputBuf[256];
 
-            internal global::DearImguiSharp.ImVectorImGuiTextRange.__Internal Filters;
+            public global::DearImguiSharp.ImVectorImGuiTextRange.__Internal Filters;
 
-            internal int CountGrep;
+            public int CountGrep;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiTextFilter@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9222,7 +9222,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiTextFilter(void* native, bool skipVTables = false)
+        public ImGuiTextFilter(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9317,17 +9317,17 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVector_char.__Internal Buf;
+            public global::DearImguiSharp.ImVector_char.__Internal Buf;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiTextBuffer@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_appendf")]
-            internal static extern void Appendf(global::System.IntPtr __instance, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void Appendf(global::System.IntPtr __instance, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9360,7 +9360,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiTextBuffer(void* native, bool skipVTables = false)
+        public ImGuiTextBuffer(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9423,12 +9423,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVectorImGuiStoragePair.__Internal Data;
+            public global::DearImguiSharp.ImVectorImGuiStoragePair.__Internal Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiStorage@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9461,7 +9461,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiStorage(void* native, bool skipVTables = false)
+        public ImGuiStorage(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9519,16 +9519,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Size;
+            public int Size;
 
-            internal int Capacity;
+            public int Capacity;
 
-            internal global::System.IntPtr Data;
+            public global::System.IntPtr Data;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVector_ImGuiTabBar@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9561,7 +9561,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVectorImGuiTabBar(void* native, bool skipVTables = false)
+        public ImVectorImGuiTabBar(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9648,16 +9648,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVectorImGuiTabBar.__Internal Buf;
+            public global::DearImguiSharp.ImVectorImGuiTabBar.__Internal Buf;
 
-            internal global::DearImguiSharp.ImGuiStorage.__Internal Map;
+            public global::DearImguiSharp.ImGuiStorage.__Internal Map;
 
-            internal int FreeIdx;
+            public int FreeIdx;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImPool_ImGuiTabBar@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9690,7 +9690,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImPoolImGuiTabBar(void* native, bool skipVTables = false)
+        public ImPoolImGuiTabBar(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9776,22 +9776,22 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int DisplayStart;
+            public int DisplayStart;
 
-            internal int DisplayEnd;
+            public int DisplayEnd;
 
-            internal int ItemsCount;
+            public int ItemsCount;
 
-            internal int StepNo;
+            public int StepNo;
 
-            internal float ItemsHeight;
+            public float ItemsHeight;
 
-            internal float StartPosY;
+            public float StartPosY;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiListClipper@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9824,7 +9824,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiListClipper(void* native, bool skipVTables = false)
+        public ImGuiListClipper(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -9945,12 +9945,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVec4.__Internal Value;
+            public global::DearImguiSharp.ImVec4.__Internal Value;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImColor@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -9983,7 +9983,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImColor(void* native, bool skipVTables = false)
+        public ImColor(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -10041,24 +10041,24 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint ElemCount;
+            public uint ElemCount;
 
-            internal global::DearImguiSharp.ImVec4.__Internal ClipRect;
+            public global::DearImguiSharp.ImVec4.__Internal ClipRect;
 
-            internal global::System.IntPtr TextureId;
+            public global::System.IntPtr TextureId;
 
-            internal uint VtxOffset;
+            public uint VtxOffset;
 
-            internal uint IdxOffset;
+            public uint IdxOffset;
 
-            internal global::System.IntPtr UserCallback;
+            public global::System.IntPtr UserCallback;
 
-            internal global::System.IntPtr UserCallbackData;
+            public global::System.IntPtr UserCallbackData;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawCmd@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -10091,7 +10091,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawCmd(void* native, bool skipVTables = false)
+        public ImDrawCmd(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -10228,16 +10228,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVec2.__Internal pos;
+            public global::DearImguiSharp.ImVec2.__Internal pos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal uv;
+            public global::DearImguiSharp.ImVec2.__Internal uv;
 
-            internal uint col;
+            public uint col;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawVert@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -10270,7 +10270,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawVert(void* native, bool skipVTables = false)
+        public ImDrawVert(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -10356,14 +10356,14 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVectorImDrawCmd.__Internal _CmdBuffer;
+            public global::DearImguiSharp.ImVectorImDrawCmd.__Internal _CmdBuffer;
 
-            internal global::DearImguiSharp.ImVectorImDrawIdx.__Internal _IdxBuffer;
+            public global::DearImguiSharp.ImVectorImDrawIdx.__Internal _IdxBuffer;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawChannel@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -10396,7 +10396,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawChannel(void* native, bool skipVTables = false)
+        public ImDrawChannel(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -10469,16 +10469,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int _Current;
+            public int _Current;
 
-            internal int _Count;
+            public int _Count;
 
-            internal global::DearImguiSharp.ImVectorImDrawChannel.__Internal _Channels;
+            public global::DearImguiSharp.ImVectorImDrawChannel.__Internal _Channels;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawListSplitter@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -10511,7 +10511,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawListSplitter(void* native, bool skipVTables = false)
+        public ImDrawListSplitter(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -10595,38 +10595,38 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVectorImDrawCmd.__Internal CmdBuffer;
+            public global::DearImguiSharp.ImVectorImDrawCmd.__Internal CmdBuffer;
 
-            internal global::DearImguiSharp.ImVectorImDrawIdx.__Internal IdxBuffer;
+            public global::DearImguiSharp.ImVectorImDrawIdx.__Internal IdxBuffer;
 
-            internal global::DearImguiSharp.ImVectorImDrawVert.__Internal VtxBuffer;
+            public global::DearImguiSharp.ImVectorImDrawVert.__Internal VtxBuffer;
 
-            internal int Flags;
+            public int Flags;
 
-            internal global::System.IntPtr _Data;
+            public global::System.IntPtr _Data;
 
-            internal global::System.IntPtr _OwnerName;
+            public global::System.IntPtr _OwnerName;
 
-            internal uint _VtxCurrentOffset;
+            public uint _VtxCurrentOffset;
 
-            internal uint _VtxCurrentIdx;
+            public uint _VtxCurrentIdx;
 
-            internal global::System.IntPtr _VtxWritePtr;
+            public global::System.IntPtr _VtxWritePtr;
 
-            internal global::System.IntPtr _IdxWritePtr;
+            public global::System.IntPtr _IdxWritePtr;
 
-            internal global::DearImguiSharp.ImVectorImVec4.__Internal _ClipRectStack;
+            public global::DearImguiSharp.ImVectorImVec4.__Internal _ClipRectStack;
 
-            internal global::DearImguiSharp.ImVectorImTextureID.__Internal _TextureIdStack;
+            public global::DearImguiSharp.ImVectorImTextureID.__Internal _TextureIdStack;
 
-            internal global::DearImguiSharp.ImVectorImVec2.__Internal _Path;
+            public global::DearImguiSharp.ImVectorImVec2.__Internal _Path;
 
-            internal global::DearImguiSharp.ImDrawListSplitter.__Internal _Splitter;
+            public global::DearImguiSharp.ImDrawListSplitter.__Internal _Splitter;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawList@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -10659,7 +10659,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawList(void* native, bool skipVTables = false)
+        public ImDrawList(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -10917,26 +10917,26 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal byte Valid;
+            public byte Valid;
 
-            internal global::System.IntPtr CmdLists;
+            public global::System.IntPtr CmdLists;
 
-            internal int CmdListsCount;
+            public int CmdListsCount;
 
-            internal int TotalIdxCount;
+            public int TotalIdxCount;
 
-            internal int TotalVtxCount;
+            public int TotalVtxCount;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DisplayPos;
+            public global::DearImguiSharp.ImVec2.__Internal DisplayPos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DisplaySize;
+            public global::DearImguiSharp.ImVec2.__Internal DisplaySize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal FramebufferScale;
+            public global::DearImguiSharp.ImVec2.__Internal FramebufferScale;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -10969,7 +10969,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawData(void* native, bool skipVTables = false)
+        public ImDrawData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -11128,48 +11128,48 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr FontData;
+            public global::System.IntPtr FontData;
 
-            internal int FontDataSize;
+            public int FontDataSize;
 
-            internal byte FontDataOwnedByAtlas;
+            public byte FontDataOwnedByAtlas;
 
-            internal int FontNo;
+            public int FontNo;
 
-            internal float SizePixels;
+            public float SizePixels;
 
-            internal int OversampleH;
+            public int OversampleH;
 
-            internal int OversampleV;
+            public int OversampleV;
 
-            internal byte PixelSnapH;
+            public byte PixelSnapH;
 
-            internal global::DearImguiSharp.ImVec2.__Internal GlyphExtraSpacing;
+            public global::DearImguiSharp.ImVec2.__Internal GlyphExtraSpacing;
 
-            internal global::DearImguiSharp.ImVec2.__Internal GlyphOffset;
+            public global::DearImguiSharp.ImVec2.__Internal GlyphOffset;
 
-            internal global::System.IntPtr GlyphRanges;
+            public global::System.IntPtr GlyphRanges;
 
-            internal float GlyphMinAdvanceX;
+            public float GlyphMinAdvanceX;
 
-            internal float GlyphMaxAdvanceX;
+            public float GlyphMaxAdvanceX;
 
-            internal byte MergeMode;
+            public byte MergeMode;
 
-            internal uint RasterizerFlags;
+            public uint RasterizerFlags;
 
-            internal float RasterizerMultiply;
+            public float RasterizerMultiply;
 
-            internal ushort EllipsisChar;
+            public ushort EllipsisChar;
 
-            internal fixed sbyte Name[40];
+            public fixed sbyte Name[40];
 
-            internal global::System.IntPtr DstFont;
+            public global::System.IntPtr DstFont;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImFontConfig@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -11202,7 +11202,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImFontConfig(void* native, bool skipVTables = false)
+        public ImFontConfig(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -11512,30 +11512,30 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal ushort Codepoint;
+            public ushort Codepoint;
 
-            internal float AdvanceX;
+            public float AdvanceX;
 
-            internal float X0;
+            public float X0;
 
-            internal float Y0;
+            public float Y0;
 
-            internal float X1;
+            public float X1;
 
-            internal float Y1;
+            public float Y1;
 
-            internal float U0;
+            public float U0;
 
-            internal float V0;
+            public float V0;
 
-            internal float U1;
+            public float U1;
 
-            internal float V1;
+            public float V1;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImFontGlyph@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -11568,7 +11568,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImFontGlyph(void* native, bool skipVTables = false)
+        public ImFontGlyph(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -11741,12 +11741,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVectorImU32.__Internal UsedChars;
+            public global::DearImguiSharp.ImVectorImU32.__Internal UsedChars;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImFontGlyphRangesBuilder@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -11779,7 +11779,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImFontGlyphRangesBuilder(void* native, bool skipVTables = false)
+        public ImFontGlyphRangesBuilder(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -11837,26 +11837,26 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint ID;
+            public uint ID;
 
-            internal ushort Width;
+            public ushort Width;
 
-            internal ushort Height;
+            public ushort Height;
 
-            internal ushort X;
+            public ushort X;
 
-            internal ushort Y;
+            public ushort Y;
 
-            internal float GlyphAdvanceX;
+            public float GlyphAdvanceX;
 
-            internal global::DearImguiSharp.ImVec2.__Internal GlyphOffset;
+            public global::DearImguiSharp.ImVec2.__Internal GlyphOffset;
 
-            internal global::System.IntPtr Font;
+            public global::System.IntPtr Font;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImFontAtlasCustomRect@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -11889,7 +11889,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImFontAtlasCustomRect(void* native, bool skipVTables = false)
+        public ImFontAtlasCustomRect(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -12043,40 +12043,40 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal byte Locked;
+            public byte Locked;
 
-            internal int Flags;
+            public int Flags;
 
-            internal global::System.IntPtr TexID;
+            public global::System.IntPtr TexID;
 
-            internal int TexDesiredWidth;
+            public int TexDesiredWidth;
 
-            internal int TexGlyphPadding;
+            public int TexGlyphPadding;
 
-            internal global::System.IntPtr TexPixelsAlpha8;
+            public global::System.IntPtr TexPixelsAlpha8;
 
-            internal global::System.IntPtr TexPixelsRGBA32;
+            public global::System.IntPtr TexPixelsRGBA32;
 
-            internal int TexWidth;
+            public int TexWidth;
 
-            internal int TexHeight;
+            public int TexHeight;
 
-            internal global::DearImguiSharp.ImVec2.__Internal TexUvScale;
+            public global::DearImguiSharp.ImVec2.__Internal TexUvScale;
 
-            internal global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
+            public global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
 
-            internal global::DearImguiSharp.ImVectorImFontPtr.__Internal Fonts;
+            public global::DearImguiSharp.ImVectorImFontPtr.__Internal Fonts;
 
-            internal global::DearImguiSharp.ImVectorImFontAtlasCustomRect.__Internal CustomRects;
+            public global::DearImguiSharp.ImVectorImFontAtlasCustomRect.__Internal CustomRects;
 
-            internal global::DearImguiSharp.ImVectorImFontConfig.__Internal ConfigData;
+            public global::DearImguiSharp.ImVectorImFontConfig.__Internal ConfigData;
 
-            internal fixed int CustomRectIds[1];
+            public fixed int CustomRectIds[1];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImFontAtlas@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -12109,7 +12109,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImFontAtlas(void* native, bool skipVTables = false)
+        public ImFontAtlas(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -12368,44 +12368,44 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVector_float.__Internal IndexAdvanceX;
+            public global::DearImguiSharp.ImVector_float.__Internal IndexAdvanceX;
 
-            internal float FallbackAdvanceX;
+            public float FallbackAdvanceX;
 
-            internal float FontSize;
+            public float FontSize;
 
-            internal global::DearImguiSharp.ImVectorImWchar.__Internal IndexLookup;
+            public global::DearImguiSharp.ImVectorImWchar.__Internal IndexLookup;
 
-            internal global::DearImguiSharp.ImVectorImFontGlyph.__Internal Glyphs;
+            public global::DearImguiSharp.ImVectorImFontGlyph.__Internal Glyphs;
 
-            internal global::System.IntPtr FallbackGlyph;
+            public global::System.IntPtr FallbackGlyph;
 
-            internal global::DearImguiSharp.ImVec2.__Internal DisplayOffset;
+            public global::DearImguiSharp.ImVec2.__Internal DisplayOffset;
 
-            internal global::System.IntPtr ContainerAtlas;
+            public global::System.IntPtr ContainerAtlas;
 
-            internal global::System.IntPtr ConfigData;
+            public global::System.IntPtr ConfigData;
 
-            internal short ConfigDataCount;
+            public short ConfigDataCount;
 
-            internal ushort FallbackChar;
+            public ushort FallbackChar;
 
-            internal ushort EllipsisChar;
+            public ushort EllipsisChar;
 
-            internal byte DirtyLookupTables;
+            public byte DirtyLookupTables;
 
-            internal float Scale;
+            public float Scale;
 
-            internal float Ascent;
+            public float Ascent;
 
-            internal float Descent;
+            public float Descent;
 
-            internal int MetricsTotalSurface;
+            public int MetricsTotalSurface;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImFont@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -12438,7 +12438,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImFont(void* native, bool skipVTables = false)
+        public ImFont(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -12725,12 +12725,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVector_int.__Internal Storage;
+            public global::DearImguiSharp.ImVector_int.__Internal Storage;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImBoolVector@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -12763,7 +12763,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImBoolVector(void* native, bool skipVTables = false)
+        public ImBoolVector(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -12821,12 +12821,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal float x;
+            public float x;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVec1@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -12859,7 +12859,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVec1(void* native, bool skipVTables = false)
+        public ImVec1(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -12915,14 +12915,14 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal short x;
+            public short x;
 
-            internal short y;
+            public short y;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImVec2ih@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -12955,7 +12955,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImVec2ih(void* native, bool skipVTables = false)
+        public ImVec2ih(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -13024,14 +13024,14 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVec2.__Internal Min;
+            public global::DearImguiSharp.ImVec2.__Internal Min;
 
-            internal global::DearImguiSharp.ImVec2.__Internal Max;
+            public global::DearImguiSharp.ImVec2.__Internal Max;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImRect@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -13064,7 +13064,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImRect(void* native, bool skipVTables = false)
+        public ImRect(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -13137,16 +13137,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal ulong Size;
+            public ulong Size;
 
-            internal global::System.IntPtr PrintFmt;
+            public global::System.IntPtr PrintFmt;
 
-            internal global::System.IntPtr ScanFmt;
+            public global::System.IntPtr ScanFmt;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiDataTypeInfo@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -13179,7 +13179,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiDataTypeInfo(void* native, bool skipVTables = false)
+        public ImGuiDataTypeInfo(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -13279,14 +13279,14 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Col;
+            public int Col;
 
-            internal global::DearImguiSharp.ImVec4.__Internal BackupValue;
+            public global::DearImguiSharp.ImVec4.__Internal BackupValue;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiColorMod@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -13319,7 +13319,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiColorMod(void* native, bool skipVTables = false)
+        public ImGuiColorMod(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -13390,16 +13390,16 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int VarIdx;
+            public int VarIdx;
 
-            internal fixed int BackupInt[2];
+            public fixed int BackupInt[2];
 
-            internal fixed float BackupFloat[2];
+            public fixed float BackupFloat[2];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiStyleMod@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -13432,7 +13432,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiStyleMod(void* native, bool skipVTables = false)
+        public ImGuiStyleMod(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -13536,28 +13536,28 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVec2.__Internal BackupCursorPos;
+            public global::DearImguiSharp.ImVec2.__Internal BackupCursorPos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal BackupCursorMaxPos;
+            public global::DearImguiSharp.ImVec2.__Internal BackupCursorMaxPos;
 
-            internal global::DearImguiSharp.ImVec1.__Internal BackupIndent;
+            public global::DearImguiSharp.ImVec1.__Internal BackupIndent;
 
-            internal global::DearImguiSharp.ImVec1.__Internal BackupGroupOffset;
+            public global::DearImguiSharp.ImVec1.__Internal BackupGroupOffset;
 
-            internal global::DearImguiSharp.ImVec2.__Internal BackupCurrLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal BackupCurrLineSize;
 
-            internal float BackupCurrLineTextBaseOffset;
+            public float BackupCurrLineTextBaseOffset;
 
-            internal uint BackupActiveIdIsAlive;
+            public uint BackupActiveIdIsAlive;
 
-            internal byte BackupActiveIdPreviousFrameIsAlive;
+            public byte BackupActiveIdPreviousFrameIsAlive;
 
-            internal byte EmitItem;
+            public byte EmitItem;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiGroupData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -13590,7 +13590,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiGroupData(void* native, bool skipVTables = false)
+        public ImGuiGroupData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -13760,20 +13760,20 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal float Spacing;
+            public float Spacing;
 
-            internal float Width;
+            public float Width;
 
-            internal float NextWidth;
+            public float NextWidth;
 
-            internal fixed float Pos[3];
+            public fixed float Pos[3];
 
-            internal fixed float NextWidths[3];
+            public fixed float NextWidths[3];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiMenuColumns@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -13806,7 +13806,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiMenuColumns(void* native, bool skipVTables = false)
+        public ImGuiMenuColumns(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -13936,42 +13936,42 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint ID;
+            public uint ID;
 
-            internal int CurLenW;
+            public int CurLenW;
 
-            internal int CurLenA;
+            public int CurLenA;
 
-            internal global::DearImguiSharp.ImVectorImWchar.__Internal TextW;
+            public global::DearImguiSharp.ImVectorImWchar.__Internal TextW;
 
-            internal global::DearImguiSharp.ImVector_char.__Internal TextA;
+            public global::DearImguiSharp.ImVector_char.__Internal TextA;
 
-            internal global::DearImguiSharp.ImVector_char.__Internal InitialTextA;
+            public global::DearImguiSharp.ImVector_char.__Internal InitialTextA;
 
-            internal byte TextAIsValid;
+            public byte TextAIsValid;
 
-            internal int BufCapacityA;
+            public int BufCapacityA;
 
-            internal float ScrollX;
+            public float ScrollX;
 
-            internal global::DearImguiSharp.STB_TexteditState.__Internal Stb;
+            public global::DearImguiSharp.STB_TexteditState.__Internal Stb;
 
-            internal float CursorAnim;
+            public float CursorAnim;
 
-            internal byte CursorFollow;
+            public byte CursorFollow;
 
-            internal byte SelectedAllMouseLock;
+            public byte SelectedAllMouseLock;
 
-            internal int UserFlags;
+            public int UserFlags;
 
-            internal global::System.IntPtr UserCallback;
+            public global::System.IntPtr UserCallback;
 
-            internal global::System.IntPtr UserCallbackData;
+            public global::System.IntPtr UserCallbackData;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiInputTextState@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -14004,7 +14004,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiInputTextState(void* native, bool skipVTables = false)
+        public ImGuiInputTextState(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -14264,18 +14264,18 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint ID;
+            public uint ID;
 
-            internal global::DearImguiSharp.ImVec2ih.__Internal Pos;
+            public global::DearImguiSharp.ImVec2ih.__Internal Pos;
 
-            internal global::DearImguiSharp.ImVec2ih.__Internal Size;
+            public global::DearImguiSharp.ImVec2ih.__Internal Size;
 
-            internal byte Collapsed;
+            public byte Collapsed;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiWindowSettings@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -14308,7 +14308,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiWindowSettings(void* native, bool skipVTables = false)
+        public ImGuiWindowSettings(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -14407,22 +14407,22 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr TypeName;
+            public global::System.IntPtr TypeName;
 
-            internal uint TypeHash;
+            public uint TypeHash;
 
-            internal global::System.IntPtr ReadOpenFn;
+            public global::System.IntPtr ReadOpenFn;
 
-            internal global::System.IntPtr ReadLineFn;
+            public global::System.IntPtr ReadLineFn;
 
-            internal global::System.IntPtr WriteAllFn;
+            public global::System.IntPtr WriteAllFn;
 
-            internal global::System.IntPtr UserData;
+            public global::System.IntPtr UserData;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiSettingsHandler@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -14455,7 +14455,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiSettingsHandler(void* native, bool skipVTables = false)
+        public ImGuiSettingsHandler(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -14588,24 +14588,24 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint PopupId;
+            public uint PopupId;
 
-            internal global::System.IntPtr Window;
+            public global::System.IntPtr Window;
 
-            internal global::System.IntPtr SourceWindow;
+            public global::System.IntPtr SourceWindow;
 
-            internal int OpenFrameCount;
+            public int OpenFrameCount;
 
-            internal uint OpenParentId;
+            public uint OpenParentId;
 
-            internal global::DearImguiSharp.ImVec2.__Internal OpenPopupPos;
+            public global::DearImguiSharp.ImVec2.__Internal OpenPopupPos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal OpenMousePos;
+            public global::DearImguiSharp.ImVec2.__Internal OpenMousePos;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiPopupData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -14638,7 +14638,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiPopupData(void* native, bool skipVTables = false)
+        public ImGuiPopupData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -14786,18 +14786,18 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal float OffsetNorm;
+            public float OffsetNorm;
 
-            internal float OffsetNormBeforeResize;
+            public float OffsetNormBeforeResize;
 
-            internal int Flags;
+            public int Flags;
 
-            internal global::DearImguiSharp.ImRect.__Internal ClipRect;
+            public global::DearImguiSharp.ImRect.__Internal ClipRect;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiColumnData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -14830,7 +14830,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiColumnData(void* native, bool skipVTables = false)
+        public ImGuiColumnData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -14927,42 +14927,42 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint ID;
+            public uint ID;
 
-            internal int Flags;
+            public int Flags;
 
-            internal byte IsFirstFrame;
+            public byte IsFirstFrame;
 
-            internal byte IsBeingResized;
+            public byte IsBeingResized;
 
-            internal int Current;
+            public int Current;
 
-            internal int Count;
+            public int Count;
 
-            internal float OffMinX;
+            public float OffMinX;
 
-            internal float OffMaxX;
+            public float OffMaxX;
 
-            internal float LineMinY;
+            public float LineMinY;
 
-            internal float LineMaxY;
+            public float LineMaxY;
 
-            internal float HostCursorPosY;
+            public float HostCursorPosY;
 
-            internal float HostCursorMaxPosX;
+            public float HostCursorMaxPosX;
 
-            internal global::DearImguiSharp.ImRect.__Internal HostClipRect;
+            public global::DearImguiSharp.ImRect.__Internal HostClipRect;
 
-            internal global::DearImguiSharp.ImRect.__Internal HostWorkRect;
+            public global::DearImguiSharp.ImRect.__Internal HostWorkRect;
 
-            internal global::DearImguiSharp.ImVectorImGuiColumnData.__Internal Columns;
+            public global::DearImguiSharp.ImVectorImGuiColumnData.__Internal Columns;
 
-            internal global::DearImguiSharp.ImDrawListSplitter.__Internal Splitter;
+            public global::DearImguiSharp.ImDrawListSplitter.__Internal Splitter;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiColumns@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -14995,7 +14995,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiColumns(void* native, bool skipVTables = false)
+        public ImGuiColumns(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -15254,28 +15254,28 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
+            public global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
 
-            internal global::System.IntPtr Font;
+            public global::System.IntPtr Font;
 
-            internal float FontSize;
+            public float FontSize;
 
-            internal float CurveTessellationTol;
+            public float CurveTessellationTol;
 
-            internal float CircleSegmentMaxError;
+            public float CircleSegmentMaxError;
 
-            internal global::DearImguiSharp.ImVec4.__Internal ClipRectFullscreen;
+            public global::DearImguiSharp.ImVec4.__Internal ClipRectFullscreen;
 
-            internal int InitialFlags;
+            public int InitialFlags;
 
-            internal fixed byte CircleVtx12[96];
+            public fixed byte CircleVtx12[96];
 
-            internal fixed byte CircleSegmentCounts[64];
+            public fixed byte CircleSegmentCounts[64];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawListSharedData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -15308,7 +15308,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawListSharedData(void* native, bool skipVTables = false)
+        public ImDrawListSharedData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -15501,12 +15501,12 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal fixed byte Layers[32];
+            public fixed byte Layers[32];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImDrawDataBuilder@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -15539,7 +15539,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImDrawDataBuilder(void* native, bool skipVTables = false)
+        public ImDrawDataBuilder(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -15608,24 +15608,24 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr Window;
+            public global::System.IntPtr Window;
 
-            internal uint ID;
+            public uint ID;
 
-            internal uint FocusScopeId;
+            public uint FocusScopeId;
 
-            internal float DistBox;
+            public float DistBox;
 
-            internal float DistCenter;
+            public float DistCenter;
 
-            internal float DistAxial;
+            public float DistAxial;
 
-            internal global::DearImguiSharp.ImRect.__Internal RectRel;
+            public global::DearImguiSharp.ImRect.__Internal RectRel;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiNavMoveResult@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -15658,7 +15658,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiNavMoveResult(void* native, bool skipVTables = false)
+        public ImGuiNavMoveResult(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -15799,38 +15799,38 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Flags;
+            public int Flags;
 
-            internal int PosCond;
+            public int PosCond;
 
-            internal int SizeCond;
+            public int SizeCond;
 
-            internal int CollapsedCond;
+            public int CollapsedCond;
 
-            internal global::DearImguiSharp.ImVec2.__Internal PosVal;
+            public global::DearImguiSharp.ImVec2.__Internal PosVal;
 
-            internal global::DearImguiSharp.ImVec2.__Internal PosPivotVal;
+            public global::DearImguiSharp.ImVec2.__Internal PosPivotVal;
 
-            internal global::DearImguiSharp.ImVec2.__Internal SizeVal;
+            public global::DearImguiSharp.ImVec2.__Internal SizeVal;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ContentSizeVal;
+            public global::DearImguiSharp.ImVec2.__Internal ContentSizeVal;
 
-            internal byte CollapsedVal;
+            public byte CollapsedVal;
 
-            internal global::DearImguiSharp.ImRect.__Internal SizeConstraintRect;
+            public global::DearImguiSharp.ImRect.__Internal SizeConstraintRect;
 
-            internal global::System.IntPtr SizeCallback;
+            public global::System.IntPtr SizeCallback;
 
-            internal global::System.IntPtr SizeCallbackUserData;
+            public global::System.IntPtr SizeCallbackUserData;
 
-            internal float BgAlphaVal;
+            public float BgAlphaVal;
 
-            internal global::DearImguiSharp.ImVec2.__Internal MenuBarOffsetMinVal;
+            public global::DearImguiSharp.ImVec2.__Internal MenuBarOffsetMinVal;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiNextWindowData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -15863,7 +15863,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiNextWindowData(void* native, bool skipVTables = false)
+        public ImGuiNextWindowData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -16101,20 +16101,20 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Flags;
+            public int Flags;
 
-            internal float Width;
+            public float Width;
 
-            internal uint FocusScopeId;
+            public uint FocusScopeId;
 
-            internal int OpenCond;
+            public int OpenCond;
 
-            internal byte OpenVal;
+            public byte OpenVal;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiNextItemData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -16147,7 +16147,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiNextItemData(void* native, bool skipVTables = false)
+        public ImGuiNextItemData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -16255,14 +16255,14 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal int Index;
+            public int Index;
 
-            internal float Width;
+            public float Width;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiShrinkWidthItem@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -16295,7 +16295,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiShrinkWidthItem(void* native, bool skipVTables = false)
+        public ImGuiShrinkWidthItem(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -16364,14 +16364,14 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr Ptr;
+            public global::System.IntPtr Ptr;
 
-            internal int Index;
+            public int Index;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiPtrOrIndex@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -16404,7 +16404,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiPtrOrIndex(void* native, bool skipVTables = false)
+        public ImGuiPtrOrIndex(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -16473,358 +16473,358 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal byte Initialized;
+            public byte Initialized;
 
-            internal byte FontAtlasOwnedByContext;
+            public byte FontAtlasOwnedByContext;
 
-            internal global::DearImguiSharp.ImGuiIO.__Internal IO;
+            public global::DearImguiSharp.ImGuiIO.__Internal IO;
 
-            internal global::DearImguiSharp.ImGuiStyle.__Internal Style;
+            public global::DearImguiSharp.ImGuiStyle.__Internal Style;
 
-            internal global::System.IntPtr Font;
+            public global::System.IntPtr Font;
 
-            internal float FontSize;
+            public float FontSize;
 
-            internal float FontBaseSize;
+            public float FontBaseSize;
 
-            internal global::DearImguiSharp.ImDrawListSharedData.__Internal DrawListSharedData;
+            public global::DearImguiSharp.ImDrawListSharedData.__Internal DrawListSharedData;
 
-            internal double Time;
+            public double Time;
 
-            internal int FrameCount;
+            public int FrameCount;
 
-            internal int FrameCountEnded;
+            public int FrameCountEnded;
 
-            internal int FrameCountRendered;
+            public int FrameCountRendered;
 
-            internal byte WithinFrameScope;
+            public byte WithinFrameScope;
 
-            internal byte WithinFrameScopeWithImplicitWindow;
+            public byte WithinFrameScopeWithImplicitWindow;
 
-            internal byte WithinEndChild;
+            public byte WithinEndChild;
 
-            internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal Windows;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal Windows;
 
-            internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsFocusOrder;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsFocusOrder;
 
-            internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsTempSortBuffer;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsTempSortBuffer;
 
-            internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal CurrentWindowStack;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal CurrentWindowStack;
 
-            internal global::DearImguiSharp.ImGuiStorage.__Internal WindowsById;
+            public global::DearImguiSharp.ImGuiStorage.__Internal WindowsById;
 
-            internal int WindowsActiveCount;
+            public int WindowsActiveCount;
 
-            internal global::System.IntPtr CurrentWindow;
+            public global::System.IntPtr CurrentWindow;
 
-            internal global::System.IntPtr HoveredWindow;
+            public global::System.IntPtr HoveredWindow;
 
-            internal global::System.IntPtr HoveredRootWindow;
+            public global::System.IntPtr HoveredRootWindow;
 
-            internal global::System.IntPtr MovingWindow;
+            public global::System.IntPtr MovingWindow;
 
-            internal global::System.IntPtr WheelingWindow;
+            public global::System.IntPtr WheelingWindow;
 
-            internal global::DearImguiSharp.ImVec2.__Internal WheelingWindowRefMousePos;
+            public global::DearImguiSharp.ImVec2.__Internal WheelingWindowRefMousePos;
 
-            internal float WheelingWindowTimer;
+            public float WheelingWindowTimer;
 
-            internal uint HoveredId;
+            public uint HoveredId;
 
-            internal byte HoveredIdAllowOverlap;
+            public byte HoveredIdAllowOverlap;
 
-            internal uint HoveredIdPreviousFrame;
+            public uint HoveredIdPreviousFrame;
 
-            internal float HoveredIdTimer;
+            public float HoveredIdTimer;
 
-            internal float HoveredIdNotActiveTimer;
+            public float HoveredIdNotActiveTimer;
 
-            internal uint ActiveId;
+            public uint ActiveId;
 
-            internal uint ActiveIdIsAlive;
+            public uint ActiveIdIsAlive;
 
-            internal float ActiveIdTimer;
+            public float ActiveIdTimer;
 
-            internal byte ActiveIdIsJustActivated;
+            public byte ActiveIdIsJustActivated;
 
-            internal byte ActiveIdAllowOverlap;
+            public byte ActiveIdAllowOverlap;
 
-            internal byte ActiveIdHasBeenPressedBefore;
+            public byte ActiveIdHasBeenPressedBefore;
 
-            internal byte ActiveIdHasBeenEditedBefore;
+            public byte ActiveIdHasBeenEditedBefore;
 
-            internal byte ActiveIdHasBeenEditedThisFrame;
+            public byte ActiveIdHasBeenEditedThisFrame;
 
-            internal uint ActiveIdUsingNavDirMask;
+            public uint ActiveIdUsingNavDirMask;
 
-            internal uint ActiveIdUsingNavInputMask;
+            public uint ActiveIdUsingNavInputMask;
 
-            internal ulong ActiveIdUsingKeyInputMask;
+            public ulong ActiveIdUsingKeyInputMask;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ActiveIdClickOffset;
+            public global::DearImguiSharp.ImVec2.__Internal ActiveIdClickOffset;
 
-            internal global::System.IntPtr ActiveIdWindow;
+            public global::System.IntPtr ActiveIdWindow;
 
-            internal global::DearImguiSharp.ImGuiInputSource ActiveIdSource;
+            public global::DearImguiSharp.ImGuiInputSource ActiveIdSource;
 
-            internal int ActiveIdMouseButton;
+            public int ActiveIdMouseButton;
 
-            internal uint ActiveIdPreviousFrame;
+            public uint ActiveIdPreviousFrame;
 
-            internal byte ActiveIdPreviousFrameIsAlive;
+            public byte ActiveIdPreviousFrameIsAlive;
 
-            internal byte ActiveIdPreviousFrameHasBeenEditedBefore;
+            public byte ActiveIdPreviousFrameHasBeenEditedBefore;
 
-            internal global::System.IntPtr ActiveIdPreviousFrameWindow;
+            public global::System.IntPtr ActiveIdPreviousFrameWindow;
 
-            internal uint LastActiveId;
+            public uint LastActiveId;
 
-            internal float LastActiveIdTimer;
+            public float LastActiveIdTimer;
 
-            internal global::DearImguiSharp.ImGuiNextWindowData.__Internal NextWindowData;
+            public global::DearImguiSharp.ImGuiNextWindowData.__Internal NextWindowData;
 
-            internal global::DearImguiSharp.ImGuiNextItemData.__Internal NextItemData;
+            public global::DearImguiSharp.ImGuiNextItemData.__Internal NextItemData;
 
-            internal global::DearImguiSharp.ImVectorImGuiColorMod.__Internal ColorModifiers;
+            public global::DearImguiSharp.ImVectorImGuiColorMod.__Internal ColorModifiers;
 
-            internal global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal StyleModifiers;
+            public global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal StyleModifiers;
 
-            internal global::DearImguiSharp.ImVectorImFontPtr.__Internal FontStack;
+            public global::DearImguiSharp.ImVectorImFontPtr.__Internal FontStack;
 
-            internal global::DearImguiSharp.ImVectorImGuiPopupData.__Internal OpenPopupStack;
+            public global::DearImguiSharp.ImVectorImGuiPopupData.__Internal OpenPopupStack;
 
-            internal global::DearImguiSharp.ImVectorImGuiPopupData.__Internal BeginPopupStack;
+            public global::DearImguiSharp.ImVectorImGuiPopupData.__Internal BeginPopupStack;
 
-            internal global::System.IntPtr NavWindow;
+            public global::System.IntPtr NavWindow;
 
-            internal uint NavId;
+            public uint NavId;
 
-            internal uint NavFocusScopeId;
+            public uint NavFocusScopeId;
 
-            internal uint NavActivateId;
+            public uint NavActivateId;
 
-            internal uint NavActivateDownId;
+            public uint NavActivateDownId;
 
-            internal uint NavActivatePressedId;
+            public uint NavActivatePressedId;
 
-            internal uint NavInputId;
+            public uint NavInputId;
 
-            internal uint NavJustTabbedId;
+            public uint NavJustTabbedId;
 
-            internal uint NavJustMovedToId;
+            public uint NavJustMovedToId;
 
-            internal uint NavJustMovedToFocusScopeId;
+            public uint NavJustMovedToFocusScopeId;
 
-            internal uint NavNextActivateId;
+            public uint NavNextActivateId;
 
-            internal global::DearImguiSharp.ImGuiInputSource NavInputSource;
+            public global::DearImguiSharp.ImGuiInputSource NavInputSource;
 
-            internal global::DearImguiSharp.ImRect.__Internal NavScoringRectScreen;
+            public global::DearImguiSharp.ImRect.__Internal NavScoringRectScreen;
 
-            internal int NavScoringCount;
+            public int NavScoringCount;
 
-            internal global::DearImguiSharp.ImGuiNavLayer NavLayer;
+            public global::DearImguiSharp.ImGuiNavLayer NavLayer;
 
-            internal int NavIdTabCounter;
+            public int NavIdTabCounter;
 
-            internal byte NavIdIsAlive;
+            public byte NavIdIsAlive;
 
-            internal byte NavMousePosDirty;
+            public byte NavMousePosDirty;
 
-            internal byte NavDisableHighlight;
+            public byte NavDisableHighlight;
 
-            internal byte NavDisableMouseHover;
+            public byte NavDisableMouseHover;
 
-            internal byte NavAnyRequest;
+            public byte NavAnyRequest;
 
-            internal byte NavInitRequest;
+            public byte NavInitRequest;
 
-            internal byte NavInitRequestFromMove;
+            public byte NavInitRequestFromMove;
 
-            internal uint NavInitResultId;
+            public uint NavInitResultId;
 
-            internal global::DearImguiSharp.ImRect.__Internal NavInitResultRectRel;
+            public global::DearImguiSharp.ImRect.__Internal NavInitResultRectRel;
 
-            internal byte NavMoveFromClampedRefRect;
+            public byte NavMoveFromClampedRefRect;
 
-            internal byte NavMoveRequest;
+            public byte NavMoveRequest;
 
-            internal int NavMoveRequestFlags;
+            public int NavMoveRequestFlags;
 
-            internal global::DearImguiSharp.ImGuiNavForward NavMoveRequestForward;
+            public global::DearImguiSharp.ImGuiNavForward NavMoveRequestForward;
 
-            internal int NavMoveDir;
+            public int NavMoveDir;
 
-            internal int NavMoveDirLast;
+            public int NavMoveDirLast;
 
-            internal int NavMoveClipDir;
+            public int NavMoveClipDir;
 
-            internal global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocal;
+            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocal;
 
-            internal global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocalVisibleSet;
+            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocalVisibleSet;
 
-            internal global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultOther;
+            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultOther;
 
-            internal global::System.IntPtr NavWindowingTarget;
+            public global::System.IntPtr NavWindowingTarget;
 
-            internal global::System.IntPtr NavWindowingTargetAnim;
+            public global::System.IntPtr NavWindowingTargetAnim;
 
-            internal global::System.IntPtr NavWindowingList;
+            public global::System.IntPtr NavWindowingList;
 
-            internal float NavWindowingTimer;
+            public float NavWindowingTimer;
 
-            internal float NavWindowingHighlightAlpha;
+            public float NavWindowingHighlightAlpha;
 
-            internal byte NavWindowingToggleLayer;
+            public byte NavWindowingToggleLayer;
 
-            internal global::System.IntPtr FocusRequestCurrWindow;
+            public global::System.IntPtr FocusRequestCurrWindow;
 
-            internal global::System.IntPtr FocusRequestNextWindow;
+            public global::System.IntPtr FocusRequestNextWindow;
 
-            internal int FocusRequestCurrCounterRegular;
+            public int FocusRequestCurrCounterRegular;
 
-            internal int FocusRequestCurrCounterTabStop;
+            public int FocusRequestCurrCounterTabStop;
 
-            internal int FocusRequestNextCounterRegular;
+            public int FocusRequestNextCounterRegular;
 
-            internal int FocusRequestNextCounterTabStop;
+            public int FocusRequestNextCounterTabStop;
 
-            internal byte FocusTabPressed;
+            public byte FocusTabPressed;
 
-            internal global::DearImguiSharp.ImDrawData.__Internal DrawData;
+            public global::DearImguiSharp.ImDrawData.__Internal DrawData;
 
-            internal global::DearImguiSharp.ImDrawDataBuilder.__Internal DrawDataBuilder;
+            public global::DearImguiSharp.ImDrawDataBuilder.__Internal DrawDataBuilder;
 
-            internal float DimBgRatio;
+            public float DimBgRatio;
 
-            internal global::DearImguiSharp.ImDrawList.__Internal BackgroundDrawList;
+            public global::DearImguiSharp.ImDrawList.__Internal BackgroundDrawList;
 
-            internal global::DearImguiSharp.ImDrawList.__Internal ForegroundDrawList;
+            public global::DearImguiSharp.ImDrawList.__Internal ForegroundDrawList;
 
-            internal int MouseCursor;
+            public int MouseCursor;
 
-            internal byte DragDropActive;
+            public byte DragDropActive;
 
-            internal byte DragDropWithinSourceOrTarget;
+            public byte DragDropWithinSourceOrTarget;
 
-            internal int DragDropSourceFlags;
+            public int DragDropSourceFlags;
 
-            internal int DragDropSourceFrameCount;
+            public int DragDropSourceFrameCount;
 
-            internal int DragDropMouseButton;
+            public int DragDropMouseButton;
 
-            internal global::DearImguiSharp.ImGuiPayload.__Internal DragDropPayload;
+            public global::DearImguiSharp.ImGuiPayload.__Internal DragDropPayload;
 
-            internal global::DearImguiSharp.ImRect.__Internal DragDropTargetRect;
+            public global::DearImguiSharp.ImRect.__Internal DragDropTargetRect;
 
-            internal uint DragDropTargetId;
+            public uint DragDropTargetId;
 
-            internal int DragDropAcceptFlags;
+            public int DragDropAcceptFlags;
 
-            internal float DragDropAcceptIdCurrRectSurface;
+            public float DragDropAcceptIdCurrRectSurface;
 
-            internal uint DragDropAcceptIdCurr;
+            public uint DragDropAcceptIdCurr;
 
-            internal uint DragDropAcceptIdPrev;
+            public uint DragDropAcceptIdPrev;
 
-            internal int DragDropAcceptFrameCount;
+            public int DragDropAcceptFrameCount;
 
-            internal global::DearImguiSharp.ImVector_unsigned_char.__Internal DragDropPayloadBufHeap;
+            public global::DearImguiSharp.ImVector_unsigned_char.__Internal DragDropPayloadBufHeap;
 
-            internal fixed byte DragDropPayloadBufLocal[16];
+            public fixed byte DragDropPayloadBufLocal[16];
 
-            internal global::System.IntPtr CurrentTabBar;
+            public global::System.IntPtr CurrentTabBar;
 
-            internal global::DearImguiSharp.ImPoolImGuiTabBar.__Internal TabBars;
+            public global::DearImguiSharp.ImPoolImGuiTabBar.__Internal TabBars;
 
-            internal global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal CurrentTabBarStack;
+            public global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal CurrentTabBarStack;
 
-            internal global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal ShrinkWidthBuffer;
+            public global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal ShrinkWidthBuffer;
 
-            internal global::DearImguiSharp.ImVec2.__Internal LastValidMousePos;
+            public global::DearImguiSharp.ImVec2.__Internal LastValidMousePos;
 
-            internal global::DearImguiSharp.ImGuiInputTextState.__Internal InputTextState;
+            public global::DearImguiSharp.ImGuiInputTextState.__Internal InputTextState;
 
-            internal global::DearImguiSharp.ImFont.__Internal InputTextPasswordFont;
+            public global::DearImguiSharp.ImFont.__Internal InputTextPasswordFont;
 
-            internal uint TempInputTextId;
+            public uint TempInputTextId;
 
-            internal int ColorEditOptions;
+            public int ColorEditOptions;
 
-            internal float ColorEditLastHue;
+            public float ColorEditLastHue;
 
-            internal float ColorEditLastSat;
+            public float ColorEditLastSat;
 
-            internal fixed float ColorEditLastColor[3];
+            public fixed float ColorEditLastColor[3];
 
-            internal global::DearImguiSharp.ImVec4.__Internal ColorPickerRef;
+            public global::DearImguiSharp.ImVec4.__Internal ColorPickerRef;
 
-            internal byte DragCurrentAccumDirty;
+            public byte DragCurrentAccumDirty;
 
-            internal float DragCurrentAccum;
+            public float DragCurrentAccum;
 
-            internal float DragSpeedDefaultRatio;
+            public float DragSpeedDefaultRatio;
 
-            internal float ScrollbarClickDeltaToGrabCenter;
+            public float ScrollbarClickDeltaToGrabCenter;
 
-            internal int TooltipOverrideCount;
+            public int TooltipOverrideCount;
 
-            internal global::DearImguiSharp.ImVector_char.__Internal PrivateClipboard;
+            public global::DearImguiSharp.ImVector_char.__Internal PrivateClipboard;
 
-            internal global::DearImguiSharp.ImVec2.__Internal PlatformImePos;
+            public global::DearImguiSharp.ImVec2.__Internal PlatformImePos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal PlatformImeLastPos;
+            public global::DearImguiSharp.ImVec2.__Internal PlatformImeLastPos;
 
-            internal byte SettingsLoaded;
+            public byte SettingsLoaded;
 
-            internal float SettingsDirtyTimer;
+            public float SettingsDirtyTimer;
 
-            internal global::DearImguiSharp.ImGuiTextBuffer.__Internal SettingsIniData;
+            public global::DearImguiSharp.ImGuiTextBuffer.__Internal SettingsIniData;
 
-            internal global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal SettingsHandlers;
+            public global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal SettingsHandlers;
 
-            internal global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal SettingsWindows;
+            public global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal SettingsWindows;
 
-            internal byte LogEnabled;
+            public byte LogEnabled;
 
-            internal global::DearImguiSharp.ImGuiLogType LogType;
+            public global::DearImguiSharp.ImGuiLogType LogType;
 
-            internal global::System.IntPtr LogFile;
+            public global::System.IntPtr LogFile;
 
-            internal global::DearImguiSharp.ImGuiTextBuffer.__Internal LogBuffer;
+            public global::DearImguiSharp.ImGuiTextBuffer.__Internal LogBuffer;
 
-            internal float LogLinePosY;
+            public float LogLinePosY;
 
-            internal byte LogLineFirstItem;
+            public byte LogLineFirstItem;
 
-            internal int LogDepthRef;
+            public int LogDepthRef;
 
-            internal int LogDepthToExpand;
+            public int LogDepthToExpand;
 
-            internal int LogDepthToExpandDefault;
+            public int LogDepthToExpandDefault;
 
-            internal byte DebugItemPickerActive;
+            public byte DebugItemPickerActive;
 
-            internal uint DebugItemPickerBreakId;
+            public uint DebugItemPickerBreakId;
 
-            internal fixed float FramerateSecPerFrame[120];
+            public fixed float FramerateSecPerFrame[120];
 
-            internal int FramerateSecPerFrameIdx;
+            public int FramerateSecPerFrameIdx;
 
-            internal float FramerateSecPerFrameAccum;
+            public float FramerateSecPerFrameAccum;
 
-            internal int WantCaptureMouseNextFrame;
+            public int WantCaptureMouseNextFrame;
 
-            internal int WantCaptureKeyboardNextFrame;
+            public int WantCaptureKeyboardNextFrame;
 
-            internal int WantTextInputNextFrame;
+            public int WantTextInputNextFrame;
 
-            internal fixed sbyte TempBuffer[3073];
+            public fixed sbyte TempBuffer[3073];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiContext@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -16857,7 +16857,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiContext(void* native, bool skipVTables = false)
+        public ImGuiContext(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -19367,94 +19367,94 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVec2.__Internal CursorPos;
+            public global::DearImguiSharp.ImVec2.__Internal CursorPos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal CursorPosPrevLine;
+            public global::DearImguiSharp.ImVec2.__Internal CursorPosPrevLine;
 
-            internal global::DearImguiSharp.ImVec2.__Internal CursorStartPos;
+            public global::DearImguiSharp.ImVec2.__Internal CursorStartPos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal CursorMaxPos;
+            public global::DearImguiSharp.ImVec2.__Internal CursorMaxPos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal CurrLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal CurrLineSize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal PrevLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal PrevLineSize;
 
-            internal float CurrLineTextBaseOffset;
+            public float CurrLineTextBaseOffset;
 
-            internal float PrevLineTextBaseOffset;
+            public float PrevLineTextBaseOffset;
 
-            internal global::DearImguiSharp.ImVec1.__Internal Indent;
+            public global::DearImguiSharp.ImVec1.__Internal Indent;
 
-            internal global::DearImguiSharp.ImVec1.__Internal ColumnsOffset;
+            public global::DearImguiSharp.ImVec1.__Internal ColumnsOffset;
 
-            internal global::DearImguiSharp.ImVec1.__Internal GroupOffset;
+            public global::DearImguiSharp.ImVec1.__Internal GroupOffset;
 
-            internal uint LastItemId;
+            public uint LastItemId;
 
-            internal int LastItemStatusFlags;
+            public int LastItemStatusFlags;
 
-            internal global::DearImguiSharp.ImRect.__Internal LastItemRect;
+            public global::DearImguiSharp.ImRect.__Internal LastItemRect;
 
-            internal global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
+            public global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
 
-            internal global::DearImguiSharp.ImGuiNavLayer NavLayerCurrent;
+            public global::DearImguiSharp.ImGuiNavLayer NavLayerCurrent;
 
-            internal int NavLayerCurrentMask;
+            public int NavLayerCurrentMask;
 
-            internal int NavLayerActiveMask;
+            public int NavLayerActiveMask;
 
-            internal int NavLayerActiveMaskNext;
+            public int NavLayerActiveMaskNext;
 
-            internal uint NavFocusScopeIdCurrent;
+            public uint NavFocusScopeIdCurrent;
 
-            internal byte NavHideHighlightOneFrame;
+            public byte NavHideHighlightOneFrame;
 
-            internal byte NavHasScroll;
+            public byte NavHasScroll;
 
-            internal byte MenuBarAppending;
+            public byte MenuBarAppending;
 
-            internal global::DearImguiSharp.ImVec2.__Internal MenuBarOffset;
+            public global::DearImguiSharp.ImVec2.__Internal MenuBarOffset;
 
-            internal global::DearImguiSharp.ImGuiMenuColumns.__Internal MenuColumns;
+            public global::DearImguiSharp.ImGuiMenuColumns.__Internal MenuColumns;
 
-            internal int TreeDepth;
+            public int TreeDepth;
 
-            internal uint TreeJumpToParentOnPopMask;
+            public uint TreeJumpToParentOnPopMask;
 
-            internal global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal ChildWindows;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal ChildWindows;
 
-            internal global::System.IntPtr StateStorage;
+            public global::System.IntPtr StateStorage;
 
-            internal global::System.IntPtr CurrentColumns;
+            public global::System.IntPtr CurrentColumns;
 
-            internal int LayoutType;
+            public int LayoutType;
 
-            internal int ParentLayoutType;
+            public int ParentLayoutType;
 
-            internal int FocusCounterRegular;
+            public int FocusCounterRegular;
 
-            internal int FocusCounterTabStop;
+            public int FocusCounterTabStop;
 
-            internal int ItemFlags;
+            public int ItemFlags;
 
-            internal float ItemWidth;
+            public float ItemWidth;
 
-            internal float TextWrapPos;
+            public float TextWrapPos;
 
-            internal global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal ItemFlagsStack;
+            public global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal ItemFlagsStack;
 
-            internal global::DearImguiSharp.ImVector_float.__Internal ItemWidthStack;
+            public global::DearImguiSharp.ImVector_float.__Internal ItemWidthStack;
 
-            internal global::DearImguiSharp.ImVector_float.__Internal TextWrapPosStack;
+            public global::DearImguiSharp.ImVector_float.__Internal TextWrapPosStack;
 
-            internal global::DearImguiSharp.ImVectorImGuiGroupData.__Internal GroupStack;
+            public global::DearImguiSharp.ImVectorImGuiGroupData.__Internal GroupStack;
 
-            internal fixed short StackSizesBackup[6];
+            public fixed short StackSizesBackup[6];
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiWindowTempData@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -19487,7 +19487,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiWindowTempData(void* native, bool skipVTables = false)
+        public ImGuiWindowTempData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -20133,160 +20133,160 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr Name;
+            public global::System.IntPtr Name;
 
-            internal uint ID;
+            public uint ID;
 
-            internal int Flags;
+            public int Flags;
 
-            internal global::DearImguiSharp.ImVec2.__Internal Pos;
+            public global::DearImguiSharp.ImVec2.__Internal Pos;
 
-            internal global::DearImguiSharp.ImVec2.__Internal Size;
+            public global::DearImguiSharp.ImVec2.__Internal Size;
 
-            internal global::DearImguiSharp.ImVec2.__Internal SizeFull;
+            public global::DearImguiSharp.ImVec2.__Internal SizeFull;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ContentSize;
+            public global::DearImguiSharp.ImVec2.__Internal ContentSize;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ContentSizeExplicit;
+            public global::DearImguiSharp.ImVec2.__Internal ContentSizeExplicit;
 
-            internal global::DearImguiSharp.ImVec2.__Internal WindowPadding;
+            public global::DearImguiSharp.ImVec2.__Internal WindowPadding;
 
-            internal float WindowRounding;
+            public float WindowRounding;
 
-            internal float WindowBorderSize;
+            public float WindowBorderSize;
 
-            internal int NameBufLen;
+            public int NameBufLen;
 
-            internal uint MoveId;
+            public uint MoveId;
 
-            internal uint ChildId;
+            public uint ChildId;
 
-            internal global::DearImguiSharp.ImVec2.__Internal Scroll;
+            public global::DearImguiSharp.ImVec2.__Internal Scroll;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ScrollMax;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollMax;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ScrollTarget;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollTarget;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ScrollTargetCenterRatio;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollTargetCenterRatio;
 
-            internal global::DearImguiSharp.ImVec2.__Internal ScrollbarSizes;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollbarSizes;
 
-            internal byte ScrollbarX;
+            public byte ScrollbarX;
 
-            internal byte ScrollbarY;
+            public byte ScrollbarY;
 
-            internal byte Active;
+            public byte Active;
 
-            internal byte WasActive;
+            public byte WasActive;
 
-            internal byte WriteAccessed;
+            public byte WriteAccessed;
 
-            internal byte Collapsed;
+            public byte Collapsed;
 
-            internal byte WantCollapseToggle;
+            public byte WantCollapseToggle;
 
-            internal byte SkipItems;
+            public byte SkipItems;
 
-            internal byte Appearing;
+            public byte Appearing;
 
-            internal byte Hidden;
+            public byte Hidden;
 
-            internal byte IsFallbackWindow;
+            public byte IsFallbackWindow;
 
-            internal byte HasCloseButton;
+            public byte HasCloseButton;
 
-            internal sbyte ResizeBorderHeld;
+            public sbyte ResizeBorderHeld;
 
-            internal short BeginCount;
+            public short BeginCount;
 
-            internal short BeginOrderWithinParent;
+            public short BeginOrderWithinParent;
 
-            internal short BeginOrderWithinContext;
+            public short BeginOrderWithinContext;
 
-            internal uint PopupId;
+            public uint PopupId;
 
-            internal sbyte AutoFitFramesX;
+            public sbyte AutoFitFramesX;
 
-            internal sbyte AutoFitFramesY;
+            public sbyte AutoFitFramesY;
 
-            internal sbyte AutoFitChildAxises;
+            public sbyte AutoFitChildAxises;
 
-            internal byte AutoFitOnlyGrows;
+            public byte AutoFitOnlyGrows;
 
-            internal int AutoPosLastDirection;
+            public int AutoPosLastDirection;
 
-            internal int HiddenFramesCanSkipItems;
+            public int HiddenFramesCanSkipItems;
 
-            internal int HiddenFramesCannotSkipItems;
+            public int HiddenFramesCannotSkipItems;
 
-            internal int SetWindowPosAllowFlags;
+            public int SetWindowPosAllowFlags;
 
-            internal int SetWindowSizeAllowFlags;
+            public int SetWindowSizeAllowFlags;
 
-            internal int SetWindowCollapsedAllowFlags;
+            public int SetWindowCollapsedAllowFlags;
 
-            internal global::DearImguiSharp.ImVec2.__Internal SetWindowPosVal;
+            public global::DearImguiSharp.ImVec2.__Internal SetWindowPosVal;
 
-            internal global::DearImguiSharp.ImVec2.__Internal SetWindowPosPivot;
+            public global::DearImguiSharp.ImVec2.__Internal SetWindowPosPivot;
 
-            internal global::DearImguiSharp.ImVectorImGuiID.__Internal IDStack;
+            public global::DearImguiSharp.ImVectorImGuiID.__Internal IDStack;
 
-            internal global::DearImguiSharp.ImGuiWindowTempData.__Internal DC;
+            public global::DearImguiSharp.ImGuiWindowTempData.__Internal DC;
 
-            internal global::DearImguiSharp.ImRect.__Internal OuterRectClipped;
+            public global::DearImguiSharp.ImRect.__Internal OuterRectClipped;
 
-            internal global::DearImguiSharp.ImRect.__Internal InnerRect;
+            public global::DearImguiSharp.ImRect.__Internal InnerRect;
 
-            internal global::DearImguiSharp.ImRect.__Internal InnerClipRect;
+            public global::DearImguiSharp.ImRect.__Internal InnerClipRect;
 
-            internal global::DearImguiSharp.ImRect.__Internal WorkRect;
+            public global::DearImguiSharp.ImRect.__Internal WorkRect;
 
-            internal global::DearImguiSharp.ImRect.__Internal ClipRect;
+            public global::DearImguiSharp.ImRect.__Internal ClipRect;
 
-            internal global::DearImguiSharp.ImRect.__Internal ContentRegionRect;
+            public global::DearImguiSharp.ImRect.__Internal ContentRegionRect;
 
-            internal int LastFrameActive;
+            public int LastFrameActive;
 
-            internal float LastTimeActive;
+            public float LastTimeActive;
 
-            internal float ItemWidthDefault;
+            public float ItemWidthDefault;
 
-            internal global::DearImguiSharp.ImGuiStorage.__Internal StateStorage;
+            public global::DearImguiSharp.ImGuiStorage.__Internal StateStorage;
 
-            internal global::DearImguiSharp.ImVectorImGuiColumns.__Internal ColumnsStorage;
+            public global::DearImguiSharp.ImVectorImGuiColumns.__Internal ColumnsStorage;
 
-            internal float FontWindowScale;
+            public float FontWindowScale;
 
-            internal int SettingsOffset;
+            public int SettingsOffset;
 
-            internal global::System.IntPtr DrawList;
+            public global::System.IntPtr DrawList;
 
-            internal global::DearImguiSharp.ImDrawList.__Internal DrawListInst;
+            public global::DearImguiSharp.ImDrawList.__Internal DrawListInst;
 
-            internal global::System.IntPtr ParentWindow;
+            public global::System.IntPtr ParentWindow;
 
-            internal global::System.IntPtr RootWindow;
+            public global::System.IntPtr RootWindow;
 
-            internal global::System.IntPtr RootWindowForTitleBarHighlight;
+            public global::System.IntPtr RootWindowForTitleBarHighlight;
 
-            internal global::System.IntPtr RootWindowForNav;
+            public global::System.IntPtr RootWindowForNav;
 
-            internal global::System.IntPtr NavLastChildNavWindow;
+            public global::System.IntPtr NavLastChildNavWindow;
 
-            internal fixed uint NavLastIds[2];
+            public fixed uint NavLastIds[2];
 
-            internal fixed byte NavRectRel[32];
+            public fixed byte NavRectRel[32];
 
-            internal byte MemoryCompacted;
+            public byte MemoryCompacted;
 
-            internal int MemoryDrawListIdxCapacity;
+            public int MemoryDrawListIdxCapacity;
 
-            internal int MemoryDrawListVtxCapacity;
+            public int MemoryDrawListVtxCapacity;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiWindow@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -20319,7 +20319,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiWindow(void* native, bool skipVTables = false)
+        public ImGuiWindow(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -21439,18 +21439,18 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint LastItemId;
+            public uint LastItemId;
 
-            internal int LastItemStatusFlags;
+            public int LastItemStatusFlags;
 
-            internal global::DearImguiSharp.ImRect.__Internal LastItemRect;
+            public global::DearImguiSharp.ImRect.__Internal LastItemRect;
 
-            internal global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
+            public global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiItemHoveredDataBackup@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -21483,7 +21483,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiItemHoveredDataBackup(void* native, bool skipVTables = false)
+        public ImGuiItemHoveredDataBackup(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -21582,26 +21582,26 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint ID;
+            public uint ID;
 
-            internal int Flags;
+            public int Flags;
 
-            internal int LastFrameVisible;
+            public int LastFrameVisible;
 
-            internal int LastFrameSelected;
+            public int LastFrameSelected;
 
-            internal int NameOffset;
+            public int NameOffset;
 
-            internal float Offset;
+            public float Offset;
 
-            internal float Width;
+            public float Width;
 
-            internal float ContentWidth;
+            public float ContentWidth;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiTabItem@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -21634,7 +21634,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiTabItem(void* native, bool skipVTables = false)
+        public ImGuiTabItem(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -21781,58 +21781,58 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::DearImguiSharp.ImVectorImGuiTabItem.__Internal Tabs;
+            public global::DearImguiSharp.ImVectorImGuiTabItem.__Internal Tabs;
 
-            internal uint ID;
+            public uint ID;
 
-            internal uint SelectedTabId;
+            public uint SelectedTabId;
 
-            internal uint NextSelectedTabId;
+            public uint NextSelectedTabId;
 
-            internal uint VisibleTabId;
+            public uint VisibleTabId;
 
-            internal int CurrFrameVisible;
+            public int CurrFrameVisible;
 
-            internal int PrevFrameVisible;
+            public int PrevFrameVisible;
 
-            internal global::DearImguiSharp.ImRect.__Internal BarRect;
+            public global::DearImguiSharp.ImRect.__Internal BarRect;
 
-            internal float LastTabContentHeight;
+            public float LastTabContentHeight;
 
-            internal float OffsetMax;
+            public float OffsetMax;
 
-            internal float OffsetMaxIdeal;
+            public float OffsetMaxIdeal;
 
-            internal float OffsetNextTab;
+            public float OffsetNextTab;
 
-            internal float ScrollingAnim;
+            public float ScrollingAnim;
 
-            internal float ScrollingTarget;
+            public float ScrollingTarget;
 
-            internal float ScrollingTargetDistToVisibility;
+            public float ScrollingTargetDistToVisibility;
 
-            internal float ScrollingSpeed;
+            public float ScrollingSpeed;
 
-            internal int Flags;
+            public int Flags;
 
-            internal uint ReorderRequestTabId;
+            public uint ReorderRequestTabId;
 
-            internal sbyte ReorderRequestDir;
+            public sbyte ReorderRequestDir;
 
-            internal byte WantLayout;
+            public byte WantLayout;
 
-            internal byte VisibleTabWasSubmitted;
+            public byte VisibleTabWasSubmitted;
 
-            internal short LastTabItemIdx;
+            public short LastTabItemIdx;
 
-            internal global::DearImguiSharp.ImVec2.__Internal FramePadding;
+            public global::DearImguiSharp.ImVec2.__Internal FramePadding;
 
-            internal global::DearImguiSharp.ImGuiTextBuffer.__Internal TabsNames;
+            public global::DearImguiSharp.ImGuiTextBuffer.__Internal TabsNames;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiTabBar@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -21865,7 +21865,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiTabBar(void* native, bool skipVTables = false)
+        public ImGuiTabBar(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -22228,14 +22228,14 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal global::System.IntPtr b;
+            public global::System.IntPtr b;
 
-            internal global::System.IntPtr e;
+            public global::System.IntPtr e;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiTextRange@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -22268,7 +22268,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiTextRange(void* native, bool skipVTables = false)
+        public ImGuiTextRange(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -22355,18 +22355,18 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            internal uint key;
+            public uint key;
 
-            internal int val_i;
+            public int val_i;
 
-            internal float val_f;
+            public float val_f;
 
-            internal global::System.IntPtr val_p;
+            public global::System.IntPtr val_p;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0ImGuiStoragePair@@QEAA@AEBU0@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
+            public static extern global::System.IntPtr cctor(global::System.IntPtr __instance, global::System.IntPtr _0);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -22399,7 +22399,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ImGuiStoragePair(void* native, bool skipVTables = false)
+        public ImGuiStoragePair(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -22497,4754 +22497,4754 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec2_ImVec2Nil")]
-            internal static extern global::System.IntPtr ImVec2ImVec2Nil();
+            public static extern global::System.IntPtr ImVec2ImVec2Nil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec2_destroy")]
-            internal static extern void ImVec2_destroy(global::System.IntPtr self);
+            public static extern void ImVec2_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec2_ImVec2Float")]
-            internal static extern global::System.IntPtr ImVec2ImVec2Float(float _x, float _y);
+            public static extern global::System.IntPtr ImVec2ImVec2Float(float _x, float _y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec4_ImVec4Nil")]
-            internal static extern global::System.IntPtr ImVec4ImVec4Nil();
+            public static extern global::System.IntPtr ImVec4ImVec4Nil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec4_destroy")]
-            internal static extern void ImVec4_destroy(global::System.IntPtr self);
+            public static extern void ImVec4_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec4_ImVec4Float")]
-            internal static extern global::System.IntPtr ImVec4ImVec4Float(float _x, float _y, float _z, float _w);
+            public static extern global::System.IntPtr ImVec4ImVec4Float(float _x, float _y, float _z, float _w);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCreateContext")]
-            internal static extern global::System.IntPtr CreateContext(global::System.IntPtr shared_font_atlas);
+            public static extern global::System.IntPtr CreateContext(global::System.IntPtr shared_font_atlas);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDestroyContext")]
-            internal static extern void DestroyContext(global::System.IntPtr ctx);
+            public static extern void DestroyContext(global::System.IntPtr ctx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCurrentContext")]
-            internal static extern global::System.IntPtr GetCurrentContext();
+            public static extern global::System.IntPtr GetCurrentContext();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetCurrentContext")]
-            internal static extern void SetCurrentContext(global::System.IntPtr ctx);
+            public static extern void SetCurrentContext(global::System.IntPtr ctx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDebugCheckVersionAndDataLayout")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DebugCheckVersionAndDataLayout([MarshalAs(UnmanagedType.LPUTF8Str)] string version_str, ulong sz_io, ulong sz_style, ulong sz_vec2, ulong sz_vec4, ulong sz_drawvert, ulong sz_drawidx);
+            public static extern bool DebugCheckVersionAndDataLayout([MarshalAs(UnmanagedType.LPUTF8Str)] string version_str, ulong sz_io, ulong sz_style, ulong sz_vec2, ulong sz_vec4, ulong sz_drawvert, ulong sz_drawidx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetIO")]
-            internal static extern global::System.IntPtr GetIO();
+            public static extern global::System.IntPtr GetIO();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetStyle")]
-            internal static extern global::System.IntPtr GetStyle();
+            public static extern global::System.IntPtr GetStyle();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNewFrame")]
-            internal static extern void NewFrame();
+            public static extern void NewFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndFrame")]
-            internal static extern void EndFrame();
+            public static extern void EndFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRender")]
-            internal static extern void Render();
+            public static extern void Render();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetDrawData")]
-            internal static extern global::System.IntPtr GetDrawData();
+            public static extern global::System.IntPtr GetDrawData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShowDemoWindow")]
-            internal static extern void ShowDemoWindow(bool* p_open);
+            public static extern void ShowDemoWindow(bool* p_open);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShowAboutWindow")]
-            internal static extern void ShowAboutWindow(bool* p_open);
+            public static extern void ShowAboutWindow(bool* p_open);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShowMetricsWindow")]
-            internal static extern void ShowMetricsWindow(bool* p_open);
+            public static extern void ShowMetricsWindow(bool* p_open);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShowStyleEditor")]
-            internal static extern void ShowStyleEditor(global::System.IntPtr @ref);
+            public static extern void ShowStyleEditor(global::System.IntPtr @ref);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShowStyleSelector")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ShowStyleSelector([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
+            public static extern bool ShowStyleSelector([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShowFontSelector")]
-            internal static extern void ShowFontSelector([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
+            public static extern void ShowFontSelector([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShowUserGuide")]
-            internal static extern void ShowUserGuide();
+            public static extern void ShowUserGuide();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetVersion")]
-            internal static extern global::System.IntPtr GetVersion();
+            public static extern global::System.IntPtr GetVersion();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igStyleColorsDark")]
-            internal static extern void StyleColorsDark(global::System.IntPtr dst);
+            public static extern void StyleColorsDark(global::System.IntPtr dst);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igStyleColorsClassic")]
-            internal static extern void StyleColorsClassic(global::System.IntPtr dst);
+            public static extern void StyleColorsClassic(global::System.IntPtr dst);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igStyleColorsLight")]
-            internal static extern void StyleColorsLight(global::System.IntPtr dst);
+            public static extern void StyleColorsLight(global::System.IntPtr dst);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBegin")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Begin([MarshalAs(UnmanagedType.LPUTF8Str)] string name, bool* p_open, int flags);
+            public static extern bool Begin([MarshalAs(UnmanagedType.LPUTF8Str)] string name, bool* p_open, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEnd")]
-            internal static extern void End();
+            public static extern void End();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginChildStr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginChildStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, global::DearImguiSharp.ImVec2.__Internal size, bool border, int flags);
+            public static extern bool BeginChildStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, global::DearImguiSharp.ImVec2.__Internal size, bool border, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginChildID")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginChildID(uint id, global::DearImguiSharp.ImVec2.__Internal size, bool border, int flags);
+            public static extern bool BeginChildID(uint id, global::DearImguiSharp.ImVec2.__Internal size, bool border, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndChild")]
-            internal static extern void EndChild();
+            public static extern void EndChild();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsWindowAppearing")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsWindowAppearing();
+            public static extern bool IsWindowAppearing();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsWindowCollapsed")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsWindowCollapsed();
+            public static extern bool IsWindowCollapsed();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsWindowFocused")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsWindowFocused(int flags);
+            public static extern bool IsWindowFocused(int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsWindowHovered")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsWindowHovered(int flags);
+            public static extern bool IsWindowHovered(int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowDrawList")]
-            internal static extern global::System.IntPtr GetWindowDrawList();
+            public static extern global::System.IntPtr GetWindowDrawList();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowPos")]
-            internal static extern void GetWindowPos(global::System.IntPtr pOut);
+            public static extern void GetWindowPos(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowSize")]
-            internal static extern void GetWindowSize(global::System.IntPtr pOut);
+            public static extern void GetWindowSize(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowWidth")]
-            internal static extern float GetWindowWidth();
+            public static extern float GetWindowWidth();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowHeight")]
-            internal static extern float GetWindowHeight();
+            public static extern float GetWindowHeight();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextWindowPos")]
-            internal static extern void SetNextWindowPos(global::DearImguiSharp.ImVec2.__Internal pos, int cond, global::DearImguiSharp.ImVec2.__Internal pivot);
+            public static extern void SetNextWindowPos(global::DearImguiSharp.ImVec2.__Internal pos, int cond, global::DearImguiSharp.ImVec2.__Internal pivot);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextWindowSize")]
-            internal static extern void SetNextWindowSize(global::DearImguiSharp.ImVec2.__Internal size, int cond);
+            public static extern void SetNextWindowSize(global::DearImguiSharp.ImVec2.__Internal size, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextWindowSizeConstraints")]
-            internal static extern void SetNextWindowSizeConstraints(global::DearImguiSharp.ImVec2.__Internal size_min, global::DearImguiSharp.ImVec2.__Internal size_max, global::System.IntPtr custom_callback, global::System.IntPtr custom_callback_data);
+            public static extern void SetNextWindowSizeConstraints(global::DearImguiSharp.ImVec2.__Internal size_min, global::DearImguiSharp.ImVec2.__Internal size_max, global::System.IntPtr custom_callback, global::System.IntPtr custom_callback_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextWindowContentSize")]
-            internal static extern void SetNextWindowContentSize(global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern void SetNextWindowContentSize(global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextWindowCollapsed")]
-            internal static extern void SetNextWindowCollapsed(bool collapsed, int cond);
+            public static extern void SetNextWindowCollapsed(bool collapsed, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextWindowFocus")]
-            internal static extern void SetNextWindowFocus();
+            public static extern void SetNextWindowFocus();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextWindowBgAlpha")]
-            internal static extern void SetNextWindowBgAlpha(float alpha);
+            public static extern void SetNextWindowBgAlpha(float alpha);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowPosVec2")]
-            internal static extern void SetWindowPosVec2(global::DearImguiSharp.ImVec2.__Internal pos, int cond);
+            public static extern void SetWindowPosVec2(global::DearImguiSharp.ImVec2.__Internal pos, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowSizeVec2")]
-            internal static extern void SetWindowSizeVec2(global::DearImguiSharp.ImVec2.__Internal size, int cond);
+            public static extern void SetWindowSizeVec2(global::DearImguiSharp.ImVec2.__Internal size, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowCollapsedBool")]
-            internal static extern void SetWindowCollapsedBool(bool collapsed, int cond);
+            public static extern void SetWindowCollapsedBool(bool collapsed, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowFocusNil")]
-            internal static extern void SetWindowFocusNil();
+            public static extern void SetWindowFocusNil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowFontScale")]
-            internal static extern void SetWindowFontScale(float scale);
+            public static extern void SetWindowFontScale(float scale);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowPosStr")]
-            internal static extern void SetWindowPosStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name, global::DearImguiSharp.ImVec2.__Internal pos, int cond);
+            public static extern void SetWindowPosStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name, global::DearImguiSharp.ImVec2.__Internal pos, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowSizeStr")]
-            internal static extern void SetWindowSizeStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name, global::DearImguiSharp.ImVec2.__Internal size, int cond);
+            public static extern void SetWindowSizeStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name, global::DearImguiSharp.ImVec2.__Internal size, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowCollapsedStr")]
-            internal static extern void SetWindowCollapsedStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name, bool collapsed, int cond);
+            public static extern void SetWindowCollapsedStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name, bool collapsed, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowFocusStr")]
-            internal static extern void SetWindowFocusStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+            public static extern void SetWindowFocusStr([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetContentRegionMax")]
-            internal static extern void GetContentRegionMax(global::System.IntPtr pOut);
+            public static extern void GetContentRegionMax(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetContentRegionAvail")]
-            internal static extern void GetContentRegionAvail(global::System.IntPtr pOut);
+            public static extern void GetContentRegionAvail(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowContentRegionMin")]
-            internal static extern void GetWindowContentRegionMin(global::System.IntPtr pOut);
+            public static extern void GetWindowContentRegionMin(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowContentRegionMax")]
-            internal static extern void GetWindowContentRegionMax(global::System.IntPtr pOut);
+            public static extern void GetWindowContentRegionMax(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowContentRegionWidth")]
-            internal static extern float GetWindowContentRegionWidth();
+            public static extern float GetWindowContentRegionWidth();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetScrollX")]
-            internal static extern float GetScrollX();
+            public static extern float GetScrollX();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetScrollY")]
-            internal static extern float GetScrollY();
+            public static extern float GetScrollY();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetScrollMaxX")]
-            internal static extern float GetScrollMaxX();
+            public static extern float GetScrollMaxX();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetScrollMaxY")]
-            internal static extern float GetScrollMaxY();
+            public static extern float GetScrollMaxY();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollXFloat")]
-            internal static extern void SetScrollXFloat(float scroll_x);
+            public static extern void SetScrollXFloat(float scroll_x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollYFloat")]
-            internal static extern void SetScrollYFloat(float scroll_y);
+            public static extern void SetScrollYFloat(float scroll_y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollHereX")]
-            internal static extern void SetScrollHereX(float center_x_ratio);
+            public static extern void SetScrollHereX(float center_x_ratio);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollHereY")]
-            internal static extern void SetScrollHereY(float center_y_ratio);
+            public static extern void SetScrollHereY(float center_y_ratio);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollFromPosXFloat")]
-            internal static extern void SetScrollFromPosXFloat(float local_x, float center_x_ratio);
+            public static extern void SetScrollFromPosXFloat(float local_x, float center_x_ratio);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollFromPosYFloat")]
-            internal static extern void SetScrollFromPosYFloat(float local_y, float center_y_ratio);
+            public static extern void SetScrollFromPosYFloat(float local_y, float center_y_ratio);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushFont")]
-            internal static extern void PushFont(global::System.IntPtr font);
+            public static extern void PushFont(global::System.IntPtr font);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopFont")]
-            internal static extern void PopFont();
+            public static extern void PopFont();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushStyleColorU32")]
-            internal static extern void PushStyleColorU32(int idx, uint col);
+            public static extern void PushStyleColorU32(int idx, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushStyleColorVec4")]
-            internal static extern void PushStyleColorVec4(int idx, global::System.IntPtr col);
+            public static extern void PushStyleColorVec4(int idx, global::System.IntPtr col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopStyleColor")]
-            internal static extern void PopStyleColor(int count);
+            public static extern void PopStyleColor(int count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushStyleVarFloat")]
-            internal static extern void PushStyleVarFloat(int idx, float val);
+            public static extern void PushStyleVarFloat(int idx, float val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushStyleVarVec2")]
-            internal static extern void PushStyleVarVec2(int idx, global::DearImguiSharp.ImVec2.__Internal val);
+            public static extern void PushStyleVarVec2(int idx, global::DearImguiSharp.ImVec2.__Internal val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopStyleVar")]
-            internal static extern void PopStyleVar(int count);
+            public static extern void PopStyleVar(int count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetStyleColorVec4")]
-            internal static extern global::System.IntPtr GetStyleColorVec4(int idx);
+            public static extern global::System.IntPtr GetStyleColorVec4(int idx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFont")]
-            internal static extern global::System.IntPtr GetFont();
+            public static extern global::System.IntPtr GetFont();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFontSize")]
-            internal static extern float GetFontSize();
+            public static extern float GetFontSize();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFontTexUvWhitePixel")]
-            internal static extern void GetFontTexUvWhitePixel(global::System.IntPtr pOut);
+            public static extern void GetFontTexUvWhitePixel(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColorU32Col")]
-            internal static extern uint GetColorU32Col(int idx, float alpha_mul);
+            public static extern uint GetColorU32Col(int idx, float alpha_mul);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColorU32Vec4")]
-            internal static extern uint GetColorU32Vec4(global::System.IntPtr col);
+            public static extern uint GetColorU32Vec4(global::System.IntPtr col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColorU32U32")]
-            internal static extern uint GetColorU32U32(uint col);
+            public static extern uint GetColorU32U32(uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushItemWidth")]
-            internal static extern void PushItemWidth(float item_width);
+            public static extern void PushItemWidth(float item_width);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopItemWidth")]
-            internal static extern void PopItemWidth();
+            public static extern void PopItemWidth();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextItemWidth")]
-            internal static extern void SetNextItemWidth(float item_width);
+            public static extern void SetNextItemWidth(float item_width);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCalcItemWidth")]
-            internal static extern float CalcItemWidth();
+            public static extern float CalcItemWidth();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushTextWrapPos")]
-            internal static extern void PushTextWrapPos(float wrap_local_pos_x);
+            public static extern void PushTextWrapPos(float wrap_local_pos_x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopTextWrapPos")]
-            internal static extern void PopTextWrapPos();
+            public static extern void PopTextWrapPos();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushAllowKeyboardFocus")]
-            internal static extern void PushAllowKeyboardFocus(bool allow_keyboard_focus);
+            public static extern void PushAllowKeyboardFocus(bool allow_keyboard_focus);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopAllowKeyboardFocus")]
-            internal static extern void PopAllowKeyboardFocus();
+            public static extern void PopAllowKeyboardFocus();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushButtonRepeat")]
-            internal static extern void PushButtonRepeat(bool repeat);
+            public static extern void PushButtonRepeat(bool repeat);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopButtonRepeat")]
-            internal static extern void PopButtonRepeat();
+            public static extern void PopButtonRepeat();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSeparator")]
-            internal static extern void Separator();
+            public static extern void Separator();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSameLine")]
-            internal static extern void SameLine(float offset_from_start_x, float spacing);
+            public static extern void SameLine(float offset_from_start_x, float spacing);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNewLine")]
-            internal static extern void NewLine();
+            public static extern void NewLine();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSpacing")]
-            internal static extern void Spacing();
+            public static extern void Spacing();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDummy")]
-            internal static extern void Dummy(global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern void Dummy(global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIndent")]
-            internal static extern void Indent(float indent_w);
+            public static extern void Indent(float indent_w);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igUnindent")]
-            internal static extern void Unindent(float indent_w);
+            public static extern void Unindent(float indent_w);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginGroup")]
-            internal static extern void BeginGroup();
+            public static extern void BeginGroup();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndGroup")]
-            internal static extern void EndGroup();
+            public static extern void EndGroup();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCursorPos")]
-            internal static extern void GetCursorPos(global::System.IntPtr pOut);
+            public static extern void GetCursorPos(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCursorPosX")]
-            internal static extern float GetCursorPosX();
+            public static extern float GetCursorPosX();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCursorPosY")]
-            internal static extern float GetCursorPosY();
+            public static extern float GetCursorPosY();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetCursorPos")]
-            internal static extern void SetCursorPos(global::DearImguiSharp.ImVec2.__Internal local_pos);
+            public static extern void SetCursorPos(global::DearImguiSharp.ImVec2.__Internal local_pos);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetCursorPosX")]
-            internal static extern void SetCursorPosX(float local_x);
+            public static extern void SetCursorPosX(float local_x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetCursorPosY")]
-            internal static extern void SetCursorPosY(float local_y);
+            public static extern void SetCursorPosY(float local_y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCursorStartPos")]
-            internal static extern void GetCursorStartPos(global::System.IntPtr pOut);
+            public static extern void GetCursorStartPos(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCursorScreenPos")]
-            internal static extern void GetCursorScreenPos(global::System.IntPtr pOut);
+            public static extern void GetCursorScreenPos(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetCursorScreenPos")]
-            internal static extern void SetCursorScreenPos(global::DearImguiSharp.ImVec2.__Internal pos);
+            public static extern void SetCursorScreenPos(global::DearImguiSharp.ImVec2.__Internal pos);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igAlignTextToFramePadding")]
-            internal static extern void AlignTextToFramePadding();
+            public static extern void AlignTextToFramePadding();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetTextLineHeight")]
-            internal static extern float GetTextLineHeight();
+            public static extern float GetTextLineHeight();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetTextLineHeightWithSpacing")]
-            internal static extern float GetTextLineHeightWithSpacing();
+            public static extern float GetTextLineHeightWithSpacing();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFrameHeight")]
-            internal static extern float GetFrameHeight();
+            public static extern float GetFrameHeight();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFrameHeightWithSpacing")]
-            internal static extern float GetFrameHeightWithSpacing();
+            public static extern float GetFrameHeightWithSpacing();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushIDStr")]
-            internal static extern void PushIDStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
+            public static extern void PushIDStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushIDStrStr")]
-            internal static extern void PushIDStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_end);
+            public static extern void PushIDStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushIDPtr")]
-            internal static extern void PushIDPtr(global::System.IntPtr ptr_id);
+            public static extern void PushIDPtr(global::System.IntPtr ptr_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushIDInt")]
-            internal static extern void PushIDInt(int int_id);
+            public static extern void PushIDInt(int int_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopID")]
-            internal static extern void PopID();
+            public static extern void PopID();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetIDStr")]
-            internal static extern uint GetIDStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
+            public static extern uint GetIDStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetIDStrStr")]
-            internal static extern uint GetIDStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_end);
+            public static extern uint GetIDStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_id_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetIDPtr")]
-            internal static extern uint GetIDPtr(global::System.IntPtr ptr_id);
+            public static extern uint GetIDPtr(global::System.IntPtr ptr_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTextUnformatted")]
-            internal static extern void TextUnformatted([MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
+            public static extern void TextUnformatted([MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igText")]
-            internal static extern void Text([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void Text([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTextColored")]
-            internal static extern void TextColored(global::System.IntPtr col, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void TextColored(global::System.IntPtr col, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTextDisabled")]
-            internal static extern void TextDisabled([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void TextDisabled([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTextWrapped")]
-            internal static extern void TextWrapped([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void TextWrapped([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLabelText")]
-            internal static extern void LabelText([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void LabelText([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBulletText")]
-            internal static extern void BulletText([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void BulletText([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Button([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool Button([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSmallButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SmallButton([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
+            public static extern bool SmallButton([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInvisibleButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InvisibleButton([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool InvisibleButton([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igArrowButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ArrowButton([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int dir);
+            public static extern bool ArrowButton([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int dir);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImage")]
-            internal static extern void Image(global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, global::System.IntPtr tint_col, global::System.IntPtr border_col);
+            public static extern void Image(global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, global::System.IntPtr tint_col, global::System.IntPtr border_col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImageButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImageButton(global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, int frame_padding, global::System.IntPtr bg_col, global::System.IntPtr tint_col);
+            public static extern bool ImageButton(global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, int frame_padding, global::System.IntPtr bg_col, global::System.IntPtr tint_col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCheckbox")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Checkbox([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* v);
+            public static extern bool Checkbox([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCheckboxFlags")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool CheckboxFlags([MarshalAs(UnmanagedType.LPUTF8Str)] string label, uint* flags, uint flags_value);
+            public static extern bool CheckboxFlags([MarshalAs(UnmanagedType.LPUTF8Str)] string label, uint* flags, uint flags_value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRadioButtonBool")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool RadioButtonBool([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool active);
+            public static extern bool RadioButtonBool([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool active);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRadioButtonIntPtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool RadioButtonIntPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_button);
+            public static extern bool RadioButtonIntPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igProgressBar")]
-            internal static extern void ProgressBar(float fraction, global::DearImguiSharp.ImVec2.__Internal size_arg, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay);
+            public static extern void ProgressBar(float fraction, global::DearImguiSharp.ImVec2.__Internal size_arg, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBullet")]
-            internal static extern void Bullet();
+            public static extern void Bullet();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginCombo")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginCombo([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string preview_value, int flags);
+            public static extern bool BeginCombo([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string preview_value, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndCombo")]
-            internal static extern void EndCombo();
+            public static extern void EndCombo();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igComboStr_arr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ComboStr_arr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, [MarshalAs(UnmanagedType.LPArray)] string[] items, int items_count, int popup_max_height_in_items);
+            public static extern bool ComboStr_arr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, [MarshalAs(UnmanagedType.LPArray)] string[] items, int items_count, int popup_max_height_in_items);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igComboStr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ComboStr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, [MarshalAs(UnmanagedType.LPUTF8Str)] string items_separated_by_zeros, int popup_max_height_in_items);
+            public static extern bool ComboStr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, [MarshalAs(UnmanagedType.LPUTF8Str)] string items_separated_by_zeros, int popup_max_height_in_items);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igComboFnPtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ComboFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, global::System.IntPtr items_getter, global::System.IntPtr data, int items_count, int popup_max_height_in_items);
+            public static extern bool ComboFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, global::System.IntPtr items_getter, global::System.IntPtr data, int items_count, int popup_max_height_in_items);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragFloat")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool DragFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragFloat2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool DragFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragFloat3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool DragFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragFloat4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool DragFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragFloatRange2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragFloatRange2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v_current_min, float* v_current_max, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, [MarshalAs(UnmanagedType.LPUTF8Str)] string format_max, float power);
+            public static extern bool DragFloatRange2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v_current_min, float* v_current_max, float v_speed, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, [MarshalAs(UnmanagedType.LPUTF8Str)] string format_max, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragInt")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool DragInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragInt2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool DragInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragInt3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool DragInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragInt4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool DragInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragIntRange2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragIntRange2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v_current_min, int* v_current_max, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, [MarshalAs(UnmanagedType.LPUTF8Str)] string format_max);
+            public static extern bool DragIntRange2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v_current_min, int* v_current_max, float v_speed, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, [MarshalAs(UnmanagedType.LPUTF8Str)] string format_max);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragScalar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, float v_speed, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool DragScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, float v_speed, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragScalarN")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragScalarN([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, int components, float v_speed, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool DragScalarN([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, int components, float v_speed, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderFloat")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool SliderFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderFloat2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool SliderFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderFloat3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool SliderFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderFloat4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool SliderFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderAngle")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderAngle([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v_rad, float v_degrees_min, float v_degrees_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool SliderAngle([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v_rad, float v_degrees_min, float v_degrees_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderInt")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool SliderInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderInt2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool SliderInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderInt3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool SliderInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderInt4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool SliderInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderScalar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool SliderScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderScalarN")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderScalarN([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, int components, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool SliderScalarN([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, int components, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igVSliderFloat")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool VSliderFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size, float* v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool VSliderFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size, float* v, float v_min, float v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igVSliderInt")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool VSliderInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool VSliderInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igVSliderScalar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool VSliderScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size, int data_type, global::System.IntPtr p_data, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
+            public static extern bool VSliderScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size, int data_type, global::System.IntPtr p_data, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputText")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputText([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, ulong buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
+            public static extern bool InputText([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, ulong buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputTextMultiline")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputTextMultiline([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, ulong buf_size, global::DearImguiSharp.ImVec2.__Internal size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
+            public static extern bool InputTextMultiline([MarshalAs(UnmanagedType.LPUTF8Str)] string label, sbyte* buf, ulong buf_size, global::DearImguiSharp.ImVec2.__Internal size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputTextWithHint")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputTextWithHint([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string hint, sbyte* buf, ulong buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
+            public static extern bool InputTextWithHint([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string hint, sbyte* buf, ulong buf_size, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputFloat")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float step, float step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
+            public static extern bool InputFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float step, float step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputFloat2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
+            public static extern bool InputFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputFloat3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
+            public static extern bool InputFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputFloat4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
+            public static extern bool InputFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] v, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputInt")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int step, int step_fast, int flags);
+            public static extern bool InputInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int step, int step_fast, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputInt2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int flags);
+            public static extern bool InputInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputInt3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int flags);
+            public static extern bool InputInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputInt4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int flags);
+            public static extern bool InputInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int[] v, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputDouble")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputDouble([MarshalAs(UnmanagedType.LPUTF8Str)] string label, double* v, double step, double step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
+            public static extern bool InputDouble([MarshalAs(UnmanagedType.LPUTF8Str)] string label, double* v, double step, double step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputScalar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, global::System.IntPtr p_step, global::System.IntPtr p_step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
+            public static extern bool InputScalar([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, global::System.IntPtr p_step, global::System.IntPtr p_step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputScalarN")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputScalarN([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, int components, global::System.IntPtr p_step, global::System.IntPtr p_step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
+            public static extern bool InputScalarN([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, int components, global::System.IntPtr p_step, global::System.IntPtr p_step_fast, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorEdit3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ColorEdit3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags);
+            public static extern bool ColorEdit3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorEdit4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ColorEdit4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags);
+            public static extern bool ColorEdit4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorPicker3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ColorPicker3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags);
+            public static extern bool ColorPicker3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorPicker4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ColorPicker4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags, float* ref_col);
+            public static extern bool ColorPicker4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float[] col, int flags, float* ref_col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ColorButton([MarshalAs(UnmanagedType.LPUTF8Str)] string desc_id, global::System.IntPtr col, int flags, global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool ColorButton([MarshalAs(UnmanagedType.LPUTF8Str)] string desc_id, global::System.IntPtr col, int flags, global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetColorEditOptions")]
-            internal static extern void SetColorEditOptions(int flags);
+            public static extern void SetColorEditOptions(int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodeStr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodeStr([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
+            public static extern bool TreeNodeStr([MarshalAs(UnmanagedType.LPUTF8Str)] string label);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodeStrStr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodeStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern bool TreeNodeStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodePtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodePtr(global::System.IntPtr ptr_id, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern bool TreeNodePtr(global::System.IntPtr ptr_id, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodeExStr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodeExStr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int flags);
+            public static extern bool TreeNodeExStr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodeExStrStr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodeExStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern bool TreeNodeExStrStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodeExPtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodeExPtr(global::System.IntPtr ptr_id, int flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern bool TreeNodeExPtr(global::System.IntPtr ptr_id, int flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreePushStr")]
-            internal static extern void TreePushStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
+            public static extern void TreePushStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreePushPtr")]
-            internal static extern void TreePushPtr(global::System.IntPtr ptr_id);
+            public static extern void TreePushPtr(global::System.IntPtr ptr_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreePop")]
-            internal static extern void TreePop();
+            public static extern void TreePop();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetTreeNodeToLabelSpacing")]
-            internal static extern float GetTreeNodeToLabelSpacing();
+            public static extern float GetTreeNodeToLabelSpacing();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCollapsingHeaderTreeNodeFlags")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool CollapsingHeaderTreeNodeFlags([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int flags);
+            public static extern bool CollapsingHeaderTreeNodeFlags([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCollapsingHeaderBoolPtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool CollapsingHeaderBoolPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_open, int flags);
+            public static extern bool CollapsingHeaderBoolPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_open, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNextItemOpen")]
-            internal static extern void SetNextItemOpen(bool is_open, int cond);
+            public static extern void SetNextItemOpen(bool is_open, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSelectableBool")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SelectableBool([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool selected, int flags, global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool SelectableBool([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool selected, int flags, global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSelectableBoolPtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SelectableBoolPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_selected, int flags, global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool SelectableBoolPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_selected, int flags, global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igListBoxStr_arr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ListBoxStr_arr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, [MarshalAs(UnmanagedType.LPArray)] string[] items, int items_count, int height_in_items);
+            public static extern bool ListBoxStr_arr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, [MarshalAs(UnmanagedType.LPArray)] string[] items, int items_count, int height_in_items);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igListBoxFnPtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ListBoxFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, global::System.IntPtr items_getter, global::System.IntPtr data, int items_count, int height_in_items);
+            public static extern bool ListBoxFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* current_item, global::System.IntPtr items_getter, global::System.IntPtr data, int items_count, int height_in_items);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igListBoxHeaderVec2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ListBoxHeaderVec2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool ListBoxHeaderVec2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igListBoxHeaderInt")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ListBoxHeaderInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int items_count, int height_in_items);
+            public static extern bool ListBoxHeaderInt([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int items_count, int height_in_items);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igListBoxFooter")]
-            internal static extern void ListBoxFooter();
+            public static extern void ListBoxFooter();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPlotLinesFloatPtr")]
-            internal static extern void PlotLinesFloatPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* values, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size, int stride);
+            public static extern void PlotLinesFloatPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* values, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size, int stride);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPlotLinesFnPtr")]
-            internal static extern void PlotLinesFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::System.IntPtr values_getter, global::System.IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size);
+            public static extern void PlotLinesFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::System.IntPtr values_getter, global::System.IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPlotHistogramFloatPtr")]
-            internal static extern void PlotHistogramFloatPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* values, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size, int stride);
+            public static extern void PlotHistogramFloatPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* values, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size, int stride);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPlotHistogramFnPtr")]
-            internal static extern void PlotHistogramFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::System.IntPtr values_getter, global::System.IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size);
+            public static extern void PlotHistogramFnPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::System.IntPtr values_getter, global::System.IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igValueBool")]
-            internal static extern void ValueBool([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, bool b);
+            public static extern void ValueBool([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, bool b);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igValueInt")]
-            internal static extern void ValueInt([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, int v);
+            public static extern void ValueInt([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, int v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igValueUint")]
-            internal static extern void ValueUint([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, uint v);
+            public static extern void ValueUint([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, uint v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igValueFloat")]
-            internal static extern void ValueFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, float v, [MarshalAs(UnmanagedType.LPUTF8Str)] string float_format);
+            public static extern void ValueFloat([MarshalAs(UnmanagedType.LPUTF8Str)] string prefix, float v, [MarshalAs(UnmanagedType.LPUTF8Str)] string float_format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginMenuBar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginMenuBar();
+            public static extern bool BeginMenuBar();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndMenuBar")]
-            internal static extern void EndMenuBar();
+            public static extern void EndMenuBar();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginMainMenuBar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginMainMenuBar();
+            public static extern bool BeginMainMenuBar();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndMainMenuBar")]
-            internal static extern void EndMainMenuBar();
+            public static extern void EndMainMenuBar();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginMenu")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginMenu([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool enabled);
+            public static extern bool BeginMenu([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool enabled);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndMenu")]
-            internal static extern void EndMenu();
+            public static extern void EndMenu();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMenuItemBool")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool MenuItemBool([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string shortcut, bool selected, bool enabled);
+            public static extern bool MenuItemBool([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string shortcut, bool selected, bool enabled);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMenuItemBoolPtr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool MenuItemBoolPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string shortcut, bool* p_selected, bool enabled);
+            public static extern bool MenuItemBoolPtr([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string shortcut, bool* p_selected, bool enabled);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginTooltip")]
-            internal static extern void BeginTooltip();
+            public static extern void BeginTooltip();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndTooltip")]
-            internal static extern void EndTooltip();
+            public static extern void EndTooltip();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetTooltip")]
-            internal static extern void SetTooltip([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void SetTooltip([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igOpenPopup")]
-            internal static extern void OpenPopup([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
+            public static extern void OpenPopup([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginPopup")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginPopup([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int flags);
+            public static extern bool BeginPopup([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginPopupContextItem")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginPopupContextItem([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button);
+            public static extern bool BeginPopupContextItem([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginPopupContextWindow")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginPopupContextWindow([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button, bool also_over_items);
+            public static extern bool BeginPopupContextWindow([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button, bool also_over_items);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginPopupContextVoid")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginPopupContextVoid([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button);
+            public static extern bool BeginPopupContextVoid([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginPopupModal")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginPopupModal([MarshalAs(UnmanagedType.LPUTF8Str)] string name, bool* p_open, int flags);
+            public static extern bool BeginPopupModal([MarshalAs(UnmanagedType.LPUTF8Str)] string name, bool* p_open, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndPopup")]
-            internal static extern void EndPopup();
+            public static extern void EndPopup();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igOpenPopupOnItemClick")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool OpenPopupOnItemClick([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button);
+            public static extern bool OpenPopupOnItemClick([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int mouse_button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsPopupOpenStr")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsPopupOpenStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
+            public static extern bool IsPopupOpenStr([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCloseCurrentPopup")]
-            internal static extern void CloseCurrentPopup();
+            public static extern void CloseCurrentPopup();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColumns")]
-            internal static extern void Columns(int count, [MarshalAs(UnmanagedType.LPUTF8Str)] string id, bool border);
+            public static extern void Columns(int count, [MarshalAs(UnmanagedType.LPUTF8Str)] string id, bool border);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNextColumn")]
-            internal static extern void NextColumn();
+            public static extern void NextColumn();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColumnIndex")]
-            internal static extern int GetColumnIndex();
+            public static extern int GetColumnIndex();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColumnWidth")]
-            internal static extern float GetColumnWidth(int column_index);
+            public static extern float GetColumnWidth(int column_index);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetColumnWidth")]
-            internal static extern void SetColumnWidth(int column_index, float width);
+            public static extern void SetColumnWidth(int column_index, float width);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColumnOffset")]
-            internal static extern float GetColumnOffset(int column_index);
+            public static extern float GetColumnOffset(int column_index);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetColumnOffset")]
-            internal static extern void SetColumnOffset(int column_index, float offset_x);
+            public static extern void SetColumnOffset(int column_index, float offset_x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColumnsCount")]
-            internal static extern int GetColumnsCount();
+            public static extern int GetColumnsCount();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginTabBar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginTabBar([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int flags);
+            public static extern bool BeginTabBar([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndTabBar")]
-            internal static extern void EndTabBar();
+            public static extern void EndTabBar();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginTabItem")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginTabItem([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_open, int flags);
+            public static extern bool BeginTabItem([MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_open, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndTabItem")]
-            internal static extern void EndTabItem();
+            public static extern void EndTabItem();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetTabItemClosed")]
-            internal static extern void SetTabItemClosed([MarshalAs(UnmanagedType.LPUTF8Str)] string tab_or_docked_window_label);
+            public static extern void SetTabItemClosed([MarshalAs(UnmanagedType.LPUTF8Str)] string tab_or_docked_window_label);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogToTTY")]
-            internal static extern void LogToTTY(int auto_open_depth);
+            public static extern void LogToTTY(int auto_open_depth);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogToFile")]
-            internal static extern void LogToFile(int auto_open_depth, [MarshalAs(UnmanagedType.LPUTF8Str)] string filename);
+            public static extern void LogToFile(int auto_open_depth, [MarshalAs(UnmanagedType.LPUTF8Str)] string filename);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogToClipboard")]
-            internal static extern void LogToClipboard(int auto_open_depth);
+            public static extern void LogToClipboard(int auto_open_depth);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogFinish")]
-            internal static extern void LogFinish();
+            public static extern void LogFinish();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogButtons")]
-            internal static extern void LogButtons();
+            public static extern void LogButtons();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginDragDropSource")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginDragDropSource(int flags);
+            public static extern bool BeginDragDropSource(int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetDragDropPayload")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SetDragDropPayload([MarshalAs(UnmanagedType.LPUTF8Str)] string type, global::System.IntPtr data, ulong sz, int cond);
+            public static extern bool SetDragDropPayload([MarshalAs(UnmanagedType.LPUTF8Str)] string type, global::System.IntPtr data, ulong sz, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndDragDropSource")]
-            internal static extern void EndDragDropSource();
+            public static extern void EndDragDropSource();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginDragDropTarget")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginDragDropTarget();
+            public static extern bool BeginDragDropTarget();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igAcceptDragDropPayload")]
-            internal static extern global::System.IntPtr AcceptDragDropPayload([MarshalAs(UnmanagedType.LPUTF8Str)] string type, int flags);
+            public static extern global::System.IntPtr AcceptDragDropPayload([MarshalAs(UnmanagedType.LPUTF8Str)] string type, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndDragDropTarget")]
-            internal static extern void EndDragDropTarget();
+            public static extern void EndDragDropTarget();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetDragDropPayload")]
-            internal static extern global::System.IntPtr GetDragDropPayload();
+            public static extern global::System.IntPtr GetDragDropPayload();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushClipRect")]
-            internal static extern void PushClipRect(global::DearImguiSharp.ImVec2.__Internal clip_rect_min, global::DearImguiSharp.ImVec2.__Internal clip_rect_max, bool intersect_with_current_clip_rect);
+            public static extern void PushClipRect(global::DearImguiSharp.ImVec2.__Internal clip_rect_min, global::DearImguiSharp.ImVec2.__Internal clip_rect_max, bool intersect_with_current_clip_rect);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopClipRect")]
-            internal static extern void PopClipRect();
+            public static extern void PopClipRect();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetItemDefaultFocus")]
-            internal static extern void SetItemDefaultFocus();
+            public static extern void SetItemDefaultFocus();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetKeyboardFocusHere")]
-            internal static extern void SetKeyboardFocusHere(int offset);
+            public static extern void SetKeyboardFocusHere(int offset);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemHovered")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemHovered(int flags);
+            public static extern bool IsItemHovered(int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemActive")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemActive();
+            public static extern bool IsItemActive();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemFocused")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemFocused();
+            public static extern bool IsItemFocused();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemClicked")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemClicked(int mouse_button);
+            public static extern bool IsItemClicked(int mouse_button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemVisible")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemVisible();
+            public static extern bool IsItemVisible();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemEdited")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemEdited();
+            public static extern bool IsItemEdited();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemActivated")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemActivated();
+            public static extern bool IsItemActivated();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemDeactivated")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemDeactivated();
+            public static extern bool IsItemDeactivated();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemDeactivatedAfterEdit")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemDeactivatedAfterEdit();
+            public static extern bool IsItemDeactivatedAfterEdit();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemToggledOpen")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemToggledOpen();
+            public static extern bool IsItemToggledOpen();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsAnyItemHovered")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsAnyItemHovered();
+            public static extern bool IsAnyItemHovered();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsAnyItemActive")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsAnyItemActive();
+            public static extern bool IsAnyItemActive();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsAnyItemFocused")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsAnyItemFocused();
+            public static extern bool IsAnyItemFocused();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetItemRectMin")]
-            internal static extern void GetItemRectMin(global::System.IntPtr pOut);
+            public static extern void GetItemRectMin(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetItemRectMax")]
-            internal static extern void GetItemRectMax(global::System.IntPtr pOut);
+            public static extern void GetItemRectMax(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetItemRectSize")]
-            internal static extern void GetItemRectSize(global::System.IntPtr pOut);
+            public static extern void GetItemRectSize(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetItemAllowOverlap")]
-            internal static extern void SetItemAllowOverlap();
+            public static extern void SetItemAllowOverlap();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsRectVisibleNil")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsRectVisibleNil(global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool IsRectVisibleNil(global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsRectVisibleVec2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsRectVisibleVec2(global::DearImguiSharp.ImVec2.__Internal rect_min, global::DearImguiSharp.ImVec2.__Internal rect_max);
+            public static extern bool IsRectVisibleVec2(global::DearImguiSharp.ImVec2.__Internal rect_min, global::DearImguiSharp.ImVec2.__Internal rect_max);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetTime")]
-            internal static extern double GetTime();
+            public static extern double GetTime();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFrameCount")]
-            internal static extern int GetFrameCount();
+            public static extern int GetFrameCount();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetBackgroundDrawList")]
-            internal static extern global::System.IntPtr GetBackgroundDrawList();
+            public static extern global::System.IntPtr GetBackgroundDrawList();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetForegroundDrawListNil")]
-            internal static extern global::System.IntPtr GetForegroundDrawListNil();
+            public static extern global::System.IntPtr GetForegroundDrawListNil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetDrawListSharedData")]
-            internal static extern global::System.IntPtr GetDrawListSharedData();
+            public static extern global::System.IntPtr GetDrawListSharedData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetStyleColorName")]
-            internal static extern global::System.IntPtr GetStyleColorName(int idx);
+            public static extern global::System.IntPtr GetStyleColorName(int idx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetStateStorage")]
-            internal static extern void SetStateStorage(global::System.IntPtr storage);
+            public static extern void SetStateStorage(global::System.IntPtr storage);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetStateStorage")]
-            internal static extern global::System.IntPtr GetStateStorage();
+            public static extern global::System.IntPtr GetStateStorage();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCalcTextSize")]
-            internal static extern void CalcTextSize(global::System.IntPtr pOut, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, bool hide_text_after_double_hash, float wrap_width);
+            public static extern void CalcTextSize(global::System.IntPtr pOut, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, bool hide_text_after_double_hash, float wrap_width);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCalcListClipping")]
-            internal static extern void CalcListClipping(int items_count, float items_height, int* out_items_display_start, int* out_items_display_end);
+            public static extern void CalcListClipping(int items_count, float items_height, int* out_items_display_start, int* out_items_display_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginChildFrame")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginChildFrame(uint id, global::DearImguiSharp.ImVec2.__Internal size, int flags);
+            public static extern bool BeginChildFrame(uint id, global::DearImguiSharp.ImVec2.__Internal size, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndChildFrame")]
-            internal static extern void EndChildFrame();
+            public static extern void EndChildFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorConvertU32ToFloat4")]
-            internal static extern void ColorConvertU32ToFloat4(global::System.IntPtr pOut, uint @in);
+            public static extern void ColorConvertU32ToFloat4(global::System.IntPtr pOut, uint @in);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorConvertFloat4ToU32")]
-            internal static extern uint ColorConvertFloat4ToU32(global::System.IntPtr @in);
+            public static extern uint ColorConvertFloat4ToU32(global::System.IntPtr @in);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetKeyIndex")]
-            internal static extern int GetKeyIndex(int imgui_key);
+            public static extern int GetKeyIndex(int imgui_key);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsKeyDown")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsKeyDown(int user_key_index);
+            public static extern bool IsKeyDown(int user_key_index);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsKeyPressed")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsKeyPressed(int user_key_index, bool repeat);
+            public static extern bool IsKeyPressed(int user_key_index, bool repeat);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsKeyReleased")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsKeyReleased(int user_key_index);
+            public static extern bool IsKeyReleased(int user_key_index);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetKeyPressedAmount")]
-            internal static extern int GetKeyPressedAmount(int key_index, float repeat_delay, float rate);
+            public static extern int GetKeyPressedAmount(int key_index, float repeat_delay, float rate);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCaptureKeyboardFromApp")]
-            internal static extern void CaptureKeyboardFromApp(bool want_capture_keyboard_value);
+            public static extern void CaptureKeyboardFromApp(bool want_capture_keyboard_value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMouseDown")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMouseDown(int button);
+            public static extern bool IsMouseDown(int button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMouseClicked")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMouseClicked(int button, bool repeat);
+            public static extern bool IsMouseClicked(int button, bool repeat);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMouseReleased")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMouseReleased(int button);
+            public static extern bool IsMouseReleased(int button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMouseDoubleClicked")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMouseDoubleClicked(int button);
+            public static extern bool IsMouseDoubleClicked(int button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMouseHoveringRect")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMouseHoveringRect(global::DearImguiSharp.ImVec2.__Internal r_min, global::DearImguiSharp.ImVec2.__Internal r_max, bool clip);
+            public static extern bool IsMouseHoveringRect(global::DearImguiSharp.ImVec2.__Internal r_min, global::DearImguiSharp.ImVec2.__Internal r_max, bool clip);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMousePosValid")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMousePosValid(global::System.IntPtr mouse_pos);
+            public static extern bool IsMousePosValid(global::System.IntPtr mouse_pos);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsAnyMouseDown")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsAnyMouseDown();
+            public static extern bool IsAnyMouseDown();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetMousePos")]
-            internal static extern void GetMousePos(global::System.IntPtr pOut);
+            public static extern void GetMousePos(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetMousePosOnOpeningCurrentPopup")]
-            internal static extern void GetMousePosOnOpeningCurrentPopup(global::System.IntPtr pOut);
+            public static extern void GetMousePosOnOpeningCurrentPopup(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMouseDragging")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMouseDragging(int button, float lock_threshold);
+            public static extern bool IsMouseDragging(int button, float lock_threshold);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetMouseDragDelta")]
-            internal static extern void GetMouseDragDelta(global::System.IntPtr pOut, int button, float lock_threshold);
+            public static extern void GetMouseDragDelta(global::System.IntPtr pOut, int button, float lock_threshold);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igResetMouseDragDelta")]
-            internal static extern void ResetMouseDragDelta(int button);
+            public static extern void ResetMouseDragDelta(int button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetMouseCursor")]
-            internal static extern int GetMouseCursor();
+            public static extern int GetMouseCursor();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetMouseCursor")]
-            internal static extern void SetMouseCursor(int cursor_type);
+            public static extern void SetMouseCursor(int cursor_type);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCaptureMouseFromApp")]
-            internal static extern void CaptureMouseFromApp(bool want_capture_mouse_value);
+            public static extern void CaptureMouseFromApp(bool want_capture_mouse_value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetClipboardText")]
-            internal static extern global::System.IntPtr GetClipboardText();
+            public static extern global::System.IntPtr GetClipboardText();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetClipboardText")]
-            internal static extern void SetClipboardText([MarshalAs(UnmanagedType.LPUTF8Str)] string text);
+            public static extern void SetClipboardText([MarshalAs(UnmanagedType.LPUTF8Str)] string text);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLoadIniSettingsFromDisk")]
-            internal static extern void LoadIniSettingsFromDisk([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_filename);
+            public static extern void LoadIniSettingsFromDisk([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_filename);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLoadIniSettingsFromMemory")]
-            internal static extern void LoadIniSettingsFromMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_data, ulong ini_size);
+            public static extern void LoadIniSettingsFromMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_data, ulong ini_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSaveIniSettingsToDisk")]
-            internal static extern void SaveIniSettingsToDisk([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_filename);
+            public static extern void SaveIniSettingsToDisk([MarshalAs(UnmanagedType.LPUTF8Str)] string ini_filename);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSaveIniSettingsToMemory")]
-            internal static extern global::System.IntPtr SaveIniSettingsToMemory(ulong* out_ini_size);
+            public static extern global::System.IntPtr SaveIniSettingsToMemory(ulong* out_ini_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetAllocatorFunctions")]
-            internal static extern void SetAllocatorFunctions(global::System.IntPtr alloc_func, global::System.IntPtr free_func, global::System.IntPtr user_data);
+            public static extern void SetAllocatorFunctions(global::System.IntPtr alloc_func, global::System.IntPtr free_func, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMemAlloc")]
-            internal static extern global::System.IntPtr MemAlloc(ulong size);
+            public static extern global::System.IntPtr MemAlloc(ulong size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMemFree")]
-            internal static extern void MemFree(global::System.IntPtr ptr);
+            public static extern void MemFree(global::System.IntPtr ptr);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStyle_ImGuiStyle")]
-            internal static extern global::System.IntPtr ImGuiStyleImGuiStyle();
+            public static extern global::System.IntPtr ImGuiStyleImGuiStyle();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStyle_destroy")]
-            internal static extern void ImGuiStyle_destroy(global::System.IntPtr self);
+            public static extern void ImGuiStyle_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStyle_ScaleAllSizes")]
-            internal static extern void ImGuiStyleScaleAllSizes(global::System.IntPtr self, float scale_factor);
+            public static extern void ImGuiStyleScaleAllSizes(global::System.IntPtr self, float scale_factor);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiIO_AddInputCharacter")]
-            internal static extern void ImGuiIO_AddInputCharacter(global::System.IntPtr self, uint c);
+            public static extern void ImGuiIO_AddInputCharacter(global::System.IntPtr self, uint c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiIO_AddInputCharactersUTF8")]
-            internal static extern void ImGuiIO_AddInputCharactersUTF8(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str);
+            public static extern void ImGuiIO_AddInputCharactersUTF8(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiIO_ClearInputCharacters")]
-            internal static extern void ImGuiIO_ClearInputCharacters(global::System.IntPtr self);
+            public static extern void ImGuiIO_ClearInputCharacters(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiIO_ImGuiIO")]
-            internal static extern global::System.IntPtr ImGuiIO_ImGuiIO();
+            public static extern global::System.IntPtr ImGuiIO_ImGuiIO();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiIO_destroy")]
-            internal static extern void ImGuiIO_destroy(global::System.IntPtr self);
+            public static extern void ImGuiIO_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextCallbackData_ImGuiInputTextCallbackData")]
-            internal static extern global::System.IntPtr ImGuiInputTextCallbackDataImGuiInputTextCallbackData();
+            public static extern global::System.IntPtr ImGuiInputTextCallbackDataImGuiInputTextCallbackData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextCallbackData_destroy")]
-            internal static extern void ImGuiInputTextCallbackData_destroy(global::System.IntPtr self);
+            public static extern void ImGuiInputTextCallbackData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextCallbackData_DeleteChars")]
-            internal static extern void ImGuiInputTextCallbackDataDeleteChars(global::System.IntPtr self, int pos, int bytes_count);
+            public static extern void ImGuiInputTextCallbackDataDeleteChars(global::System.IntPtr self, int pos, int bytes_count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextCallbackData_InsertChars")]
-            internal static extern void ImGuiInputTextCallbackDataInsertChars(global::System.IntPtr self, int pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
+            public static extern void ImGuiInputTextCallbackDataInsertChars(global::System.IntPtr self, int pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextCallbackData_HasSelection")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiInputTextCallbackDataHasSelection(global::System.IntPtr self);
+            public static extern bool ImGuiInputTextCallbackDataHasSelection(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPayload_ImGuiPayload")]
-            internal static extern global::System.IntPtr ImGuiPayloadImGuiPayload();
+            public static extern global::System.IntPtr ImGuiPayloadImGuiPayload();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPayload_destroy")]
-            internal static extern void ImGuiPayload_destroy(global::System.IntPtr self);
+            public static extern void ImGuiPayload_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPayload_Clear")]
-            internal static extern void ImGuiPayloadClear(global::System.IntPtr self);
+            public static extern void ImGuiPayloadClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPayload_IsDataType")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiPayloadIsDataType(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string type);
+            public static extern bool ImGuiPayloadIsDataType(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string type);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPayload_IsPreview")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiPayloadIsPreview(global::System.IntPtr self);
+            public static extern bool ImGuiPayloadIsPreview(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPayload_IsDelivery")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiPayloadIsDelivery(global::System.IntPtr self);
+            public static extern bool ImGuiPayloadIsDelivery(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiOnceUponAFrame_ImGuiOnceUponAFrame")]
-            internal static extern global::System.IntPtr ImGuiOnceUponAFrameImGuiOnceUponAFrame();
+            public static extern global::System.IntPtr ImGuiOnceUponAFrameImGuiOnceUponAFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiOnceUponAFrame_destroy")]
-            internal static extern void ImGuiOnceUponAFrame_destroy(global::System.IntPtr self);
+            public static extern void ImGuiOnceUponAFrame_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextFilter_ImGuiTextFilter")]
-            internal static extern global::System.IntPtr ImGuiTextFilterImGuiTextFilter([MarshalAs(UnmanagedType.LPUTF8Str)] string default_filter);
+            public static extern global::System.IntPtr ImGuiTextFilterImGuiTextFilter([MarshalAs(UnmanagedType.LPUTF8Str)] string default_filter);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextFilter_destroy")]
-            internal static extern void ImGuiTextFilter_destroy(global::System.IntPtr self);
+            public static extern void ImGuiTextFilter_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextFilter_Draw")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiTextFilterDraw(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, float width);
+            public static extern bool ImGuiTextFilterDraw(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, float width);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextFilter_PassFilter")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiTextFilterPassFilter(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
+            public static extern bool ImGuiTextFilterPassFilter(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextFilter_Build")]
-            internal static extern void ImGuiTextFilterBuild(global::System.IntPtr self);
+            public static extern void ImGuiTextFilterBuild(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextFilter_Clear")]
-            internal static extern void ImGuiTextFilterClear(global::System.IntPtr self);
+            public static extern void ImGuiTextFilterClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextFilter_IsActive")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiTextFilterIsActive(global::System.IntPtr self);
+            public static extern bool ImGuiTextFilterIsActive(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextRange_ImGuiTextRangeNil")]
-            internal static extern global::System.IntPtr ImGuiTextRangeImGuiTextRangeNil();
+            public static extern global::System.IntPtr ImGuiTextRangeImGuiTextRangeNil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextRange_destroy")]
-            internal static extern void ImGuiTextRange_destroy(global::System.IntPtr self);
+            public static extern void ImGuiTextRange_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextRange_ImGuiTextRangeStr")]
-            internal static extern global::System.IntPtr ImGuiTextRangeImGuiTextRangeStr([MarshalAs(UnmanagedType.LPUTF8Str)] string _b, [MarshalAs(UnmanagedType.LPUTF8Str)] string _e);
+            public static extern global::System.IntPtr ImGuiTextRangeImGuiTextRangeStr([MarshalAs(UnmanagedType.LPUTF8Str)] string _b, [MarshalAs(UnmanagedType.LPUTF8Str)] string _e);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextRange_empty")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiTextRange_empty(global::System.IntPtr self);
+            public static extern bool ImGuiTextRange_empty(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextRange_split")]
-            internal static extern void ImGuiTextRange_split(global::System.IntPtr self, sbyte separator, global::System.IntPtr @out);
+            public static extern void ImGuiTextRange_split(global::System.IntPtr self, sbyte separator, global::System.IntPtr @out);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_ImGuiTextBuffer")]
-            internal static extern global::System.IntPtr ImGuiTextBufferImGuiTextBuffer();
+            public static extern global::System.IntPtr ImGuiTextBufferImGuiTextBuffer();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_destroy")]
-            internal static extern void ImGuiTextBuffer_destroy(global::System.IntPtr self);
+            public static extern void ImGuiTextBuffer_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_begin")]
-            internal static extern global::System.IntPtr ImGuiTextBuffer_begin(global::System.IntPtr self);
+            public static extern global::System.IntPtr ImGuiTextBuffer_begin(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_end")]
-            internal static extern global::System.IntPtr ImGuiTextBuffer_end(global::System.IntPtr self);
+            public static extern global::System.IntPtr ImGuiTextBuffer_end(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_size")]
-            internal static extern int ImGuiTextBuffer_size(global::System.IntPtr self);
+            public static extern int ImGuiTextBuffer_size(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_empty")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiTextBuffer_empty(global::System.IntPtr self);
+            public static extern bool ImGuiTextBuffer_empty(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_clear")]
-            internal static extern void ImGuiTextBuffer_clear(global::System.IntPtr self);
+            public static extern void ImGuiTextBuffer_clear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_reserve")]
-            internal static extern void ImGuiTextBuffer_reserve(global::System.IntPtr self, int capacity);
+            public static extern void ImGuiTextBuffer_reserve(global::System.IntPtr self, int capacity);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_c_str")]
-            internal static extern global::System.IntPtr ImGuiTextBuffer_c_str(global::System.IntPtr self);
+            public static extern global::System.IntPtr ImGuiTextBuffer_c_str(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTextBuffer_append")]
-            internal static extern void ImGuiTextBuffer_append(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
+            public static extern void ImGuiTextBuffer_append(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStoragePair_ImGuiStoragePairInt")]
-            internal static extern global::System.IntPtr ImGuiStoragePairImGuiStoragePairInt(uint _key, int _val_i);
+            public static extern global::System.IntPtr ImGuiStoragePairImGuiStoragePairInt(uint _key, int _val_i);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStoragePair_destroy")]
-            internal static extern void ImGuiStoragePair_destroy(global::System.IntPtr self);
+            public static extern void ImGuiStoragePair_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStoragePair_ImGuiStoragePairFloat")]
-            internal static extern global::System.IntPtr ImGuiStoragePairImGuiStoragePairFloat(uint _key, float _val_f);
+            public static extern global::System.IntPtr ImGuiStoragePairImGuiStoragePairFloat(uint _key, float _val_f);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStoragePair_ImGuiStoragePairPtr")]
-            internal static extern global::System.IntPtr ImGuiStoragePairImGuiStoragePairPtr(uint _key, global::System.IntPtr _val_p);
+            public static extern global::System.IntPtr ImGuiStoragePairImGuiStoragePairPtr(uint _key, global::System.IntPtr _val_p);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_Clear")]
-            internal static extern void ImGuiStorageClear(global::System.IntPtr self);
+            public static extern void ImGuiStorageClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetInt")]
-            internal static extern int ImGuiStorageGetInt(global::System.IntPtr self, uint key, int default_val);
+            public static extern int ImGuiStorageGetInt(global::System.IntPtr self, uint key, int default_val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_SetInt")]
-            internal static extern void ImGuiStorageSetInt(global::System.IntPtr self, uint key, int val);
+            public static extern void ImGuiStorageSetInt(global::System.IntPtr self, uint key, int val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetBool")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiStorageGetBool(global::System.IntPtr self, uint key, bool default_val);
+            public static extern bool ImGuiStorageGetBool(global::System.IntPtr self, uint key, bool default_val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_SetBool")]
-            internal static extern void ImGuiStorageSetBool(global::System.IntPtr self, uint key, bool val);
+            public static extern void ImGuiStorageSetBool(global::System.IntPtr self, uint key, bool val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetFloat")]
-            internal static extern float ImGuiStorageGetFloat(global::System.IntPtr self, uint key, float default_val);
+            public static extern float ImGuiStorageGetFloat(global::System.IntPtr self, uint key, float default_val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_SetFloat")]
-            internal static extern void ImGuiStorageSetFloat(global::System.IntPtr self, uint key, float val);
+            public static extern void ImGuiStorageSetFloat(global::System.IntPtr self, uint key, float val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetVoidPtr")]
-            internal static extern global::System.IntPtr ImGuiStorageGetVoidPtr(global::System.IntPtr self, uint key);
+            public static extern global::System.IntPtr ImGuiStorageGetVoidPtr(global::System.IntPtr self, uint key);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_SetVoidPtr")]
-            internal static extern void ImGuiStorageSetVoidPtr(global::System.IntPtr self, uint key, global::System.IntPtr val);
+            public static extern void ImGuiStorageSetVoidPtr(global::System.IntPtr self, uint key, global::System.IntPtr val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetIntRef")]
-            internal static extern int* ImGuiStorageGetIntRef(global::System.IntPtr self, uint key, int default_val);
+            public static extern int* ImGuiStorageGetIntRef(global::System.IntPtr self, uint key, int default_val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetBoolRef")]
-            internal static extern bool* ImGuiStorageGetBoolRef(global::System.IntPtr self, uint key, bool default_val);
+            public static extern bool* ImGuiStorageGetBoolRef(global::System.IntPtr self, uint key, bool default_val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetFloatRef")]
-            internal static extern float* ImGuiStorageGetFloatRef(global::System.IntPtr self, uint key, float default_val);
+            public static extern float* ImGuiStorageGetFloatRef(global::System.IntPtr self, uint key, float default_val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_GetVoidPtrRef")]
-            internal static extern void** ImGuiStorageGetVoidPtrRef(global::System.IntPtr self, uint key, global::System.IntPtr default_val);
+            public static extern void** ImGuiStorageGetVoidPtrRef(global::System.IntPtr self, uint key, global::System.IntPtr default_val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_SetAllInt")]
-            internal static extern void ImGuiStorageSetAllInt(global::System.IntPtr self, int val);
+            public static extern void ImGuiStorageSetAllInt(global::System.IntPtr self, int val);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStorage_BuildSortByKey")]
-            internal static extern void ImGuiStorageBuildSortByKey(global::System.IntPtr self);
+            public static extern void ImGuiStorageBuildSortByKey(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiListClipper_ImGuiListClipper")]
-            internal static extern global::System.IntPtr ImGuiListClipperImGuiListClipper(int items_count, float items_height);
+            public static extern global::System.IntPtr ImGuiListClipperImGuiListClipper(int items_count, float items_height);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiListClipper_destroy")]
-            internal static extern void ImGuiListClipper_destroy(global::System.IntPtr self);
+            public static extern void ImGuiListClipper_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiListClipper_Step")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiListClipperStep(global::System.IntPtr self);
+            public static extern bool ImGuiListClipperStep(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiListClipper_Begin")]
-            internal static extern void ImGuiListClipperBegin(global::System.IntPtr self, int items_count, float items_height);
+            public static extern void ImGuiListClipperBegin(global::System.IntPtr self, int items_count, float items_height);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiListClipper_End")]
-            internal static extern void ImGuiListClipperEnd(global::System.IntPtr self);
+            public static extern void ImGuiListClipperEnd(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_ImColorNil")]
-            internal static extern global::System.IntPtr ImColorImColorNil();
+            public static extern global::System.IntPtr ImColorImColorNil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_destroy")]
-            internal static extern void ImColor_destroy(global::System.IntPtr self);
+            public static extern void ImColor_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_ImColorInt")]
-            internal static extern global::System.IntPtr ImColorImColorInt(int r, int g, int b, int a);
+            public static extern global::System.IntPtr ImColorImColorInt(int r, int g, int b, int a);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_ImColorU32")]
-            internal static extern global::System.IntPtr ImColorImColorU32(uint rgba);
+            public static extern global::System.IntPtr ImColorImColorU32(uint rgba);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_ImColorFloat")]
-            internal static extern global::System.IntPtr ImColorImColorFloat(float r, float g, float b, float a);
+            public static extern global::System.IntPtr ImColorImColorFloat(float r, float g, float b, float a);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_ImColorVec4")]
-            internal static extern global::System.IntPtr ImColorImColorVec4(global::System.IntPtr col);
+            public static extern global::System.IntPtr ImColorImColorVec4(global::System.IntPtr col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_SetHSV")]
-            internal static extern void ImColorSetHSV(global::System.IntPtr self, float h, float s, float v, float a);
+            public static extern void ImColorSetHSV(global::System.IntPtr self, float h, float s, float v, float a);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImColor_HSV")]
-            internal static extern void ImColorHSV(global::System.IntPtr pOut, global::System.IntPtr self, float h, float s, float v, float a);
+            public static extern void ImColorHSV(global::System.IntPtr pOut, global::System.IntPtr self, float h, float s, float v, float a);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawCmd_ImDrawCmd")]
-            internal static extern global::System.IntPtr ImDrawCmdImDrawCmd();
+            public static extern global::System.IntPtr ImDrawCmdImDrawCmd();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawCmd_destroy")]
-            internal static extern void ImDrawCmd_destroy(global::System.IntPtr self);
+            public static extern void ImDrawCmd_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSplitter_ImDrawListSplitter")]
-            internal static extern global::System.IntPtr ImDrawListSplitterImDrawListSplitter();
+            public static extern global::System.IntPtr ImDrawListSplitterImDrawListSplitter();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSplitter_destroy")]
-            internal static extern void ImDrawListSplitter_destroy(global::System.IntPtr self);
+            public static extern void ImDrawListSplitter_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSplitter_Clear")]
-            internal static extern void ImDrawListSplitterClear(global::System.IntPtr self);
+            public static extern void ImDrawListSplitterClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSplitter_ClearFreeMemory")]
-            internal static extern void ImDrawListSplitterClearFreeMemory(global::System.IntPtr self);
+            public static extern void ImDrawListSplitterClearFreeMemory(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSplitter_Split")]
-            internal static extern void ImDrawListSplitterSplit(global::System.IntPtr self, global::System.IntPtr draw_list, int count);
+            public static extern void ImDrawListSplitterSplit(global::System.IntPtr self, global::System.IntPtr draw_list, int count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSplitter_Merge")]
-            internal static extern void ImDrawListSplitterMerge(global::System.IntPtr self, global::System.IntPtr draw_list);
+            public static extern void ImDrawListSplitterMerge(global::System.IntPtr self, global::System.IntPtr draw_list);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSplitter_SetCurrentChannel")]
-            internal static extern void ImDrawListSplitterSetCurrentChannel(global::System.IntPtr self, global::System.IntPtr draw_list, int channel_idx);
+            public static extern void ImDrawListSplitterSetCurrentChannel(global::System.IntPtr self, global::System.IntPtr draw_list, int channel_idx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_ImDrawList")]
-            internal static extern global::System.IntPtr ImDrawListImDrawList(global::System.IntPtr shared_data);
+            public static extern global::System.IntPtr ImDrawListImDrawList(global::System.IntPtr shared_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_destroy")]
-            internal static extern void ImDrawList_destroy(global::System.IntPtr self);
+            public static extern void ImDrawList_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PushClipRect")]
-            internal static extern void ImDrawListPushClipRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal clip_rect_min, global::DearImguiSharp.ImVec2.__Internal clip_rect_max, bool intersect_with_current_clip_rect);
+            public static extern void ImDrawListPushClipRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal clip_rect_min, global::DearImguiSharp.ImVec2.__Internal clip_rect_max, bool intersect_with_current_clip_rect);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PushClipRectFullScreen")]
-            internal static extern void ImDrawListPushClipRectFullScreen(global::System.IntPtr self);
+            public static extern void ImDrawListPushClipRectFullScreen(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PopClipRect")]
-            internal static extern void ImDrawListPopClipRect(global::System.IntPtr self);
+            public static extern void ImDrawListPopClipRect(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PushTextureID")]
-            internal static extern void ImDrawListPushTextureID(global::System.IntPtr self, global::System.IntPtr texture_id);
+            public static extern void ImDrawListPushTextureID(global::System.IntPtr self, global::System.IntPtr texture_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PopTextureID")]
-            internal static extern void ImDrawListPopTextureID(global::System.IntPtr self);
+            public static extern void ImDrawListPopTextureID(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_GetClipRectMin")]
-            internal static extern void ImDrawListGetClipRectMin(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImDrawListGetClipRectMin(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_GetClipRectMax")]
-            internal static extern void ImDrawListGetClipRectMax(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImDrawListGetClipRectMax(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddLine")]
-            internal static extern void ImDrawListAddLine(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, uint col, float thickness);
+            public static extern void ImDrawListAddLine(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, uint col, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddRect")]
-            internal static extern void ImDrawListAddRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int rounding_corners, float thickness);
+            public static extern void ImDrawListAddRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int rounding_corners, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddRectFilled")]
-            internal static extern void ImDrawListAddRectFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int rounding_corners);
+            public static extern void ImDrawListAddRectFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int rounding_corners);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddRectFilledMultiColor")]
-            internal static extern void ImDrawListAddRectFilledMultiColor(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left);
+            public static extern void ImDrawListAddRectFilledMultiColor(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddQuad")]
-            internal static extern void ImDrawListAddQuad(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, uint col, float thickness);
+            public static extern void ImDrawListAddQuad(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, uint col, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddQuadFilled")]
-            internal static extern void ImDrawListAddQuadFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, uint col);
+            public static extern void ImDrawListAddQuadFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddTriangle")]
-            internal static extern void ImDrawListAddTriangle(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, uint col, float thickness);
+            public static extern void ImDrawListAddTriangle(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, uint col, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddTriangleFilled")]
-            internal static extern void ImDrawListAddTriangleFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, uint col);
+            public static extern void ImDrawListAddTriangleFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddCircle")]
-            internal static extern void ImDrawListAddCircle(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments, float thickness);
+            public static extern void ImDrawListAddCircle(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddCircleFilled")]
-            internal static extern void ImDrawListAddCircleFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments);
+            public static extern void ImDrawListAddCircleFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddNgon")]
-            internal static extern void ImDrawListAddNgon(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments, float thickness);
+            public static extern void ImDrawListAddNgon(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddNgonFilled")]
-            internal static extern void ImDrawListAddNgonFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments);
+            public static extern void ImDrawListAddNgonFilled(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddTextVec2")]
-            internal static extern void ImDrawListAddTextVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos, uint col, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
+            public static extern void ImDrawListAddTextVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos, uint col, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddTextFontPtr")]
-            internal static extern void ImDrawListAddTextFontPtr(global::System.IntPtr self, global::System.IntPtr font, float font_size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width, global::System.IntPtr cpu_fine_clip_rect);
+            public static extern void ImDrawListAddTextFontPtr(global::System.IntPtr self, global::System.IntPtr font, float font_size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width, global::System.IntPtr cpu_fine_clip_rect);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddPolyline")]
-            internal static extern void ImDrawListAddPolyline(global::System.IntPtr self, global::System.IntPtr points, int num_points, uint col, bool closed, float thickness);
+            public static extern void ImDrawListAddPolyline(global::System.IntPtr self, global::System.IntPtr points, int num_points, uint col, bool closed, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddConvexPolyFilled")]
-            internal static extern void ImDrawListAddConvexPolyFilled(global::System.IntPtr self, global::System.IntPtr points, int num_points, uint col);
+            public static extern void ImDrawListAddConvexPolyFilled(global::System.IntPtr self, global::System.IntPtr points, int num_points, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddBezierCurve")]
-            internal static extern void ImDrawListAddBezierCurve(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, uint col, float thickness, int num_segments);
+            public static extern void ImDrawListAddBezierCurve(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, uint col, float thickness, int num_segments);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddImage")]
-            internal static extern void ImDrawListAddImage(global::System.IntPtr self, global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, global::DearImguiSharp.ImVec2.__Internal uv_min, global::DearImguiSharp.ImVec2.__Internal uv_max, uint col);
+            public static extern void ImDrawListAddImage(global::System.IntPtr self, global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, global::DearImguiSharp.ImVec2.__Internal uv_min, global::DearImguiSharp.ImVec2.__Internal uv_max, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddImageQuad")]
-            internal static extern void ImDrawListAddImageQuad(global::System.IntPtr self, global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal uv1, global::DearImguiSharp.ImVec2.__Internal uv2, global::DearImguiSharp.ImVec2.__Internal uv3, global::DearImguiSharp.ImVec2.__Internal uv4, uint col);
+            public static extern void ImDrawListAddImageQuad(global::System.IntPtr self, global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal uv1, global::DearImguiSharp.ImVec2.__Internal uv2, global::DearImguiSharp.ImVec2.__Internal uv3, global::DearImguiSharp.ImVec2.__Internal uv4, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddImageRounded")]
-            internal static extern void ImDrawListAddImageRounded(global::System.IntPtr self, global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, global::DearImguiSharp.ImVec2.__Internal uv_min, global::DearImguiSharp.ImVec2.__Internal uv_max, uint col, float rounding, int rounding_corners);
+            public static extern void ImDrawListAddImageRounded(global::System.IntPtr self, global::System.IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, global::DearImguiSharp.ImVec2.__Internal uv_min, global::DearImguiSharp.ImVec2.__Internal uv_max, uint col, float rounding, int rounding_corners);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathClear")]
-            internal static extern void ImDrawListPathClear(global::System.IntPtr self);
+            public static extern void ImDrawListPathClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathLineTo")]
-            internal static extern void ImDrawListPathLineTo(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos);
+            public static extern void ImDrawListPathLineTo(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathLineToMergeDuplicate")]
-            internal static extern void ImDrawListPathLineToMergeDuplicate(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos);
+            public static extern void ImDrawListPathLineToMergeDuplicate(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathFillConvex")]
-            internal static extern void ImDrawListPathFillConvex(global::System.IntPtr self, uint col);
+            public static extern void ImDrawListPathFillConvex(global::System.IntPtr self, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathStroke")]
-            internal static extern void ImDrawListPathStroke(global::System.IntPtr self, uint col, bool closed, float thickness);
+            public static extern void ImDrawListPathStroke(global::System.IntPtr self, uint col, bool closed, float thickness);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathArcTo")]
-            internal static extern void ImDrawListPathArcTo(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, float a_min, float a_max, int num_segments);
+            public static extern void ImDrawListPathArcTo(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, float a_min, float a_max, int num_segments);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathArcToFast")]
-            internal static extern void ImDrawListPathArcToFast(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, int a_min_of_12, int a_max_of_12);
+            public static extern void ImDrawListPathArcToFast(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, int a_min_of_12, int a_max_of_12);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathBezierCurveTo")]
-            internal static extern void ImDrawListPathBezierCurveTo(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, int num_segments);
+            public static extern void ImDrawListPathBezierCurveTo(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, int num_segments);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PathRect")]
-            internal static extern void ImDrawListPathRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal rect_min, global::DearImguiSharp.ImVec2.__Internal rect_max, float rounding, int rounding_corners);
+            public static extern void ImDrawListPathRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal rect_min, global::DearImguiSharp.ImVec2.__Internal rect_max, float rounding, int rounding_corners);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddCallback")]
-            internal static extern void ImDrawListAddCallback(global::System.IntPtr self, global::System.IntPtr callback, global::System.IntPtr callback_data);
+            public static extern void ImDrawListAddCallback(global::System.IntPtr self, global::System.IntPtr callback, global::System.IntPtr callback_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_AddDrawCmd")]
-            internal static extern void ImDrawListAddDrawCmd(global::System.IntPtr self);
+            public static extern void ImDrawListAddDrawCmd(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_CloneOutput")]
-            internal static extern global::System.IntPtr ImDrawListCloneOutput(global::System.IntPtr self);
+            public static extern global::System.IntPtr ImDrawListCloneOutput(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_ChannelsSplit")]
-            internal static extern void ImDrawListChannelsSplit(global::System.IntPtr self, int count);
+            public static extern void ImDrawListChannelsSplit(global::System.IntPtr self, int count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_ChannelsMerge")]
-            internal static extern void ImDrawListChannelsMerge(global::System.IntPtr self);
+            public static extern void ImDrawListChannelsMerge(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_ChannelsSetCurrent")]
-            internal static extern void ImDrawListChannelsSetCurrent(global::System.IntPtr self, int n);
+            public static extern void ImDrawListChannelsSetCurrent(global::System.IntPtr self, int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_Clear")]
-            internal static extern void ImDrawListClear(global::System.IntPtr self);
+            public static extern void ImDrawListClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_ClearFreeMemory")]
-            internal static extern void ImDrawListClearFreeMemory(global::System.IntPtr self);
+            public static extern void ImDrawListClearFreeMemory(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimReserve")]
-            internal static extern void ImDrawListPrimReserve(global::System.IntPtr self, int idx_count, int vtx_count);
+            public static extern void ImDrawListPrimReserve(global::System.IntPtr self, int idx_count, int vtx_count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimUnreserve")]
-            internal static extern void ImDrawListPrimUnreserve(global::System.IntPtr self, int idx_count, int vtx_count);
+            public static extern void ImDrawListPrimUnreserve(global::System.IntPtr self, int idx_count, int vtx_count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimRect")]
-            internal static extern void ImDrawListPrimRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, uint col);
+            public static extern void ImDrawListPrimRect(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimRectUV")]
-            internal static extern void ImDrawListPrimRectUV(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal uv_a, global::DearImguiSharp.ImVec2.__Internal uv_b, uint col);
+            public static extern void ImDrawListPrimRectUV(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal uv_a, global::DearImguiSharp.ImVec2.__Internal uv_b, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimQuadUV")]
-            internal static extern void ImDrawListPrimQuadUV(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal d, global::DearImguiSharp.ImVec2.__Internal uv_a, global::DearImguiSharp.ImVec2.__Internal uv_b, global::DearImguiSharp.ImVec2.__Internal uv_c, global::DearImguiSharp.ImVec2.__Internal uv_d, uint col);
+            public static extern void ImDrawListPrimQuadUV(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal d, global::DearImguiSharp.ImVec2.__Internal uv_a, global::DearImguiSharp.ImVec2.__Internal uv_b, global::DearImguiSharp.ImVec2.__Internal uv_c, global::DearImguiSharp.ImVec2.__Internal uv_d, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimWriteVtx")]
-            internal static extern void ImDrawListPrimWriteVtx(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal uv, uint col);
+            public static extern void ImDrawListPrimWriteVtx(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal uv, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimWriteIdx")]
-            internal static extern void ImDrawListPrimWriteIdx(global::System.IntPtr self, ushort idx);
+            public static extern void ImDrawListPrimWriteIdx(global::System.IntPtr self, ushort idx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_PrimVtx")]
-            internal static extern void ImDrawListPrimVtx(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal uv, uint col);
+            public static extern void ImDrawListPrimVtx(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal uv, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_UpdateClipRect")]
-            internal static extern void ImDrawListUpdateClipRect(global::System.IntPtr self);
+            public static extern void ImDrawListUpdateClipRect(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawList_UpdateTextureID")]
-            internal static extern void ImDrawListUpdateTextureID(global::System.IntPtr self);
+            public static extern void ImDrawListUpdateTextureID(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawData_ImDrawData")]
-            internal static extern global::System.IntPtr ImDrawDataImDrawData();
+            public static extern global::System.IntPtr ImDrawDataImDrawData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawData_destroy")]
-            internal static extern void ImDrawData_destroy(global::System.IntPtr self);
+            public static extern void ImDrawData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawData_Clear")]
-            internal static extern void ImDrawDataClear(global::System.IntPtr self);
+            public static extern void ImDrawDataClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawData_DeIndexAllBuffers")]
-            internal static extern void ImDrawDataDeIndexAllBuffers(global::System.IntPtr self);
+            public static extern void ImDrawDataDeIndexAllBuffers(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawData_ScaleClipRects")]
-            internal static extern void ImDrawDataScaleClipRects(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal fb_scale);
+            public static extern void ImDrawDataScaleClipRects(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal fb_scale);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontConfig_ImFontConfig")]
-            internal static extern global::System.IntPtr ImFontConfigImFontConfig();
+            public static extern global::System.IntPtr ImFontConfigImFontConfig();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontConfig_destroy")]
-            internal static extern void ImFontConfig_destroy(global::System.IntPtr self);
+            public static extern void ImFontConfig_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder")]
-            internal static extern global::System.IntPtr ImFontGlyphRangesBuilderImFontGlyphRangesBuilder();
+            public static extern global::System.IntPtr ImFontGlyphRangesBuilderImFontGlyphRangesBuilder();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_destroy")]
-            internal static extern void ImFontGlyphRangesBuilder_destroy(global::System.IntPtr self);
+            public static extern void ImFontGlyphRangesBuilder_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_Clear")]
-            internal static extern void ImFontGlyphRangesBuilderClear(global::System.IntPtr self);
+            public static extern void ImFontGlyphRangesBuilderClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_GetBit")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFontGlyphRangesBuilderGetBit(global::System.IntPtr self, int n);
+            public static extern bool ImFontGlyphRangesBuilderGetBit(global::System.IntPtr self, int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_SetBit")]
-            internal static extern void ImFontGlyphRangesBuilderSetBit(global::System.IntPtr self, int n);
+            public static extern void ImFontGlyphRangesBuilderSetBit(global::System.IntPtr self, int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_AddChar")]
-            internal static extern void ImFontGlyphRangesBuilderAddChar(global::System.IntPtr self, ushort c);
+            public static extern void ImFontGlyphRangesBuilderAddChar(global::System.IntPtr self, ushort c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_AddText")]
-            internal static extern void ImFontGlyphRangesBuilderAddText(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
+            public static extern void ImFontGlyphRangesBuilderAddText(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_AddRanges")]
-            internal static extern void ImFontGlyphRangesBuilderAddRanges(global::System.IntPtr self, ushort* ranges);
+            public static extern void ImFontGlyphRangesBuilderAddRanges(global::System.IntPtr self, ushort* ranges);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontGlyphRangesBuilder_BuildRanges")]
-            internal static extern void ImFontGlyphRangesBuilderBuildRanges(global::System.IntPtr self, global::System.IntPtr out_ranges);
+            public static extern void ImFontGlyphRangesBuilderBuildRanges(global::System.IntPtr self, global::System.IntPtr out_ranges);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlasCustomRect_ImFontAtlasCustomRect")]
-            internal static extern global::System.IntPtr ImFontAtlasCustomRectImFontAtlasCustomRect();
+            public static extern global::System.IntPtr ImFontAtlasCustomRectImFontAtlasCustomRect();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlasCustomRect_destroy")]
-            internal static extern void ImFontAtlasCustomRect_destroy(global::System.IntPtr self);
+            public static extern void ImFontAtlasCustomRect_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlasCustomRect_IsPacked")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFontAtlasCustomRectIsPacked(global::System.IntPtr self);
+            public static extern bool ImFontAtlasCustomRectIsPacked(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_ImFontAtlas")]
-            internal static extern global::System.IntPtr ImFontAtlasImFontAtlas();
+            public static extern global::System.IntPtr ImFontAtlasImFontAtlas();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_destroy")]
-            internal static extern void ImFontAtlas_destroy(global::System.IntPtr self);
+            public static extern void ImFontAtlas_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddFont")]
-            internal static extern global::System.IntPtr ImFontAtlasAddFont(global::System.IntPtr self, global::System.IntPtr font_cfg);
+            public static extern global::System.IntPtr ImFontAtlasAddFont(global::System.IntPtr self, global::System.IntPtr font_cfg);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddFontDefault")]
-            internal static extern global::System.IntPtr ImFontAtlasAddFontDefault(global::System.IntPtr self, global::System.IntPtr font_cfg);
+            public static extern global::System.IntPtr ImFontAtlasAddFontDefault(global::System.IntPtr self, global::System.IntPtr font_cfg);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddFontFromFileTTF")]
-            internal static extern global::System.IntPtr ImFontAtlasAddFontFromFileTTF(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string filename, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
+            public static extern global::System.IntPtr ImFontAtlasAddFontFromFileTTF(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string filename, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddFontFromMemoryTTF")]
-            internal static extern global::System.IntPtr ImFontAtlasAddFontFromMemoryTTF(global::System.IntPtr self, global::System.IntPtr font_data, int font_size, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
+            public static extern global::System.IntPtr ImFontAtlasAddFontFromMemoryTTF(global::System.IntPtr self, global::System.IntPtr font_data, int font_size, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddFontFromMemoryCompressedTTF")]
-            internal static extern global::System.IntPtr ImFontAtlasAddFontFromMemoryCompressedTTF(global::System.IntPtr self, global::System.IntPtr compressed_font_data, int compressed_font_size, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
+            public static extern global::System.IntPtr ImFontAtlasAddFontFromMemoryCompressedTTF(global::System.IntPtr self, global::System.IntPtr compressed_font_data, int compressed_font_size, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddFontFromMemoryCompressedBase85TTF")]
-            internal static extern global::System.IntPtr ImFontAtlasAddFontFromMemoryCompressedBase85TTF(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string compressed_font_data_base85, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
+            public static extern global::System.IntPtr ImFontAtlasAddFontFromMemoryCompressedBase85TTF(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string compressed_font_data_base85, float size_pixels, global::System.IntPtr font_cfg, ushort* glyph_ranges);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_ClearInputData")]
-            internal static extern void ImFontAtlasClearInputData(global::System.IntPtr self);
+            public static extern void ImFontAtlasClearInputData(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_ClearTexData")]
-            internal static extern void ImFontAtlasClearTexData(global::System.IntPtr self);
+            public static extern void ImFontAtlasClearTexData(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_ClearFonts")]
-            internal static extern void ImFontAtlasClearFonts(global::System.IntPtr self);
+            public static extern void ImFontAtlasClearFonts(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_Clear")]
-            internal static extern void ImFontAtlasClear(global::System.IntPtr self);
+            public static extern void ImFontAtlasClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_Build")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFontAtlasBuild(global::System.IntPtr self);
+            public static extern bool ImFontAtlasBuild(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetTexDataAsAlpha8")]
-            internal static extern void ImFontAtlasGetTexDataAsAlpha8(global::System.IntPtr self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
+            public static extern void ImFontAtlasGetTexDataAsAlpha8(global::System.IntPtr self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetTexDataAsRGBA32")]
-            internal static extern void ImFontAtlasGetTexDataAsRGBA32(global::System.IntPtr self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
+            public static extern void ImFontAtlasGetTexDataAsRGBA32(global::System.IntPtr self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_IsBuilt")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFontAtlasIsBuilt(global::System.IntPtr self);
+            public static extern bool ImFontAtlasIsBuilt(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_SetTexID")]
-            internal static extern void ImFontAtlasSetTexID(global::System.IntPtr self, global::System.IntPtr id);
+            public static extern void ImFontAtlasSetTexID(global::System.IntPtr self, global::System.IntPtr id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesDefault")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesDefault(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesDefault(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesKorean")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesKorean(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesKorean(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesJapanese")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesJapanese(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesJapanese(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesChineseFull")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesChineseFull(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesChineseFull(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesChineseSimplifiedCommon(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesChineseSimplifiedCommon(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesCyrillic")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesCyrillic(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesCyrillic(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesThai")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesThai(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesThai(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetGlyphRangesVietnamese")]
-            internal static extern ushort* ImFontAtlasGetGlyphRangesVietnamese(global::System.IntPtr self);
+            public static extern ushort* ImFontAtlasGetGlyphRangesVietnamese(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddCustomRectRegular")]
-            internal static extern int ImFontAtlasAddCustomRectRegular(global::System.IntPtr self, uint id, int width, int height);
+            public static extern int ImFontAtlasAddCustomRectRegular(global::System.IntPtr self, uint id, int width, int height);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_AddCustomRectFontGlyph")]
-            internal static extern int ImFontAtlasAddCustomRectFontGlyph(global::System.IntPtr self, global::System.IntPtr font, ushort id, int width, int height, float advance_x, global::DearImguiSharp.ImVec2.__Internal offset);
+            public static extern int ImFontAtlasAddCustomRectFontGlyph(global::System.IntPtr self, global::System.IntPtr font, ushort id, int width, int height, float advance_x, global::DearImguiSharp.ImVec2.__Internal offset);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetCustomRectByIndex")]
-            internal static extern global::System.IntPtr ImFontAtlasGetCustomRectByIndex(global::System.IntPtr self, int index);
+            public static extern global::System.IntPtr ImFontAtlasGetCustomRectByIndex(global::System.IntPtr self, int index);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_CalcCustomRectUV")]
-            internal static extern void ImFontAtlasCalcCustomRectUV(global::System.IntPtr self, global::System.IntPtr rect, global::System.IntPtr out_uv_min, global::System.IntPtr out_uv_max);
+            public static extern void ImFontAtlasCalcCustomRectUV(global::System.IntPtr self, global::System.IntPtr rect, global::System.IntPtr out_uv_min, global::System.IntPtr out_uv_max);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFontAtlas_GetMouseCursorTexData")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFontAtlasGetMouseCursorTexData(global::System.IntPtr self, int cursor, global::System.IntPtr out_offset, global::System.IntPtr out_size, global::DearImguiSharp.ImVec2.__Internal[] out_uv_border, global::DearImguiSharp.ImVec2.__Internal[] out_uv_fill);
+            public static extern bool ImFontAtlasGetMouseCursorTexData(global::System.IntPtr self, int cursor, global::System.IntPtr out_offset, global::System.IntPtr out_size, global::DearImguiSharp.ImVec2.__Internal[] out_uv_border, global::DearImguiSharp.ImVec2.__Internal[] out_uv_fill);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_ImFont")]
-            internal static extern global::System.IntPtr ImFontImFont();
+            public static extern global::System.IntPtr ImFontImFont();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_destroy")]
-            internal static extern void ImFont_destroy(global::System.IntPtr self);
+            public static extern void ImFont_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_FindGlyph")]
-            internal static extern global::System.IntPtr ImFontFindGlyph(global::System.IntPtr self, ushort c);
+            public static extern global::System.IntPtr ImFontFindGlyph(global::System.IntPtr self, ushort c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_FindGlyphNoFallback")]
-            internal static extern global::System.IntPtr ImFontFindGlyphNoFallback(global::System.IntPtr self, ushort c);
+            public static extern global::System.IntPtr ImFontFindGlyphNoFallback(global::System.IntPtr self, ushort c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_GetCharAdvance")]
-            internal static extern float ImFontGetCharAdvance(global::System.IntPtr self, ushort c);
+            public static extern float ImFontGetCharAdvance(global::System.IntPtr self, ushort c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_IsLoaded")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFontIsLoaded(global::System.IntPtr self);
+            public static extern bool ImFontIsLoaded(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_GetDebugName")]
-            internal static extern global::System.IntPtr ImFontGetDebugName(global::System.IntPtr self);
+            public static extern global::System.IntPtr ImFontGetDebugName(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_CalcTextSizeA")]
-            internal static extern void ImFontCalcTextSizeA(global::System.IntPtr pOut, global::System.IntPtr self, float size, float max_width, float wrap_width, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, sbyte** remaining);
+            public static extern void ImFontCalcTextSizeA(global::System.IntPtr pOut, global::System.IntPtr self, float size, float max_width, float wrap_width, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, sbyte** remaining);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_CalcWordWrapPositionA")]
-            internal static extern global::System.IntPtr ImFontCalcWordWrapPositionA(global::System.IntPtr self, float scale, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width);
+            public static extern global::System.IntPtr ImFontCalcWordWrapPositionA(global::System.IntPtr self, float scale, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_RenderChar")]
-            internal static extern void ImFontRenderChar(global::System.IntPtr self, global::System.IntPtr draw_list, float size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, ushort c);
+            public static extern void ImFontRenderChar(global::System.IntPtr self, global::System.IntPtr draw_list, float size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, ushort c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_RenderText")]
-            internal static extern void ImFontRenderText(global::System.IntPtr self, global::System.IntPtr draw_list, float size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, global::System.IntPtr clip_rect, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width, bool cpu_fine_clip);
+            public static extern void ImFontRenderText(global::System.IntPtr self, global::System.IntPtr draw_list, float size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, global::System.IntPtr clip_rect, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width, bool cpu_fine_clip);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_BuildLookupTable")]
-            internal static extern void ImFontBuildLookupTable(global::System.IntPtr self);
+            public static extern void ImFontBuildLookupTable(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_ClearOutputData")]
-            internal static extern void ImFontClearOutputData(global::System.IntPtr self);
+            public static extern void ImFontClearOutputData(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_GrowIndex")]
-            internal static extern void ImFontGrowIndex(global::System.IntPtr self, int new_size);
+            public static extern void ImFontGrowIndex(global::System.IntPtr self, int new_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_AddGlyph")]
-            internal static extern void ImFontAddGlyph(global::System.IntPtr self, ushort c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance_x);
+            public static extern void ImFontAddGlyph(global::System.IntPtr self, ushort c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance_x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_AddRemapChar")]
-            internal static extern void ImFontAddRemapChar(global::System.IntPtr self, ushort dst, ushort src, bool overwrite_dst);
+            public static extern void ImFontAddRemapChar(global::System.IntPtr self, ushort dst, ushort src, bool overwrite_dst);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImFont_SetFallbackChar")]
-            internal static extern void ImFontSetFallbackChar(global::System.IntPtr self, ushort c);
+            public static extern void ImFontSetFallbackChar(global::System.IntPtr self, ushort c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImHashData")]
-            internal static extern uint ImHashData(global::System.IntPtr data, ulong data_size, uint seed);
+            public static extern uint ImHashData(global::System.IntPtr data, ulong data_size, uint seed);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImHashStr")]
-            internal static extern uint ImHashStr([MarshalAs(UnmanagedType.LPUTF8Str)] string data, ulong data_size, uint seed);
+            public static extern uint ImHashStr([MarshalAs(UnmanagedType.LPUTF8Str)] string data, ulong data_size, uint seed);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImIsPowerOfTwo")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImIsPowerOfTwo(int v);
+            public static extern bool ImIsPowerOfTwo(int v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImUpperPowerOfTwo")]
-            internal static extern int ImUpperPowerOfTwo(int v);
+            public static extern int ImUpperPowerOfTwo(int v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStricmp")]
-            internal static extern int ImStricmp([MarshalAs(UnmanagedType.LPUTF8Str)] string str1, [MarshalAs(UnmanagedType.LPUTF8Str)] string str2);
+            public static extern int ImStricmp([MarshalAs(UnmanagedType.LPUTF8Str)] string str1, [MarshalAs(UnmanagedType.LPUTF8Str)] string str2);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrnicmp")]
-            internal static extern int ImStrnicmp([MarshalAs(UnmanagedType.LPUTF8Str)] string str1, [MarshalAs(UnmanagedType.LPUTF8Str)] string str2, ulong count);
+            public static extern int ImStrnicmp([MarshalAs(UnmanagedType.LPUTF8Str)] string str1, [MarshalAs(UnmanagedType.LPUTF8Str)] string str2, ulong count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrncpy")]
-            internal static extern void ImStrncpy(sbyte* dst, [MarshalAs(UnmanagedType.LPUTF8Str)] string src, ulong count);
+            public static extern void ImStrncpy(sbyte* dst, [MarshalAs(UnmanagedType.LPUTF8Str)] string src, ulong count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrdup")]
-            internal static extern sbyte* ImStrdup([MarshalAs(UnmanagedType.LPUTF8Str)] string str);
+            public static extern sbyte* ImStrdup([MarshalAs(UnmanagedType.LPUTF8Str)] string str);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrdupcpy")]
-            internal static extern sbyte* ImStrdupcpy(sbyte* dst, ulong* p_dst_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string str);
+            public static extern sbyte* ImStrdupcpy(sbyte* dst, ulong* p_dst_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string str);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrchrRange")]
-            internal static extern global::System.IntPtr ImStrchrRange([MarshalAs(UnmanagedType.LPUTF8Str)] string str_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end, sbyte c);
+            public static extern global::System.IntPtr ImStrchrRange([MarshalAs(UnmanagedType.LPUTF8Str)] string str_begin, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end, sbyte c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrlenW")]
-            internal static extern int ImStrlenW(ushort* str);
+            public static extern int ImStrlenW(ushort* str);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStreolRange")]
-            internal static extern global::System.IntPtr ImStreolRange([MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
+            public static extern global::System.IntPtr ImStreolRange([MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrbolW")]
-            internal static extern ushort* ImStrbolW(ushort* buf_mid_line, ushort* buf_begin);
+            public static extern ushort* ImStrbolW(ushort* buf_mid_line, ushort* buf_begin);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStristr")]
-            internal static extern global::System.IntPtr ImStristr([MarshalAs(UnmanagedType.LPUTF8Str)] string haystack, [MarshalAs(UnmanagedType.LPUTF8Str)] string haystack_end, [MarshalAs(UnmanagedType.LPUTF8Str)] string needle, [MarshalAs(UnmanagedType.LPUTF8Str)] string needle_end);
+            public static extern global::System.IntPtr ImStristr([MarshalAs(UnmanagedType.LPUTF8Str)] string haystack, [MarshalAs(UnmanagedType.LPUTF8Str)] string haystack_end, [MarshalAs(UnmanagedType.LPUTF8Str)] string needle, [MarshalAs(UnmanagedType.LPUTF8Str)] string needle_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrTrimBlanks")]
-            internal static extern void ImStrTrimBlanks(sbyte* str);
+            public static extern void ImStrTrimBlanks(sbyte* str);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImStrSkipBlank")]
-            internal static extern global::System.IntPtr ImStrSkipBlank([MarshalAs(UnmanagedType.LPUTF8Str)] string str);
+            public static extern global::System.IntPtr ImStrSkipBlank([MarshalAs(UnmanagedType.LPUTF8Str)] string str);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFormatString")]
-            internal static extern int ImFormatString(sbyte* buf, ulong buf_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern int ImFormatString(sbyte* buf, ulong buf_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImParseFormatFindStart")]
-            internal static extern global::System.IntPtr ImParseFormatFindStart([MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern global::System.IntPtr ImParseFormatFindStart([MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImParseFormatFindEnd")]
-            internal static extern global::System.IntPtr ImParseFormatFindEnd([MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern global::System.IntPtr ImParseFormatFindEnd([MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImParseFormatTrimDecorations")]
-            internal static extern global::System.IntPtr ImParseFormatTrimDecorations([MarshalAs(UnmanagedType.LPUTF8Str)] string format, sbyte* buf, ulong buf_size);
+            public static extern global::System.IntPtr ImParseFormatTrimDecorations([MarshalAs(UnmanagedType.LPUTF8Str)] string format, sbyte* buf, ulong buf_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImParseFormatPrecision")]
-            internal static extern int ImParseFormatPrecision([MarshalAs(UnmanagedType.LPUTF8Str)] string format, int default_value);
+            public static extern int ImParseFormatPrecision([MarshalAs(UnmanagedType.LPUTF8Str)] string format, int default_value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImCharIsBlankA")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImCharIsBlankA(sbyte c);
+            public static extern bool ImCharIsBlankA(sbyte c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImCharIsBlankW")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImCharIsBlankW(uint c);
+            public static extern bool ImCharIsBlankW(uint c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTextStrToUtf8")]
-            internal static extern int ImTextStrToUtf8(sbyte* buf, int buf_size, ushort* in_text, ushort* in_text_end);
+            public static extern int ImTextStrToUtf8(sbyte* buf, int buf_size, ushort* in_text, ushort* in_text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTextCharFromUtf8")]
-            internal static extern int ImTextCharFromUtf8(uint* out_char, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end);
+            public static extern int ImTextCharFromUtf8(uint* out_char, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTextStrFromUtf8")]
-            internal static extern int ImTextStrFromUtf8(ushort* buf, int buf_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end, sbyte** in_remaining);
+            public static extern int ImTextStrFromUtf8(ushort* buf, int buf_size, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end, sbyte** in_remaining);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTextCountCharsFromUtf8")]
-            internal static extern int ImTextCountCharsFromUtf8([MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end);
+            public static extern int ImTextCountCharsFromUtf8([MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTextCountUtf8BytesFromChar")]
-            internal static extern int ImTextCountUtf8BytesFromChar([MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end);
+            public static extern int ImTextCountUtf8BytesFromChar([MarshalAs(UnmanagedType.LPUTF8Str)] string in_text, [MarshalAs(UnmanagedType.LPUTF8Str)] string in_text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTextCountUtf8BytesFromStr")]
-            internal static extern int ImTextCountUtf8BytesFromStr(ushort* in_text, ushort* in_text_end);
+            public static extern int ImTextCountUtf8BytesFromStr(ushort* in_text, ushort* in_text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFileOpen")]
-            internal static extern global::System.IntPtr ImFileOpen([MarshalAs(UnmanagedType.LPUTF8Str)] string filename, [MarshalAs(UnmanagedType.LPUTF8Str)] string mode);
+            public static extern global::System.IntPtr ImFileOpen([MarshalAs(UnmanagedType.LPUTF8Str)] string filename, [MarshalAs(UnmanagedType.LPUTF8Str)] string mode);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFileClose")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFileClose(global::System.IntPtr file);
+            public static extern bool ImFileClose(global::System.IntPtr file);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFileGetSize")]
-            internal static extern ulong ImFileGetSize(global::System.IntPtr file);
+            public static extern ulong ImFileGetSize(global::System.IntPtr file);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFileRead")]
-            internal static extern ulong ImFileRead(global::System.IntPtr data, ulong size, ulong count, global::System.IntPtr file);
+            public static extern ulong ImFileRead(global::System.IntPtr data, ulong size, ulong count, global::System.IntPtr file);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFileWrite")]
-            internal static extern ulong ImFileWrite(global::System.IntPtr data, ulong size, ulong count, global::System.IntPtr file);
+            public static extern ulong ImFileWrite(global::System.IntPtr data, ulong size, ulong count, global::System.IntPtr file);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFileLoadToMemory")]
-            internal static extern global::System.IntPtr ImFileLoadToMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string filename, [MarshalAs(UnmanagedType.LPUTF8Str)] string mode, ulong* out_file_size, int padding_bytes);
+            public static extern global::System.IntPtr ImFileLoadToMemory([MarshalAs(UnmanagedType.LPUTF8Str)] string filename, [MarshalAs(UnmanagedType.LPUTF8Str)] string mode, ulong* out_file_size, int padding_bytes);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImPowFloat")]
-            internal static extern float ImPowFloat(float x, float y);
+            public static extern float ImPowFloat(float x, float y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImPowdouble")]
-            internal static extern double ImPowdouble(double x, double y);
+            public static extern double ImPowdouble(double x, double y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImMin")]
-            internal static extern void ImMin(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
+            public static extern void ImMin(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImMax")]
-            internal static extern void ImMax(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
+            public static extern void ImMax(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImClamp")]
-            internal static extern void ImClamp(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v, global::DearImguiSharp.ImVec2.__Internal mn, global::DearImguiSharp.ImVec2.__Internal mx);
+            public static extern void ImClamp(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v, global::DearImguiSharp.ImVec2.__Internal mn, global::DearImguiSharp.ImVec2.__Internal mx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImLerpVec2Float")]
-            internal static extern void ImLerpVec2Float(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, float t);
+            public static extern void ImLerpVec2Float(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, float t);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImLerpVec2Vec2")]
-            internal static extern void ImLerpVec2Vec2(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal t);
+            public static extern void ImLerpVec2Vec2(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal t);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImLerpVec4")]
-            internal static extern void ImLerpVec4(global::System.IntPtr pOut, global::System.IntPtr a, global::System.IntPtr b, float t);
+            public static extern void ImLerpVec4(global::System.IntPtr pOut, global::System.IntPtr a, global::System.IntPtr b, float t);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImSaturate")]
-            internal static extern float ImSaturate(float f);
+            public static extern float ImSaturate(float f);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImLengthSqrVec2")]
-            internal static extern float ImLengthSqrVec2(global::DearImguiSharp.ImVec2.__Internal lhs);
+            public static extern float ImLengthSqrVec2(global::DearImguiSharp.ImVec2.__Internal lhs);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImLengthSqrVec4")]
-            internal static extern float ImLengthSqrVec4(global::System.IntPtr lhs);
+            public static extern float ImLengthSqrVec4(global::System.IntPtr lhs);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImInvLength")]
-            internal static extern float ImInvLength(global::DearImguiSharp.ImVec2.__Internal lhs, float fail_value);
+            public static extern float ImInvLength(global::DearImguiSharp.ImVec2.__Internal lhs, float fail_value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFloorFloat")]
-            internal static extern float ImFloorFloat(float f);
+            public static extern float ImFloorFloat(float f);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFloorVec2")]
-            internal static extern void ImFloorVec2(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v);
+            public static extern void ImFloorVec2(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImModPositive")]
-            internal static extern int ImModPositive(int a, int b);
+            public static extern int ImModPositive(int a, int b);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImDot")]
-            internal static extern float ImDot(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b);
+            public static extern float ImDot(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImRotate")]
-            internal static extern void ImRotate(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v, float cos_a, float sin_a);
+            public static extern void ImRotate(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v, float cos_a, float sin_a);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImLinearSweep")]
-            internal static extern float ImLinearSweep(float current, float target, float speed);
+            public static extern float ImLinearSweep(float current, float target, float speed);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImMul")]
-            internal static extern void ImMul(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
+            public static extern void ImMul(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImBezierCalc")]
-            internal static extern void ImBezierCalc(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, float t);
+            public static extern void ImBezierCalc(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, float t);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImBezierClosestPoint")]
-            internal static extern void ImBezierClosestPoint(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal p, int num_segments);
+            public static extern void ImBezierClosestPoint(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal p, int num_segments);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImBezierClosestPointCasteljau")]
-            internal static extern void ImBezierClosestPointCasteljau(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal p, float tess_tol);
+            public static extern void ImBezierClosestPointCasteljau(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal p, float tess_tol);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImLineClosestPoint")]
-            internal static extern void ImLineClosestPoint(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal p);
+            public static extern void ImLineClosestPoint(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal p);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTriangleContainsPoint")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImTriangleContainsPoint(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p);
+            public static extern bool ImTriangleContainsPoint(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTriangleClosestPoint")]
-            internal static extern void ImTriangleClosestPoint(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p);
+            public static extern void ImTriangleClosestPoint(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTriangleBarycentricCoords")]
-            internal static extern void ImTriangleBarycentricCoords(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p, float out_u, float out_v, float out_w);
+            public static extern void ImTriangleBarycentricCoords(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p, float out_u, float out_v, float out_w);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImTriangleArea")]
-            internal static extern float ImTriangleArea(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c);
+            public static extern float ImTriangleArea(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImGetDirQuadrantFromDelta")]
-            internal static extern int ImGetDirQuadrantFromDelta(float dx, float dy);
+            public static extern int ImGetDirQuadrantFromDelta(float dx, float dy);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImBoolVector_ImBoolVector")]
-            internal static extern global::System.IntPtr ImBoolVectorImBoolVector();
+            public static extern global::System.IntPtr ImBoolVectorImBoolVector();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImBoolVector_destroy")]
-            internal static extern void ImBoolVector_destroy(global::System.IntPtr self);
+            public static extern void ImBoolVector_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImBoolVector_Resize")]
-            internal static extern void ImBoolVectorResize(global::System.IntPtr self, int sz);
+            public static extern void ImBoolVectorResize(global::System.IntPtr self, int sz);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImBoolVector_Clear")]
-            internal static extern void ImBoolVectorClear(global::System.IntPtr self);
+            public static extern void ImBoolVectorClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImBoolVector_GetBit")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImBoolVectorGetBit(global::System.IntPtr self, int n);
+            public static extern bool ImBoolVectorGetBit(global::System.IntPtr self, int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImBoolVector_SetBit")]
-            internal static extern void ImBoolVectorSetBit(global::System.IntPtr self, int n, bool v);
+            public static extern void ImBoolVectorSetBit(global::System.IntPtr self, int n, bool v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec1_ImVec1Nil")]
-            internal static extern global::System.IntPtr ImVec1ImVec1Nil();
+            public static extern global::System.IntPtr ImVec1ImVec1Nil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec1_destroy")]
-            internal static extern void ImVec1_destroy(global::System.IntPtr self);
+            public static extern void ImVec1_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec1_ImVec1Float")]
-            internal static extern global::System.IntPtr ImVec1ImVec1Float(float _x);
+            public static extern global::System.IntPtr ImVec1ImVec1Float(float _x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec2ih_ImVec2ihNil")]
-            internal static extern global::System.IntPtr ImVec2ihImVec2ihNil();
+            public static extern global::System.IntPtr ImVec2ihImVec2ihNil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec2ih_destroy")]
-            internal static extern void ImVec2ih_destroy(global::System.IntPtr self);
+            public static extern void ImVec2ih_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVec2ih_ImVec2ihshort")]
-            internal static extern global::System.IntPtr ImVec2ihImVec2ihshort(short _x, short _y);
+            public static extern global::System.IntPtr ImVec2ihImVec2ihshort(short _x, short _y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ImRectNil")]
-            internal static extern global::System.IntPtr ImRectImRectNil();
+            public static extern global::System.IntPtr ImRectImRectNil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_destroy")]
-            internal static extern void ImRect_destroy(global::System.IntPtr self);
+            public static extern void ImRect_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ImRectVec2")]
-            internal static extern global::System.IntPtr ImRectImRectVec2(global::DearImguiSharp.ImVec2.__Internal min, global::DearImguiSharp.ImVec2.__Internal max);
+            public static extern global::System.IntPtr ImRectImRectVec2(global::DearImguiSharp.ImVec2.__Internal min, global::DearImguiSharp.ImVec2.__Internal max);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ImRectVec4")]
-            internal static extern global::System.IntPtr ImRectImRectVec4(global::System.IntPtr v);
+            public static extern global::System.IntPtr ImRectImRectVec4(global::System.IntPtr v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ImRectFloat")]
-            internal static extern global::System.IntPtr ImRectImRectFloat(float x1, float y1, float x2, float y2);
+            public static extern global::System.IntPtr ImRectImRectFloat(float x1, float y1, float x2, float y2);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetCenter")]
-            internal static extern void ImRectGetCenter(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImRectGetCenter(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetSize")]
-            internal static extern void ImRectGetSize(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImRectGetSize(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetWidth")]
-            internal static extern float ImRectGetWidth(global::System.IntPtr self);
+            public static extern float ImRectGetWidth(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetHeight")]
-            internal static extern float ImRectGetHeight(global::System.IntPtr self);
+            public static extern float ImRectGetHeight(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetTL")]
-            internal static extern void ImRectGetTL(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImRectGetTL(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetTR")]
-            internal static extern void ImRectGetTR(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImRectGetTR(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetBL")]
-            internal static extern void ImRectGetBL(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImRectGetBL(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_GetBR")]
-            internal static extern void ImRectGetBR(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImRectGetBR(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ContainsVec2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImRectContainsVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
+            public static extern bool ImRectContainsVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ContainsRect")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImRectContainsRect(global::System.IntPtr self, global::System.IntPtr r);
+            public static extern bool ImRectContainsRect(global::System.IntPtr self, global::System.IntPtr r);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_Overlaps")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImRectOverlaps(global::System.IntPtr self, global::System.IntPtr r);
+            public static extern bool ImRectOverlaps(global::System.IntPtr self, global::System.IntPtr r);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_AddVec2")]
-            internal static extern void ImRectAddVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
+            public static extern void ImRectAddVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_AddRect")]
-            internal static extern void ImRectAddRect(global::System.IntPtr self, global::System.IntPtr r);
+            public static extern void ImRectAddRect(global::System.IntPtr self, global::System.IntPtr r);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ExpandFloat")]
-            internal static extern void ImRectExpandFloat(global::System.IntPtr self, float amount);
+            public static extern void ImRectExpandFloat(global::System.IntPtr self, float amount);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ExpandVec2")]
-            internal static extern void ImRectExpandVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal amount);
+            public static extern void ImRectExpandVec2(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal amount);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_Translate")]
-            internal static extern void ImRectTranslate(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal d);
+            public static extern void ImRectTranslate(global::System.IntPtr self, global::DearImguiSharp.ImVec2.__Internal d);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_TranslateX")]
-            internal static extern void ImRectTranslateX(global::System.IntPtr self, float dx);
+            public static extern void ImRectTranslateX(global::System.IntPtr self, float dx);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_TranslateY")]
-            internal static extern void ImRectTranslateY(global::System.IntPtr self, float dy);
+            public static extern void ImRectTranslateY(global::System.IntPtr self, float dy);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ClipWith")]
-            internal static extern void ImRectClipWith(global::System.IntPtr self, global::System.IntPtr r);
+            public static extern void ImRectClipWith(global::System.IntPtr self, global::System.IntPtr r);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_ClipWithFull")]
-            internal static extern void ImRectClipWithFull(global::System.IntPtr self, global::System.IntPtr r);
+            public static extern void ImRectClipWithFull(global::System.IntPtr self, global::System.IntPtr r);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_Floor")]
-            internal static extern void ImRectFloor(global::System.IntPtr self);
+            public static extern void ImRectFloor(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImRect_IsInverted")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImRectIsInverted(global::System.IntPtr self);
+            public static extern bool ImRectIsInverted(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStyleMod_ImGuiStyleModInt")]
-            internal static extern global::System.IntPtr ImGuiStyleModImGuiStyleModInt(int idx, int v);
+            public static extern global::System.IntPtr ImGuiStyleModImGuiStyleModInt(int idx, int v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStyleMod_destroy")]
-            internal static extern void ImGuiStyleMod_destroy(global::System.IntPtr self);
+            public static extern void ImGuiStyleMod_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStyleMod_ImGuiStyleModFloat")]
-            internal static extern global::System.IntPtr ImGuiStyleModImGuiStyleModFloat(int idx, float v);
+            public static extern global::System.IntPtr ImGuiStyleModImGuiStyleModFloat(int idx, float v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiStyleMod_ImGuiStyleModVec2")]
-            internal static extern global::System.IntPtr ImGuiStyleModImGuiStyleModVec2(int idx, global::DearImguiSharp.ImVec2.__Internal v);
+            public static extern global::System.IntPtr ImGuiStyleModImGuiStyleModVec2(int idx, global::DearImguiSharp.ImVec2.__Internal v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiMenuColumns_ImGuiMenuColumns")]
-            internal static extern global::System.IntPtr ImGuiMenuColumnsImGuiMenuColumns();
+            public static extern global::System.IntPtr ImGuiMenuColumnsImGuiMenuColumns();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiMenuColumns_destroy")]
-            internal static extern void ImGuiMenuColumns_destroy(global::System.IntPtr self);
+            public static extern void ImGuiMenuColumns_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiMenuColumns_Update")]
-            internal static extern void ImGuiMenuColumnsUpdate(global::System.IntPtr self, int count, float spacing, bool clear);
+            public static extern void ImGuiMenuColumnsUpdate(global::System.IntPtr self, int count, float spacing, bool clear);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiMenuColumns_DeclColumns")]
-            internal static extern float ImGuiMenuColumnsDeclColumns(global::System.IntPtr self, float w0, float w1, float w2);
+            public static extern float ImGuiMenuColumnsDeclColumns(global::System.IntPtr self, float w0, float w1, float w2);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiMenuColumns_CalcExtraSpace")]
-            internal static extern float ImGuiMenuColumnsCalcExtraSpace(global::System.IntPtr self, float avail_w);
+            public static extern float ImGuiMenuColumnsCalcExtraSpace(global::System.IntPtr self, float avail_w);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_ImGuiInputTextState")]
-            internal static extern global::System.IntPtr ImGuiInputTextStateImGuiInputTextState();
+            public static extern global::System.IntPtr ImGuiInputTextStateImGuiInputTextState();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_destroy")]
-            internal static extern void ImGuiInputTextState_destroy(global::System.IntPtr self);
+            public static extern void ImGuiInputTextState_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_ClearText")]
-            internal static extern void ImGuiInputTextStateClearText(global::System.IntPtr self);
+            public static extern void ImGuiInputTextStateClearText(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_ClearFreeMemory")]
-            internal static extern void ImGuiInputTextStateClearFreeMemory(global::System.IntPtr self);
+            public static extern void ImGuiInputTextStateClearFreeMemory(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_GetUndoAvailCount")]
-            internal static extern int ImGuiInputTextStateGetUndoAvailCount(global::System.IntPtr self);
+            public static extern int ImGuiInputTextStateGetUndoAvailCount(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_GetRedoAvailCount")]
-            internal static extern int ImGuiInputTextStateGetRedoAvailCount(global::System.IntPtr self);
+            public static extern int ImGuiInputTextStateGetRedoAvailCount(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_OnKeyPressed")]
-            internal static extern void ImGuiInputTextStateOnKeyPressed(global::System.IntPtr self, int key);
+            public static extern void ImGuiInputTextStateOnKeyPressed(global::System.IntPtr self, int key);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_CursorAnimReset")]
-            internal static extern void ImGuiInputTextStateCursorAnimReset(global::System.IntPtr self);
+            public static extern void ImGuiInputTextStateCursorAnimReset(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_CursorClamp")]
-            internal static extern void ImGuiInputTextStateCursorClamp(global::System.IntPtr self);
+            public static extern void ImGuiInputTextStateCursorClamp(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_HasSelection")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiInputTextStateHasSelection(global::System.IntPtr self);
+            public static extern bool ImGuiInputTextStateHasSelection(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_ClearSelection")]
-            internal static extern void ImGuiInputTextStateClearSelection(global::System.IntPtr self);
+            public static extern void ImGuiInputTextStateClearSelection(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiInputTextState_SelectAll")]
-            internal static extern void ImGuiInputTextStateSelectAll(global::System.IntPtr self);
+            public static extern void ImGuiInputTextStateSelectAll(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindowSettings_ImGuiWindowSettings")]
-            internal static extern global::System.IntPtr ImGuiWindowSettingsImGuiWindowSettings();
+            public static extern global::System.IntPtr ImGuiWindowSettingsImGuiWindowSettings();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindowSettings_destroy")]
-            internal static extern void ImGuiWindowSettings_destroy(global::System.IntPtr self);
+            public static extern void ImGuiWindowSettings_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindowSettings_GetName")]
-            internal static extern sbyte* ImGuiWindowSettingsGetName(global::System.IntPtr self);
+            public static extern sbyte* ImGuiWindowSettingsGetName(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiSettingsHandler_ImGuiSettingsHandler")]
-            internal static extern global::System.IntPtr ImGuiSettingsHandlerImGuiSettingsHandler();
+            public static extern global::System.IntPtr ImGuiSettingsHandlerImGuiSettingsHandler();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiSettingsHandler_destroy")]
-            internal static extern void ImGuiSettingsHandler_destroy(global::System.IntPtr self);
+            public static extern void ImGuiSettingsHandler_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPopupData_ImGuiPopupData")]
-            internal static extern global::System.IntPtr ImGuiPopupDataImGuiPopupData();
+            public static extern global::System.IntPtr ImGuiPopupDataImGuiPopupData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPopupData_destroy")]
-            internal static extern void ImGuiPopupData_destroy(global::System.IntPtr self);
+            public static extern void ImGuiPopupData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiColumnData_ImGuiColumnData")]
-            internal static extern global::System.IntPtr ImGuiColumnDataImGuiColumnData();
+            public static extern global::System.IntPtr ImGuiColumnDataImGuiColumnData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiColumnData_destroy")]
-            internal static extern void ImGuiColumnData_destroy(global::System.IntPtr self);
+            public static extern void ImGuiColumnData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiColumns_ImGuiColumns")]
-            internal static extern global::System.IntPtr ImGuiColumnsImGuiColumns();
+            public static extern global::System.IntPtr ImGuiColumnsImGuiColumns();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiColumns_destroy")]
-            internal static extern void ImGuiColumns_destroy(global::System.IntPtr self);
+            public static extern void ImGuiColumns_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiColumns_Clear")]
-            internal static extern void ImGuiColumnsClear(global::System.IntPtr self);
+            public static extern void ImGuiColumnsClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSharedData_ImDrawListSharedData")]
-            internal static extern global::System.IntPtr ImDrawListSharedDataImDrawListSharedData();
+            public static extern global::System.IntPtr ImDrawListSharedDataImDrawListSharedData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSharedData_destroy")]
-            internal static extern void ImDrawListSharedData_destroy(global::System.IntPtr self);
+            public static extern void ImDrawListSharedData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawListSharedData_SetCircleSegmentMaxError")]
-            internal static extern void ImDrawListSharedDataSetCircleSegmentMaxError(global::System.IntPtr self, float max_error);
+            public static extern void ImDrawListSharedDataSetCircleSegmentMaxError(global::System.IntPtr self, float max_error);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawDataBuilder_Clear")]
-            internal static extern void ImDrawDataBuilderClear(global::System.IntPtr self);
+            public static extern void ImDrawDataBuilderClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawDataBuilder_ClearFreeMemory")]
-            internal static extern void ImDrawDataBuilderClearFreeMemory(global::System.IntPtr self);
+            public static extern void ImDrawDataBuilderClearFreeMemory(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImDrawDataBuilder_FlattenIntoSingleLayer")]
-            internal static extern void ImDrawDataBuilderFlattenIntoSingleLayer(global::System.IntPtr self);
+            public static extern void ImDrawDataBuilderFlattenIntoSingleLayer(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNavMoveResult_ImGuiNavMoveResult")]
-            internal static extern global::System.IntPtr ImGuiNavMoveResultImGuiNavMoveResult();
+            public static extern global::System.IntPtr ImGuiNavMoveResultImGuiNavMoveResult();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNavMoveResult_destroy")]
-            internal static extern void ImGuiNavMoveResult_destroy(global::System.IntPtr self);
+            public static extern void ImGuiNavMoveResult_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNavMoveResult_Clear")]
-            internal static extern void ImGuiNavMoveResultClear(global::System.IntPtr self);
+            public static extern void ImGuiNavMoveResultClear(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNextWindowData_ImGuiNextWindowData")]
-            internal static extern global::System.IntPtr ImGuiNextWindowDataImGuiNextWindowData();
+            public static extern global::System.IntPtr ImGuiNextWindowDataImGuiNextWindowData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNextWindowData_destroy")]
-            internal static extern void ImGuiNextWindowData_destroy(global::System.IntPtr self);
+            public static extern void ImGuiNextWindowData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNextWindowData_ClearFlags")]
-            internal static extern void ImGuiNextWindowDataClearFlags(global::System.IntPtr self);
+            public static extern void ImGuiNextWindowDataClearFlags(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNextItemData_ImGuiNextItemData")]
-            internal static extern global::System.IntPtr ImGuiNextItemDataImGuiNextItemData();
+            public static extern global::System.IntPtr ImGuiNextItemDataImGuiNextItemData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNextItemData_destroy")]
-            internal static extern void ImGuiNextItemData_destroy(global::System.IntPtr self);
+            public static extern void ImGuiNextItemData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiNextItemData_ClearFlags")]
-            internal static extern void ImGuiNextItemDataClearFlags(global::System.IntPtr self);
+            public static extern void ImGuiNextItemDataClearFlags(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr")]
-            internal static extern global::System.IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexPtr(global::System.IntPtr ptr);
+            public static extern global::System.IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexPtr(global::System.IntPtr ptr);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPtrOrIndex_destroy")]
-            internal static extern void ImGuiPtrOrIndex_destroy(global::System.IntPtr self);
+            public static extern void ImGuiPtrOrIndex_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiPtrOrIndex_ImGuiPtrOrIndexInt")]
-            internal static extern global::System.IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexInt(int index);
+            public static extern global::System.IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexInt(int index);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiContext_ImGuiContext")]
-            internal static extern global::System.IntPtr ImGuiContextImGuiContext(global::System.IntPtr shared_font_atlas);
+            public static extern global::System.IntPtr ImGuiContextImGuiContext(global::System.IntPtr shared_font_atlas);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiContext_destroy")]
-            internal static extern void ImGuiContext_destroy(global::System.IntPtr self);
+            public static extern void ImGuiContext_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindowTempData_ImGuiWindowTempData")]
-            internal static extern global::System.IntPtr ImGuiWindowTempDataImGuiWindowTempData();
+            public static extern global::System.IntPtr ImGuiWindowTempDataImGuiWindowTempData();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindowTempData_destroy")]
-            internal static extern void ImGuiWindowTempData_destroy(global::System.IntPtr self);
+            public static extern void ImGuiWindowTempData_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_ImGuiWindow")]
-            internal static extern global::System.IntPtr ImGuiWindowImGuiWindow(global::System.IntPtr context, [MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+            public static extern global::System.IntPtr ImGuiWindowImGuiWindow(global::System.IntPtr context, [MarshalAs(UnmanagedType.LPUTF8Str)] string name);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_destroy")]
-            internal static extern void ImGuiWindow_destroy(global::System.IntPtr self);
+            public static extern void ImGuiWindow_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_GetIDStr")]
-            internal static extern uint ImGuiWindowGetIDStr(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
+            public static extern uint ImGuiWindowGetIDStr(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_GetIDPtr")]
-            internal static extern uint ImGuiWindowGetIDPtr(global::System.IntPtr self, global::System.IntPtr ptr);
+            public static extern uint ImGuiWindowGetIDPtr(global::System.IntPtr self, global::System.IntPtr ptr);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_GetIDInt")]
-            internal static extern uint ImGuiWindowGetIDInt(global::System.IntPtr self, int n);
+            public static extern uint ImGuiWindowGetIDInt(global::System.IntPtr self, int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_GetIDNoKeepAliveStr")]
-            internal static extern uint ImGuiWindowGetIDNoKeepAliveStr(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
+            public static extern uint ImGuiWindowGetIDNoKeepAliveStr(global::System.IntPtr self, [MarshalAs(UnmanagedType.LPUTF8Str)] string str, [MarshalAs(UnmanagedType.LPUTF8Str)] string str_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_GetIDNoKeepAlivePtr")]
-            internal static extern uint ImGuiWindowGetIDNoKeepAlivePtr(global::System.IntPtr self, global::System.IntPtr ptr);
+            public static extern uint ImGuiWindowGetIDNoKeepAlivePtr(global::System.IntPtr self, global::System.IntPtr ptr);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_GetIDNoKeepAliveInt")]
-            internal static extern uint ImGuiWindowGetIDNoKeepAliveInt(global::System.IntPtr self, int n);
+            public static extern uint ImGuiWindowGetIDNoKeepAliveInt(global::System.IntPtr self, int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_GetIDFromRectangle")]
-            internal static extern uint ImGuiWindowGetIDFromRectangle(global::System.IntPtr self, global::System.IntPtr r_abs);
+            public static extern uint ImGuiWindowGetIDFromRectangle(global::System.IntPtr self, global::System.IntPtr r_abs);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_Rect")]
-            internal static extern void ImGuiWindowRect(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImGuiWindowRect(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_CalcFontSize")]
-            internal static extern float ImGuiWindowCalcFontSize(global::System.IntPtr self);
+            public static extern float ImGuiWindowCalcFontSize(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_TitleBarHeight")]
-            internal static extern float ImGuiWindowTitleBarHeight(global::System.IntPtr self);
+            public static extern float ImGuiWindowTitleBarHeight(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_TitleBarRect")]
-            internal static extern void ImGuiWindowTitleBarRect(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImGuiWindowTitleBarRect(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_MenuBarHeight")]
-            internal static extern float ImGuiWindowMenuBarHeight(global::System.IntPtr self);
+            public static extern float ImGuiWindowMenuBarHeight(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiWindow_MenuBarRect")]
-            internal static extern void ImGuiWindowMenuBarRect(global::System.IntPtr pOut, global::System.IntPtr self);
+            public static extern void ImGuiWindowMenuBarRect(global::System.IntPtr pOut, global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiItemHoveredDataBackup_ImGuiItemHoveredDataBackup")]
-            internal static extern global::System.IntPtr ImGuiItemHoveredDataBackupImGuiItemHoveredDataBackup();
+            public static extern global::System.IntPtr ImGuiItemHoveredDataBackupImGuiItemHoveredDataBackup();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiItemHoveredDataBackup_destroy")]
-            internal static extern void ImGuiItemHoveredDataBackup_destroy(global::System.IntPtr self);
+            public static extern void ImGuiItemHoveredDataBackup_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiItemHoveredDataBackup_Backup")]
-            internal static extern void ImGuiItemHoveredDataBackupBackup(global::System.IntPtr self);
+            public static extern void ImGuiItemHoveredDataBackupBackup(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiItemHoveredDataBackup_Restore")]
-            internal static extern void ImGuiItemHoveredDataBackupRestore(global::System.IntPtr self);
+            public static extern void ImGuiItemHoveredDataBackupRestore(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTabItem_ImGuiTabItem")]
-            internal static extern global::System.IntPtr ImGuiTabItemImGuiTabItem();
+            public static extern global::System.IntPtr ImGuiTabItemImGuiTabItem();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTabItem_destroy")]
-            internal static extern void ImGuiTabItem_destroy(global::System.IntPtr self);
+            public static extern void ImGuiTabItem_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTabBar_ImGuiTabBar")]
-            internal static extern global::System.IntPtr ImGuiTabBarImGuiTabBar();
+            public static extern global::System.IntPtr ImGuiTabBarImGuiTabBar();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTabBar_destroy")]
-            internal static extern void ImGuiTabBar_destroy(global::System.IntPtr self);
+            public static extern void ImGuiTabBar_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTabBar_GetTabOrder")]
-            internal static extern int ImGuiTabBarGetTabOrder(global::System.IntPtr self, global::System.IntPtr tab);
+            public static extern int ImGuiTabBarGetTabOrder(global::System.IntPtr self, global::System.IntPtr tab);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGuiTabBar_GetTabName")]
-            internal static extern global::System.IntPtr ImGuiTabBarGetTabName(global::System.IntPtr self, global::System.IntPtr tab);
+            public static extern global::System.IntPtr ImGuiTabBarGetTabName(global::System.IntPtr self, global::System.IntPtr tab);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCurrentWindowRead")]
-            internal static extern global::System.IntPtr GetCurrentWindowRead();
+            public static extern global::System.IntPtr GetCurrentWindowRead();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetCurrentWindow")]
-            internal static extern global::System.IntPtr GetCurrentWindow();
+            public static extern global::System.IntPtr GetCurrentWindow();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindWindowByID")]
-            internal static extern global::System.IntPtr FindWindowByID(uint id);
+            public static extern global::System.IntPtr FindWindowByID(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindWindowByName")]
-            internal static extern global::System.IntPtr FindWindowByName([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+            public static extern global::System.IntPtr FindWindowByName([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igUpdateWindowParentAndRootLinks")]
-            internal static extern void UpdateWindowParentAndRootLinks(global::System.IntPtr window, int flags, global::System.IntPtr parent_window);
+            public static extern void UpdateWindowParentAndRootLinks(global::System.IntPtr window, int flags, global::System.IntPtr parent_window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCalcWindowExpectedSize")]
-            internal static extern void CalcWindowExpectedSize(global::System.IntPtr pOut, global::System.IntPtr window);
+            public static extern void CalcWindowExpectedSize(global::System.IntPtr pOut, global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsWindowChildOf")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsWindowChildOf(global::System.IntPtr window, global::System.IntPtr potential_parent);
+            public static extern bool IsWindowChildOf(global::System.IntPtr window, global::System.IntPtr potential_parent);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsWindowNavFocusable")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsWindowNavFocusable(global::System.IntPtr window);
+            public static extern bool IsWindowNavFocusable(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowAllowedExtentRect")]
-            internal static extern void GetWindowAllowedExtentRect(global::System.IntPtr pOut, global::System.IntPtr window);
+            public static extern void GetWindowAllowedExtentRect(global::System.IntPtr pOut, global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowPosWindowPtr")]
-            internal static extern void SetWindowPosWindowPtr(global::System.IntPtr window, global::DearImguiSharp.ImVec2.__Internal pos, int cond);
+            public static extern void SetWindowPosWindowPtr(global::System.IntPtr window, global::DearImguiSharp.ImVec2.__Internal pos, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowSizeWindowPtr")]
-            internal static extern void SetWindowSizeWindowPtr(global::System.IntPtr window, global::DearImguiSharp.ImVec2.__Internal size, int cond);
+            public static extern void SetWindowSizeWindowPtr(global::System.IntPtr window, global::DearImguiSharp.ImVec2.__Internal size, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetWindowCollapsedWindowPtr")]
-            internal static extern void SetWindowCollapsedWindowPtr(global::System.IntPtr window, bool collapsed, int cond);
+            public static extern void SetWindowCollapsedWindowPtr(global::System.IntPtr window, bool collapsed, int cond);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFocusWindow")]
-            internal static extern void FocusWindow(global::System.IntPtr window);
+            public static extern void FocusWindow(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFocusTopMostWindowUnderOne")]
-            internal static extern void FocusTopMostWindowUnderOne(global::System.IntPtr under_this_window, global::System.IntPtr ignore_window);
+            public static extern void FocusTopMostWindowUnderOne(global::System.IntPtr under_this_window, global::System.IntPtr ignore_window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBringWindowToFocusFront")]
-            internal static extern void BringWindowToFocusFront(global::System.IntPtr window);
+            public static extern void BringWindowToFocusFront(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBringWindowToDisplayFront")]
-            internal static extern void BringWindowToDisplayFront(global::System.IntPtr window);
+            public static extern void BringWindowToDisplayFront(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBringWindowToDisplayBack")]
-            internal static extern void BringWindowToDisplayBack(global::System.IntPtr window);
+            public static extern void BringWindowToDisplayBack(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetCurrentFont")]
-            internal static extern void SetCurrentFont(global::System.IntPtr font);
+            public static extern void SetCurrentFont(global::System.IntPtr font);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetDefaultFont")]
-            internal static extern global::System.IntPtr GetDefaultFont();
+            public static extern global::System.IntPtr GetDefaultFont();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetForegroundDrawListWindowPtr")]
-            internal static extern global::System.IntPtr GetForegroundDrawListWindowPtr(global::System.IntPtr window);
+            public static extern global::System.IntPtr GetForegroundDrawListWindowPtr(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInitialize")]
-            internal static extern void Initialize(global::System.IntPtr context);
+            public static extern void Initialize(global::System.IntPtr context);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShutdown")]
-            internal static extern void Shutdown(global::System.IntPtr context);
+            public static extern void Shutdown(global::System.IntPtr context);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igUpdateHoveredWindowAndCaptureFlags")]
-            internal static extern void UpdateHoveredWindowAndCaptureFlags();
+            public static extern void UpdateHoveredWindowAndCaptureFlags();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igStartMouseMovingWindow")]
-            internal static extern void StartMouseMovingWindow(global::System.IntPtr window);
+            public static extern void StartMouseMovingWindow(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igUpdateMouseMovingWindowNewFrame")]
-            internal static extern void UpdateMouseMovingWindowNewFrame();
+            public static extern void UpdateMouseMovingWindowNewFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igUpdateMouseMovingWindowEndFrame")]
-            internal static extern void UpdateMouseMovingWindowEndFrame();
+            public static extern void UpdateMouseMovingWindowEndFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMarkIniSettingsDirtyNil")]
-            internal static extern void MarkIniSettingsDirtyNil();
+            public static extern void MarkIniSettingsDirtyNil();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMarkIniSettingsDirtyWindowPtr")]
-            internal static extern void MarkIniSettingsDirtyWindowPtr(global::System.IntPtr window);
+            public static extern void MarkIniSettingsDirtyWindowPtr(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCreateNewWindowSettings")]
-            internal static extern global::System.IntPtr CreateNewWindowSettings([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+            public static extern global::System.IntPtr CreateNewWindowSettings([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindWindowSettings")]
-            internal static extern global::System.IntPtr FindWindowSettings(uint id);
+            public static extern global::System.IntPtr FindWindowSettings(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindOrCreateWindowSettings")]
-            internal static extern global::System.IntPtr FindOrCreateWindowSettings([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+            public static extern global::System.IntPtr FindOrCreateWindowSettings([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindSettingsHandler")]
-            internal static extern global::System.IntPtr FindSettingsHandler([MarshalAs(UnmanagedType.LPUTF8Str)] string type_name);
+            public static extern global::System.IntPtr FindSettingsHandler([MarshalAs(UnmanagedType.LPUTF8Str)] string type_name);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollXWindowPtr")]
-            internal static extern void SetScrollXWindowPtr(global::System.IntPtr window, float new_scroll_x);
+            public static extern void SetScrollXWindowPtr(global::System.IntPtr window, float new_scroll_x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollYWindowPtr")]
-            internal static extern void SetScrollYWindowPtr(global::System.IntPtr window, float new_scroll_y);
+            public static extern void SetScrollYWindowPtr(global::System.IntPtr window, float new_scroll_y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollFromPosXWindowPtr")]
-            internal static extern void SetScrollFromPosXWindowPtr(global::System.IntPtr window, float local_x, float center_x_ratio);
+            public static extern void SetScrollFromPosXWindowPtr(global::System.IntPtr window, float local_x, float center_x_ratio);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetScrollFromPosYWindowPtr")]
-            internal static extern void SetScrollFromPosYWindowPtr(global::System.IntPtr window, float local_y, float center_y_ratio);
+            public static extern void SetScrollFromPosYWindowPtr(global::System.IntPtr window, float local_y, float center_y_ratio);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igScrollToBringRectIntoView")]
-            internal static extern void ScrollToBringRectIntoView(global::System.IntPtr pOut, global::System.IntPtr window, global::System.IntPtr item_rect);
+            public static extern void ScrollToBringRectIntoView(global::System.IntPtr pOut, global::System.IntPtr window, global::System.IntPtr item_rect);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetItemID")]
-            internal static extern uint GetItemID();
+            public static extern uint GetItemID();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetItemStatusFlags")]
-            internal static extern int GetItemStatusFlags();
+            public static extern int GetItemStatusFlags();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetActiveID")]
-            internal static extern uint GetActiveID();
+            public static extern uint GetActiveID();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFocusID")]
-            internal static extern uint GetFocusID();
+            public static extern uint GetFocusID();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetActiveID")]
-            internal static extern void SetActiveID(uint id, global::System.IntPtr window);
+            public static extern void SetActiveID(uint id, global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetFocusID")]
-            internal static extern void SetFocusID(uint id, global::System.IntPtr window);
+            public static extern void SetFocusID(uint id, global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igClearActiveID")]
-            internal static extern void ClearActiveID();
+            public static extern void ClearActiveID();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetHoveredID")]
-            internal static extern uint GetHoveredID();
+            public static extern uint GetHoveredID();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetHoveredID")]
-            internal static extern void SetHoveredID(uint id);
+            public static extern void SetHoveredID(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igKeepAliveID")]
-            internal static extern void KeepAliveID(uint id);
+            public static extern void KeepAliveID(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igMarkItemEdited")]
-            internal static extern void MarkItemEdited(uint id);
+            public static extern void MarkItemEdited(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushOverrideID")]
-            internal static extern void PushOverrideID(uint id);
+            public static extern void PushOverrideID(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igItemSizeVec2")]
-            internal static extern void ItemSizeVec2(global::DearImguiSharp.ImVec2.__Internal size, float text_baseline_y);
+            public static extern void ItemSizeVec2(global::DearImguiSharp.ImVec2.__Internal size, float text_baseline_y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igItemSizeRect")]
-            internal static extern void ItemSizeRect(global::System.IntPtr bb, float text_baseline_y);
+            public static extern void ItemSizeRect(global::System.IntPtr bb, float text_baseline_y);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igItemAdd")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ItemAdd(global::System.IntPtr bb, uint id, global::System.IntPtr nav_bb);
+            public static extern bool ItemAdd(global::System.IntPtr bb, uint id, global::System.IntPtr nav_bb);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igItemHoverable")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ItemHoverable(global::System.IntPtr bb, uint id);
+            public static extern bool ItemHoverable(global::System.IntPtr bb, uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsClippedEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsClippedEx(global::System.IntPtr bb, uint id, bool clip_even_when_logged);
+            public static extern bool IsClippedEx(global::System.IntPtr bb, uint id, bool clip_even_when_logged);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFocusableItemRegister")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool FocusableItemRegister(global::System.IntPtr window, uint id);
+            public static extern bool FocusableItemRegister(global::System.IntPtr window, uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFocusableItemUnregister")]
-            internal static extern void FocusableItemUnregister(global::System.IntPtr window);
+            public static extern void FocusableItemUnregister(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCalcItemSize")]
-            internal static extern void CalcItemSize(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal size, float default_w, float default_h);
+            public static extern void CalcItemSize(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal size, float default_w, float default_h);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCalcWrapWidthForPos")]
-            internal static extern float CalcWrapWidthForPos(global::DearImguiSharp.ImVec2.__Internal pos, float wrap_pos_x);
+            public static extern float CalcWrapWidthForPos(global::DearImguiSharp.ImVec2.__Internal pos, float wrap_pos_x);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushMultiItemsWidths")]
-            internal static extern void PushMultiItemsWidths(int components, float width_full);
+            public static extern void PushMultiItemsWidths(int components, float width_full);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushItemFlag")]
-            internal static extern void PushItemFlag(int option, bool enabled);
+            public static extern void PushItemFlag(int option, bool enabled);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopItemFlag")]
-            internal static extern void PopItemFlag();
+            public static extern void PopItemFlag();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsItemToggledSelection")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsItemToggledSelection();
+            public static extern bool IsItemToggledSelection();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetContentRegionMaxAbs")]
-            internal static extern void GetContentRegionMaxAbs(global::System.IntPtr pOut);
+            public static extern void GetContentRegionMaxAbs(global::System.IntPtr pOut);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShrinkWidths")]
-            internal static extern void ShrinkWidths(global::System.IntPtr items, int count, float width_excess);
+            public static extern void ShrinkWidths(global::System.IntPtr items, int count, float width_excess);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogBegin")]
-            internal static extern void LogBegin(global::DearImguiSharp.ImGuiLogType type, int auto_open_depth);
+            public static extern void LogBegin(global::DearImguiSharp.ImGuiLogType type, int auto_open_depth);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogToBuffer")]
-            internal static extern void LogToBuffer(int auto_open_depth);
+            public static extern void LogToBuffer(int auto_open_depth);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginChildEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginChildEx([MarshalAs(UnmanagedType.LPUTF8Str)] string name, uint id, global::DearImguiSharp.ImVec2.__Internal size_arg, bool border, int flags);
+            public static extern bool BeginChildEx([MarshalAs(UnmanagedType.LPUTF8Str)] string name, uint id, global::DearImguiSharp.ImVec2.__Internal size_arg, bool border, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igOpenPopupEx")]
-            internal static extern void OpenPopupEx(uint id);
+            public static extern void OpenPopupEx(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igClosePopupToLevel")]
-            internal static extern void ClosePopupToLevel(int remaining, bool restore_focus_to_window_under_popup);
+            public static extern void ClosePopupToLevel(int remaining, bool restore_focus_to_window_under_popup);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igClosePopupsOverWindow")]
-            internal static extern void ClosePopupsOverWindow(global::System.IntPtr ref_window, bool restore_focus_to_window_under_popup);
+            public static extern void ClosePopupsOverWindow(global::System.IntPtr ref_window, bool restore_focus_to_window_under_popup);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsPopupOpenID")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsPopupOpenID(uint id);
+            public static extern bool IsPopupOpenID(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginPopupEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginPopupEx(uint id, int extra_flags);
+            public static extern bool BeginPopupEx(uint id, int extra_flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginTooltipEx")]
-            internal static extern void BeginTooltipEx(int extra_flags, int tooltip_flags);
+            public static extern void BeginTooltipEx(int extra_flags, int tooltip_flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetTopMostPopupModal")]
-            internal static extern global::System.IntPtr GetTopMostPopupModal();
+            public static extern global::System.IntPtr GetTopMostPopupModal();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindBestWindowPosForPopup")]
-            internal static extern void FindBestWindowPosForPopup(global::System.IntPtr pOut, global::System.IntPtr window);
+            public static extern void FindBestWindowPosForPopup(global::System.IntPtr pOut, global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindBestWindowPosForPopupEx")]
-            internal static extern void FindBestWindowPosForPopupEx(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal ref_pos, global::DearImguiSharp.ImVec2.__Internal size, int* last_dir, global::System.IntPtr r_outer, global::System.IntPtr r_avoid, global::DearImguiSharp.ImGuiPopupPositionPolicy policy);
+            public static extern void FindBestWindowPosForPopupEx(global::System.IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal ref_pos, global::DearImguiSharp.ImVec2.__Internal size, int* last_dir, global::System.IntPtr r_outer, global::System.IntPtr r_avoid, global::DearImguiSharp.ImGuiPopupPositionPolicy policy);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNavInitWindow")]
-            internal static extern void NavInitWindow(global::System.IntPtr window, bool force_reinit);
+            public static extern void NavInitWindow(global::System.IntPtr window, bool force_reinit);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNavMoveRequestButNoResultYet")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool NavMoveRequestButNoResultYet();
+            public static extern bool NavMoveRequestButNoResultYet();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNavMoveRequestCancel")]
-            internal static extern void NavMoveRequestCancel();
+            public static extern void NavMoveRequestCancel();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNavMoveRequestForward")]
-            internal static extern void NavMoveRequestForward(int move_dir, int clip_dir, global::System.IntPtr bb_rel, int move_flags);
+            public static extern void NavMoveRequestForward(int move_dir, int clip_dir, global::System.IntPtr bb_rel, int move_flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igNavMoveRequestTryWrapping")]
-            internal static extern void NavMoveRequestTryWrapping(global::System.IntPtr window, int move_flags);
+            public static extern void NavMoveRequestTryWrapping(global::System.IntPtr window, int move_flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetNavInputAmount")]
-            internal static extern float GetNavInputAmount(int n, global::DearImguiSharp.ImGuiInputReadMode mode);
+            public static extern float GetNavInputAmount(int n, global::DearImguiSharp.ImGuiInputReadMode mode);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetNavInputAmount2d")]
-            internal static extern void GetNavInputAmount2d(global::System.IntPtr pOut, int dir_sources, global::DearImguiSharp.ImGuiInputReadMode mode, float slow_factor, float fast_factor);
+            public static extern void GetNavInputAmount2d(global::System.IntPtr pOut, int dir_sources, global::DearImguiSharp.ImGuiInputReadMode mode, float slow_factor, float fast_factor);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCalcTypematicRepeatAmount")]
-            internal static extern int CalcTypematicRepeatAmount(float t0, float t1, float repeat_delay, float repeat_rate);
+            public static extern int CalcTypematicRepeatAmount(float t0, float t1, float repeat_delay, float repeat_rate);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igActivateItem")]
-            internal static extern void ActivateItem(uint id);
+            public static extern void ActivateItem(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNavID")]
-            internal static extern void SetNavID(uint id, int nav_layer, uint focus_scope_id);
+            public static extern void SetNavID(uint id, int nav_layer, uint focus_scope_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSetNavIDWithRectRel")]
-            internal static extern void SetNavIDWithRectRel(uint id, int nav_layer, uint focus_scope_id, global::System.IntPtr rect_rel);
+            public static extern void SetNavIDWithRectRel(uint id, int nav_layer, uint focus_scope_id, global::System.IntPtr rect_rel);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushFocusScope")]
-            internal static extern void PushFocusScope(uint id);
+            public static extern void PushFocusScope(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopFocusScope")]
-            internal static extern void PopFocusScope();
+            public static extern void PopFocusScope();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetFocusScopeID")]
-            internal static extern uint GetFocusScopeID();
+            public static extern uint GetFocusScopeID();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsActiveIdUsingNavDir")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsActiveIdUsingNavDir(int dir);
+            public static extern bool IsActiveIdUsingNavDir(int dir);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsActiveIdUsingNavInput")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsActiveIdUsingNavInput(int input);
+            public static extern bool IsActiveIdUsingNavInput(int input);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsActiveIdUsingKey")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsActiveIdUsingKey(int key);
+            public static extern bool IsActiveIdUsingKey(int key);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsMouseDragPastThreshold")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsMouseDragPastThreshold(int button, float lock_threshold);
+            public static extern bool IsMouseDragPastThreshold(int button, float lock_threshold);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsKeyPressedMap")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsKeyPressedMap(int key, bool repeat);
+            public static extern bool IsKeyPressedMap(int key, bool repeat);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsNavInputDown")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsNavInputDown(int n);
+            public static extern bool IsNavInputDown(int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsNavInputTest")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsNavInputTest(int n, global::DearImguiSharp.ImGuiInputReadMode rm);
+            public static extern bool IsNavInputTest(int n, global::DearImguiSharp.ImGuiInputReadMode rm);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginDragDropTargetCustom")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginDragDropTargetCustom(global::System.IntPtr bb, uint id);
+            public static extern bool BeginDragDropTargetCustom(global::System.IntPtr bb, uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igClearDragDrop")]
-            internal static extern void ClearDragDrop();
+            public static extern void ClearDragDrop();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igIsDragDropPayloadBeingAccepted")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsDragDropPayloadBeingAccepted();
+            public static extern bool IsDragDropPayloadBeingAccepted();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginColumns")]
-            internal static extern void BeginColumns([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int count, int flags);
+            public static extern void BeginColumns([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int count, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igEndColumns")]
-            internal static extern void EndColumns();
+            public static extern void EndColumns();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushColumnClipRect")]
-            internal static extern void PushColumnClipRect(int column_index);
+            public static extern void PushColumnClipRect(int column_index);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPushColumnsBackground")]
-            internal static extern void PushColumnsBackground();
+            public static extern void PushColumnsBackground();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPopColumnsBackground")]
-            internal static extern void PopColumnsBackground();
+            public static extern void PopColumnsBackground();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColumnsID")]
-            internal static extern uint GetColumnsID([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int count);
+            public static extern uint GetColumnsID([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int count);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindOrCreateColumns")]
-            internal static extern global::System.IntPtr FindOrCreateColumns(global::System.IntPtr window, uint id);
+            public static extern global::System.IntPtr FindOrCreateColumns(global::System.IntPtr window, uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColumnOffsetFromNorm")]
-            internal static extern float GetColumnOffsetFromNorm(global::System.IntPtr columns, float offset_norm);
+            public static extern float GetColumnOffsetFromNorm(global::System.IntPtr columns, float offset_norm);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetColumnNormFromOffset")]
-            internal static extern float GetColumnNormFromOffset(global::System.IntPtr columns, float offset);
+            public static extern float GetColumnNormFromOffset(global::System.IntPtr columns, float offset);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igBeginTabBarEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool BeginTabBarEx(global::System.IntPtr tab_bar, global::System.IntPtr bb, int flags);
+            public static extern bool BeginTabBarEx(global::System.IntPtr tab_bar, global::System.IntPtr bb, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabBarFindTabByID")]
-            internal static extern global::System.IntPtr TabBarFindTabByID(global::System.IntPtr tab_bar, uint tab_id);
+            public static extern global::System.IntPtr TabBarFindTabByID(global::System.IntPtr tab_bar, uint tab_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabBarRemoveTab")]
-            internal static extern void TabBarRemoveTab(global::System.IntPtr tab_bar, uint tab_id);
+            public static extern void TabBarRemoveTab(global::System.IntPtr tab_bar, uint tab_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabBarCloseTab")]
-            internal static extern void TabBarCloseTab(global::System.IntPtr tab_bar, global::System.IntPtr tab);
+            public static extern void TabBarCloseTab(global::System.IntPtr tab_bar, global::System.IntPtr tab);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabBarQueueChangeTabOrder")]
-            internal static extern void TabBarQueueChangeTabOrder(global::System.IntPtr tab_bar, global::System.IntPtr tab, int dir);
+            public static extern void TabBarQueueChangeTabOrder(global::System.IntPtr tab_bar, global::System.IntPtr tab, int dir);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabItemEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TabItemEx(global::System.IntPtr tab_bar, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_open, int flags);
+            public static extern bool TabItemEx(global::System.IntPtr tab_bar, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool* p_open, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabItemCalcSize")]
-            internal static extern void TabItemCalcSize(global::System.IntPtr pOut, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool has_close_button);
+            public static extern void TabItemCalcSize(global::System.IntPtr pOut, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, bool has_close_button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabItemBackground")]
-            internal static extern void TabItemBackground(global::System.IntPtr draw_list, global::System.IntPtr bb, int flags, uint col);
+            public static extern void TabItemBackground(global::System.IntPtr draw_list, global::System.IntPtr bb, int flags, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTabItemLabelAndCloseButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TabItemLabelAndCloseButton(global::System.IntPtr draw_list, global::System.IntPtr bb, int flags, global::DearImguiSharp.ImVec2.__Internal frame_padding, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, uint tab_id, uint close_button_id);
+            public static extern bool TabItemLabelAndCloseButton(global::System.IntPtr draw_list, global::System.IntPtr bb, int flags, global::DearImguiSharp.ImVec2.__Internal frame_padding, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, uint tab_id, uint close_button_id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderText")]
-            internal static extern void RenderText(global::DearImguiSharp.ImVec2.__Internal pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, bool hide_text_after_hash);
+            public static extern void RenderText(global::DearImguiSharp.ImVec2.__Internal pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, bool hide_text_after_hash);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderTextWrapped")]
-            internal static extern void RenderTextWrapped(global::DearImguiSharp.ImVec2.__Internal pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width);
+            public static extern void RenderTextWrapped(global::DearImguiSharp.ImVec2.__Internal pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, float wrap_width);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderTextClipped")]
-            internal static extern void RenderTextClipped(global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, global::System.IntPtr text_size_if_known, global::DearImguiSharp.ImVec2.__Internal align, global::System.IntPtr clip_rect);
+            public static extern void RenderTextClipped(global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, global::System.IntPtr text_size_if_known, global::DearImguiSharp.ImVec2.__Internal align, global::System.IntPtr clip_rect);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderTextClippedEx")]
-            internal static extern void RenderTextClippedEx(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, global::System.IntPtr text_size_if_known, global::DearImguiSharp.ImVec2.__Internal align, global::System.IntPtr clip_rect);
+            public static extern void RenderTextClippedEx(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, global::System.IntPtr text_size_if_known, global::DearImguiSharp.ImVec2.__Internal align, global::System.IntPtr clip_rect);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderTextEllipsis")]
-            internal static extern void RenderTextEllipsis(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, float clip_max_x, float ellipsis_max_x, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, global::System.IntPtr text_size_if_known);
+            public static extern void RenderTextEllipsis(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, float clip_max_x, float ellipsis_max_x, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, global::System.IntPtr text_size_if_known);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderFrame")]
-            internal static extern void RenderFrame(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, bool border, float rounding);
+            public static extern void RenderFrame(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, bool border, float rounding);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderFrameBorder")]
-            internal static extern void RenderFrameBorder(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, float rounding);
+            public static extern void RenderFrameBorder(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, float rounding);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderColorRectWithAlphaCheckerboard")]
-            internal static extern void RenderColorRectWithAlphaCheckerboard(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2.__Internal grid_off, float rounding, int rounding_corners_flags);
+            public static extern void RenderColorRectWithAlphaCheckerboard(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2.__Internal grid_off, float rounding, int rounding_corners_flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderCheckMark")]
-            internal static extern void RenderCheckMark(global::DearImguiSharp.ImVec2.__Internal pos, uint col, float sz);
+            public static extern void RenderCheckMark(global::DearImguiSharp.ImVec2.__Internal pos, uint col, float sz);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderNavHighlight")]
-            internal static extern void RenderNavHighlight(global::System.IntPtr bb, uint id, int flags);
+            public static extern void RenderNavHighlight(global::System.IntPtr bb, uint id, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igFindRenderedTextEnd")]
-            internal static extern global::System.IntPtr FindRenderedTextEnd([MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
+            public static extern global::System.IntPtr FindRenderedTextEnd([MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogRenderedText")]
-            internal static extern void LogRenderedText(global::System.IntPtr ref_pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
+            public static extern void LogRenderedText(global::System.IntPtr ref_pos, [MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderArrow")]
-            internal static extern void RenderArrow(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, uint col, int dir, float scale);
+            public static extern void RenderArrow(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, uint col, int dir, float scale);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderBullet")]
-            internal static extern void RenderBullet(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, uint col);
+            public static extern void RenderBullet(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderMouseCursor")]
-            internal static extern void RenderMouseCursor(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, float scale, int mouse_cursor, uint col_fill, uint col_border, uint col_shadow);
+            public static extern void RenderMouseCursor(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, float scale, int mouse_cursor, uint col_fill, uint col_border, uint col_shadow);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderArrowPointingAt")]
-            internal static extern void RenderArrowPointingAt(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal half_sz, int direction, uint col);
+            public static extern void RenderArrowPointingAt(global::System.IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal half_sz, int direction, uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igRenderRectFilledRangeH")]
-            internal static extern void RenderRectFilledRangeH(global::System.IntPtr draw_list, global::System.IntPtr rect, uint col, float x_start_norm, float x_end_norm, float rounding);
+            public static extern void RenderRectFilledRangeH(global::System.IntPtr draw_list, global::System.IntPtr rect, uint col, float x_start_norm, float x_end_norm, float rounding);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTextEx")]
-            internal static extern void TextEx([MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, int flags);
+            public static extern void TextEx([MarshalAs(UnmanagedType.LPUTF8Str)] string text, [MarshalAs(UnmanagedType.LPUTF8Str)] string text_end, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igButtonEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ButtonEx([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags);
+            public static extern bool ButtonEx([MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCloseButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool CloseButton(uint id, global::DearImguiSharp.ImVec2.__Internal pos);
+            public static extern bool CloseButton(uint id, global::DearImguiSharp.ImVec2.__Internal pos);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igCollapseButton")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool CollapseButton(uint id, global::DearImguiSharp.ImVec2.__Internal pos);
+            public static extern bool CollapseButton(uint id, global::DearImguiSharp.ImVec2.__Internal pos);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igArrowButtonEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ArrowButtonEx([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int dir, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags);
+            public static extern bool ArrowButtonEx([MarshalAs(UnmanagedType.LPUTF8Str)] string str_id, int dir, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igScrollbar")]
-            internal static extern void Scrollbar(global::DearImguiSharp.ImGuiAxis axis);
+            public static extern void Scrollbar(global::DearImguiSharp.ImGuiAxis axis);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igScrollbarEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ScrollbarEx(global::System.IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* p_scroll_v, float avail_v, float contents_v, int rounding_corners);
+            public static extern bool ScrollbarEx(global::System.IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* p_scroll_v, float avail_v, float contents_v, int rounding_corners);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowScrollbarID")]
-            internal static extern uint GetWindowScrollbarID(global::System.IntPtr window, global::DearImguiSharp.ImGuiAxis axis);
+            public static extern uint GetWindowScrollbarID(global::System.IntPtr window, global::DearImguiSharp.ImGuiAxis axis);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGetWindowResizeID")]
-            internal static extern uint GetWindowResizeID(global::System.IntPtr window, int n);
+            public static extern uint GetWindowResizeID(global::System.IntPtr window, int n);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSeparatorEx")]
-            internal static extern void SeparatorEx(int flags);
+            public static extern void SeparatorEx(int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igButtonBehavior")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ButtonBehavior(global::System.IntPtr bb, uint id, bool* out_hovered, bool* out_held, int flags);
+            public static extern bool ButtonBehavior(global::System.IntPtr bb, uint id, bool* out_hovered, bool* out_held, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDragBehavior")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DragBehavior(uint id, int data_type, global::System.IntPtr p_v, float v_speed, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power, int flags);
+            public static extern bool DragBehavior(uint id, int data_type, global::System.IntPtr p_v, float v_speed, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSliderBehavior")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SliderBehavior(global::System.IntPtr bb, uint id, int data_type, global::System.IntPtr p_v, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power, int flags, global::System.IntPtr out_grab_bb);
+            public static extern bool SliderBehavior(global::System.IntPtr bb, uint id, int data_type, global::System.IntPtr p_v, global::System.IntPtr p_min, global::System.IntPtr p_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format, float power, int flags, global::System.IntPtr out_grab_bb);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igSplitterBehavior")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool SplitterBehavior(global::System.IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* size1, float* size2, float min_size1, float min_size2, float hover_extend, float hover_visibility_delay);
+            public static extern bool SplitterBehavior(global::System.IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* size1, float* size2, float min_size1, float min_size2, float hover_extend, float hover_visibility_delay);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodeBehavior")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodeBehavior(uint id, int flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string label_end);
+            public static extern bool TreeNodeBehavior(uint id, int flags, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string label_end);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreeNodeBehaviorIsOpen")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TreeNodeBehaviorIsOpen(uint id, int flags);
+            public static extern bool TreeNodeBehaviorIsOpen(uint id, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTreePushOverrideID")]
-            internal static extern void TreePushOverrideID(uint id);
+            public static extern void TreePushOverrideID(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDataTypeGetInfo")]
-            internal static extern global::System.IntPtr DataTypeGetInfo(int data_type);
+            public static extern global::System.IntPtr DataTypeGetInfo(int data_type);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDataTypeFormatString")]
-            internal static extern int DataTypeFormatString(sbyte* buf, int buf_size, int data_type, global::System.IntPtr p_data, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern int DataTypeFormatString(sbyte* buf, int buf_size, int data_type, global::System.IntPtr p_data, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDataTypeApplyOp")]
-            internal static extern void DataTypeApplyOp(int data_type, int op, global::System.IntPtr output, global::System.IntPtr arg_1, global::System.IntPtr arg_2);
+            public static extern void DataTypeApplyOp(int data_type, int op, global::System.IntPtr output, global::System.IntPtr arg_1, global::System.IntPtr arg_2);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDataTypeApplyOpFromText")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool DataTypeApplyOpFromText([MarshalAs(UnmanagedType.LPUTF8Str)] string buf, [MarshalAs(UnmanagedType.LPUTF8Str)] string initial_value_buf, int data_type, global::System.IntPtr p_data, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool DataTypeApplyOpFromText([MarshalAs(UnmanagedType.LPUTF8Str)] string buf, [MarshalAs(UnmanagedType.LPUTF8Str)] string initial_value_buf, int data_type, global::System.IntPtr p_data, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igInputTextEx")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool InputTextEx([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string hint, sbyte* buf, int buf_size, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
+            public static extern bool InputTextEx([MarshalAs(UnmanagedType.LPUTF8Str)] string label, [MarshalAs(UnmanagedType.LPUTF8Str)] string hint, sbyte* buf, int buf_size, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags, global::System.IntPtr callback, global::System.IntPtr user_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTempInputTextScalar")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TempInputTextScalar(global::System.IntPtr bb, uint id, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
+            public static extern bool TempInputTextScalar(global::System.IntPtr bb, uint id, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, int data_type, global::System.IntPtr p_data, [MarshalAs(UnmanagedType.LPUTF8Str)] string format);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igTempInputTextIsActive")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool TempInputTextIsActive(uint id);
+            public static extern bool TempInputTextIsActive(uint id);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorTooltip")]
-            internal static extern void ColorTooltip([MarshalAs(UnmanagedType.LPUTF8Str)] string text, float* col, int flags);
+            public static extern void ColorTooltip([MarshalAs(UnmanagedType.LPUTF8Str)] string text, float* col, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorEditOptionsPopup")]
-            internal static extern void ColorEditOptionsPopup(float* col, int flags);
+            public static extern void ColorEditOptionsPopup(float* col, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorPickerOptionsPopup")]
-            internal static extern void ColorPickerOptionsPopup(float* ref_col, int flags);
+            public static extern void ColorPickerOptionsPopup(float* ref_col, int flags);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igPlotEx")]
-            internal static extern void PlotEx(global::DearImguiSharp.ImGuiPlotType plot_type, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::System.IntPtr values_getter, global::System.IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal frame_size);
+            public static extern void PlotEx(global::DearImguiSharp.ImGuiPlotType plot_type, [MarshalAs(UnmanagedType.LPUTF8Str)] string label, global::System.IntPtr values_getter, global::System.IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.LPUTF8Str)] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal frame_size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShadeVertsLinearColorGradientKeepAlpha")]
-            internal static extern void ShadeVertsLinearColorGradientKeepAlpha(global::System.IntPtr draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2.__Internal gradient_p0, global::DearImguiSharp.ImVec2.__Internal gradient_p1, uint col0, uint col1);
+            public static extern void ShadeVertsLinearColorGradientKeepAlpha(global::System.IntPtr draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2.__Internal gradient_p0, global::DearImguiSharp.ImVec2.__Internal gradient_p1, uint col0, uint col1);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igShadeVertsLinearUV")]
-            internal static extern void ShadeVertsLinearUV(global::System.IntPtr draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal uv_a, global::DearImguiSharp.ImVec2.__Internal uv_b, bool clamp);
+            public static extern void ShadeVertsLinearUV(global::System.IntPtr draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal uv_a, global::DearImguiSharp.ImVec2.__Internal uv_b, bool clamp);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGcCompactTransientWindowBuffers")]
-            internal static extern void GcCompactTransientWindowBuffers(global::System.IntPtr window);
+            public static extern void GcCompactTransientWindowBuffers(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGcAwakeTransientWindowBuffers")]
-            internal static extern void GcAwakeTransientWindowBuffers(global::System.IntPtr window);
+            public static extern void GcAwakeTransientWindowBuffers(global::System.IntPtr window);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDebugDrawItemRect")]
-            internal static extern void DebugDrawItemRect(uint col);
+            public static extern void DebugDrawItemRect(uint col);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igDebugStartItemPicker")]
-            internal static extern void DebugStartItemPicker();
+            public static extern void DebugStartItemPicker();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFontAtlasBuildWithStbTruetype")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImFontAtlasBuildWithStbTruetype(global::System.IntPtr atlas);
+            public static extern bool ImFontAtlasBuildWithStbTruetype(global::System.IntPtr atlas);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFontAtlasBuildRegisterDefaultCustomRects")]
-            internal static extern void ImFontAtlasBuildRegisterDefaultCustomRects(global::System.IntPtr atlas);
+            public static extern void ImFontAtlasBuildRegisterDefaultCustomRects(global::System.IntPtr atlas);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFontAtlasBuildSetupFont")]
-            internal static extern void ImFontAtlasBuildSetupFont(global::System.IntPtr atlas, global::System.IntPtr font, global::System.IntPtr font_config, float ascent, float descent);
+            public static extern void ImFontAtlasBuildSetupFont(global::System.IntPtr atlas, global::System.IntPtr font, global::System.IntPtr font_config, float ascent, float descent);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFontAtlasBuildPackCustomRects")]
-            internal static extern void ImFontAtlasBuildPackCustomRects(global::System.IntPtr atlas, global::System.IntPtr stbrp_context_opaque);
+            public static extern void ImFontAtlasBuildPackCustomRects(global::System.IntPtr atlas, global::System.IntPtr stbrp_context_opaque);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFontAtlasBuildFinish")]
-            internal static extern void ImFontAtlasBuildFinish(global::System.IntPtr atlas);
+            public static extern void ImFontAtlasBuildFinish(global::System.IntPtr atlas);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFontAtlasBuildMultiplyCalcLookupTable")]
-            internal static extern void ImFontAtlasBuildMultiplyCalcLookupTable(byte[] out_table, float in_multiply_factor);
+            public static extern void ImFontAtlasBuildMultiplyCalcLookupTable(byte[] out_table, float in_multiply_factor);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igImFontAtlasBuildMultiplyRectAlpha8")]
-            internal static extern void ImFontAtlasBuildMultiplyRectAlpha8(byte[] table, byte* pixels, int x, int y, int w, int h, int stride);
+            public static extern void ImFontAtlasBuildMultiplyRectAlpha8(byte[] table, byte* pixels, int x, int y, int w, int h, int stride);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igLogText")]
-            internal static extern void LogText([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
+            public static extern void LogText([MarshalAs(UnmanagedType.LPUTF8Str)] string fmt);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igGET_FLT_MAX")]
-            internal static extern float GET_FLT_MAX();
+            public static extern float GET_FLT_MAX();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorConvertRGBtoHSV")]
-            internal static extern void ColorConvertRGBtoHSV(float r, float g, float b, float* out_h, float* out_s, float* out_v);
+            public static extern void ColorConvertRGBtoHSV(float r, float g, float b, float* out_h, float* out_s, float* out_v);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="igColorConvertHSVtoRGB")]
-            internal static extern void ColorConvertHSVtoRGB(float h, float s, float v, float* out_r, float* out_g, float* out_b);
+            public static extern void ColorConvertHSVtoRGB(float h, float s, float v, float* out_r, float* out_g, float* out_b);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVector_ImWchar_create")]
-            internal static extern global::System.IntPtr ImVectorImWchar_create();
+            public static extern global::System.IntPtr ImVectorImWchar_create();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVector_ImWchar_destroy")]
-            internal static extern void ImVectorImWchar_destroy(global::System.IntPtr self);
+            public static extern void ImVectorImWchar_destroy(global::System.IntPtr self);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVector_ImWchar_Init")]
-            internal static extern void ImVectorImWcharInit(global::System.IntPtr p);
+            public static extern void ImVectorImWcharInit(global::System.IntPtr p);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImVector_ImWchar_UnInit")]
-            internal static extern void ImVectorImWcharUnInit(global::System.IntPtr p);
+            public static extern void ImVectorImWcharUnInit(global::System.IntPtr p);
         }
 
         public static global::DearImguiSharp.ImVec2 ImVec2ImVec2Nil()
@@ -34513,7 +34513,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ID3D11DeviceContext(void* native, bool skipVTables = false)
+        public ID3D11DeviceContext(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -34557,7 +34557,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected ID3D11Device(void* native, bool skipVTables = false)
+        public ID3D11Device(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -34601,7 +34601,7 @@ namespace DearImguiSharp
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected IDirect3DDevice9(void* native, bool skipVTables = false)
+        public IDirect3DDevice9(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -34617,81 +34617,81 @@ namespace DearImguiSharp
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplWin32_Init")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiImplWin32Init(global::System.IntPtr hwnd);
+            public static extern bool ImGuiImplWin32Init(global::System.IntPtr hwnd);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplWin32_Shutdown")]
-            internal static extern void ImGuiImplWin32Shutdown();
+            public static extern void ImGuiImplWin32Shutdown();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplWin32_NewFrame")]
-            internal static extern void ImGuiImplWin32NewFrame();
+            public static extern void ImGuiImplWin32NewFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX9_Init")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiImplDX9Init(global::System.IntPtr device);
+            public static extern bool ImGuiImplDX9Init(global::System.IntPtr device);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX9_Shutdown")]
-            internal static extern void ImGuiImplDX9Shutdown();
+            public static extern void ImGuiImplDX9Shutdown();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX9_NewFrame")]
-            internal static extern void ImGuiImplDX9NewFrame();
+            public static extern void ImGuiImplDX9NewFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX9_RenderDrawData")]
-            internal static extern void ImGuiImplDX9RenderDrawData(global::System.IntPtr draw_data);
+            public static extern void ImGuiImplDX9RenderDrawData(global::System.IntPtr draw_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX9_CreateDeviceObjects")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiImplDX9CreateDeviceObjects();
+            public static extern bool ImGuiImplDX9CreateDeviceObjects();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX9_InvalidateDeviceObjects")]
-            internal static extern void ImGuiImplDX9InvalidateDeviceObjects();
+            public static extern void ImGuiImplDX9InvalidateDeviceObjects();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX11_Init")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiImplDX11Init(global::System.IntPtr device, global::System.IntPtr device_context);
+            public static extern bool ImGuiImplDX11Init(global::System.IntPtr device, global::System.IntPtr device_context);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX11_Shutdown")]
-            internal static extern void ImGuiImplDX11Shutdown();
+            public static extern void ImGuiImplDX11Shutdown();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX11_NewFrame")]
-            internal static extern void ImGuiImplDX11NewFrame();
+            public static extern void ImGuiImplDX11NewFrame();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX11_RenderDrawData")]
-            internal static extern void ImGuiImplDX11RenderDrawData(global::System.IntPtr draw_data);
+            public static extern void ImGuiImplDX11RenderDrawData(global::System.IntPtr draw_data);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX11_InvalidateDeviceObjects")]
-            internal static extern void ImGuiImplDX11InvalidateDeviceObjects();
+            public static extern void ImGuiImplDX11InvalidateDeviceObjects();
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="ImGui_ImplDX11_CreateDeviceObjects")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool ImGuiImplDX11CreateDeviceObjects();
+            public static extern bool ImGuiImplDX11CreateDeviceObjects();
         }
 
         public static bool ImGuiImplWin32Init(global::System.IntPtr hwnd)
