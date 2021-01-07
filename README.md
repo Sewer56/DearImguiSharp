@@ -38,6 +38,10 @@ ImGui.StyleColorsDark(null);
 
 Please note that the bindings don't have default values for some parameters; where a default value exists in the original API, you can pass null, 0 or the default value for the given type.
 
+## Known Issues
+- Setters for strings (e.g. `IO.IniFilename`) are not correctly generated and will point to non-static memory.
+    - Use the exposed internal interfaces for setting those, e.g. `((ImGuiIO.__Internal*)io.__Instance)->IniFilename = Marshal.StringToHGlobalAnsi("tweakbox.imgui.ini");`
+
 ## Building from Source
 - Clone this repository and its submodules.
 - Build [cimgui](https://github.com/cimgui/cimgui) using the instructions provided in its readme.
