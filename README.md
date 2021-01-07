@@ -16,6 +16,8 @@ I built this because I believe that while it generates more optimal, convenient 
 - Vanilla
 	- No redefinitions of method names etc. 
 	- Makes it easy to use original C++ documentation for learning the library.
+	
+This is a minimal effort wrapper. Just the essentials to get going.
 
 ## Usage
 
@@ -24,6 +26,7 @@ Aside from capitalization being modified to match general C# code using CppSharp
 - All structures reside in the `DearImguiSharp` namespace.
 - All functions reside in the `DearImguiSharp.ImGui` class.
 - Some custom defined functions reside in `DearImguiSharp.ImGui.Custom`. These are hand-generated for user convenience; but might not be up to date 
+- Access to raw P/Invokes is available via `ImGui.__Internal`.
 
 ```csharp
 using DearImguiSharp;
