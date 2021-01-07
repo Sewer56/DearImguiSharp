@@ -2,12 +2,10 @@
 typedef struct ID3D11DeviceContext ID3D11DeviceContext;
 typedef struct ID3D11Device ID3D11Device;
 typedef struct IDirect3DDevice9 IDirect3DDevice9;
-
-
 struct IDirect3DDevice9;
-
 struct ID3D11Device;
 struct ID3D11DeviceContext;
+
 CIMGUI_API bool ImGui_ImplWin32_Init(void* hwnd);
 CIMGUI_API void ImGui_ImplWin32_Shutdown();
 CIMGUI_API void ImGui_ImplWin32_NewFrame();

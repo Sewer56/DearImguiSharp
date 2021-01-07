@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config id="MyMapping" xmlns="urn:SharpGen.Config">
+	<assembly>DearImguiSharp</assembly>
+	<namespace>DearImguiSharp</namespace>
+	<depends>SharpGen.Runtime</depends>
+
+	<sdk name="StdLib" />
+	<sdk name="WindowsSdk" version="10.0.18362.0" />
+
+	<include-dir override="true">$(THIS_CONFIG_PATH)/Headers</include-dir>
+
+	<include file="cimgui.h" namespace="DearImguiSharp" attach="true" >
+		<!-- This tag is undocumented: It inserts code before the file. -->
+		<!-- https://github.com/SharpGenTools/SharpGenTools/blob/9057290eec609870ed80b58ba1d9be9a6ac2055d/SharpGen/Config/IncludeRule.cs -->
+		<pre>
+			#define CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+		</pre>
+	</include>
+
+	<include file="cimgui_impl.h" namespace="DearImguiSharp" attach="true" >
+		<!-- This tag is undocumented: It inserts code before the file. -->
+		<!-- https://github.com/SharpGenTools/SharpGenTools/blob/9057290eec609870ed80b58ba1d9be9a6ac2055d/SharpGen/Config/IncludeRule.cs -->
+		<pre>
+			#define CIMGUI_DEFINE_ENUMS_AND_STRUCTS
+		</pre>
+	</include>
+
+	<!-- Class for all Free Functions -->
+	<extension>
+		<create class="DearImguiSharp.ImGui" visibility="public static" />
+	</extension>
+
+	<bindings>
+		<!-- DirectX -->
+		<bind from="IDirect3DDevice9" to="System.IntPtr" />
+		<bind from="ID3D11Device" to="System.IntPtr" />
+		<bind from="ID3D11DeviceContext" to="System.IntPtr" />
+
+		<!-- C Standard Library -->
+		<bind from="FILE" to="System.IntPtr" />
+	</bindings>
+
+	<mapping>
+		<!-- First map all functions -->
+		<map function="(.*)" dll='"cimgui.dll"' group="DearImguiSharp.ImGui" />
+		
+		<!-- Now strip the prefix -->
+		<map function="ig(.*)" name-tmp="$1" dll='"cimgui.dll"' group="DearImguiSharp.ImGui" />
+
+		<map struct="(.*)" />
+		<map enum="(.*)" />
+		<map enum-item="(.*)" />
+		<map interface="(.*)" />
+		<map method="(.*)" />
+		<map element="(.*)" />
+		<map field="(.*)" />
+	</mapping>
+
+</config>

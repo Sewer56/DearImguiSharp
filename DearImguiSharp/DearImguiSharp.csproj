@@ -23,4 +23,8 @@
     <Content Include="build\net40\DearImguiSharp.targets" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SharpGen.Runtime" Version="1.2.1" />
+  </ItemGroup>
+
 </Project>

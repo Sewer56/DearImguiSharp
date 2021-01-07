@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SharpGenConsumerMapping Remove="Mapping.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpGen.Runtime" Version="1.2.1" />
+    <PackageReference Include="SharpGenTools.Sdk" Version="1.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+	
+  <ItemGroup>
+	<!-- Enable code-gen for Windows platforms -->
+	<SharpGenPlatforms Include="Windows" />
+	<SharpGenMapping Include="Mapping.xml" />
+  </ItemGroup>
+
+</Project>
