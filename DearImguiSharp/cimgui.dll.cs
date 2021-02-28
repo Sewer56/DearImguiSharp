@@ -12,6 +12,51 @@ using __IntPtr = global::System.IntPtr;
 
 namespace DearImguiSharp
 {
+    public enum ImGuiNavLayer
+    {
+        ImGuiNavLayerMain = 0,
+        ImGuiNavLayerMenu = 1,
+        ImGuiNavLayerCOUNT = 2
+    }
+
+    public enum ImGuiInputSource
+    {
+        ImGuiInputSourceNone = 0,
+        ImGuiInputSourceMouse = 1,
+        ImGuiInputSourceNav = 2,
+        ImGuiInputSourceNavKeyboard = 3,
+        ImGuiInputSourceNavGamepad = 4,
+        ImGuiInputSourceCOUNT = 5
+    }
+
+    public enum ImGuiNavForward
+    {
+        ImGuiNavForwardNone = 0,
+        ImGuiNavForwardForwardQueued = 1,
+        ImGuiNavForwardForwardActive = 2
+    }
+
+    public enum ImGuiContextHookType
+    {
+        ImGuiContextHookTypeNewFramePre = 0,
+        ImGuiContextHookTypeNewFramePost = 1,
+        ImGuiContextHookTypeEndFramePre = 2,
+        ImGuiContextHookTypeEndFramePost = 3,
+        ImGuiContextHookTypeRenderPre = 4,
+        ImGuiContextHookTypeRenderPost = 5,
+        ImGuiContextHookTypeShutdown = 6,
+        ImGuiContextHookTypePendingRemoval = 7
+    }
+
+    public enum ImGuiLogType
+    {
+        ImGuiLogTypeNone = 0,
+        ImGuiLogTypeTTY = 1,
+        ImGuiLogTypeFile = 2,
+        ImGuiLogTypeBuffer = 3,
+        ImGuiLogTypeClipboard = 4
+    }
+
     public enum ImGuiWindowFlags
     {
         ImGuiWindowFlagsNone = 0,
@@ -618,16 +663,240 @@ namespace DearImguiSharp
         ImGuiViewportFlagsOwnedByApp = 4
     }
 
+    [Flags]
+    public enum ImGuiItemFlags
+    {
+        ImGuiItemFlagsNone = 0,
+        ImGuiItemFlagsNoTabStop = 1,
+        ImGuiItemFlagsButtonRepeat = 2,
+        ImGuiItemFlagsDisabled = 4,
+        ImGuiItemFlagsNoNav = 8,
+        ImGuiItemFlagsNoNavDefaultFocus = 16,
+        ImGuiItemFlagsSelectableDontClosePopup = 32,
+        ImGuiItemFlagsMixedValue = 64,
+        ImGuiItemFlagsReadOnly = 128,
+        ImGuiItemFlagsDefault = 0
+    }
+
+    [Flags]
+    public enum ImGuiItemStatusFlags
+    {
+        ImGuiItemStatusFlagsNone = 0,
+        ImGuiItemStatusFlagsHoveredRect = 1,
+        ImGuiItemStatusFlagsHasDisplayRect = 2,
+        ImGuiItemStatusFlagsEdited = 4,
+        ImGuiItemStatusFlagsToggledSelection = 8,
+        ImGuiItemStatusFlagsToggledOpen = 16,
+        ImGuiItemStatusFlagsHasDeactivated = 32,
+        ImGuiItemStatusFlagsDeactivated = 64
+    }
+
+    public enum ImGuiButtonFlagsPrivate
+    {
+        ImGuiButtonFlagsPressedOnClick = 16,
+        ImGuiButtonFlagsPressedOnClickRelease = 32,
+        ImGuiButtonFlagsPressedOnClickReleaseAnywhere = 64,
+        ImGuiButtonFlagsPressedOnRelease = 128,
+        ImGuiButtonFlagsPressedOnDoubleClick = 256,
+        ImGuiButtonFlagsPressedOnDragDropHold = 512,
+        ImGuiButtonFlagsRepeat = 1024,
+        ImGuiButtonFlagsFlattenChildren = 2048,
+        ImGuiButtonFlagsAllowItemOverlap = 4096,
+        ImGuiButtonFlagsDontClosePopups = 8192,
+        ImGuiButtonFlagsDisabled = 16384,
+        ImGuiButtonFlagsAlignTextBaseLine = 32768,
+        ImGuiButtonFlagsNoKeyModifiers = 65536,
+        ImGuiButtonFlagsNoHoldingActiveId = 131072,
+        ImGuiButtonFlagsNoNavFocus = 262144,
+        ImGuiButtonFlagsNoHoveredOnFocus = 524288,
+        ImGuiButtonFlagsPressedOnMask = 1008,
+        ImGuiButtonFlagsPressedOnDefault = 32
+    }
+
+    [Flags]
+    public enum ImGuiSliderFlagsPrivate
+    {
+        ImGuiSliderFlagsVertical = 1048576,
+        ImGuiSliderFlagsReadOnly = 2097152
+    }
+
+    [Flags]
+    public enum ImGuiSelectableFlagsPrivate
+    {
+        ImGuiSelectableFlagsNoHoldingActiveID = 1048576,
+        ImGuiSelectableFlagsSelectOnClick = 2097152,
+        ImGuiSelectableFlagsSelectOnRelease = 4194304,
+        ImGuiSelectableFlagsSpanAvailWidth = 8388608,
+        ImGuiSelectableFlagsDrawHoveredWhenHeld = 16777216,
+        ImGuiSelectableFlagsSetNavIdOnHover = 33554432,
+        ImGuiSelectableFlagsNoPadWithHalfSpacing = 67108864
+    }
+
+    [Flags]
+    public enum ImGuiTreeNodeFlagsPrivate
+    {
+        ImGuiTreeNodeFlagsClipLabelForTrailingButton = 1048576
+    }
+
+    [Flags]
+    public enum ImGuiSeparatorFlags
+    {
+        ImGuiSeparatorFlagsNone = 0,
+        ImGuiSeparatorFlagsHorizontal = 1,
+        ImGuiSeparatorFlagsVertical = 2,
+        ImGuiSeparatorFlagsSpanAllColumns = 4
+    }
+
+    public enum ImGuiTextFlags
+    {
+        ImGuiTextFlagsNone = 0,
+        ImGuiTextFlagsNoWidthForLargeClippedText = 1
+    }
+
+    public enum ImGuiTooltipFlags
+    {
+        ImGuiTooltipFlagsNone = 0,
+        ImGuiTooltipFlagsOverridePreviousTooltip = 1
+    }
+
+    public enum ImGuiLayoutType
+    {
+        ImGuiLayoutTypeHorizontal = 0,
+        ImGuiLayoutTypeVertical = 1
+    }
+
+    public enum ImGuiAxis
+    {
+        ImGuiAxisNone = -1,
+        ImGuiAxisX = 0,
+        ImGuiAxisY = 1
+    }
+
+    public enum ImGuiPlotType
+    {
+        ImGuiPlotTypeLines = 0,
+        ImGuiPlotTypeHistogram = 1
+    }
+
+    public enum ImGuiInputReadMode
+    {
+        ImGuiInputReadModeDown = 0,
+        ImGuiInputReadModePressed = 1,
+        ImGuiInputReadModeReleased = 2,
+        ImGuiInputReadModeRepeat = 3,
+        ImGuiInputReadModeRepeatSlow = 4,
+        ImGuiInputReadModeRepeatFast = 5
+    }
+
+    [Flags]
+    public enum ImGuiNavHighlightFlags
+    {
+        ImGuiNavHighlightFlagsNone = 0,
+        ImGuiNavHighlightFlagsTypeDefault = 1,
+        ImGuiNavHighlightFlagsTypeThin = 2,
+        ImGuiNavHighlightFlagsAlwaysDraw = 4,
+        ImGuiNavHighlightFlagsNoRounding = 8
+    }
+
+    [Flags]
+    public enum ImGuiNavDirSourceFlags
+    {
+        ImGuiNavDirSourceFlagsNone = 0,
+        ImGuiNavDirSourceFlagsKeyboard = 1,
+        ImGuiNavDirSourceFlagsPadDPad = 2,
+        ImGuiNavDirSourceFlagsPadLStick = 4
+    }
+
+    [Flags]
+    public enum ImGuiNavMoveFlags
+    {
+        ImGuiNavMoveFlagsNone = 0,
+        ImGuiNavMoveFlagsLoopX = 1,
+        ImGuiNavMoveFlagsLoopY = 2,
+        ImGuiNavMoveFlagsWrapX = 4,
+        ImGuiNavMoveFlagsWrapY = 8,
+        ImGuiNavMoveFlagsAllowCurrentNavId = 16,
+        ImGuiNavMoveFlagsAlsoScoreVisibleSet = 32,
+        ImGuiNavMoveFlagsScrollToEdge = 64
+    }
+
+    public enum ImGuiPopupPositionPolicy
+    {
+        ImGuiPopupPositionPolicyDefault = 0,
+        ImGuiPopupPositionPolicyComboBox = 1,
+        ImGuiPopupPositionPolicyTooltip = 2
+    }
+
+    public enum ImGuiDataTypePrivate
+    {
+        ImGuiDataTypeString = 11,
+        ImGuiDataTypePointer = 12,
+        ImGuiDataTypeID = 13
+    }
+
+    [Flags]
+    public enum ImGuiNextWindowDataFlags
+    {
+        ImGuiNextWindowDataFlagsNone = 0,
+        ImGuiNextWindowDataFlagsHasPos = 1,
+        ImGuiNextWindowDataFlagsHasSize = 2,
+        ImGuiNextWindowDataFlagsHasContentSize = 4,
+        ImGuiNextWindowDataFlagsHasCollapsed = 8,
+        ImGuiNextWindowDataFlagsHasSizeConstraint = 16,
+        ImGuiNextWindowDataFlagsHasFocus = 32,
+        ImGuiNextWindowDataFlagsHasBgAlpha = 64,
+        ImGuiNextWindowDataFlagsHasScroll = 128
+    }
+
+    public enum ImGuiNextItemDataFlags
+    {
+        ImGuiNextItemDataFlagsNone = 0,
+        ImGuiNextItemDataFlagsHasWidth = 1,
+        ImGuiNextItemDataFlagsHasOpen = 2
+    }
+
+    [Flags]
+    public enum ImGuiOldColumnFlags
+    {
+        ImGuiOldColumnFlagsNone = 0,
+        ImGuiOldColumnFlagsNoBorder = 1,
+        ImGuiOldColumnFlagsNoResize = 2,
+        ImGuiOldColumnFlagsNoPreserveWidths = 4,
+        ImGuiOldColumnFlagsNoForceWithinWindow = 8,
+        ImGuiOldColumnFlagsGrowParentContentsSize = 16
+    }
+
+    [Flags]
+    public enum ImGuiTabBarFlagsPrivate
+    {
+        ImGuiTabBarFlagsDockNode = 1048576,
+        ImGuiTabBarFlagsIsFocused = 2097152,
+        ImGuiTabBarFlagsSaveSettings = 4194304
+    }
+
+    [Flags]
+    public enum ImGuiTabItemFlagsPrivate
+    {
+        ImGuiTabItemFlagsNoCloseButton = 1048576,
+        ImGuiTabItemFlagsButton = 2097152
+    }
+
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
     public unsafe delegate void ImDrawCallback(__IntPtr parent_list, __IntPtr cmd);
+
+    [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+    public unsafe delegate void ImGuiSizeCallback(__IntPtr data);
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
     public unsafe delegate int ImGuiInputTextCallback(__IntPtr data);
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
-    public unsafe delegate void ImGuiSizeCallback(__IntPtr data);
+    public unsafe delegate void ImGuiContextHookCallback(__IntPtr ctx, __IntPtr hook);
 
-    public unsafe partial class ImFontBuilderIO
+    [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+    public unsafe delegate void ImGuiErrorLogCallback(__IntPtr user_data, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
+
+    public unsafe partial class ImGuiTableColumnsSettings
     {
         public partial struct __Internal
         {
@@ -635,30 +904,30 @@ namespace DearImguiSharp
 
         public __IntPtr __Instance { get; protected set; }
 
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImFontBuilderIO> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImFontBuilderIO>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableColumnsSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableColumnsSettings>();
 
         protected bool __ownsNativeInstance;
 
-        internal static ImFontBuilderIO __CreateInstance(__IntPtr native, bool skipVTables = false)
+        internal static ImGuiTableColumnsSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
         {
-            return new ImFontBuilderIO(native.ToPointer(), skipVTables);
+            return new ImGuiTableColumnsSettings(native.ToPointer(), skipVTables);
         }
 
-        internal static ImFontBuilderIO __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        internal static ImGuiTableColumnsSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
             if (NativeToManagedMap.TryGetValue(native, out var managed))
-                return (ImFontBuilderIO)managed;
+                return (ImGuiTableColumnsSettings)managed;
             var result = __CreateInstance(native, skipVTables);
             if (saveInstance)
                 NativeToManagedMap[native] = result;
             return result;
         }
 
-        internal static ImFontBuilderIO __CreateInstance(__Internal native, bool skipVTables = false)
+        internal static ImGuiTableColumnsSettings __CreateInstance(__Internal native, bool skipVTables = false)
         {
-            return new ImFontBuilderIO(native, skipVTables);
+            return new ImGuiTableColumnsSettings(native, skipVTables);
         }
 
         private static void* __CopyValue(__Internal native)
@@ -668,126 +937,14 @@ namespace DearImguiSharp
             return ret.ToPointer();
         }
 
-        private ImFontBuilderIO(__Internal native, bool skipVTables = false)
+        private ImGuiTableColumnsSettings(__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
         }
 
-        public ImFontBuilderIO(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new __IntPtr(native);
-        }
-    }
-
-    public unsafe partial class ImGuiContext
-    {
-        public partial struct __Internal
-        {
-        }
-
-        public __IntPtr __Instance { get; protected set; }
-
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiContext> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiContext>();
-
-        protected bool __ownsNativeInstance;
-
-        internal static ImGuiContext __CreateInstance(__IntPtr native, bool skipVTables = false)
-        {
-            return new ImGuiContext(native.ToPointer(), skipVTables);
-        }
-
-        internal static ImGuiContext __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
-        {
-            if (native == __IntPtr.Zero)
-                return null;
-            if (NativeToManagedMap.TryGetValue(native, out var managed))
-                return (ImGuiContext)managed;
-            var result = __CreateInstance(native, skipVTables);
-            if (saveInstance)
-                NativeToManagedMap[native] = result;
-            return result;
-        }
-
-        internal static ImGuiContext __CreateInstance(__Internal native, bool skipVTables = false)
-        {
-            return new ImGuiContext(native, skipVTables);
-        }
-
-        private static void* __CopyValue(__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
-            *(__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private ImGuiContext(__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        public ImGuiContext(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new __IntPtr(native);
-        }
-    }
-
-    public unsafe partial class ImDrawListSharedData
-    {
-        public partial struct __Internal
-        {
-        }
-
-        public __IntPtr __Instance { get; protected set; }
-
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImDrawListSharedData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImDrawListSharedData>();
-
-        protected bool __ownsNativeInstance;
-
-        internal static ImDrawListSharedData __CreateInstance(__IntPtr native, bool skipVTables = false)
-        {
-            return new ImDrawListSharedData(native.ToPointer(), skipVTables);
-        }
-
-        internal static ImDrawListSharedData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
-        {
-            if (native == __IntPtr.Zero)
-                return null;
-            if (NativeToManagedMap.TryGetValue(native, out var managed))
-                return (ImDrawListSharedData)managed;
-            var result = __CreateInstance(native, skipVTables);
-            if (saveInstance)
-                NativeToManagedMap[native] = result;
-            return result;
-        }
-
-        internal static ImDrawListSharedData __CreateInstance(__Internal native, bool skipVTables = false)
-        {
-            return new ImDrawListSharedData(native, skipVTables);
-        }
-
-        private static void* __CopyValue(__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
-            *(__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private ImDrawListSharedData(__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        public ImDrawListSharedData(void* native, bool skipVTables = false)
+        public ImGuiTableColumnsSettings(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
@@ -923,6 +1080,842 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->Data = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiTableSettings : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiTableSettings@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTableSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTableSettings>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiTableSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTableSettings(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiTableSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiTableSettings)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiTableSettings __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTableSettings(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiTableSettings(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTableSettings(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiTableSettings()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTableSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTableSettings(global::DearImguiSharp.ImVectorImGuiTableSettings _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTableSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiTableSettings.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiTableSettings.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableSettings Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableSettings.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImChunkStreamImGuiTableSettings : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVectorImGuiTableSettings.__Internal Buf;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImChunkStream_ImGuiTableSettings@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImChunkStreamImGuiTableSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImChunkStreamImGuiTableSettings>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImChunkStreamImGuiTableSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImChunkStreamImGuiTableSettings(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImChunkStreamImGuiTableSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImChunkStreamImGuiTableSettings)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImChunkStreamImGuiTableSettings __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImChunkStreamImGuiTableSettings(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImChunkStreamImGuiTableSettings(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImChunkStreamImGuiTableSettings(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImChunkStreamImGuiTableSettings()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImChunkStreamImGuiTableSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImChunkStreamImGuiTableSettings(global::DearImguiSharp.ImChunkStreamImGuiTableSettings _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImChunkStreamImGuiTableSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImChunkStreamImGuiTableSettings.__Internal*) __Instance) = *((global::DearImguiSharp.ImChunkStreamImGuiTableSettings.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiTableSettings Buf
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiTableSettings.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Buf));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Buf = *(global::DearImguiSharp.ImVectorImGuiTableSettings.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiWindowSettings : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiWindowSettings@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiWindowSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiWindowSettings>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiWindowSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiWindowSettings(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiWindowSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiWindowSettings)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiWindowSettings __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiWindowSettings(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiWindowSettings(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiWindowSettings(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiWindowSettings()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiWindowSettings(global::DearImguiSharp.ImVectorImGuiWindowSettings _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindowSettings Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindowSettings.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImChunkStreamImGuiWindowSettings : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal Buf;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImChunkStream_ImGuiWindowSettings@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImChunkStreamImGuiWindowSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImChunkStreamImGuiWindowSettings>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImChunkStreamImGuiWindowSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImChunkStreamImGuiWindowSettings(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImChunkStreamImGuiWindowSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImChunkStreamImGuiWindowSettings)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImChunkStreamImGuiWindowSettings __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImChunkStreamImGuiWindowSettings(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImChunkStreamImGuiWindowSettings(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImChunkStreamImGuiWindowSettings(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImChunkStreamImGuiWindowSettings()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImChunkStreamImGuiWindowSettings(global::DearImguiSharp.ImChunkStreamImGuiWindowSettings _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal*) __Instance) = *((global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiWindowSettings Buf
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiWindowSettings.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Buf));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Buf = *(global::DearImguiSharp.ImVectorImGuiWindowSettings.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImSpanImGuiTableCellData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public __IntPtr Data;
+            public __IntPtr DataEnd;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImSpan_ImGuiTableCellData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImSpanImGuiTableCellData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImSpanImGuiTableCellData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImSpanImGuiTableCellData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImSpanImGuiTableCellData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImSpanImGuiTableCellData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImSpanImGuiTableCellData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImSpanImGuiTableCellData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImSpanImGuiTableCellData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImSpanImGuiTableCellData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImSpanImGuiTableCellData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImSpanImGuiTableCellData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImSpanImGuiTableCellData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImSpanImGuiTableCellData(global::DearImguiSharp.ImSpanImGuiTableCellData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImSpanImGuiTableCellData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImSpanImGuiTableCellData.__Internal*) __Instance) = *((global::DearImguiSharp.ImSpanImGuiTableCellData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImGuiTableCellData Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableCellData.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableCellData DataEnd
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableCellData.__GetOrCreateInstance(((__Internal*)__Instance)->DataEnd, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DataEnd = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImSpanImGuiTableColumn : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public __IntPtr Data;
+            public __IntPtr DataEnd;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImSpan_ImGuiTableColumn@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImSpanImGuiTableColumn> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImSpanImGuiTableColumn>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImSpanImGuiTableColumn __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImSpanImGuiTableColumn(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImSpanImGuiTableColumn __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImSpanImGuiTableColumn)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImSpanImGuiTableColumn __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImSpanImGuiTableColumn(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImSpanImGuiTableColumn(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImSpanImGuiTableColumn(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImSpanImGuiTableColumn()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImSpanImGuiTableColumn.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImSpanImGuiTableColumn(global::DearImguiSharp.ImSpanImGuiTableColumn _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImSpanImGuiTableColumn.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImSpanImGuiTableColumn.__Internal*) __Instance) = *((global::DearImguiSharp.ImSpanImGuiTableColumn.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImGuiTableColumn Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableColumn.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableColumn DataEnd
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableColumn.__GetOrCreateInstance(((__Internal*)__Instance)->DataEnd, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DataEnd = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImSpanImGuiTableColumnIdx : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public __IntPtr Data;
+            public __IntPtr DataEnd;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImSpan_ImGuiTableColumnIdx@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImSpanImGuiTableColumnIdx> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImSpanImGuiTableColumnIdx>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImSpanImGuiTableColumnIdx __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImSpanImGuiTableColumnIdx(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImSpanImGuiTableColumnIdx __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImSpanImGuiTableColumnIdx)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImSpanImGuiTableColumnIdx __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImSpanImGuiTableColumnIdx(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImSpanImGuiTableColumnIdx(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImSpanImGuiTableColumnIdx(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImSpanImGuiTableColumnIdx()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImSpanImGuiTableColumnIdx(global::DearImguiSharp.ImSpanImGuiTableColumnIdx _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__Internal*) __Instance) = *((global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public sbyte* Data
+        {
+            get
+            {
+                return (sbyte*) ((__Internal*)__Instance)->Data;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = (__IntPtr) value;
+            }
+        }
+
+        public sbyte* DataEnd
+        {
+            get
+            {
+                return (sbyte*) ((__Internal*)__Instance)->DataEnd;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DataEnd = (__IntPtr) value;
             }
         }
     }
@@ -1321,6 +2314,140 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->Data = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImDrawListPtr : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImDrawListPtr@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImDrawListPtr> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImDrawListPtr>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImDrawListPtr __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImDrawListPtr(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImDrawListPtr __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImDrawListPtr)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImDrawListPtr __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImDrawListPtr(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImDrawListPtr(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImDrawListPtr(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImDrawListPtr()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImDrawListPtr.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImDrawListPtr(global::DearImguiSharp.ImVectorImDrawListPtr _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImDrawListPtr.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImDrawListPtr.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImDrawListPtr.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawList Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImDrawList.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                var __value = value is null ? __IntPtr.Zero : value.__Instance;
+                ((__Internal*)__Instance)->Data = new __IntPtr(&__value);
             }
         }
     }
@@ -1991,6 +3118,1467 @@ namespace DearImguiSharp
         }
     }
 
+    public unsafe partial class ImVectorImGuiColorMod : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiColorMod@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiColorMod> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiColorMod>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiColorMod __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiColorMod(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiColorMod __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiColorMod)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiColorMod __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiColorMod(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiColorMod(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiColorMod(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiColorMod()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiColorMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiColorMod(global::DearImguiSharp.ImVectorImGuiColorMod _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiColorMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiColorMod.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiColorMod.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiColorMod Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiColorMod.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiContextHook : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiContextHook@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiContextHook> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiContextHook>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiContextHook __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiContextHook(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiContextHook __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiContextHook)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiContextHook __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiContextHook(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiContextHook(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiContextHook(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiContextHook()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiContextHook.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiContextHook(global::DearImguiSharp.ImVectorImGuiContextHook _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiContextHook.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiContextHook.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiContextHook.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiContextHook Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiContextHook.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiGroupData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiGroupData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiGroupData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiGroupData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiGroupData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiGroupData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiGroupData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiGroupData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiGroupData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiGroupData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiGroupData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiGroupData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiGroupData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiGroupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiGroupData(global::DearImguiSharp.ImVectorImGuiGroupData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiGroupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiGroupData.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiGroupData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiGroupData Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiGroupData.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiID : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiID@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiID> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiID>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiID __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiID(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiID __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiID)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiID __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiID(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiID(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiID(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiID()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiID.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiID(global::DearImguiSharp.ImVectorImGuiID _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiID.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiID.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiID.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public uint* Data
+        {
+            get
+            {
+                return (uint*) ((__Internal*)__Instance)->Data;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiItemFlags : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiItemFlags@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiItemFlags> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiItemFlags>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiItemFlags __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiItemFlags(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiItemFlags __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiItemFlags)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiItemFlags __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiItemFlags(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiItemFlags(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiItemFlags(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiItemFlags()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiItemFlags(global::DearImguiSharp.ImVectorImGuiItemFlags _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public int* Data
+        {
+            get
+            {
+                return (int*) ((__Internal*)__Instance)->Data;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiOldColumnData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiOldColumnData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiOldColumnData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiOldColumnData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiOldColumnData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiOldColumnData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiOldColumnData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiOldColumnData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiOldColumnData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiOldColumnData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiOldColumnData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiOldColumnData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiOldColumnData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiOldColumnData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiOldColumnData(global::DearImguiSharp.ImVectorImGuiOldColumnData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiOldColumnData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiOldColumnData.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiOldColumnData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiOldColumnData Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiOldColumnData.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiOldColumns : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiOldColumns@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiOldColumns> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiOldColumns>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiOldColumns __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiOldColumns(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiOldColumns __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiOldColumns)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiOldColumns __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiOldColumns(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiOldColumns(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiOldColumns(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiOldColumns()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiOldColumns.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiOldColumns(global::DearImguiSharp.ImVectorImGuiOldColumns _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiOldColumns.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiOldColumns.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiOldColumns.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiOldColumns Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiOldColumns.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiPopupData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiPopupData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiPopupData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiPopupData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiPopupData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiPopupData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiPopupData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiPopupData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiPopupData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiPopupData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiPopupData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiPopupData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiPopupData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiPopupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiPopupData(global::DearImguiSharp.ImVectorImGuiPopupData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiPopupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiPopupData.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiPopupData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiPopupData Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiPopupData.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiPtrOrIndex : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiPtrOrIndex@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiPtrOrIndex> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiPtrOrIndex>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiPtrOrIndex __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiPtrOrIndex(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiPtrOrIndex __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiPtrOrIndex)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiPtrOrIndex __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiPtrOrIndex(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiPtrOrIndex(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiPtrOrIndex(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiPtrOrIndex()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiPtrOrIndex(global::DearImguiSharp.ImVectorImGuiPtrOrIndex _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiPtrOrIndex Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiPtrOrIndex.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiSettingsHandler : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiSettingsHandler@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiSettingsHandler> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiSettingsHandler>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiSettingsHandler __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiSettingsHandler(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiSettingsHandler __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiSettingsHandler)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiSettingsHandler __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiSettingsHandler(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiSettingsHandler(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiSettingsHandler(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiSettingsHandler()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiSettingsHandler(global::DearImguiSharp.ImVectorImGuiSettingsHandler _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiSettingsHandler Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiSettingsHandler.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiShrinkWidthItem : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiShrinkWidthItem@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiShrinkWidthItem> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiShrinkWidthItem>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiShrinkWidthItem __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiShrinkWidthItem(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiShrinkWidthItem __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiShrinkWidthItem)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiShrinkWidthItem __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiShrinkWidthItem(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiShrinkWidthItem(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiShrinkWidthItem(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiShrinkWidthItem()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiShrinkWidthItem(global::DearImguiSharp.ImVectorImGuiShrinkWidthItem _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiShrinkWidthItem Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiShrinkWidthItem.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
     public unsafe partial class ImVectorImGuiStoragePair : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 16)]
@@ -2114,6 +4702,405 @@ namespace DearImguiSharp
             get
             {
                 var __result0 = global::DearImguiSharp.ImGuiStoragePair.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiStyleMod : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiStyleMod@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiStyleMod> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiStyleMod>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiStyleMod __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiStyleMod(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiStyleMod __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiStyleMod)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiStyleMod __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiStyleMod(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiStyleMod(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiStyleMod(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiStyleMod()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiStyleMod(global::DearImguiSharp.ImVectorImGuiStyleMod _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStyleMod Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiStyleMod.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiTabItem : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiTabItem@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTabItem> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTabItem>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiTabItem __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTabItem(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiTabItem __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiTabItem)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiTabItem __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTabItem(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiTabItem(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTabItem(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiTabItem()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTabItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTabItem(global::DearImguiSharp.ImVectorImGuiTabItem _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTabItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiTabItem.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiTabItem.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTabItem Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTabItem.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiTableColumnSortSpecs : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiTableColumnSortSpecs@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiTableColumnSortSpecs __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTableColumnSortSpecs(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiTableColumnSortSpecs __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiTableColumnSortSpecs)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiTableColumnSortSpecs __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTableColumnSortSpecs(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiTableColumnSortSpecs(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTableColumnSortSpecs(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiTableColumnSortSpecs()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTableColumnSortSpecs(global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableColumnSortSpecs Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableColumnSortSpecs.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
                 return __result0;
             }
 
@@ -2253,6 +5240,274 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiViewportPPtr : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiViewportPPtr@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiViewportPPtr> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiViewportPPtr>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiViewportPPtr __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiViewportPPtr(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiViewportPPtr __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiViewportPPtr)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiViewportPPtr __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiViewportPPtr(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiViewportPPtr(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiViewportPPtr(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiViewportPPtr()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiViewportPPtr.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiViewportPPtr(global::DearImguiSharp.ImVectorImGuiViewportPPtr _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiViewportPPtr.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiViewportPPtr.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiViewportPPtr.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiViewportP Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiViewportP.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                var __value = value is null ? __IntPtr.Zero : value.__Instance;
+                ((__Internal*)__Instance)->Data = new __IntPtr(&__value);
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiWindowPtr : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiWindowPtr@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiWindowPtr> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiWindowPtr>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiWindowPtr __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiWindowPtr(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiWindowPtr __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiWindowPtr)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiWindowPtr __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiWindowPtr(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiWindowPtr(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiWindowPtr(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiWindowPtr()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiWindowPtr(global::DearImguiSharp.ImVectorImGuiWindowPtr _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                var __value = value is null ? __IntPtr.Zero : value.__Instance;
+                ((__Internal*)__Instance)->Data = new __IntPtr(&__value);
             }
         }
     }
@@ -3170,6 +6425,138 @@ namespace DearImguiSharp
         }
     }
 
+    public unsafe partial class ImVector_unsigned_char : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_unsigned_char@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVector_unsigned_char> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVector_unsigned_char>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVector_unsigned_char __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVector_unsigned_char(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVector_unsigned_char __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVector_unsigned_char)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVector_unsigned_char __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVector_unsigned_char(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVector_unsigned_char(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVector_unsigned_char(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVector_unsigned_char()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVector_unsigned_char.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVector_unsigned_char(global::DearImguiSharp.ImVector_unsigned_char _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVector_unsigned_char.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVector_unsigned_char.__Internal*) __Instance) = *((global::DearImguiSharp.ImVector_unsigned_char.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public byte* Data
+        {
+            get
+            {
+                return (byte*) ((__Internal*)__Instance)->Data;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = (__IntPtr) value;
+            }
+        }
+    }
+
     public unsafe partial class ImVec2 : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 8)]
@@ -3180,6 +6567,9 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVec2@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ihVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr IhImVec2ihVec2(__IntPtr __instance);
         }
 
         public __IntPtr __Instance { get; protected set; }
@@ -3284,6 +6674,16 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->y = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2ih IhImVec2ihVec2
+        {
+            get
+            {
+                var __ret = __Internal.IhImVec2ihVec2(__Instance);
+                var __result0 = global::DearImguiSharp.ImVec2ih.__GetOrCreateInstance(__ret, false);
+                return __result0;
             }
         }
     }
@@ -7089,6 +10489,544 @@ namespace DearImguiSharp
         }
     }
 
+    public unsafe partial class ImVectorImGuiTabBar : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiTabBar@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTabBar> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTabBar>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiTabBar __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTabBar(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiTabBar __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiTabBar)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiTabBar __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTabBar(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiTabBar(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTabBar(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiTabBar()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTabBar.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTabBar(global::DearImguiSharp.ImVectorImGuiTabBar _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTabBar.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiTabBar.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiTabBar.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTabBar Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTabBar.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImPoolImGuiTabBar : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 40)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVectorImGuiTabBar.__Internal Buf;
+            public global::DearImguiSharp.ImGuiStorage.__Internal Map;
+            public int FreeIdx;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImPool_ImGuiTabBar@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImPoolImGuiTabBar> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImPoolImGuiTabBar>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImPoolImGuiTabBar __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImPoolImGuiTabBar(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImPoolImGuiTabBar __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImPoolImGuiTabBar)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImPoolImGuiTabBar __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImPoolImGuiTabBar(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImPoolImGuiTabBar(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImPoolImGuiTabBar(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImPoolImGuiTabBar()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImPoolImGuiTabBar.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImPoolImGuiTabBar(global::DearImguiSharp.ImPoolImGuiTabBar _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImPoolImGuiTabBar.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImPoolImGuiTabBar.__Internal*) __Instance) = *((global::DearImguiSharp.ImPoolImGuiTabBar.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiTabBar Buf
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiTabBar.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Buf));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Buf = *(global::DearImguiSharp.ImVectorImGuiTabBar.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStorage Map
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiStorage.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Map));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Map = *(global::DearImguiSharp.ImGuiStorage.__Internal*) value.__Instance;
+            }
+        }
+
+        public int FreeIdx
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FreeIdx;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FreeIdx = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImVectorImGuiTable : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiTable@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTable> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTable>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiTable __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTable(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiTable __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiTable)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiTable __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTable(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiTable(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTable(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiTable()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTable.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTable(global::DearImguiSharp.ImVectorImGuiTable _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTable.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiTable.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiTable.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTable Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTable.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImPoolImGuiTable : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 40)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVectorImGuiTable.__Internal Buf;
+            public global::DearImguiSharp.ImGuiStorage.__Internal Map;
+            public int FreeIdx;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImPool_ImGuiTable@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImPoolImGuiTable> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImPoolImGuiTable>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImPoolImGuiTable __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImPoolImGuiTable(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImPoolImGuiTable __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImPoolImGuiTable)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImPoolImGuiTable __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImPoolImGuiTable(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImPoolImGuiTable(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImPoolImGuiTable(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImPoolImGuiTable()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImPoolImGuiTable.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImPoolImGuiTable(global::DearImguiSharp.ImPoolImGuiTable _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImPoolImGuiTable.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImPoolImGuiTable.__Internal*) __Instance) = *((global::DearImguiSharp.ImPoolImGuiTable.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiTable Buf
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiTable.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Buf));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Buf = *(global::DearImguiSharp.ImVectorImGuiTable.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStorage Map
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiStorage.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Map));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Map = *(global::DearImguiSharp.ImGuiStorage.__Internal*) value.__Instance;
+            }
+        }
+
+        public int FreeIdx
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FreeIdx;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FreeIdx = value;
+            }
+        }
+    }
+
     public unsafe partial class ImGuiListClipper : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 28)]
@@ -10453,6 +14391,14720 @@ namespace DearImguiSharp
         }
     }
 
+    public unsafe partial class StbUndoRecord : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int @where;
+            public int insert_length;
+            public int delete_length;
+            public int char_storage;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0StbUndoRecord@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.StbUndoRecord> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.StbUndoRecord>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static StbUndoRecord __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new StbUndoRecord(native.ToPointer(), skipVTables);
+        }
+
+        internal static StbUndoRecord __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (StbUndoRecord)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static StbUndoRecord __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new StbUndoRecord(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private StbUndoRecord(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public StbUndoRecord(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public StbUndoRecord()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.StbUndoRecord.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public StbUndoRecord(global::DearImguiSharp.StbUndoRecord _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.StbUndoRecord.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.StbUndoRecord.__Internal*) __Instance) = *((global::DearImguiSharp.StbUndoRecord.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Where
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->@where;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->@where = value;
+            }
+        }
+
+        public int InsertLength
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->insert_length;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->insert_length = value;
+            }
+        }
+
+        public int DeleteLength
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->delete_length;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->delete_length = value;
+            }
+        }
+
+        public int CharStorage
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->char_storage;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->char_storage = value;
+            }
+        }
+    }
+
+    public unsafe partial class StbUndoState : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 3596)]
+        public partial struct __Internal
+        {
+            public fixed byte undo_rec[1584];
+            public fixed ushort undo_char[999];
+            public short undo_point;
+            public short redo_point;
+            public int undo_char_point;
+            public int redo_char_point;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0StbUndoState@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.StbUndoState> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.StbUndoState>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static StbUndoState __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new StbUndoState(native.ToPointer(), skipVTables);
+        }
+
+        internal static StbUndoState __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (StbUndoState)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static StbUndoState __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new StbUndoState(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private StbUndoState(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public StbUndoState(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public StbUndoState()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.StbUndoState.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public StbUndoState(global::DearImguiSharp.StbUndoState _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.StbUndoState.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.StbUndoState.__Internal*) __Instance) = *((global::DearImguiSharp.StbUndoState.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.StbUndoRecord[] UndoRec
+        {
+            get
+            {
+                global::DearImguiSharp.StbUndoRecord[] __value = null;
+                if (((__Internal*)__Instance)->undo_rec != null)
+                {
+                    __value = new global::DearImguiSharp.StbUndoRecord[99];
+                    for (int i = 0; i < 99; i++)
+                        __value[i] = global::DearImguiSharp.StbUndoRecord.__CreateInstance(*((global::DearImguiSharp.StbUndoRecord.__Internal*)&(((__Internal*)__Instance)->undo_rec[i * sizeof(global::DearImguiSharp.StbUndoRecord.__Internal)])));
+                }
+                return __value;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    if (value.Length != 99)
+                        throw new ArgumentOutOfRangeException("value", "The dimensions of the provided array don't match the required size.");
+                    for (int i = 0; i < 99; i++)
+                        *(global::DearImguiSharp.StbUndoRecord.__Internal*) &((__Internal*)__Instance)->undo_rec[i * sizeof(global::DearImguiSharp.StbUndoRecord.__Internal)] = *(global::DearImguiSharp.StbUndoRecord.__Internal*)value[i].__Instance;
+                }
+            }
+        }
+
+        public ushort[] UndoChar
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<ushort>(((__Internal*)__Instance)->undo_char, 999);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 999; i++)
+                        ((__Internal*)__Instance)->undo_char[i] = value[i];
+                }
+            }
+        }
+
+        public short UndoPoint
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->undo_point;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->undo_point = value;
+            }
+        }
+
+        public short RedoPoint
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->redo_point;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->redo_point = value;
+            }
+        }
+
+        public int UndoCharPoint
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->undo_char_point;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->undo_char_point = value;
+            }
+        }
+
+        public int RedoCharPoint
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->redo_char_point;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->redo_char_point = value;
+            }
+        }
+    }
+
+    public unsafe partial class STB_TexteditState : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 3628)]
+        public partial struct __Internal
+        {
+            public int cursor;
+            public int select_start;
+            public int select_end;
+            public byte insert_mode;
+            public int row_count_per_page;
+            public byte cursor_at_end_of_line;
+            public byte initialized;
+            public byte has_preferred_x;
+            public byte single_line;
+            public byte padding1;
+            public byte padding2;
+            public byte padding3;
+            public float preferred_x;
+            public global::DearImguiSharp.StbUndoState.__Internal undostate;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0STB_TexteditState@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.STB_TexteditState> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.STB_TexteditState>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static STB_TexteditState __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new STB_TexteditState(native.ToPointer(), skipVTables);
+        }
+
+        internal static STB_TexteditState __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (STB_TexteditState)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static STB_TexteditState __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new STB_TexteditState(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private STB_TexteditState(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public STB_TexteditState(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public STB_TexteditState()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.STB_TexteditState.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public STB_TexteditState(global::DearImguiSharp.STB_TexteditState _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.STB_TexteditState.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.STB_TexteditState.__Internal*) __Instance) = *((global::DearImguiSharp.STB_TexteditState.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Cursor
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->cursor;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->cursor = value;
+            }
+        }
+
+        public int SelectStart
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->select_start;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->select_start = value;
+            }
+        }
+
+        public int SelectEnd
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->select_end;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->select_end = value;
+            }
+        }
+
+        public byte InsertMode
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->insert_mode;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->insert_mode = value;
+            }
+        }
+
+        public int RowCountPerPage
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->row_count_per_page;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->row_count_per_page = value;
+            }
+        }
+
+        public byte CursorAtEndOfLine
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->cursor_at_end_of_line;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->cursor_at_end_of_line = value;
+            }
+        }
+
+        public byte Initialized
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->initialized;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->initialized = value;
+            }
+        }
+
+        public byte HasPreferredX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->has_preferred_x;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->has_preferred_x = value;
+            }
+        }
+
+        public byte SingleLine
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->single_line;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->single_line = value;
+            }
+        }
+
+        public byte Padding1
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->padding1;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->padding1 = value;
+            }
+        }
+
+        public byte Padding2
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->padding2;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->padding2 = value;
+            }
+        }
+
+        public byte Padding3
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->padding3;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->padding3 = value;
+            }
+        }
+
+        public float PreferredX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->preferred_x;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->preferred_x = value;
+            }
+        }
+
+        public global::DearImguiSharp.StbUndoState Undostate
+        {
+            get
+            {
+                return global::DearImguiSharp.StbUndoState.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->undostate));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->undostate = *(global::DearImguiSharp.StbUndoState.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class StbTexteditRow : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 24)]
+        public partial struct __Internal
+        {
+            public float x0;
+            public float x1;
+            public float baseline_y_delta;
+            public float ymin;
+            public float ymax;
+            public int num_chars;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0StbTexteditRow@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.StbTexteditRow> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.StbTexteditRow>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static StbTexteditRow __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new StbTexteditRow(native.ToPointer(), skipVTables);
+        }
+
+        internal static StbTexteditRow __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (StbTexteditRow)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static StbTexteditRow __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new StbTexteditRow(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private StbTexteditRow(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public StbTexteditRow(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public StbTexteditRow()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.StbTexteditRow.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public StbTexteditRow(global::DearImguiSharp.StbTexteditRow _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.StbTexteditRow.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.StbTexteditRow.__Internal*) __Instance) = *((global::DearImguiSharp.StbTexteditRow.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public float X0
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->x0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->x0 = value;
+            }
+        }
+
+        public float X1
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->x1;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->x1 = value;
+            }
+        }
+
+        public float BaselineYDelta
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->baseline_y_delta;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->baseline_y_delta = value;
+            }
+        }
+
+        public float Ymin
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ymin;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ymin = value;
+            }
+        }
+
+        public float Ymax
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ymax;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ymax = value;
+            }
+        }
+
+        public int NumChars
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->num_chars;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->num_chars = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImVec1 : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 4)]
+        public partial struct __Internal
+        {
+            public float x;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVec1@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVec1> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVec1>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVec1 __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVec1(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVec1 __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVec1)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVec1 __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVec1(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVec1(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVec1(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVec1()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVec1.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVec1(global::DearImguiSharp.ImVec1 _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVec1.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVec1.__Internal*) __Instance) = *((global::DearImguiSharp.ImVec1.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public float X
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->x;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->x = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImVec2ih : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 4)]
+        public partial struct __Internal
+        {
+            public short x;
+            public short y;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVec2ih@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVec2ih> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVec2ih>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVec2ih __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVec2ih(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVec2ih __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVec2ih)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVec2ih __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVec2ih(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVec2ih(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVec2ih(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVec2ih()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVec2ih.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVec2ih(global::DearImguiSharp.ImVec2ih _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVec2ih.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVec2ih.__Internal*) __Instance) = *((global::DearImguiSharp.ImVec2ih.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public short X
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->x;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->x = value;
+            }
+        }
+
+        public short Y
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->y;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->y = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImRect : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVec2.__Internal Min;
+            public global::DearImguiSharp.ImVec2.__Internal Max;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImRect@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImRect> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImRect>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImRect __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImRect(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImRect __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImRect)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImRect __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImRect(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImRect(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImRect(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImRect()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImRect.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImRect(global::DearImguiSharp.ImRect _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImRect.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImRect.__Internal*) __Instance) = *((global::DearImguiSharp.ImRect.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVec2 Min
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Min));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Min = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 Max
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Max));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Max = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImBitVector : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVectorImU32.__Internal Storage;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImBitVector@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImBitVector> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImBitVector>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImBitVector __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImBitVector(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImBitVector __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImBitVector)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImBitVector __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImBitVector(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImBitVector(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImBitVector(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImBitVector()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImBitVector.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImBitVector(global::DearImguiSharp.ImBitVector _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImBitVector.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImBitVector.__Internal*) __Instance) = *((global::DearImguiSharp.ImBitVector.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVectorImU32 Storage
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImU32.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Storage));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Storage = *(global::DearImguiSharp.ImVectorImU32.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImDrawListSharedData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 216)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
+            public __IntPtr Font;
+            public float FontSize;
+            public float CurveTessellationTol;
+            public float CircleSegmentMaxError;
+            public global::DearImguiSharp.ImVec4.__Internal ClipRectFullscreen;
+            public int InitialFlags;
+            public fixed byte ArcFastVtx[96];
+            public fixed byte CircleSegmentCounts[64];
+            public __IntPtr TexUvLines;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImDrawListSharedData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImDrawListSharedData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImDrawListSharedData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImDrawListSharedData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImDrawListSharedData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImDrawListSharedData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImDrawListSharedData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImDrawListSharedData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImDrawListSharedData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImDrawListSharedData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImDrawListSharedData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImDrawListSharedData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImDrawListSharedData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImDrawListSharedData(global::DearImguiSharp.ImDrawListSharedData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImDrawListSharedData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImDrawListSharedData.__Internal*) __Instance) = *((global::DearImguiSharp.ImDrawListSharedData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVec2 TexUvWhitePixel
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TexUvWhitePixel));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->TexUvWhitePixel = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImFont Font
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImFont.__GetOrCreateInstance(((__Internal*)__Instance)->Font, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Font = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public float FontSize
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FontSize;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FontSize = value;
+            }
+        }
+
+        public float CurveTessellationTol
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurveTessellationTol;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurveTessellationTol = value;
+            }
+        }
+
+        public float CircleSegmentMaxError
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CircleSegmentMaxError;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CircleSegmentMaxError = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec4 ClipRectFullscreen
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec4.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ClipRectFullscreen));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ClipRectFullscreen = *(global::DearImguiSharp.ImVec4.__Internal*) value.__Instance;
+            }
+        }
+
+        public int InitialFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->InitialFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->InitialFlags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2[] ArcFastVtx
+        {
+            get
+            {
+                global::DearImguiSharp.ImVec2[] __value = null;
+                if (((__Internal*)__Instance)->ArcFastVtx != null)
+                {
+                    __value = new global::DearImguiSharp.ImVec2[12];
+                    for (int i = 0; i < 12; i++)
+                        __value[i] = global::DearImguiSharp.ImVec2.__CreateInstance(*((global::DearImguiSharp.ImVec2.__Internal*)&(((__Internal*)__Instance)->ArcFastVtx[i * sizeof(global::DearImguiSharp.ImVec2.__Internal)])));
+                }
+                return __value;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    if (value.Length != 12)
+                        throw new ArgumentOutOfRangeException("value", "The dimensions of the provided array don't match the required size.");
+                    for (int i = 0; i < 12; i++)
+                        *(global::DearImguiSharp.ImVec2.__Internal*) &((__Internal*)__Instance)->ArcFastVtx[i * sizeof(global::DearImguiSharp.ImVec2.__Internal)] = *(global::DearImguiSharp.ImVec2.__Internal*)value[i].__Instance;
+                }
+            }
+        }
+
+        public byte[] CircleSegmentCounts
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<byte>(((__Internal*)__Instance)->CircleSegmentCounts, 64);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 64; i++)
+                        ((__Internal*)__Instance)->CircleSegmentCounts[i] = value[i];
+                }
+            }
+        }
+
+        public global::DearImguiSharp.ImVec4 TexUvLines
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImVec4.__GetOrCreateInstance(((__Internal*)__Instance)->TexUvLines, false);
+                return __result0;
+            }
+        }
+    }
+
+    public unsafe partial class ImDrawDataBuilder : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 32)]
+        public partial struct __Internal
+        {
+            public fixed byte Layers[32];
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImDrawDataBuilder@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImDrawDataBuilder> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImDrawDataBuilder>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImDrawDataBuilder __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImDrawDataBuilder(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImDrawDataBuilder __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImDrawDataBuilder)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImDrawDataBuilder __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImDrawDataBuilder(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImDrawDataBuilder(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImDrawDataBuilder(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImDrawDataBuilder()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImDrawDataBuilder.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImDrawDataBuilder(global::DearImguiSharp.ImDrawDataBuilder _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImDrawDataBuilder.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImDrawDataBuilder.__Internal*) __Instance) = *((global::DearImguiSharp.ImDrawDataBuilder.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVectorImDrawListPtr[] Layers
+        {
+            get
+            {
+                global::DearImguiSharp.ImVectorImDrawListPtr[] __value = null;
+                if (((__Internal*)__Instance)->Layers != null)
+                {
+                    __value = new global::DearImguiSharp.ImVectorImDrawListPtr[2];
+                    for (int i = 0; i < 2; i++)
+                        __value[i] = global::DearImguiSharp.ImVectorImDrawListPtr.__CreateInstance(*((global::DearImguiSharp.ImVectorImDrawListPtr.__Internal*)&(((__Internal*)__Instance)->Layers[i * sizeof(global::DearImguiSharp.ImVectorImDrawListPtr.__Internal)])));
+                }
+                return __value;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    if (value.Length != 2)
+                        throw new ArgumentOutOfRangeException("value", "The dimensions of the provided array don't match the required size.");
+                    for (int i = 0; i < 2; i++)
+                        *(global::DearImguiSharp.ImVectorImDrawListPtr.__Internal*) &((__Internal*)__Instance)->Layers[i * sizeof(global::DearImguiSharp.ImVectorImDrawListPtr.__Internal)] = *(global::DearImguiSharp.ImVectorImDrawListPtr.__Internal*)value[i].__Instance;
+                }
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiDataTypeTempStorage : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 8)]
+        public partial struct __Internal
+        {
+            public fixed byte Data[8];
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiDataTypeTempStorage@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiDataTypeTempStorage> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiDataTypeTempStorage>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiDataTypeTempStorage __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiDataTypeTempStorage(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiDataTypeTempStorage __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiDataTypeTempStorage)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiDataTypeTempStorage __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiDataTypeTempStorage(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiDataTypeTempStorage(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiDataTypeTempStorage(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiDataTypeTempStorage()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiDataTypeTempStorage.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiDataTypeTempStorage(global::DearImguiSharp.ImGuiDataTypeTempStorage _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiDataTypeTempStorage.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiDataTypeTempStorage.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiDataTypeTempStorage.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public byte[] Data
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<byte>(((__Internal*)__Instance)->Data, 8);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 8; i++)
+                        ((__Internal*)__Instance)->Data[i] = value[i];
+                }
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiDataTypeInfo : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 32)]
+        public partial struct __Internal
+        {
+            public IntPtr Size;
+            public __IntPtr Name;
+            public __IntPtr PrintFmt;
+            public __IntPtr ScanFmt;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiDataTypeInfo@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiDataTypeInfo> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiDataTypeInfo>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiDataTypeInfo __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiDataTypeInfo(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiDataTypeInfo __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiDataTypeInfo)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiDataTypeInfo __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiDataTypeInfo(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiDataTypeInfo(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiDataTypeInfo(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiDataTypeInfo()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiDataTypeInfo.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiDataTypeInfo(global::DearImguiSharp.ImGuiDataTypeInfo _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiDataTypeInfo.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiDataTypeInfo.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiDataTypeInfo.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public IntPtr Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->Name);
+            }
+
+            set
+            {
+                byte[] __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                fixed (byte* __bytePtr0 = __bytes0)
+                {
+                    ((__Internal*)__Instance)->Name = (__IntPtr) new global::System.IntPtr(__bytePtr0);
+                }
+            }
+        }
+
+        public string PrintFmt
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->PrintFmt);
+            }
+
+            set
+            {
+                byte[] __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                fixed (byte* __bytePtr0 = __bytes0)
+                {
+                    ((__Internal*)__Instance)->PrintFmt = (__IntPtr) new global::System.IntPtr(__bytePtr0);
+                }
+            }
+        }
+
+        public string ScanFmt
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->ScanFmt);
+            }
+
+            set
+            {
+                byte[] __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                fixed (byte* __bytePtr0 = __bytes0)
+                {
+                    ((__Internal*)__Instance)->ScanFmt = (__IntPtr) new global::System.IntPtr(__bytePtr0);
+                }
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiColorMod : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 20)]
+        public partial struct __Internal
+        {
+            public int Col;
+            public global::DearImguiSharp.ImVec4.__Internal BackupValue;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiColorMod@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiColorMod> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiColorMod>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiColorMod __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiColorMod(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiColorMod __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiColorMod)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiColorMod __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiColorMod(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiColorMod(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiColorMod(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiColorMod()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiColorMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiColorMod(global::DearImguiSharp.ImGuiColorMod _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiColorMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiColorMod.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiColorMod.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Col
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Col;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Col = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec4 BackupValue
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec4.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BackupValue));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BackupValue = *(global::DearImguiSharp.ImVec4.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiStyleMod : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 12)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            public int VarIdx;
+
+            [FieldOffset(4)]
+            public fixed int BackupInt[2];
+
+            [FieldOffset(4)]
+            public fixed float BackupFloat[2];
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiStyleMod@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiStyleMod> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiStyleMod>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiStyleMod __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiStyleMod(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiStyleMod __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiStyleMod)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiStyleMod __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiStyleMod(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiStyleMod(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiStyleMod(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiStyleMod()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiStyleMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiStyleMod(global::DearImguiSharp.ImGuiStyleMod _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiStyleMod.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiStyleMod.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiStyleMod.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int VarIdx
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->VarIdx;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->VarIdx = value;
+            }
+        }
+
+        public int[] BackupInt
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<int>(((__Internal*)__Instance)->BackupInt, 2);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 2; i++)
+                        ((__Internal*)__Instance)->BackupInt[i] = value[i];
+                }
+            }
+        }
+
+        public float[] BackupFloat
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<float>(((__Internal*)__Instance)->BackupFloat, 2);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 2; i++)
+                        ((__Internal*)__Instance)->BackupFloat[i] = value[i];
+                }
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiGroupData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 48)]
+        public partial struct __Internal
+        {
+            public uint WindowID;
+            public global::DearImguiSharp.ImVec2.__Internal BackupCursorPos;
+            public global::DearImguiSharp.ImVec2.__Internal BackupCursorMaxPos;
+            public global::DearImguiSharp.ImVec1.__Internal BackupIndent;
+            public global::DearImguiSharp.ImVec1.__Internal BackupGroupOffset;
+            public global::DearImguiSharp.ImVec2.__Internal BackupCurrLineSize;
+            public float BackupCurrLineTextBaseOffset;
+            public uint BackupActiveIdIsAlive;
+            public byte BackupActiveIdPreviousFrameIsAlive;
+            public byte EmitItem;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiGroupData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiGroupData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiGroupData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiGroupData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiGroupData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiGroupData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiGroupData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiGroupData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiGroupData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiGroupData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiGroupData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiGroupData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiGroupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiGroupData(global::DearImguiSharp.ImGuiGroupData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiGroupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiGroupData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiGroupData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint WindowID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WindowID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WindowID = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 BackupCursorPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BackupCursorPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BackupCursorPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 BackupCursorMaxPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BackupCursorMaxPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BackupCursorMaxPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec1 BackupIndent
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BackupIndent));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BackupIndent = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec1 BackupGroupOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BackupGroupOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BackupGroupOffset = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 BackupCurrLineSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BackupCurrLineSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BackupCurrLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public float BackupCurrLineTextBaseOffset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BackupCurrLineTextBaseOffset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BackupCurrLineTextBaseOffset = value;
+            }
+        }
+
+        public uint BackupActiveIdIsAlive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BackupActiveIdIsAlive;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BackupActiveIdIsAlive = value;
+            }
+        }
+
+        public bool BackupActiveIdPreviousFrameIsAlive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BackupActiveIdPreviousFrameIsAlive != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BackupActiveIdPreviousFrameIsAlive = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool EmitItem
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->EmitItem != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->EmitItem = (byte) (value ? 1 : 0);
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiMenuColumns : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 36)]
+        public partial struct __Internal
+        {
+            public float Spacing;
+            public float Width;
+            public float NextWidth;
+            public fixed float Pos[3];
+            public fixed float NextWidths[3];
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiMenuColumns@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiMenuColumns> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiMenuColumns>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiMenuColumns __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiMenuColumns(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiMenuColumns __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiMenuColumns)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiMenuColumns __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiMenuColumns(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiMenuColumns(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiMenuColumns(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiMenuColumns()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiMenuColumns.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiMenuColumns(global::DearImguiSharp.ImGuiMenuColumns _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiMenuColumns.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiMenuColumns.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiMenuColumns.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public float Spacing
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Spacing;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Spacing = value;
+            }
+        }
+
+        public float Width
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Width;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Width = value;
+            }
+        }
+
+        public float NextWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NextWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NextWidth = value;
+            }
+        }
+
+        public float[] Pos
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<float>(((__Internal*)__Instance)->Pos, 3);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 3; i++)
+                        ((__Internal*)__Instance)->Pos[i] = value[i];
+                }
+            }
+        }
+
+        public float[] NextWidths
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<float>(((__Internal*)__Instance)->NextWidths, 3);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 3; i++)
+                        ((__Internal*)__Instance)->NextWidths[i] = value[i];
+                }
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiInputTextState : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 3736)]
+        public partial struct __Internal
+        {
+            public uint ID;
+            public int CurLenW;
+            public int CurLenA;
+            public global::DearImguiSharp.ImVectorImWchar.__Internal TextW;
+            public global::DearImguiSharp.ImVector_char.__Internal TextA;
+            public global::DearImguiSharp.ImVector_char.__Internal InitialTextA;
+            public byte TextAIsValid;
+            public int BufCapacityA;
+            public float ScrollX;
+            public global::DearImguiSharp.STB_TexteditState.__Internal Stb;
+            public float CursorAnim;
+            public byte CursorFollow;
+            public byte SelectedAllMouseLock;
+            public byte Edited;
+            public int UserFlags;
+            public __IntPtr UserCallback;
+            public __IntPtr UserCallbackData;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiInputTextState@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiInputTextState> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiInputTextState>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiInputTextState __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiInputTextState(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiInputTextState __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiInputTextState)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiInputTextState __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiInputTextState(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiInputTextState(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiInputTextState(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiInputTextState()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiInputTextState.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiInputTextState(global::DearImguiSharp.ImGuiInputTextState _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiInputTextState.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiInputTextState.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiInputTextState.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public int CurLenW
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurLenW;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurLenW = value;
+            }
+        }
+
+        public int CurLenA
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurLenA;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurLenA = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImWchar TextW
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImWchar.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TextW));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->TextW = *(global::DearImguiSharp.ImVectorImWchar.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVector_char TextA
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVector_char.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TextA));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->TextA = *(global::DearImguiSharp.ImVector_char.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVector_char InitialTextA
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVector_char.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->InitialTextA));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->InitialTextA = *(global::DearImguiSharp.ImVector_char.__Internal*) value.__Instance;
+            }
+        }
+
+        public bool TextAIsValid
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TextAIsValid != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TextAIsValid = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int BufCapacityA
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BufCapacityA;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BufCapacityA = value;
+            }
+        }
+
+        public float ScrollX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollX = value;
+            }
+        }
+
+        public global::DearImguiSharp.STB_TexteditState Stb
+        {
+            get
+            {
+                return global::DearImguiSharp.STB_TexteditState.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Stb));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Stb = *(global::DearImguiSharp.STB_TexteditState.__Internal*) value.__Instance;
+            }
+        }
+
+        public float CursorAnim
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CursorAnim;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CursorAnim = value;
+            }
+        }
+
+        public bool CursorFollow
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CursorFollow != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CursorFollow = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool SelectedAllMouseLock
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SelectedAllMouseLock != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SelectedAllMouseLock = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool Edited
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Edited != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Edited = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int UserFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->UserFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->UserFlags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiInputTextCallback UserCallback
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->UserCallback;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.ImGuiInputTextCallback) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.ImGuiInputTextCallback));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->UserCallback = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public __IntPtr UserCallbackData
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->UserCallbackData;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->UserCallbackData = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiPopupData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 48)]
+        public partial struct __Internal
+        {
+            public uint PopupId;
+            public __IntPtr Window;
+            public __IntPtr SourceWindow;
+            public int OpenFrameCount;
+            public uint OpenParentId;
+            public global::DearImguiSharp.ImVec2.__Internal OpenPopupPos;
+            public global::DearImguiSharp.ImVec2.__Internal OpenMousePos;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiPopupData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiPopupData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiPopupData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiPopupData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiPopupData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiPopupData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiPopupData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiPopupData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiPopupData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiPopupData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiPopupData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiPopupData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiPopupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiPopupData(global::DearImguiSharp.ImGuiPopupData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiPopupData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiPopupData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiPopupData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint PopupId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PopupId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PopupId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow Window
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->Window, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Window = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow SourceWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->SourceWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SourceWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public int OpenFrameCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OpenFrameCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OpenFrameCount = value;
+            }
+        }
+
+        public uint OpenParentId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OpenParentId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OpenParentId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 OpenPopupPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->OpenPopupPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->OpenPopupPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 OpenMousePos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->OpenMousePos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->OpenMousePos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiNavMoveResult : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 48)]
+        public partial struct __Internal
+        {
+            public __IntPtr Window;
+            public uint ID;
+            public uint FocusScopeId;
+            public float DistBox;
+            public float DistCenter;
+            public float DistAxial;
+            public global::DearImguiSharp.ImRect.__Internal RectRel;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiNavMoveResult@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNavMoveResult> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNavMoveResult>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiNavMoveResult __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiNavMoveResult(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiNavMoveResult __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiNavMoveResult)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiNavMoveResult __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiNavMoveResult(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiNavMoveResult(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiNavMoveResult(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiNavMoveResult()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNavMoveResult.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiNavMoveResult(global::DearImguiSharp.ImGuiNavMoveResult _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNavMoveResult.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImGuiWindow Window
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->Window, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Window = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public uint FocusScopeId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusScopeId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusScopeId = value;
+            }
+        }
+
+        public float DistBox
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DistBox;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DistBox = value;
+            }
+        }
+
+        public float DistCenter
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DistCenter;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DistCenter = value;
+            }
+        }
+
+        public float DistAxial
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DistAxial;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DistAxial = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect RectRel
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->RectRel));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->RectRel = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiNextWindowData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 112)]
+        public partial struct __Internal
+        {
+            public int Flags;
+            public int PosCond;
+            public int SizeCond;
+            public int CollapsedCond;
+            public global::DearImguiSharp.ImVec2.__Internal PosVal;
+            public global::DearImguiSharp.ImVec2.__Internal PosPivotVal;
+            public global::DearImguiSharp.ImVec2.__Internal SizeVal;
+            public global::DearImguiSharp.ImVec2.__Internal ContentSizeVal;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollVal;
+            public byte CollapsedVal;
+            public global::DearImguiSharp.ImRect.__Internal SizeConstraintRect;
+            public __IntPtr SizeCallback;
+            public __IntPtr SizeCallbackUserData;
+            public float BgAlphaVal;
+            public global::DearImguiSharp.ImVec2.__Internal MenuBarOffsetMinVal;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiNextWindowData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNextWindowData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNextWindowData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiNextWindowData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiNextWindowData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiNextWindowData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiNextWindowData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiNextWindowData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiNextWindowData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiNextWindowData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiNextWindowData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiNextWindowData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNextWindowData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiNextWindowData(global::DearImguiSharp.ImGuiNextWindowData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNextWindowData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiNextWindowData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiNextWindowData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public int PosCond
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PosCond;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PosCond = value;
+            }
+        }
+
+        public int SizeCond
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeCond;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeCond = value;
+            }
+        }
+
+        public int CollapsedCond
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CollapsedCond;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CollapsedCond = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 PosVal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->PosVal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->PosVal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 PosPivotVal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->PosPivotVal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->PosPivotVal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 SizeVal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SizeVal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SizeVal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ContentSizeVal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ContentSizeVal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ContentSizeVal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ScrollVal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ScrollVal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ScrollVal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public bool CollapsedVal
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CollapsedVal != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CollapsedVal = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public global::DearImguiSharp.ImRect SizeConstraintRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SizeConstraintRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SizeConstraintRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiSizeCallback SizeCallback
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->SizeCallback;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.ImGuiSizeCallback) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.ImGuiSizeCallback));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeCallback = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public __IntPtr SizeCallbackUserData
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeCallbackUserData;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeCallbackUserData = (__IntPtr) value;
+            }
+        }
+
+        public float BgAlphaVal
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BgAlphaVal;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BgAlphaVal = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 MenuBarOffsetMinVal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->MenuBarOffsetMinVal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->MenuBarOffsetMinVal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiNextItemData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 20)]
+        public partial struct __Internal
+        {
+            public int Flags;
+            public float Width;
+            public uint FocusScopeId;
+            public int OpenCond;
+            public byte OpenVal;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiNextItemData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNextItemData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNextItemData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiNextItemData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiNextItemData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiNextItemData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiNextItemData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiNextItemData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiNextItemData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiNextItemData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiNextItemData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiNextItemData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNextItemData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiNextItemData(global::DearImguiSharp.ImGuiNextItemData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNextItemData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiNextItemData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiNextItemData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public float Width
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Width;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Width = value;
+            }
+        }
+
+        public uint FocusScopeId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusScopeId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusScopeId = value;
+            }
+        }
+
+        public int OpenCond
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OpenCond;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OpenCond = value;
+            }
+        }
+
+        public bool OpenVal
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OpenVal != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OpenVal = (byte) (value ? 1 : 0);
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiShrinkWidthItem : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 8)]
+        public partial struct __Internal
+        {
+            public int Index;
+            public float Width;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiShrinkWidthItem@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiShrinkWidthItem> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiShrinkWidthItem>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiShrinkWidthItem __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiShrinkWidthItem(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiShrinkWidthItem __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiShrinkWidthItem)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiShrinkWidthItem __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiShrinkWidthItem(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiShrinkWidthItem(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiShrinkWidthItem(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiShrinkWidthItem()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiShrinkWidthItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiShrinkWidthItem(global::DearImguiSharp.ImGuiShrinkWidthItem _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiShrinkWidthItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiShrinkWidthItem.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiShrinkWidthItem.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Index
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Index;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Index = value;
+            }
+        }
+
+        public float Width
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Width;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Width = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiPtrOrIndex : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public __IntPtr Ptr;
+            public int Index;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiPtrOrIndex@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiPtrOrIndex> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiPtrOrIndex>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiPtrOrIndex __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiPtrOrIndex(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiPtrOrIndex __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiPtrOrIndex)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiPtrOrIndex __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiPtrOrIndex(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiPtrOrIndex(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiPtrOrIndex(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiPtrOrIndex()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiPtrOrIndex.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiPtrOrIndex(global::DearImguiSharp.ImGuiPtrOrIndex _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiPtrOrIndex.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiPtrOrIndex.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiPtrOrIndex.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public __IntPtr Ptr
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Ptr;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Ptr = (__IntPtr) value;
+            }
+        }
+
+        public int Index
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Index;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Index = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiOldColumnData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 28)]
+        public partial struct __Internal
+        {
+            public float OffsetNorm;
+            public float OffsetNormBeforeResize;
+            public int Flags;
+            public global::DearImguiSharp.ImRect.__Internal ClipRect;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiOldColumnData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiOldColumnData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiOldColumnData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiOldColumnData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiOldColumnData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiOldColumnData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiOldColumnData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiOldColumnData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiOldColumnData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiOldColumnData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiOldColumnData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiOldColumnData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiOldColumnData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiOldColumnData(global::DearImguiSharp.ImGuiOldColumnData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiOldColumnData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiOldColumnData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiOldColumnData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public float OffsetNorm
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OffsetNorm;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OffsetNorm = value;
+            }
+        }
+
+        public float OffsetNormBeforeResize
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OffsetNormBeforeResize;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OffsetNormBeforeResize = value;
+            }
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect ClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiOldColumns : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 136)]
+        public partial struct __Internal
+        {
+            public uint ID;
+            public int Flags;
+            public byte IsFirstFrame;
+            public byte IsBeingResized;
+            public int Current;
+            public int Count;
+            public float OffMinX;
+            public float OffMaxX;
+            public float LineMinY;
+            public float LineMaxY;
+            public float HostCursorPosY;
+            public float HostCursorMaxPosX;
+            public global::DearImguiSharp.ImRect.__Internal HostInitialClipRect;
+            public global::DearImguiSharp.ImRect.__Internal HostBackupClipRect;
+            public global::DearImguiSharp.ImRect.__Internal HostBackupParentWorkRect;
+            public global::DearImguiSharp.ImVectorImGuiOldColumnData.__Internal Columns;
+            public global::DearImguiSharp.ImDrawListSplitter.__Internal Splitter;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiOldColumns@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiOldColumns> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiOldColumns>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiOldColumns __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiOldColumns(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiOldColumns __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiOldColumns)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiOldColumns __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiOldColumns(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiOldColumns(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiOldColumns(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiOldColumns()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiOldColumns.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiOldColumns(global::DearImguiSharp.ImGuiOldColumns _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiOldColumns.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiOldColumns.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiOldColumns.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public bool IsFirstFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsFirstFrame != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsFirstFrame = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsBeingResized
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsBeingResized != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsBeingResized = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int Current
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Current;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Current = value;
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Count;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Count = value;
+            }
+        }
+
+        public float OffMinX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OffMinX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OffMinX = value;
+            }
+        }
+
+        public float OffMaxX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OffMaxX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OffMaxX = value;
+            }
+        }
+
+        public float LineMinY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LineMinY;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LineMinY = value;
+            }
+        }
+
+        public float LineMaxY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LineMaxY;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LineMaxY = value;
+            }
+        }
+
+        public float HostCursorPosY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostCursorPosY;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostCursorPosY = value;
+            }
+        }
+
+        public float HostCursorMaxPosX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostCursorMaxPosX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostCursorMaxPosX = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostInitialClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostInitialClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostInitialClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostBackupClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostBackupParentWorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupParentWorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupParentWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiOldColumnData Columns
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiOldColumnData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Columns));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Columns = *(global::DearImguiSharp.ImVectorImGuiOldColumnData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawListSplitter Splitter
+        {
+            get
+            {
+                return global::DearImguiSharp.ImDrawListSplitter.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Splitter));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Splitter = *(global::DearImguiSharp.ImDrawListSplitter.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiViewportP : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 176)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImGuiViewport.__Internal _ImGuiViewport;
+            public fixed int DrawListsLastFrame[2];
+            public fixed long DrawLists[2];
+            public global::DearImguiSharp.ImDrawData.__Internal DrawDataP;
+            public global::DearImguiSharp.ImDrawDataBuilder.__Internal DrawDataBuilder;
+            public global::DearImguiSharp.ImVec2.__Internal WorkOffsetMin;
+            public global::DearImguiSharp.ImVec2.__Internal WorkOffsetMax;
+            public global::DearImguiSharp.ImVec2.__Internal CurrWorkOffsetMin;
+            public global::DearImguiSharp.ImVec2.__Internal CurrWorkOffsetMax;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiViewportP@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiViewportP> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiViewportP>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiViewportP __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiViewportP(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiViewportP __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiViewportP)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiViewportP __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiViewportP(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiViewportP(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiViewportP(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiViewportP()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiViewportP.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiViewportP(global::DearImguiSharp.ImGuiViewportP _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiViewportP.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiViewportP.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiViewportP.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImGuiViewport ImGuiViewport
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiViewport.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->_ImGuiViewport));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->_ImGuiViewport = *(global::DearImguiSharp.ImGuiViewport.__Internal*) value.__Instance;
+            }
+        }
+
+        public int[] DrawListsLastFrame
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<int>(((__Internal*)__Instance)->DrawListsLastFrame, 2);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 2; i++)
+                        ((__Internal*)__Instance)->DrawListsLastFrame[i] = value[i];
+                }
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawList[] DrawLists
+        {
+            get
+            {
+                global::DearImguiSharp.ImDrawList[] __value = null;
+                if (((__Internal*)__Instance)->DrawLists != null)
+                {
+                    __value = new global::DearImguiSharp.ImDrawList[2];
+                    for (int i = 0; i < 2; i++)
+                        __value[i] = global::DearImguiSharp.ImDrawList.__CreateInstance((__IntPtr) ((__Internal*)__Instance)->DrawLists[i]);
+                }
+                return __value;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    if (value.Length != 2)
+                        throw new ArgumentOutOfRangeException("value", "The dimensions of the provided array don't match the required size.");
+                    for (int i = 0; i < 2; i++)
+                        ((__Internal*)__Instance)->DrawLists[i] = (long) value[i].__Instance;
+                }
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawData DrawDataP
+        {
+            get
+            {
+                return global::DearImguiSharp.ImDrawData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawDataP));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DrawDataP = *(global::DearImguiSharp.ImDrawData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawDataBuilder DrawDataBuilder
+        {
+            get
+            {
+                return global::DearImguiSharp.ImDrawDataBuilder.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawDataBuilder));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DrawDataBuilder = *(global::DearImguiSharp.ImDrawDataBuilder.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 WorkOffsetMin
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WorkOffsetMin));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WorkOffsetMin = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 WorkOffsetMax
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WorkOffsetMax));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WorkOffsetMax = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 CurrWorkOffsetMin
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrWorkOffsetMin));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CurrWorkOffsetMin = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 CurrWorkOffsetMax
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrWorkOffsetMax));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CurrWorkOffsetMax = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiWindowSettings : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public uint ID;
+            public global::DearImguiSharp.ImVec2ih.__Internal Pos;
+            public global::DearImguiSharp.ImVec2ih.__Internal Size;
+            public byte Collapsed;
+            public byte WantApply;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiWindowSettings@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiWindowSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiWindowSettings>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiWindowSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiWindowSettings(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiWindowSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiWindowSettings)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiWindowSettings __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiWindowSettings(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiWindowSettings(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiWindowSettings(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiWindowSettings()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiWindowSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiWindowSettings(global::DearImguiSharp.ImGuiWindowSettings _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiWindowSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiWindowSettings.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiWindowSettings.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2ih Pos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2ih.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Pos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Pos = *(global::DearImguiSharp.ImVec2ih.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2ih Size
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2ih.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Size));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Size = *(global::DearImguiSharp.ImVec2ih.__Internal*) value.__Instance;
+            }
+        }
+
+        public bool Collapsed
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Collapsed != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Collapsed = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool WantApply
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantApply != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantApply = (byte) (value ? 1 : 0);
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiSettingsHandler : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 72)]
+        public partial struct __Internal
+        {
+            public __IntPtr TypeName;
+            public uint TypeHash;
+            public __IntPtr ClearAllFn;
+            public __IntPtr ReadInitFn;
+            public __IntPtr ReadOpenFn;
+            public __IntPtr ReadLineFn;
+            public __IntPtr ApplyAllFn;
+            public __IntPtr WriteAllFn;
+            public __IntPtr UserData;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiSettingsHandler@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiSettingsHandler> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiSettingsHandler>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiSettingsHandler __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiSettingsHandler(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiSettingsHandler __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiSettingsHandler)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiSettingsHandler __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiSettingsHandler(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiSettingsHandler(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiSettingsHandler(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiSettingsHandler()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiSettingsHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiSettingsHandler(global::DearImguiSharp.ImGuiSettingsHandler _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiSettingsHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiSettingsHandler.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiSettingsHandler.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public string TypeName
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->TypeName);
+            }
+
+            set
+            {
+                byte[] __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                fixed (byte* __bytePtr0 = __bytes0)
+                {
+                    ((__Internal*)__Instance)->TypeName = (__IntPtr) new global::System.IntPtr(__bytePtr0);
+                }
+            }
+        }
+
+        public uint TypeHash
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TypeHash;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TypeHash = value;
+            }
+        }
+
+        public global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr ClearAllFn
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->ClearAllFn;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ClearAllFn = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr ReadInitFn
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->ReadInitFn;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ReadInitFn = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public global::DearImguiSharp.Delegates.Func___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string ReadOpenFn
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->ReadOpenFn;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.Delegates.Func___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.Delegates.Func___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ReadOpenFn = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string ReadLineFn
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->ReadLineFn;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ReadLineFn = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr ApplyAllFn
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->ApplyAllFn;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ApplyAllFn = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr___IntPtr WriteAllFn
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->WriteAllFn;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr___IntPtr) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr___IntPtr));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WriteAllFn = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public __IntPtr UserData
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->UserData;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->UserData = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiMetricsConfig : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public byte ShowWindowsRects;
+            public byte ShowWindowsBeginOrder;
+            public byte ShowTablesRects;
+            public byte ShowDrawCmdMesh;
+            public byte ShowDrawCmdBoundingBoxes;
+            public int ShowWindowsRectsType;
+            public int ShowTablesRectsType;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiMetricsConfig@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiMetricsConfig> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiMetricsConfig>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiMetricsConfig __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiMetricsConfig(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiMetricsConfig __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiMetricsConfig)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiMetricsConfig __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiMetricsConfig(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiMetricsConfig(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiMetricsConfig(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiMetricsConfig()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiMetricsConfig.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiMetricsConfig(global::DearImguiSharp.ImGuiMetricsConfig _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiMetricsConfig.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiMetricsConfig.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiMetricsConfig.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public bool ShowWindowsRects
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ShowWindowsRects != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ShowWindowsRects = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ShowWindowsBeginOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ShowWindowsBeginOrder != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ShowWindowsBeginOrder = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ShowTablesRects
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ShowTablesRects != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ShowTablesRects = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ShowDrawCmdMesh
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ShowDrawCmdMesh != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ShowDrawCmdMesh = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ShowDrawCmdBoundingBoxes
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ShowDrawCmdBoundingBoxes != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ShowDrawCmdBoundingBoxes = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int ShowWindowsRectsType
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ShowWindowsRectsType;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ShowWindowsRectsType = value;
+            }
+        }
+
+        public int ShowTablesRectsType
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ShowTablesRectsType;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ShowTablesRectsType = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiStackSizes : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 14)]
+        public partial struct __Internal
+        {
+            public short SizeOfIDStack;
+            public short SizeOfColorStack;
+            public short SizeOfStyleVarStack;
+            public short SizeOfFontStack;
+            public short SizeOfFocusScopeStack;
+            public short SizeOfGroupStack;
+            public short SizeOfBeginPopupStack;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiStackSizes@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiStackSizes> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiStackSizes>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiStackSizes __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiStackSizes(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiStackSizes __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiStackSizes)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiStackSizes __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiStackSizes(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiStackSizes(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiStackSizes(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiStackSizes()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiStackSizes.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiStackSizes(global::DearImguiSharp.ImGuiStackSizes _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiStackSizes.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiStackSizes.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiStackSizes.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public short SizeOfIDStack
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeOfIDStack;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeOfIDStack = value;
+            }
+        }
+
+        public short SizeOfColorStack
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeOfColorStack;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeOfColorStack = value;
+            }
+        }
+
+        public short SizeOfStyleVarStack
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeOfStyleVarStack;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeOfStyleVarStack = value;
+            }
+        }
+
+        public short SizeOfFontStack
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeOfFontStack;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeOfFontStack = value;
+            }
+        }
+
+        public short SizeOfFocusScopeStack
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeOfFocusScopeStack;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeOfFocusScopeStack = value;
+            }
+        }
+
+        public short SizeOfGroupStack
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeOfGroupStack;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeOfGroupStack = value;
+            }
+        }
+
+        public short SizeOfBeginPopupStack
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SizeOfBeginPopupStack;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SizeOfBeginPopupStack = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiContextHook : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 32)]
+        public partial struct __Internal
+        {
+            public uint HookId;
+            public global::DearImguiSharp.ImGuiContextHookType Type;
+            public uint Owner;
+            public __IntPtr Callback;
+            public __IntPtr UserData;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiContextHook@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiContextHook> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiContextHook>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiContextHook __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiContextHook(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiContextHook __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiContextHook)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiContextHook __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiContextHook(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiContextHook(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiContextHook(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiContextHook()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiContextHook.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiContextHook(global::DearImguiSharp.ImGuiContextHook _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiContextHook.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiContextHook.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiContextHook.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint HookId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HookId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HookId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiContextHookType Type
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Type;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Type = value;
+            }
+        }
+
+        public uint Owner
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Owner;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Owner = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiContextHookCallback Callback
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->Callback;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.ImGuiContextHookCallback) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.ImGuiContextHookCallback));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Callback = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+
+        public __IntPtr UserData
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->UserData;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->UserData = (__IntPtr) value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiContext : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 15800)]
+        public partial struct __Internal
+        {
+            public byte Initialized;
+            public byte FontAtlasOwnedByContext;
+            public global::DearImguiSharp.ImGuiIO.__Internal IO;
+            public global::DearImguiSharp.ImGuiStyle.__Internal Style;
+            public __IntPtr Font;
+            public float FontSize;
+            public float FontBaseSize;
+            public global::DearImguiSharp.ImDrawListSharedData.__Internal DrawListSharedData;
+            public double Time;
+            public int FrameCount;
+            public int FrameCountEnded;
+            public int FrameCountRendered;
+            public byte WithinFrameScope;
+            public byte WithinFrameScopeWithImplicitWindow;
+            public byte WithinEndChild;
+            public byte GcCompactAll;
+            public byte TestEngineHookItems;
+            public uint TestEngineHookIdInfo;
+            public __IntPtr TestEngine;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal Windows;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsFocusOrder;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal WindowsTempSortBuffer;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal CurrentWindowStack;
+            public global::DearImguiSharp.ImGuiStorage.__Internal WindowsById;
+            public int WindowsActiveCount;
+            public __IntPtr CurrentWindow;
+            public __IntPtr HoveredWindow;
+            public __IntPtr HoveredRootWindow;
+            public __IntPtr HoveredWindowUnderMovingWindow;
+            public __IntPtr MovingWindow;
+            public __IntPtr WheelingWindow;
+            public global::DearImguiSharp.ImVec2.__Internal WheelingWindowRefMousePos;
+            public float WheelingWindowTimer;
+            public uint HoveredId;
+            public uint HoveredIdPreviousFrame;
+            public byte HoveredIdAllowOverlap;
+            public byte HoveredIdUsingMouseWheel;
+            public byte HoveredIdPreviousFrameUsingMouseWheel;
+            public byte HoveredIdDisabled;
+            public float HoveredIdTimer;
+            public float HoveredIdNotActiveTimer;
+            public uint ActiveId;
+            public uint ActiveIdIsAlive;
+            public float ActiveIdTimer;
+            public byte ActiveIdIsJustActivated;
+            public byte ActiveIdAllowOverlap;
+            public byte ActiveIdNoClearOnFocusLoss;
+            public byte ActiveIdHasBeenPressedBefore;
+            public byte ActiveIdHasBeenEditedBefore;
+            public byte ActiveIdHasBeenEditedThisFrame;
+            public byte ActiveIdUsingMouseWheel;
+            public uint ActiveIdUsingNavDirMask;
+            public uint ActiveIdUsingNavInputMask;
+            public ulong ActiveIdUsingKeyInputMask;
+            public global::DearImguiSharp.ImVec2.__Internal ActiveIdClickOffset;
+            public __IntPtr ActiveIdWindow;
+            public global::DearImguiSharp.ImGuiInputSource ActiveIdSource;
+            public int ActiveIdMouseButton;
+            public uint ActiveIdPreviousFrame;
+            public byte ActiveIdPreviousFrameIsAlive;
+            public byte ActiveIdPreviousFrameHasBeenEditedBefore;
+            public __IntPtr ActiveIdPreviousFrameWindow;
+            public uint LastActiveId;
+            public float LastActiveIdTimer;
+            public global::DearImguiSharp.ImGuiNextWindowData.__Internal NextWindowData;
+            public global::DearImguiSharp.ImGuiNextItemData.__Internal NextItemData;
+            public global::DearImguiSharp.ImVectorImGuiColorMod.__Internal ColorStack;
+            public global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal StyleVarStack;
+            public global::DearImguiSharp.ImVectorImFontPtr.__Internal FontStack;
+            public global::DearImguiSharp.ImVectorImGuiID.__Internal FocusScopeStack;
+            public global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal ItemFlagsStack;
+            public global::DearImguiSharp.ImVectorImGuiGroupData.__Internal GroupStack;
+            public global::DearImguiSharp.ImVectorImGuiPopupData.__Internal OpenPopupStack;
+            public global::DearImguiSharp.ImVectorImGuiPopupData.__Internal BeginPopupStack;
+            public global::DearImguiSharp.ImVectorImGuiViewportPPtr.__Internal Viewports;
+            public __IntPtr NavWindow;
+            public uint NavId;
+            public uint NavFocusScopeId;
+            public uint NavActivateId;
+            public uint NavActivateDownId;
+            public uint NavActivatePressedId;
+            public uint NavInputId;
+            public uint NavJustTabbedId;
+            public uint NavJustMovedToId;
+            public uint NavJustMovedToFocusScopeId;
+            public int NavJustMovedToKeyMods;
+            public uint NavNextActivateId;
+            public global::DearImguiSharp.ImGuiInputSource NavInputSource;
+            public global::DearImguiSharp.ImRect.__Internal NavScoringRect;
+            public int NavScoringCount;
+            public global::DearImguiSharp.ImGuiNavLayer NavLayer;
+            public int NavIdTabCounter;
+            public byte NavIdIsAlive;
+            public byte NavMousePosDirty;
+            public byte NavDisableHighlight;
+            public byte NavDisableMouseHover;
+            public byte NavAnyRequest;
+            public byte NavInitRequest;
+            public byte NavInitRequestFromMove;
+            public uint NavInitResultId;
+            public global::DearImguiSharp.ImRect.__Internal NavInitResultRectRel;
+            public byte NavMoveRequest;
+            public int NavMoveRequestFlags;
+            public global::DearImguiSharp.ImGuiNavForward NavMoveRequestForward;
+            public int NavMoveRequestKeyMods;
+            public int NavMoveDir;
+            public int NavMoveDirLast;
+            public int NavMoveClipDir;
+            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocal;
+            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocalVisibleSet;
+            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultOther;
+            public __IntPtr NavWrapRequestWindow;
+            public int NavWrapRequestFlags;
+            public __IntPtr NavWindowingTarget;
+            public __IntPtr NavWindowingTargetAnim;
+            public __IntPtr NavWindowingListWindow;
+            public float NavWindowingTimer;
+            public float NavWindowingHighlightAlpha;
+            public byte NavWindowingToggleLayer;
+            public __IntPtr FocusRequestCurrWindow;
+            public __IntPtr FocusRequestNextWindow;
+            public int FocusRequestCurrCounterRegular;
+            public int FocusRequestCurrCounterTabStop;
+            public int FocusRequestNextCounterRegular;
+            public int FocusRequestNextCounterTabStop;
+            public byte FocusTabPressed;
+            public float DimBgRatio;
+            public int MouseCursor;
+            public byte DragDropActive;
+            public byte DragDropWithinSource;
+            public byte DragDropWithinTarget;
+            public int DragDropSourceFlags;
+            public int DragDropSourceFrameCount;
+            public int DragDropMouseButton;
+            public global::DearImguiSharp.ImGuiPayload.__Internal DragDropPayload;
+            public global::DearImguiSharp.ImRect.__Internal DragDropTargetRect;
+            public uint DragDropTargetId;
+            public int DragDropAcceptFlags;
+            public float DragDropAcceptIdCurrRectSurface;
+            public uint DragDropAcceptIdCurr;
+            public uint DragDropAcceptIdPrev;
+            public int DragDropAcceptFrameCount;
+            public uint DragDropHoldJustPressedId;
+            public global::DearImguiSharp.ImVector_unsigned_char.__Internal DragDropPayloadBufHeap;
+            public fixed byte DragDropPayloadBufLocal[16];
+            public __IntPtr CurrentTable;
+            public global::DearImguiSharp.ImPoolImGuiTable.__Internal Tables;
+            public global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal CurrentTableStack;
+            public global::DearImguiSharp.ImVector_float.__Internal TablesLastTimeActive;
+            public global::DearImguiSharp.ImVectorImDrawChannel.__Internal DrawChannelsTempMergeBuffer;
+            public __IntPtr CurrentTabBar;
+            public global::DearImguiSharp.ImPoolImGuiTabBar.__Internal TabBars;
+            public global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal CurrentTabBarStack;
+            public global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal ShrinkWidthBuffer;
+            public global::DearImguiSharp.ImVec2.__Internal LastValidMousePos;
+            public global::DearImguiSharp.ImGuiInputTextState.__Internal InputTextState;
+            public global::DearImguiSharp.ImFont.__Internal InputTextPasswordFont;
+            public uint TempInputId;
+            public int ColorEditOptions;
+            public float ColorEditLastHue;
+            public float ColorEditLastSat;
+            public fixed float ColorEditLastColor[3];
+            public global::DearImguiSharp.ImVec4.__Internal ColorPickerRef;
+            public float SliderCurrentAccum;
+            public byte SliderCurrentAccumDirty;
+            public byte DragCurrentAccumDirty;
+            public float DragCurrentAccum;
+            public float DragSpeedDefaultRatio;
+            public float ScrollbarClickDeltaToGrabCenter;
+            public int TooltipOverrideCount;
+            public float TooltipSlowDelay;
+            public global::DearImguiSharp.ImVector_char.__Internal ClipboardHandlerData;
+            public global::DearImguiSharp.ImVectorImGuiID.__Internal MenusIdSubmittedThisFrame;
+            public global::DearImguiSharp.ImVec2.__Internal PlatformImePos;
+            public global::DearImguiSharp.ImVec2.__Internal PlatformImeLastPos;
+            public sbyte PlatformLocaleDecimalPoint;
+            public byte SettingsLoaded;
+            public float SettingsDirtyTimer;
+            public global::DearImguiSharp.ImGuiTextBuffer.__Internal SettingsIniData;
+            public global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal SettingsHandlers;
+            public global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal SettingsWindows;
+            public global::DearImguiSharp.ImChunkStreamImGuiTableSettings.__Internal SettingsTables;
+            public global::DearImguiSharp.ImVectorImGuiContextHook.__Internal Hooks;
+            public uint HookIdNext;
+            public byte LogEnabled;
+            public global::DearImguiSharp.ImGuiLogType LogType;
+            public __IntPtr LogFile;
+            public global::DearImguiSharp.ImGuiTextBuffer.__Internal LogBuffer;
+            public __IntPtr LogNextPrefix;
+            public __IntPtr LogNextSuffix;
+            public float LogLinePosY;
+            public byte LogLineFirstItem;
+            public int LogDepthRef;
+            public int LogDepthToExpand;
+            public int LogDepthToExpandDefault;
+            public byte DebugItemPickerActive;
+            public uint DebugItemPickerBreakId;
+            public global::DearImguiSharp.ImGuiMetricsConfig.__Internal DebugMetricsConfig;
+            public fixed float FramerateSecPerFrame[120];
+            public int FramerateSecPerFrameIdx;
+            public float FramerateSecPerFrameAccum;
+            public int WantCaptureMouseNextFrame;
+            public int WantCaptureKeyboardNextFrame;
+            public int WantTextInputNextFrame;
+            public fixed sbyte TempBuffer[3073];
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiContext@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiContext> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiContext>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiContext __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiContext(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiContext __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiContext)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiContext __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiContext(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiContext(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiContext(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiContext()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiContext.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiContext(global::DearImguiSharp.ImGuiContext _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiContext.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiContext.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiContext.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public bool Initialized
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Initialized != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Initialized = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool FontAtlasOwnedByContext
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FontAtlasOwnedByContext != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FontAtlasOwnedByContext = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiIO IO
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiIO.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->IO));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->IO = *(global::DearImguiSharp.ImGuiIO.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStyle Style
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiStyle.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Style));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Style = *(global::DearImguiSharp.ImGuiStyle.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImFont Font
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImFont.__GetOrCreateInstance(((__Internal*)__Instance)->Font, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Font = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public float FontSize
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FontSize;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FontSize = value;
+            }
+        }
+
+        public float FontBaseSize
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FontBaseSize;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FontBaseSize = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawListSharedData DrawListSharedData
+        {
+            get
+            {
+                return global::DearImguiSharp.ImDrawListSharedData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawListSharedData));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DrawListSharedData = *(global::DearImguiSharp.ImDrawListSharedData.__Internal*) value.__Instance;
+            }
+        }
+
+        public double Time
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Time;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Time = value;
+            }
+        }
+
+        public int FrameCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FrameCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FrameCount = value;
+            }
+        }
+
+        public int FrameCountEnded
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FrameCountEnded;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FrameCountEnded = value;
+            }
+        }
+
+        public int FrameCountRendered
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FrameCountRendered;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FrameCountRendered = value;
+            }
+        }
+
+        public bool WithinFrameScope
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WithinFrameScope != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WithinFrameScope = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool WithinFrameScopeWithImplicitWindow
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WithinFrameScopeWithImplicitWindow != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WithinFrameScopeWithImplicitWindow = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool WithinEndChild
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WithinEndChild != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WithinEndChild = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool GcCompactAll
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->GcCompactAll != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->GcCompactAll = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool TestEngineHookItems
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TestEngineHookItems != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TestEngineHookItems = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public uint TestEngineHookIdInfo
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TestEngineHookIdInfo;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TestEngineHookIdInfo = value;
+            }
+        }
+
+        public __IntPtr TestEngine
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TestEngine;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TestEngine = (__IntPtr) value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiWindowPtr Windows
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiWindowPtr.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Windows));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Windows = *(global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiWindowPtr WindowsFocusOrder
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiWindowPtr.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WindowsFocusOrder));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WindowsFocusOrder = *(global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiWindowPtr WindowsTempSortBuffer
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiWindowPtr.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WindowsTempSortBuffer));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WindowsTempSortBuffer = *(global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiWindowPtr CurrentWindowStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiWindowPtr.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrentWindowStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CurrentWindowStack = *(global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStorage WindowsById
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiStorage.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WindowsById));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WindowsById = *(global::DearImguiSharp.ImGuiStorage.__Internal*) value.__Instance;
+            }
+        }
+
+        public int WindowsActiveCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WindowsActiveCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WindowsActiveCount = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow CurrentWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->CurrentWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow HoveredWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->HoveredWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow HoveredRootWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->HoveredRootWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredRootWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow HoveredWindowUnderMovingWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->HoveredWindowUnderMovingWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredWindowUnderMovingWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow MovingWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->MovingWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MovingWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow WheelingWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->WheelingWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WheelingWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 WheelingWindowRefMousePos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WheelingWindowRefMousePos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WheelingWindowRefMousePos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public float WheelingWindowTimer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WheelingWindowTimer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WheelingWindowTimer = value;
+            }
+        }
+
+        public uint HoveredId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredId = value;
+            }
+        }
+
+        public uint HoveredIdPreviousFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredIdPreviousFrame;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredIdPreviousFrame = value;
+            }
+        }
+
+        public bool HoveredIdAllowOverlap
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredIdAllowOverlap != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredIdAllowOverlap = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool HoveredIdUsingMouseWheel
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredIdUsingMouseWheel != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredIdUsingMouseWheel = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool HoveredIdPreviousFrameUsingMouseWheel
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredIdPreviousFrameUsingMouseWheel != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredIdPreviousFrameUsingMouseWheel = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool HoveredIdDisabled
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredIdDisabled != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredIdDisabled = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public float HoveredIdTimer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredIdTimer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredIdTimer = value;
+            }
+        }
+
+        public float HoveredIdNotActiveTimer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredIdNotActiveTimer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredIdNotActiveTimer = value;
+            }
+        }
+
+        public uint ActiveId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveId = value;
+            }
+        }
+
+        public uint ActiveIdIsAlive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdIsAlive;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdIsAlive = value;
+            }
+        }
+
+        public float ActiveIdTimer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdTimer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdTimer = value;
+            }
+        }
+
+        public bool ActiveIdIsJustActivated
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdIsJustActivated != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdIsJustActivated = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ActiveIdAllowOverlap
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdAllowOverlap != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdAllowOverlap = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ActiveIdNoClearOnFocusLoss
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdNoClearOnFocusLoss != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdNoClearOnFocusLoss = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ActiveIdHasBeenPressedBefore
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdHasBeenPressedBefore != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdHasBeenPressedBefore = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ActiveIdHasBeenEditedBefore
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdHasBeenEditedBefore != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdHasBeenEditedBefore = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ActiveIdHasBeenEditedThisFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdHasBeenEditedThisFrame != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdHasBeenEditedThisFrame = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ActiveIdUsingMouseWheel
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdUsingMouseWheel != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdUsingMouseWheel = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public uint ActiveIdUsingNavDirMask
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdUsingNavDirMask;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdUsingNavDirMask = value;
+            }
+        }
+
+        public uint ActiveIdUsingNavInputMask
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdUsingNavInputMask;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdUsingNavInputMask = value;
+            }
+        }
+
+        public ulong ActiveIdUsingKeyInputMask
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdUsingKeyInputMask;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdUsingKeyInputMask = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ActiveIdClickOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ActiveIdClickOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ActiveIdClickOffset = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow ActiveIdWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->ActiveIdWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiInputSource ActiveIdSource
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdSource;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdSource = value;
+            }
+        }
+
+        public int ActiveIdMouseButton
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdMouseButton;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdMouseButton = value;
+            }
+        }
+
+        public uint ActiveIdPreviousFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdPreviousFrame;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdPreviousFrame = value;
+            }
+        }
+
+        public bool ActiveIdPreviousFrameIsAlive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdPreviousFrameIsAlive != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdPreviousFrameIsAlive = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ActiveIdPreviousFrameHasBeenEditedBefore
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ActiveIdPreviousFrameHasBeenEditedBefore != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdPreviousFrameHasBeenEditedBefore = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow ActiveIdPreviousFrameWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->ActiveIdPreviousFrameWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ActiveIdPreviousFrameWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public uint LastActiveId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastActiveId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastActiveId = value;
+            }
+        }
+
+        public float LastActiveIdTimer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastActiveIdTimer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastActiveIdTimer = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNextWindowData NextWindowData
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiNextWindowData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NextWindowData));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->NextWindowData = *(global::DearImguiSharp.ImGuiNextWindowData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNextItemData NextItemData
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiNextItemData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NextItemData));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->NextItemData = *(global::DearImguiSharp.ImGuiNextItemData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiColorMod ColorStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiColorMod.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ColorStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ColorStack = *(global::DearImguiSharp.ImVectorImGuiColorMod.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiStyleMod StyleVarStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiStyleMod.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->StyleVarStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->StyleVarStack = *(global::DearImguiSharp.ImVectorImGuiStyleMod.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImFontPtr FontStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImFontPtr.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->FontStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->FontStack = *(global::DearImguiSharp.ImVectorImFontPtr.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiID FocusScopeStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiID.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->FocusScopeStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->FocusScopeStack = *(global::DearImguiSharp.ImVectorImGuiID.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiItemFlags ItemFlagsStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiItemFlags.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ItemFlagsStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ItemFlagsStack = *(global::DearImguiSharp.ImVectorImGuiItemFlags.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiGroupData GroupStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiGroupData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->GroupStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->GroupStack = *(global::DearImguiSharp.ImVectorImGuiGroupData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiPopupData OpenPopupStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiPopupData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->OpenPopupStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->OpenPopupStack = *(global::DearImguiSharp.ImVectorImGuiPopupData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiPopupData BeginPopupStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiPopupData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BeginPopupStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BeginPopupStack = *(global::DearImguiSharp.ImVectorImGuiPopupData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiViewportPPtr Viewports
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiViewportPPtr.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Viewports));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Viewports = *(global::DearImguiSharp.ImVectorImGuiViewportPPtr.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow NavWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->NavWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public uint NavId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavId = value;
+            }
+        }
+
+        public uint NavFocusScopeId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavFocusScopeId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavFocusScopeId = value;
+            }
+        }
+
+        public uint NavActivateId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavActivateId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavActivateId = value;
+            }
+        }
+
+        public uint NavActivateDownId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavActivateDownId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavActivateDownId = value;
+            }
+        }
+
+        public uint NavActivatePressedId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavActivatePressedId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavActivatePressedId = value;
+            }
+        }
+
+        public uint NavInputId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavInputId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavInputId = value;
+            }
+        }
+
+        public uint NavJustTabbedId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavJustTabbedId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavJustTabbedId = value;
+            }
+        }
+
+        public uint NavJustMovedToId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavJustMovedToId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavJustMovedToId = value;
+            }
+        }
+
+        public uint NavJustMovedToFocusScopeId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavJustMovedToFocusScopeId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavJustMovedToFocusScopeId = value;
+            }
+        }
+
+        public int NavJustMovedToKeyMods
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavJustMovedToKeyMods;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavJustMovedToKeyMods = value;
+            }
+        }
+
+        public uint NavNextActivateId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavNextActivateId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavNextActivateId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiInputSource NavInputSource
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavInputSource;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavInputSource = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect NavScoringRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavScoringRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->NavScoringRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public int NavScoringCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavScoringCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavScoringCount = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNavLayer NavLayer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavLayer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavLayer = value;
+            }
+        }
+
+        public int NavIdTabCounter
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavIdTabCounter;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavIdTabCounter = value;
+            }
+        }
+
+        public bool NavIdIsAlive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavIdIsAlive != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavIdIsAlive = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool NavMousePosDirty
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMousePosDirty != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMousePosDirty = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool NavDisableHighlight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavDisableHighlight != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavDisableHighlight = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool NavDisableMouseHover
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavDisableMouseHover != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavDisableMouseHover = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool NavAnyRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavAnyRequest != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavAnyRequest = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool NavInitRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavInitRequest != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavInitRequest = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool NavInitRequestFromMove
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavInitRequestFromMove != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavInitRequestFromMove = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public uint NavInitResultId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavInitResultId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavInitResultId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect NavInitResultRectRel
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavInitResultRectRel));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->NavInitResultRectRel = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public bool NavMoveRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMoveRequest != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMoveRequest = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int NavMoveRequestFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMoveRequestFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMoveRequestFlags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNavForward NavMoveRequestForward
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMoveRequestForward;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMoveRequestForward = value;
+            }
+        }
+
+        public int NavMoveRequestKeyMods
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMoveRequestKeyMods;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMoveRequestKeyMods = value;
+            }
+        }
+
+        public int NavMoveDir
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMoveDir;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMoveDir = value;
+            }
+        }
+
+        public int NavMoveDirLast
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMoveDirLast;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMoveDirLast = value;
+            }
+        }
+
+        public int NavMoveClipDir
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavMoveClipDir;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavMoveClipDir = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNavMoveResult NavMoveResultLocal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiNavMoveResult.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultLocal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->NavMoveResultLocal = *(global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNavMoveResult NavMoveResultLocalVisibleSet
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiNavMoveResult.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultLocalVisibleSet));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->NavMoveResultLocalVisibleSet = *(global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNavMoveResult NavMoveResultOther
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiNavMoveResult.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultOther));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->NavMoveResultOther = *(global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow NavWrapRequestWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->NavWrapRequestWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWrapRequestWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public int NavWrapRequestFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavWrapRequestFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWrapRequestFlags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow NavWindowingTarget
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->NavWindowingTarget, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWindowingTarget = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow NavWindowingTargetAnim
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->NavWindowingTargetAnim, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWindowingTargetAnim = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow NavWindowingListWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->NavWindowingListWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWindowingListWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public float NavWindowingTimer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavWindowingTimer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWindowingTimer = value;
+            }
+        }
+
+        public float NavWindowingHighlightAlpha
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavWindowingHighlightAlpha;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWindowingHighlightAlpha = value;
+            }
+        }
+
+        public bool NavWindowingToggleLayer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavWindowingToggleLayer != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavWindowingToggleLayer = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow FocusRequestCurrWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->FocusRequestCurrWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusRequestCurrWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow FocusRequestNextWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->FocusRequestNextWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusRequestNextWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public int FocusRequestCurrCounterRegular
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusRequestCurrCounterRegular;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusRequestCurrCounterRegular = value;
+            }
+        }
+
+        public int FocusRequestCurrCounterTabStop
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusRequestCurrCounterTabStop;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusRequestCurrCounterTabStop = value;
+            }
+        }
+
+        public int FocusRequestNextCounterRegular
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusRequestNextCounterRegular;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusRequestNextCounterRegular = value;
+            }
+        }
+
+        public int FocusRequestNextCounterTabStop
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusRequestNextCounterTabStop;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusRequestNextCounterTabStop = value;
+            }
+        }
+
+        public bool FocusTabPressed
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusTabPressed != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusTabPressed = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public float DimBgRatio
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DimBgRatio;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DimBgRatio = value;
+            }
+        }
+
+        public int MouseCursor
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MouseCursor;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MouseCursor = value;
+            }
+        }
+
+        public bool DragDropActive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropActive != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropActive = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool DragDropWithinSource
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropWithinSource != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropWithinSource = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool DragDropWithinTarget
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropWithinTarget != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropWithinTarget = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int DragDropSourceFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropSourceFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropSourceFlags = value;
+            }
+        }
+
+        public int DragDropSourceFrameCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropSourceFrameCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropSourceFrameCount = value;
+            }
+        }
+
+        public int DragDropMouseButton
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropMouseButton;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropMouseButton = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiPayload DragDropPayload
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiPayload.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DragDropPayload));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DragDropPayload = *(global::DearImguiSharp.ImGuiPayload.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect DragDropTargetRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DragDropTargetRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DragDropTargetRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public uint DragDropTargetId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropTargetId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropTargetId = value;
+            }
+        }
+
+        public int DragDropAcceptFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropAcceptFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropAcceptFlags = value;
+            }
+        }
+
+        public float DragDropAcceptIdCurrRectSurface
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropAcceptIdCurrRectSurface;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropAcceptIdCurrRectSurface = value;
+            }
+        }
+
+        public uint DragDropAcceptIdCurr
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropAcceptIdCurr;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropAcceptIdCurr = value;
+            }
+        }
+
+        public uint DragDropAcceptIdPrev
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropAcceptIdPrev;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropAcceptIdPrev = value;
+            }
+        }
+
+        public int DragDropAcceptFrameCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropAcceptFrameCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropAcceptFrameCount = value;
+            }
+        }
+
+        public uint DragDropHoldJustPressedId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragDropHoldJustPressedId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragDropHoldJustPressedId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVector_unsigned_char DragDropPayloadBufHeap
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVector_unsigned_char.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DragDropPayloadBufHeap));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DragDropPayloadBufHeap = *(global::DearImguiSharp.ImVector_unsigned_char.__Internal*) value.__Instance;
+            }
+        }
+
+        public byte[] DragDropPayloadBufLocal
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<byte>(((__Internal*)__Instance)->DragDropPayloadBufLocal, 16);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 16; i++)
+                        ((__Internal*)__Instance)->DragDropPayloadBufLocal[i] = value[i];
+                }
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTable CurrentTable
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTable.__GetOrCreateInstance(((__Internal*)__Instance)->CurrentTable, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentTable = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImPoolImGuiTable Tables
+        {
+            get
+            {
+                return global::DearImguiSharp.ImPoolImGuiTable.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Tables));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Tables = *(global::DearImguiSharp.ImPoolImGuiTable.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiPtrOrIndex CurrentTableStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrentTableStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CurrentTableStack = *(global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVector_float TablesLastTimeActive
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVector_float.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TablesLastTimeActive));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->TablesLastTimeActive = *(global::DearImguiSharp.ImVector_float.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImDrawChannel DrawChannelsTempMergeBuffer
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImDrawChannel.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawChannelsTempMergeBuffer));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DrawChannelsTempMergeBuffer = *(global::DearImguiSharp.ImVectorImDrawChannel.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTabBar CurrentTabBar
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTabBar.__GetOrCreateInstance(((__Internal*)__Instance)->CurrentTabBar, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentTabBar = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImPoolImGuiTabBar TabBars
+        {
+            get
+            {
+                return global::DearImguiSharp.ImPoolImGuiTabBar.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TabBars));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->TabBars = *(global::DearImguiSharp.ImPoolImGuiTabBar.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiPtrOrIndex CurrentTabBarStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrentTabBarStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CurrentTabBarStack = *(global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiShrinkWidthItem ShrinkWidthBuffer
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ShrinkWidthBuffer));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ShrinkWidthBuffer = *(global::DearImguiSharp.ImVectorImGuiShrinkWidthItem.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 LastValidMousePos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->LastValidMousePos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->LastValidMousePos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiInputTextState InputTextState
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiInputTextState.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->InputTextState));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->InputTextState = *(global::DearImguiSharp.ImGuiInputTextState.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImFont InputTextPasswordFont
+        {
+            get
+            {
+                return global::DearImguiSharp.ImFont.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->InputTextPasswordFont));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->InputTextPasswordFont = *(global::DearImguiSharp.ImFont.__Internal*) value.__Instance;
+            }
+        }
+
+        public uint TempInputId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TempInputId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TempInputId = value;
+            }
+        }
+
+        public int ColorEditOptions
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColorEditOptions;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColorEditOptions = value;
+            }
+        }
+
+        public float ColorEditLastHue
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColorEditLastHue;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColorEditLastHue = value;
+            }
+        }
+
+        public float ColorEditLastSat
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColorEditLastSat;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColorEditLastSat = value;
+            }
+        }
+
+        public float[] ColorEditLastColor
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<float>(((__Internal*)__Instance)->ColorEditLastColor, 3);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 3; i++)
+                        ((__Internal*)__Instance)->ColorEditLastColor[i] = value[i];
+                }
+            }
+        }
+
+        public global::DearImguiSharp.ImVec4 ColorPickerRef
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec4.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ColorPickerRef));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ColorPickerRef = *(global::DearImguiSharp.ImVec4.__Internal*) value.__Instance;
+            }
+        }
+
+        public float SliderCurrentAccum
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SliderCurrentAccum;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SliderCurrentAccum = value;
+            }
+        }
+
+        public bool SliderCurrentAccumDirty
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SliderCurrentAccumDirty != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SliderCurrentAccumDirty = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool DragCurrentAccumDirty
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragCurrentAccumDirty != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragCurrentAccumDirty = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public float DragCurrentAccum
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragCurrentAccum;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragCurrentAccum = value;
+            }
+        }
+
+        public float DragSpeedDefaultRatio
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DragSpeedDefaultRatio;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DragSpeedDefaultRatio = value;
+            }
+        }
+
+        public float ScrollbarClickDeltaToGrabCenter
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollbarClickDeltaToGrabCenter;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollbarClickDeltaToGrabCenter = value;
+            }
+        }
+
+        public int TooltipOverrideCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TooltipOverrideCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TooltipOverrideCount = value;
+            }
+        }
+
+        public float TooltipSlowDelay
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TooltipSlowDelay;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TooltipSlowDelay = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVector_char ClipboardHandlerData
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVector_char.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ClipboardHandlerData));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ClipboardHandlerData = *(global::DearImguiSharp.ImVector_char.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiID MenusIdSubmittedThisFrame
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiID.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->MenusIdSubmittedThisFrame));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->MenusIdSubmittedThisFrame = *(global::DearImguiSharp.ImVectorImGuiID.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 PlatformImePos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->PlatformImePos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->PlatformImePos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 PlatformImeLastPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->PlatformImeLastPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->PlatformImeLastPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public sbyte PlatformLocaleDecimalPoint
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PlatformLocaleDecimalPoint;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PlatformLocaleDecimalPoint = value;
+            }
+        }
+
+        public bool SettingsLoaded
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SettingsLoaded != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SettingsLoaded = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public float SettingsDirtyTimer
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SettingsDirtyTimer;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SettingsDirtyTimer = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTextBuffer SettingsIniData
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiTextBuffer.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SettingsIniData));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SettingsIniData = *(global::DearImguiSharp.ImGuiTextBuffer.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiSettingsHandler SettingsHandlers
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiSettingsHandler.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SettingsHandlers));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SettingsHandlers = *(global::DearImguiSharp.ImVectorImGuiSettingsHandler.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImChunkStreamImGuiWindowSettings SettingsWindows
+        {
+            get
+            {
+                return global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SettingsWindows));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SettingsWindows = *(global::DearImguiSharp.ImChunkStreamImGuiWindowSettings.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImChunkStreamImGuiTableSettings SettingsTables
+        {
+            get
+            {
+                return global::DearImguiSharp.ImChunkStreamImGuiTableSettings.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SettingsTables));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SettingsTables = *(global::DearImguiSharp.ImChunkStreamImGuiTableSettings.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiContextHook Hooks
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiContextHook.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Hooks));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Hooks = *(global::DearImguiSharp.ImVectorImGuiContextHook.__Internal*) value.__Instance;
+            }
+        }
+
+        public uint HookIdNext
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HookIdNext;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HookIdNext = value;
+            }
+        }
+
+        public bool LogEnabled
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogEnabled != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogEnabled = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiLogType LogType
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogType;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogType = value;
+            }
+        }
+
+        public global::System.IntPtr LogFile
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogFile;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogFile = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTextBuffer LogBuffer
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiTextBuffer.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->LogBuffer));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->LogBuffer = *(global::DearImguiSharp.ImGuiTextBuffer.__Internal*) value.__Instance;
+            }
+        }
+
+        public string LogNextPrefix
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->LogNextPrefix);
+            }
+
+            set
+            {
+                byte[] __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                fixed (byte* __bytePtr0 = __bytes0)
+                {
+                    ((__Internal*)__Instance)->LogNextPrefix = (__IntPtr) new global::System.IntPtr(__bytePtr0);
+                }
+            }
+        }
+
+        public string LogNextSuffix
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, ((__Internal*)__Instance)->LogNextSuffix);
+            }
+
+            set
+            {
+                byte[] __bytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                fixed (byte* __bytePtr0 = __bytes0)
+                {
+                    ((__Internal*)__Instance)->LogNextSuffix = (__IntPtr) new global::System.IntPtr(__bytePtr0);
+                }
+            }
+        }
+
+        public float LogLinePosY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogLinePosY;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogLinePosY = value;
+            }
+        }
+
+        public bool LogLineFirstItem
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogLineFirstItem != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogLineFirstItem = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int LogDepthRef
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogDepthRef;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogDepthRef = value;
+            }
+        }
+
+        public int LogDepthToExpand
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogDepthToExpand;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogDepthToExpand = value;
+            }
+        }
+
+        public int LogDepthToExpandDefault
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LogDepthToExpandDefault;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LogDepthToExpandDefault = value;
+            }
+        }
+
+        public bool DebugItemPickerActive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DebugItemPickerActive != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DebugItemPickerActive = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public uint DebugItemPickerBreakId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DebugItemPickerBreakId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DebugItemPickerBreakId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiMetricsConfig DebugMetricsConfig
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiMetricsConfig.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DebugMetricsConfig));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DebugMetricsConfig = *(global::DearImguiSharp.ImGuiMetricsConfig.__Internal*) value.__Instance;
+            }
+        }
+
+        public float[] FramerateSecPerFrame
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<float>(((__Internal*)__Instance)->FramerateSecPerFrame, 120);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 120; i++)
+                        ((__Internal*)__Instance)->FramerateSecPerFrame[i] = value[i];
+                }
+            }
+        }
+
+        public int FramerateSecPerFrameIdx
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FramerateSecPerFrameIdx;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FramerateSecPerFrameIdx = value;
+            }
+        }
+
+        public float FramerateSecPerFrameAccum
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FramerateSecPerFrameAccum;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FramerateSecPerFrameAccum = value;
+            }
+        }
+
+        public int WantCaptureMouseNextFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantCaptureMouseNextFrame;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantCaptureMouseNextFrame = value;
+            }
+        }
+
+        public int WantCaptureKeyboardNextFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantCaptureKeyboardNextFrame;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantCaptureKeyboardNextFrame = value;
+            }
+        }
+
+        public int WantTextInputNextFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantTextInputNextFrame;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantTextInputNextFrame = value;
+            }
+        }
+
+        public sbyte[] TempBuffer
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<sbyte>(((__Internal*)__Instance)->TempBuffer, 3073);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 3073; i++)
+                        ((__Internal*)__Instance)->TempBuffer[i] = value[i];
+                }
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiWindowTempData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 304)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVec2.__Internal CursorPos;
+            public global::DearImguiSharp.ImVec2.__Internal CursorPosPrevLine;
+            public global::DearImguiSharp.ImVec2.__Internal CursorStartPos;
+            public global::DearImguiSharp.ImVec2.__Internal CursorMaxPos;
+            public global::DearImguiSharp.ImVec2.__Internal IdealMaxPos;
+            public global::DearImguiSharp.ImVec2.__Internal CurrLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal PrevLineSize;
+            public float CurrLineTextBaseOffset;
+            public float PrevLineTextBaseOffset;
+            public global::DearImguiSharp.ImVec1.__Internal Indent;
+            public global::DearImguiSharp.ImVec1.__Internal ColumnsOffset;
+            public global::DearImguiSharp.ImVec1.__Internal GroupOffset;
+            public uint LastItemId;
+            public int LastItemStatusFlags;
+            public global::DearImguiSharp.ImRect.__Internal LastItemRect;
+            public global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
+            public global::DearImguiSharp.ImGuiNavLayer NavLayerCurrent;
+            public int NavLayerActiveMask;
+            public int NavLayerActiveMaskNext;
+            public uint NavFocusScopeIdCurrent;
+            public byte NavHideHighlightOneFrame;
+            public byte NavHasScroll;
+            public byte MenuBarAppending;
+            public global::DearImguiSharp.ImVec2.__Internal MenuBarOffset;
+            public global::DearImguiSharp.ImGuiMenuColumns.__Internal MenuColumns;
+            public int TreeDepth;
+            public uint TreeJumpToParentOnPopMask;
+            public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal ChildWindows;
+            public __IntPtr StateStorage;
+            public __IntPtr CurrentColumns;
+            public int CurrentTableIdx;
+            public int LayoutType;
+            public int ParentLayoutType;
+            public int FocusCounterRegular;
+            public int FocusCounterTabStop;
+            public int ItemFlags;
+            public float ItemWidth;
+            public float TextWrapPos;
+            public global::DearImguiSharp.ImVector_float.__Internal ItemWidthStack;
+            public global::DearImguiSharp.ImVector_float.__Internal TextWrapPosStack;
+            public global::DearImguiSharp.ImGuiStackSizes.__Internal StackSizesOnBegin;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiWindowTempData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiWindowTempData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiWindowTempData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiWindowTempData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiWindowTempData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiWindowTempData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiWindowTempData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiWindowTempData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiWindowTempData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiWindowTempData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiWindowTempData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiWindowTempData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiWindowTempData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiWindowTempData(global::DearImguiSharp.ImGuiWindowTempData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiWindowTempData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiWindowTempData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiWindowTempData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVec2 CursorPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CursorPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CursorPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 CursorPosPrevLine
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CursorPosPrevLine));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CursorPosPrevLine = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 CursorStartPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CursorStartPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CursorStartPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 CursorMaxPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CursorMaxPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CursorMaxPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 IdealMaxPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->IdealMaxPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->IdealMaxPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 CurrLineSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrLineSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->CurrLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 PrevLineSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->PrevLineSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->PrevLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public float CurrLineTextBaseOffset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrLineTextBaseOffset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrLineTextBaseOffset = value;
+            }
+        }
+
+        public float PrevLineTextBaseOffset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PrevLineTextBaseOffset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PrevLineTextBaseOffset = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec1 Indent
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Indent));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Indent = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec1 ColumnsOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ColumnsOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ColumnsOffset = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec1 GroupOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->GroupOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->GroupOffset = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
+            }
+        }
+
+        public uint LastItemId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastItemId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastItemId = value;
+            }
+        }
+
+        public int LastItemStatusFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastItemStatusFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastItemStatusFlags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect LastItemRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->LastItemRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->LastItemRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect LastItemDisplayRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->LastItemDisplayRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->LastItemDisplayRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiNavLayer NavLayerCurrent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavLayerCurrent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavLayerCurrent = value;
+            }
+        }
+
+        public int NavLayerActiveMask
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavLayerActiveMask;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavLayerActiveMask = value;
+            }
+        }
+
+        public int NavLayerActiveMaskNext
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavLayerActiveMaskNext;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavLayerActiveMaskNext = value;
+            }
+        }
+
+        public uint NavFocusScopeIdCurrent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavFocusScopeIdCurrent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavFocusScopeIdCurrent = value;
+            }
+        }
+
+        public bool NavHideHighlightOneFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavHideHighlightOneFrame != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavHideHighlightOneFrame = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool NavHasScroll
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavHasScroll != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavHasScroll = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool MenuBarAppending
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MenuBarAppending != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MenuBarAppending = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 MenuBarOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->MenuBarOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->MenuBarOffset = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiMenuColumns MenuColumns
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiMenuColumns.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->MenuColumns));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->MenuColumns = *(global::DearImguiSharp.ImGuiMenuColumns.__Internal*) value.__Instance;
+            }
+        }
+
+        public int TreeDepth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TreeDepth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TreeDepth = value;
+            }
+        }
+
+        public uint TreeJumpToParentOnPopMask
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TreeJumpToParentOnPopMask;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TreeJumpToParentOnPopMask = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiWindowPtr ChildWindows
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiWindowPtr.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ChildWindows));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ChildWindows = *(global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStorage StateStorage
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiStorage.__GetOrCreateInstance(((__Internal*)__Instance)->StateStorage, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->StateStorage = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiOldColumns CurrentColumns
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiOldColumns.__GetOrCreateInstance(((__Internal*)__Instance)->CurrentColumns, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentColumns = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public int CurrentTableIdx
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrentTableIdx;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentTableIdx = value;
+            }
+        }
+
+        public int LayoutType
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LayoutType;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LayoutType = value;
+            }
+        }
+
+        public int ParentLayoutType
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ParentLayoutType;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ParentLayoutType = value;
+            }
+        }
+
+        public int FocusCounterRegular
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusCounterRegular;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusCounterRegular = value;
+            }
+        }
+
+        public int FocusCounterTabStop
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusCounterTabStop;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusCounterTabStop = value;
+            }
+        }
+
+        public int ItemFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ItemFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ItemFlags = value;
+            }
+        }
+
+        public float ItemWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ItemWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ItemWidth = value;
+            }
+        }
+
+        public float TextWrapPos
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TextWrapPos;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TextWrapPos = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVector_float ItemWidthStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVector_float.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ItemWidthStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ItemWidthStack = *(global::DearImguiSharp.ImVector_float.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVector_float TextWrapPosStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVector_float.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TextWrapPosStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->TextWrapPosStack = *(global::DearImguiSharp.ImVector_float.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStackSizes StackSizesOnBegin
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiStackSizes.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->StackSizesOnBegin));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->StackSizesOnBegin = *(global::DearImguiSharp.ImGuiStackSizes.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiWindow : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 1000)]
+        public partial struct __Internal
+        {
+            public __IntPtr Name;
+            public uint ID;
+            public int Flags;
+            public global::DearImguiSharp.ImVec2.__Internal Pos;
+            public global::DearImguiSharp.ImVec2.__Internal Size;
+            public global::DearImguiSharp.ImVec2.__Internal SizeFull;
+            public global::DearImguiSharp.ImVec2.__Internal ContentSize;
+            public global::DearImguiSharp.ImVec2.__Internal ContentSizeIdeal;
+            public global::DearImguiSharp.ImVec2.__Internal ContentSizeExplicit;
+            public global::DearImguiSharp.ImVec2.__Internal WindowPadding;
+            public float WindowRounding;
+            public float WindowBorderSize;
+            public int NameBufLen;
+            public uint MoveId;
+            public uint ChildId;
+            public global::DearImguiSharp.ImVec2.__Internal Scroll;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollMax;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollTarget;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollTargetCenterRatio;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollTargetEdgeSnapDist;
+            public global::DearImguiSharp.ImVec2.__Internal ScrollbarSizes;
+            public byte ScrollbarX;
+            public byte ScrollbarY;
+            public byte Active;
+            public byte WasActive;
+            public byte WriteAccessed;
+            public byte Collapsed;
+            public byte WantCollapseToggle;
+            public byte SkipItems;
+            public byte Appearing;
+            public byte Hidden;
+            public byte IsFallbackWindow;
+            public byte HasCloseButton;
+            public sbyte ResizeBorderHeld;
+            public short BeginCount;
+            public short BeginOrderWithinParent;
+            public short BeginOrderWithinContext;
+            public uint PopupId;
+            public sbyte AutoFitFramesX;
+            public sbyte AutoFitFramesY;
+            public sbyte AutoFitChildAxises;
+            public byte AutoFitOnlyGrows;
+            public int AutoPosLastDirection;
+            public sbyte HiddenFramesCanSkipItems;
+            public sbyte HiddenFramesCannotSkipItems;
+            public sbyte HiddenFramesForRenderOnly;
+            public int SetWindowPosAllowFlags;
+            public int SetWindowSizeAllowFlags;
+            public int SetWindowCollapsedAllowFlags;
+            public global::DearImguiSharp.ImVec2.__Internal SetWindowPosVal;
+            public global::DearImguiSharp.ImVec2.__Internal SetWindowPosPivot;
+            public global::DearImguiSharp.ImVectorImGuiID.__Internal IDStack;
+            public global::DearImguiSharp.ImGuiWindowTempData.__Internal DC;
+            public global::DearImguiSharp.ImRect.__Internal OuterRectClipped;
+            public global::DearImguiSharp.ImRect.__Internal InnerRect;
+            public global::DearImguiSharp.ImRect.__Internal InnerClipRect;
+            public global::DearImguiSharp.ImRect.__Internal WorkRect;
+            public global::DearImguiSharp.ImRect.__Internal ParentWorkRect;
+            public global::DearImguiSharp.ImRect.__Internal ClipRect;
+            public global::DearImguiSharp.ImRect.__Internal ContentRegionRect;
+            public global::DearImguiSharp.ImVec2ih.__Internal HitTestHoleSize;
+            public global::DearImguiSharp.ImVec2ih.__Internal HitTestHoleOffset;
+            public int LastFrameActive;
+            public float LastTimeActive;
+            public float ItemWidthDefault;
+            public global::DearImguiSharp.ImGuiStorage.__Internal StateStorage;
+            public global::DearImguiSharp.ImVectorImGuiOldColumns.__Internal ColumnsStorage;
+            public float FontWindowScale;
+            public int SettingsOffset;
+            public __IntPtr DrawList;
+            public global::DearImguiSharp.ImDrawList.__Internal DrawListInst;
+            public __IntPtr ParentWindow;
+            public __IntPtr RootWindow;
+            public __IntPtr RootWindowForTitleBarHighlight;
+            public __IntPtr RootWindowForNav;
+            public __IntPtr NavLastChildNavWindow;
+            public fixed uint NavLastIds[2];
+            public fixed byte NavRectRel[32];
+            public int MemoryDrawListIdxCapacity;
+            public int MemoryDrawListVtxCapacity;
+            public byte MemoryCompacted;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiWindow@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiWindow> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiWindow>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiWindow __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiWindow(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiWindow __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiWindow)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiWindow __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiWindow(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiWindow(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiWindow(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiWindow()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiWindow.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiWindow(global::DearImguiSharp.ImGuiWindow _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiWindow.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiWindow.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiWindow.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public sbyte* Name
+        {
+            get
+            {
+                return (sbyte*) ((__Internal*)__Instance)->Name;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Name = (__IntPtr) value;
+            }
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 Pos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Pos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Pos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 Size
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Size));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Size = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 SizeFull
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SizeFull));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SizeFull = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ContentSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ContentSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ContentSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ContentSizeIdeal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ContentSizeIdeal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ContentSizeIdeal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ContentSizeExplicit
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ContentSizeExplicit));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ContentSizeExplicit = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 WindowPadding
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WindowPadding));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WindowPadding = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public float WindowRounding
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WindowRounding;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WindowRounding = value;
+            }
+        }
+
+        public float WindowBorderSize
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WindowBorderSize;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WindowBorderSize = value;
+            }
+        }
+
+        public int NameBufLen
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NameBufLen;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NameBufLen = value;
+            }
+        }
+
+        public uint MoveId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MoveId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MoveId = value;
+            }
+        }
+
+        public uint ChildId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ChildId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ChildId = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 Scroll
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Scroll));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Scroll = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ScrollMax
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ScrollMax));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ScrollMax = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ScrollTarget
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ScrollTarget));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ScrollTarget = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ScrollTargetCenterRatio
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ScrollTargetCenterRatio));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ScrollTargetCenterRatio = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ScrollTargetEdgeSnapDist
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ScrollTargetEdgeSnapDist));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ScrollTargetEdgeSnapDist = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 ScrollbarSizes
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ScrollbarSizes));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ScrollbarSizes = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public bool ScrollbarX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollbarX != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollbarX = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool ScrollbarY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollbarY != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollbarY = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool Active
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Active != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Active = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool WasActive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WasActive != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WasActive = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool WriteAccessed
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WriteAccessed != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WriteAccessed = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool Collapsed
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Collapsed != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Collapsed = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool WantCollapseToggle
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantCollapseToggle != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantCollapseToggle = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool SkipItems
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SkipItems != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SkipItems = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool Appearing
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Appearing != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Appearing = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool Hidden
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Hidden != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Hidden = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsFallbackWindow
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsFallbackWindow != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsFallbackWindow = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool HasCloseButton
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HasCloseButton != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HasCloseButton = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public sbyte ResizeBorderHeld
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ResizeBorderHeld;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ResizeBorderHeld = value;
+            }
+        }
+
+        public short BeginCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BeginCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BeginCount = value;
+            }
+        }
+
+        public short BeginOrderWithinParent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BeginOrderWithinParent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BeginOrderWithinParent = value;
+            }
+        }
+
+        public short BeginOrderWithinContext
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BeginOrderWithinContext;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BeginOrderWithinContext = value;
+            }
+        }
+
+        public uint PopupId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PopupId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PopupId = value;
+            }
+        }
+
+        public sbyte AutoFitFramesX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->AutoFitFramesX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->AutoFitFramesX = value;
+            }
+        }
+
+        public sbyte AutoFitFramesY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->AutoFitFramesY;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->AutoFitFramesY = value;
+            }
+        }
+
+        public sbyte AutoFitChildAxises
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->AutoFitChildAxises;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->AutoFitChildAxises = value;
+            }
+        }
+
+        public bool AutoFitOnlyGrows
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->AutoFitOnlyGrows != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->AutoFitOnlyGrows = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public int AutoPosLastDirection
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->AutoPosLastDirection;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->AutoPosLastDirection = value;
+            }
+        }
+
+        public sbyte HiddenFramesCanSkipItems
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HiddenFramesCanSkipItems;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HiddenFramesCanSkipItems = value;
+            }
+        }
+
+        public sbyte HiddenFramesCannotSkipItems
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HiddenFramesCannotSkipItems;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HiddenFramesCannotSkipItems = value;
+            }
+        }
+
+        public sbyte HiddenFramesForRenderOnly
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HiddenFramesForRenderOnly;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HiddenFramesForRenderOnly = value;
+            }
+        }
+
+        public int SetWindowPosAllowFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SetWindowPosAllowFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SetWindowPosAllowFlags = value;
+            }
+        }
+
+        public int SetWindowSizeAllowFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SetWindowSizeAllowFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SetWindowSizeAllowFlags = value;
+            }
+        }
+
+        public int SetWindowCollapsedAllowFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SetWindowCollapsedAllowFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SetWindowCollapsedAllowFlags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 SetWindowPosVal
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SetWindowPosVal));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SetWindowPosVal = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 SetWindowPosPivot
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SetWindowPosPivot));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SetWindowPosPivot = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiID IDStack
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiID.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->IDStack));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->IDStack = *(global::DearImguiSharp.ImVectorImGuiID.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindowTempData DC
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiWindowTempData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DC));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DC = *(global::DearImguiSharp.ImGuiWindowTempData.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect OuterRectClipped
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->OuterRectClipped));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->OuterRectClipped = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect InnerRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->InnerRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->InnerRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect InnerClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->InnerClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->InnerClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect WorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect ParentWorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ParentWorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ParentWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect ClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect ContentRegionRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ContentRegionRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ContentRegionRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2ih HitTestHoleSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2ih.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HitTestHoleSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HitTestHoleSize = *(global::DearImguiSharp.ImVec2ih.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2ih HitTestHoleOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2ih.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HitTestHoleOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HitTestHoleOffset = *(global::DearImguiSharp.ImVec2ih.__Internal*) value.__Instance;
+            }
+        }
+
+        public int LastFrameActive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastFrameActive;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastFrameActive = value;
+            }
+        }
+
+        public float LastTimeActive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastTimeActive;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastTimeActive = value;
+            }
+        }
+
+        public float ItemWidthDefault
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ItemWidthDefault;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ItemWidthDefault = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiStorage StateStorage
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiStorage.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->StateStorage));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->StateStorage = *(global::DearImguiSharp.ImGuiStorage.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiOldColumns ColumnsStorage
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiOldColumns.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ColumnsStorage));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ColumnsStorage = *(global::DearImguiSharp.ImVectorImGuiOldColumns.__Internal*) value.__Instance;
+            }
+        }
+
+        public float FontWindowScale
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FontWindowScale;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FontWindowScale = value;
+            }
+        }
+
+        public int SettingsOffset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SettingsOffset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SettingsOffset = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawList DrawList
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImDrawList.__GetOrCreateInstance(((__Internal*)__Instance)->DrawList, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DrawList = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawList DrawListInst
+        {
+            get
+            {
+                return global::DearImguiSharp.ImDrawList.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawListInst));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DrawListInst = *(global::DearImguiSharp.ImDrawList.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow ParentWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->ParentWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ParentWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow RootWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->RootWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RootWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow RootWindowForTitleBarHighlight
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->RootWindowForTitleBarHighlight, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RootWindowForTitleBarHighlight = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow RootWindowForNav
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->RootWindowForNav, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RootWindowForNav = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow NavLastChildNavWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->NavLastChildNavWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavLastChildNavWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public uint[] NavLastIds
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<uint>(((__Internal*)__Instance)->NavLastIds, 2);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 2; i++)
+                        ((__Internal*)__Instance)->NavLastIds[i] = value[i];
+                }
+            }
+        }
+
+        public global::DearImguiSharp.ImRect[] NavRectRel
+        {
+            get
+            {
+                global::DearImguiSharp.ImRect[] __value = null;
+                if (((__Internal*)__Instance)->NavRectRel != null)
+                {
+                    __value = new global::DearImguiSharp.ImRect[2];
+                    for (int i = 0; i < 2; i++)
+                        __value[i] = global::DearImguiSharp.ImRect.__CreateInstance(*((global::DearImguiSharp.ImRect.__Internal*)&(((__Internal*)__Instance)->NavRectRel[i * sizeof(global::DearImguiSharp.ImRect.__Internal)])));
+                }
+                return __value;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    if (value.Length != 2)
+                        throw new ArgumentOutOfRangeException("value", "The dimensions of the provided array don't match the required size.");
+                    for (int i = 0; i < 2; i++)
+                        *(global::DearImguiSharp.ImRect.__Internal*) &((__Internal*)__Instance)->NavRectRel[i * sizeof(global::DearImguiSharp.ImRect.__Internal)] = *(global::DearImguiSharp.ImRect.__Internal*)value[i].__Instance;
+                }
+            }
+        }
+
+        public int MemoryDrawListIdxCapacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MemoryDrawListIdxCapacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MemoryDrawListIdxCapacity = value;
+            }
+        }
+
+        public int MemoryDrawListVtxCapacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MemoryDrawListVtxCapacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MemoryDrawListVtxCapacity = value;
+            }
+        }
+
+        public bool MemoryCompacted
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MemoryCompacted != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MemoryCompacted = (byte) (value ? 1 : 0);
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiLastItemDataBackup : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 40)]
+        public partial struct __Internal
+        {
+            public uint LastItemId;
+            public int LastItemStatusFlags;
+            public global::DearImguiSharp.ImRect.__Internal LastItemRect;
+            public global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiLastItemDataBackup@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiLastItemDataBackup> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiLastItemDataBackup>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiLastItemDataBackup __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiLastItemDataBackup(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiLastItemDataBackup __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiLastItemDataBackup)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiLastItemDataBackup __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiLastItemDataBackup(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiLastItemDataBackup(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiLastItemDataBackup(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiLastItemDataBackup()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiLastItemDataBackup.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiLastItemDataBackup(global::DearImguiSharp.ImGuiLastItemDataBackup _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiLastItemDataBackup.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiLastItemDataBackup.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiLastItemDataBackup.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint LastItemId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastItemId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastItemId = value;
+            }
+        }
+
+        public int LastItemStatusFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastItemStatusFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastItemStatusFlags = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect LastItemRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->LastItemRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->LastItemRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect LastItemDisplayRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->LastItemDisplayRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->LastItemDisplayRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiTabItem : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 36)]
+        public partial struct __Internal
+        {
+            public uint ID;
+            public int Flags;
+            public int LastFrameVisible;
+            public int LastFrameSelected;
+            public float Offset;
+            public float Width;
+            public float ContentWidth;
+            public short NameOffset;
+            public short BeginOrder;
+            public short IndexDuringLayout;
+            public byte WantClose;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTabItem@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTabItem> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTabItem>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTabItem __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTabItem(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTabItem __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTabItem)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTabItem __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTabItem(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTabItem(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTabItem(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTabItem()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTabItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTabItem(global::DearImguiSharp.ImGuiTabItem _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTabItem.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTabItem.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTabItem.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public int LastFrameVisible
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastFrameVisible;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastFrameVisible = value;
+            }
+        }
+
+        public int LastFrameSelected
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastFrameSelected;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastFrameSelected = value;
+            }
+        }
+
+        public float Offset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Offset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Offset = value;
+            }
+        }
+
+        public float Width
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Width;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Width = value;
+            }
+        }
+
+        public float ContentWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ContentWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ContentWidth = value;
+            }
+        }
+
+        public short NameOffset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NameOffset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NameOffset = value;
+            }
+        }
+
+        public short BeginOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BeginOrder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BeginOrder = value;
+            }
+        }
+
+        public short IndexDuringLayout
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IndexDuringLayout;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IndexDuringLayout = value;
+            }
+        }
+
+        public bool WantClose
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantClose != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantClose = (byte) (value ? 1 : 0);
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiTabBar : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 152)]
+        public partial struct __Internal
+        {
+            public global::DearImguiSharp.ImVectorImGuiTabItem.__Internal Tabs;
+            public int Flags;
+            public uint ID;
+            public uint SelectedTabId;
+            public uint NextSelectedTabId;
+            public uint VisibleTabId;
+            public int CurrFrameVisible;
+            public int PrevFrameVisible;
+            public global::DearImguiSharp.ImRect.__Internal BarRect;
+            public float CurrTabsContentsHeight;
+            public float PrevTabsContentsHeight;
+            public float WidthAllTabs;
+            public float WidthAllTabsIdeal;
+            public float ScrollingAnim;
+            public float ScrollingTarget;
+            public float ScrollingTargetDistToVisibility;
+            public float ScrollingSpeed;
+            public float ScrollingRectMinX;
+            public float ScrollingRectMaxX;
+            public uint ReorderRequestTabId;
+            public sbyte ReorderRequestDir;
+            public sbyte BeginCount;
+            public byte WantLayout;
+            public byte VisibleTabWasSubmitted;
+            public byte TabsAddedNew;
+            public short TabsActiveCount;
+            public short LastTabItemIdx;
+            public float ItemSpacingY;
+            public global::DearImguiSharp.ImVec2.__Internal FramePadding;
+            public global::DearImguiSharp.ImVec2.__Internal BackupCursorPos;
+            public global::DearImguiSharp.ImGuiTextBuffer.__Internal TabsNames;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTabBar@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTabBar> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTabBar>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTabBar __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTabBar(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTabBar __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTabBar)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTabBar __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTabBar(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTabBar(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTabBar(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTabBar()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTabBar.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTabBar(global::DearImguiSharp.ImGuiTabBar _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTabBar.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTabBar.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTabBar.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiTabItem Tabs
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiTabItem.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Tabs));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Tabs = *(global::DearImguiSharp.ImVectorImGuiTabItem.__Internal*) value.__Instance;
+            }
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public uint SelectedTabId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SelectedTabId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SelectedTabId = value;
+            }
+        }
+
+        public uint NextSelectedTabId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NextSelectedTabId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NextSelectedTabId = value;
+            }
+        }
+
+        public uint VisibleTabId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->VisibleTabId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->VisibleTabId = value;
+            }
+        }
+
+        public int CurrFrameVisible
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrFrameVisible;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrFrameVisible = value;
+            }
+        }
+
+        public int PrevFrameVisible
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PrevFrameVisible;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PrevFrameVisible = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect BarRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BarRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BarRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public float CurrTabsContentsHeight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrTabsContentsHeight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrTabsContentsHeight = value;
+            }
+        }
+
+        public float PrevTabsContentsHeight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PrevTabsContentsHeight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PrevTabsContentsHeight = value;
+            }
+        }
+
+        public float WidthAllTabs
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WidthAllTabs;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WidthAllTabs = value;
+            }
+        }
+
+        public float WidthAllTabsIdeal
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WidthAllTabsIdeal;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WidthAllTabsIdeal = value;
+            }
+        }
+
+        public float ScrollingAnim
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollingAnim;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollingAnim = value;
+            }
+        }
+
+        public float ScrollingTarget
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollingTarget;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollingTarget = value;
+            }
+        }
+
+        public float ScrollingTargetDistToVisibility
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollingTargetDistToVisibility;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollingTargetDistToVisibility = value;
+            }
+        }
+
+        public float ScrollingSpeed
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollingSpeed;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollingSpeed = value;
+            }
+        }
+
+        public float ScrollingRectMinX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollingRectMinX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollingRectMinX = value;
+            }
+        }
+
+        public float ScrollingRectMaxX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ScrollingRectMaxX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ScrollingRectMaxX = value;
+            }
+        }
+
+        public uint ReorderRequestTabId
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ReorderRequestTabId;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ReorderRequestTabId = value;
+            }
+        }
+
+        public sbyte ReorderRequestDir
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ReorderRequestDir;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ReorderRequestDir = value;
+            }
+        }
+
+        public sbyte BeginCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BeginCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BeginCount = value;
+            }
+        }
+
+        public bool WantLayout
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantLayout != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantLayout = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool VisibleTabWasSubmitted
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->VisibleTabWasSubmitted != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->VisibleTabWasSubmitted = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool TabsAddedNew
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TabsAddedNew != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TabsAddedNew = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public short TabsActiveCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TabsActiveCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TabsActiveCount = value;
+            }
+        }
+
+        public short LastTabItemIdx
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastTabItemIdx;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastTabItemIdx = value;
+            }
+        }
+
+        public float ItemSpacingY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ItemSpacingY;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ItemSpacingY = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 FramePadding
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->FramePadding));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->FramePadding = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 BackupCursorPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BackupCursorPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BackupCursorPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTextBuffer TabsNames
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiTextBuffer.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TabsNames));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->TabsNames = *(global::DearImguiSharp.ImGuiTextBuffer.__Internal*) value.__Instance;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiTableColumn : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 104)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            public int Flags;
+
+            [FieldOffset(4)]
+            public float WidthGiven;
+
+            [FieldOffset(8)]
+            public float MinX;
+
+            [FieldOffset(12)]
+            public float MaxX;
+
+            [FieldOffset(16)]
+            public float WidthRequest;
+
+            [FieldOffset(20)]
+            public float WidthAuto;
+
+            [FieldOffset(24)]
+            public float StretchWeight;
+
+            [FieldOffset(28)]
+            public float InitStretchWeightOrWidth;
+
+            [FieldOffset(32)]
+            public global::DearImguiSharp.ImRect.__Internal ClipRect;
+
+            [FieldOffset(48)]
+            public uint UserID;
+
+            [FieldOffset(52)]
+            public float WorkMinX;
+
+            [FieldOffset(56)]
+            public float WorkMaxX;
+
+            [FieldOffset(60)]
+            public float ItemWidth;
+
+            [FieldOffset(64)]
+            public float ContentMaxXFrozen;
+
+            [FieldOffset(68)]
+            public float ContentMaxXUnfrozen;
+
+            [FieldOffset(72)]
+            public float ContentMaxXHeadersUsed;
+
+            [FieldOffset(76)]
+            public float ContentMaxXHeadersIdeal;
+
+            [FieldOffset(80)]
+            public short NameOffset;
+
+            [FieldOffset(82)]
+            public sbyte DisplayOrder;
+
+            [FieldOffset(83)]
+            public sbyte IndexWithinEnabledSet;
+
+            [FieldOffset(84)]
+            public sbyte PrevEnabledColumn;
+
+            [FieldOffset(85)]
+            public sbyte NextEnabledColumn;
+
+            [FieldOffset(86)]
+            public sbyte SortOrder;
+
+            [FieldOffset(87)]
+            public byte DrawChannelCurrent;
+
+            [FieldOffset(88)]
+            public byte DrawChannelFrozen;
+
+            [FieldOffset(89)]
+            public byte DrawChannelUnfrozen;
+
+            [FieldOffset(90)]
+            public byte IsEnabled;
+
+            [FieldOffset(91)]
+            public byte IsEnabledNextFrame;
+
+            [FieldOffset(92)]
+            public byte IsVisibleX;
+
+            [FieldOffset(93)]
+            public byte IsVisibleY;
+
+            [FieldOffset(94)]
+            public byte IsRequestOutput;
+
+            [FieldOffset(95)]
+            public byte IsSkipItems;
+
+            [FieldOffset(96)]
+            public byte IsPreserveWidthAuto;
+
+            [FieldOffset(97)]
+            public sbyte NavLayerCurrent;
+
+            [FieldOffset(98)]
+            public byte AutoFitQueue;
+
+            [FieldOffset(99)]
+            public byte CannotSkipItemsQueue;
+
+            [FieldOffset(100)]
+            public byte SortDirection;
+
+            [FieldOffset(100)]
+            public byte SortDirectionsAvailCount;
+
+            [FieldOffset(100)]
+            public byte SortDirectionsAvailMask;
+
+            [FieldOffset(101)]
+            public byte SortDirectionsAvailList;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTableColumn@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableColumn> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableColumn>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTableColumn __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTableColumn(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTableColumn __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTableColumn)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTableColumn __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTableColumn(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTableColumn(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableColumn(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTableColumn()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableColumn.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableColumn(global::DearImguiSharp.ImGuiTableColumn _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableColumn.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTableColumn.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTableColumn.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public float WidthGiven
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WidthGiven;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WidthGiven = value;
+            }
+        }
+
+        public float MinX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MinX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MinX = value;
+            }
+        }
+
+        public float MaxX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MaxX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MaxX = value;
+            }
+        }
+
+        public float WidthRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WidthRequest;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WidthRequest = value;
+            }
+        }
+
+        public float WidthAuto
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WidthAuto;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WidthAuto = value;
+            }
+        }
+
+        public float StretchWeight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->StretchWeight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->StretchWeight = value;
+            }
+        }
+
+        public float InitStretchWeightOrWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->InitStretchWeightOrWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->InitStretchWeightOrWidth = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect ClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public uint UserID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->UserID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->UserID = value;
+            }
+        }
+
+        public float WorkMinX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WorkMinX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WorkMinX = value;
+            }
+        }
+
+        public float WorkMaxX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WorkMaxX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WorkMaxX = value;
+            }
+        }
+
+        public float ItemWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ItemWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ItemWidth = value;
+            }
+        }
+
+        public float ContentMaxXFrozen
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ContentMaxXFrozen;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ContentMaxXFrozen = value;
+            }
+        }
+
+        public float ContentMaxXUnfrozen
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ContentMaxXUnfrozen;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ContentMaxXUnfrozen = value;
+            }
+        }
+
+        public float ContentMaxXHeadersUsed
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ContentMaxXHeadersUsed;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ContentMaxXHeadersUsed = value;
+            }
+        }
+
+        public float ContentMaxXHeadersIdeal
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ContentMaxXHeadersIdeal;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ContentMaxXHeadersIdeal = value;
+            }
+        }
+
+        public short NameOffset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NameOffset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NameOffset = value;
+            }
+        }
+
+        public sbyte DisplayOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DisplayOrder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DisplayOrder = value;
+            }
+        }
+
+        public sbyte IndexWithinEnabledSet
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IndexWithinEnabledSet;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IndexWithinEnabledSet = value;
+            }
+        }
+
+        public sbyte PrevEnabledColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->PrevEnabledColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->PrevEnabledColumn = value;
+            }
+        }
+
+        public sbyte NextEnabledColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NextEnabledColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NextEnabledColumn = value;
+            }
+        }
+
+        public sbyte SortOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortOrder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortOrder = value;
+            }
+        }
+
+        public byte DrawChannelCurrent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DrawChannelCurrent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DrawChannelCurrent = value;
+            }
+        }
+
+        public byte DrawChannelFrozen
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DrawChannelFrozen;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DrawChannelFrozen = value;
+            }
+        }
+
+        public byte DrawChannelUnfrozen
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DrawChannelUnfrozen;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DrawChannelUnfrozen = value;
+            }
+        }
+
+        public bool IsEnabled
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsEnabled != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsEnabled = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsEnabledNextFrame
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsEnabledNextFrame != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsEnabledNextFrame = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsVisibleX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsVisibleX != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsVisibleX = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsVisibleY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsVisibleY != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsVisibleY = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsRequestOutput
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsRequestOutput != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsRequestOutput = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsSkipItems
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsSkipItems != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsSkipItems = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsPreserveWidthAuto
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsPreserveWidthAuto != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsPreserveWidthAuto = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public sbyte NavLayerCurrent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->NavLayerCurrent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->NavLayerCurrent = value;
+            }
+        }
+
+        public byte AutoFitQueue
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->AutoFitQueue;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->AutoFitQueue = value;
+            }
+        }
+
+        public byte CannotSkipItemsQueue
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CannotSkipItemsQueue;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CannotSkipItemsQueue = value;
+            }
+        }
+
+        public byte SortDirection
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortDirection;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortDirection = value;
+            }
+        }
+
+        public byte SortDirectionsAvailCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortDirectionsAvailCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortDirectionsAvailCount = value;
+            }
+        }
+
+        public byte SortDirectionsAvailMask
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortDirectionsAvailMask;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortDirectionsAvailMask = value;
+            }
+        }
+
+        public byte SortDirectionsAvailList
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortDirectionsAvailList;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortDirectionsAvailList = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiTableCellData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 8)]
+        public partial struct __Internal
+        {
+            public uint BgColor;
+            public sbyte Column;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTableCellData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableCellData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableCellData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTableCellData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTableCellData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTableCellData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTableCellData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTableCellData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTableCellData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTableCellData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableCellData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTableCellData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableCellData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableCellData(global::DearImguiSharp.ImGuiTableCellData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableCellData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTableCellData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTableCellData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint BgColor
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BgColor;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BgColor = value;
+            }
+        }
+
+        public sbyte Column
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Column;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Column = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiTable : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 600)]
+        public partial struct __Internal
+        {
+            public uint ID;
+            public int Flags;
+            public __IntPtr RawData;
+            public global::DearImguiSharp.ImSpanImGuiTableColumn.__Internal Columns;
+            public global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__Internal DisplayOrderToIndex;
+            public global::DearImguiSharp.ImSpanImGuiTableCellData.__Internal RowCellData;
+            public ulong EnabledMaskByDisplayOrder;
+            public ulong EnabledMaskByIndex;
+            public ulong VisibleMaskByIndex;
+            public ulong RequestOutputMaskByIndex;
+            public int SettingsLoadedFlags;
+            public int SettingsOffset;
+            public int LastFrameActive;
+            public int ColumnsCount;
+            public int CurrentRow;
+            public int CurrentColumn;
+            public short InstanceCurrent;
+            public short InstanceInteracted;
+            public float RowPosY1;
+            public float RowPosY2;
+            public float RowMinHeight;
+            public float RowTextBaseline;
+            public float RowIndentOffsetX;
+            public int RowFlags;
+            public int LastRowFlags;
+            public int RowBgColorCounter;
+            public fixed uint RowBgColor[2];
+            public uint BorderColorStrong;
+            public uint BorderColorLight;
+            public float BorderX1;
+            public float BorderX2;
+            public float HostIndentX;
+            public float MinColumnWidth;
+            public float OuterPaddingX;
+            public float CellPaddingX;
+            public float CellPaddingY;
+            public float CellSpacingX1;
+            public float CellSpacingX2;
+            public float LastOuterHeight;
+            public float LastFirstRowHeight;
+            public float InnerWidth;
+            public float ColumnsGivenWidth;
+            public float ColumnsAutoFitWidth;
+            public float ResizedColumnNextWidth;
+            public float ResizeLockMinContentsX2;
+            public float RefScale;
+            public global::DearImguiSharp.ImRect.__Internal OuterRect;
+            public global::DearImguiSharp.ImRect.__Internal InnerRect;
+            public global::DearImguiSharp.ImRect.__Internal WorkRect;
+            public global::DearImguiSharp.ImRect.__Internal InnerClipRect;
+            public global::DearImguiSharp.ImRect.__Internal BgClipRect;
+            public global::DearImguiSharp.ImRect.__Internal Bg0ClipRectForDrawCmd;
+            public global::DearImguiSharp.ImRect.__Internal Bg2ClipRectForDrawCmd;
+            public global::DearImguiSharp.ImRect.__Internal HostClipRect;
+            public global::DearImguiSharp.ImRect.__Internal HostBackupWorkRect;
+            public global::DearImguiSharp.ImRect.__Internal HostBackupParentWorkRect;
+            public global::DearImguiSharp.ImRect.__Internal HostBackupInnerClipRect;
+            public global::DearImguiSharp.ImVec2.__Internal HostBackupPrevLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal HostBackupCurrLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal HostBackupCursorMaxPos;
+            public global::DearImguiSharp.ImVec2.__Internal UserOuterSize;
+            public global::DearImguiSharp.ImVec1.__Internal HostBackupColumnsOffset;
+            public float HostBackupItemWidth;
+            public int HostBackupItemWidthStackSize;
+            public __IntPtr OuterWindow;
+            public __IntPtr InnerWindow;
+            public global::DearImguiSharp.ImGuiTextBuffer.__Internal ColumnsNames;
+            public global::DearImguiSharp.ImDrawListSplitter.__Internal DrawSplitter;
+            public global::DearImguiSharp.ImGuiTableColumnSortSpecs.__Internal SortSpecsSingle;
+            public global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal SortSpecsMulti;
+            public global::DearImguiSharp.ImGuiTableSortSpecs.__Internal SortSpecs;
+            public sbyte SortSpecsCount;
+            public sbyte ColumnsEnabledCount;
+            public sbyte ColumnsEnabledFixedCount;
+            public sbyte DeclColumnsCount;
+            public sbyte HoveredColumnBody;
+            public sbyte HoveredColumnBorder;
+            public sbyte AutoFitSingleColumn;
+            public sbyte ResizedColumn;
+            public sbyte LastResizedColumn;
+            public sbyte HeldHeaderColumn;
+            public sbyte ReorderColumn;
+            public sbyte ReorderColumnDir;
+            public sbyte LeftMostStretchedColumn;
+            public sbyte RightMostStretchedColumn;
+            public sbyte RightMostEnabledColumn;
+            public sbyte ContextPopupColumn;
+            public sbyte FreezeRowsRequest;
+            public sbyte FreezeRowsCount;
+            public sbyte FreezeColumnsRequest;
+            public sbyte FreezeColumnsCount;
+            public sbyte RowCellDataCurrent;
+            public byte DummyDrawChannel;
+            public byte Bg2DrawChannelCurrent;
+            public byte Bg2DrawChannelUnfrozen;
+            public byte IsLayoutLocked;
+            public byte IsInsideRow;
+            public byte IsInitializing;
+            public byte IsSortSpecsDirty;
+            public byte IsUsingHeaders;
+            public byte IsContextPopupOpen;
+            public byte IsSettingsRequestLoad;
+            public byte IsSettingsDirty;
+            public byte IsDefaultDisplayOrder;
+            public byte IsResetAllRequest;
+            public byte IsResetDisplayOrderRequest;
+            public byte IsUnfrozenRows;
+            public byte IsDefaultSizingPolicy;
+            public byte MemoryCompacted;
+            public byte HostSkipItems;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTable@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTable> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTable>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTable __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTable(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTable __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTable)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTable __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTable(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTable(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTable(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTable()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTable.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTable(global::DearImguiSharp.ImGuiTable _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTable.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTable.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTable.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public int Flags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Flags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Flags = value;
+            }
+        }
+
+        public __IntPtr RawData
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RawData;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RawData = (__IntPtr) value;
+            }
+        }
+
+        public global::DearImguiSharp.ImSpanImGuiTableColumn Columns
+        {
+            get
+            {
+                return global::DearImguiSharp.ImSpanImGuiTableColumn.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Columns));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Columns = *(global::DearImguiSharp.ImSpanImGuiTableColumn.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImSpanImGuiTableColumnIdx DisplayOrderToIndex
+        {
+            get
+            {
+                return global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DisplayOrderToIndex));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DisplayOrderToIndex = *(global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImSpanImGuiTableCellData RowCellData
+        {
+            get
+            {
+                return global::DearImguiSharp.ImSpanImGuiTableCellData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->RowCellData));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->RowCellData = *(global::DearImguiSharp.ImSpanImGuiTableCellData.__Internal*) value.__Instance;
+            }
+        }
+
+        public ulong EnabledMaskByDisplayOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->EnabledMaskByDisplayOrder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->EnabledMaskByDisplayOrder = value;
+            }
+        }
+
+        public ulong EnabledMaskByIndex
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->EnabledMaskByIndex;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->EnabledMaskByIndex = value;
+            }
+        }
+
+        public ulong VisibleMaskByIndex
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->VisibleMaskByIndex;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->VisibleMaskByIndex = value;
+            }
+        }
+
+        public ulong RequestOutputMaskByIndex
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RequestOutputMaskByIndex;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RequestOutputMaskByIndex = value;
+            }
+        }
+
+        public int SettingsLoadedFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SettingsLoadedFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SettingsLoadedFlags = value;
+            }
+        }
+
+        public int SettingsOffset
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SettingsOffset;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SettingsOffset = value;
+            }
+        }
+
+        public int LastFrameActive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastFrameActive;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastFrameActive = value;
+            }
+        }
+
+        public int ColumnsCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColumnsCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColumnsCount = value;
+            }
+        }
+
+        public int CurrentRow
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrentRow;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentRow = value;
+            }
+        }
+
+        public int CurrentColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrentColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentColumn = value;
+            }
+        }
+
+        public short InstanceCurrent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->InstanceCurrent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->InstanceCurrent = value;
+            }
+        }
+
+        public short InstanceInteracted
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->InstanceInteracted;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->InstanceInteracted = value;
+            }
+        }
+
+        public float RowPosY1
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowPosY1;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowPosY1 = value;
+            }
+        }
+
+        public float RowPosY2
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowPosY2;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowPosY2 = value;
+            }
+        }
+
+        public float RowMinHeight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowMinHeight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowMinHeight = value;
+            }
+        }
+
+        public float RowTextBaseline
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowTextBaseline;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowTextBaseline = value;
+            }
+        }
+
+        public float RowIndentOffsetX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowIndentOffsetX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowIndentOffsetX = value;
+            }
+        }
+
+        public int RowFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowFlags = value;
+            }
+        }
+
+        public int LastRowFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastRowFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastRowFlags = value;
+            }
+        }
+
+        public int RowBgColorCounter
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowBgColorCounter;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowBgColorCounter = value;
+            }
+        }
+
+        public uint[] RowBgColor
+        {
+            get
+            {
+                return CppSharp.Runtime.MarshalUtil.GetArray<uint>(((__Internal*)__Instance)->RowBgColor, 2);
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    for (int i = 0; i < 2; i++)
+                        ((__Internal*)__Instance)->RowBgColor[i] = value[i];
+                }
+            }
+        }
+
+        public uint BorderColorStrong
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BorderColorStrong;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BorderColorStrong = value;
+            }
+        }
+
+        public uint BorderColorLight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BorderColorLight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BorderColorLight = value;
+            }
+        }
+
+        public float BorderX1
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BorderX1;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BorderX1 = value;
+            }
+        }
+
+        public float BorderX2
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BorderX2;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BorderX2 = value;
+            }
+        }
+
+        public float HostIndentX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostIndentX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostIndentX = value;
+            }
+        }
+
+        public float MinColumnWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MinColumnWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MinColumnWidth = value;
+            }
+        }
+
+        public float OuterPaddingX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->OuterPaddingX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OuterPaddingX = value;
+            }
+        }
+
+        public float CellPaddingX
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CellPaddingX;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CellPaddingX = value;
+            }
+        }
+
+        public float CellPaddingY
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CellPaddingY;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CellPaddingY = value;
+            }
+        }
+
+        public float CellSpacingX1
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CellSpacingX1;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CellSpacingX1 = value;
+            }
+        }
+
+        public float CellSpacingX2
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CellSpacingX2;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CellSpacingX2 = value;
+            }
+        }
+
+        public float LastOuterHeight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastOuterHeight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastOuterHeight = value;
+            }
+        }
+
+        public float LastFirstRowHeight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastFirstRowHeight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastFirstRowHeight = value;
+            }
+        }
+
+        public float InnerWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->InnerWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->InnerWidth = value;
+            }
+        }
+
+        public float ColumnsGivenWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColumnsGivenWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColumnsGivenWidth = value;
+            }
+        }
+
+        public float ColumnsAutoFitWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColumnsAutoFitWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColumnsAutoFitWidth = value;
+            }
+        }
+
+        public float ResizedColumnNextWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ResizedColumnNextWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ResizedColumnNextWidth = value;
+            }
+        }
+
+        public float ResizeLockMinContentsX2
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ResizeLockMinContentsX2;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ResizeLockMinContentsX2 = value;
+            }
+        }
+
+        public float RefScale
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RefScale;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RefScale = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect OuterRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->OuterRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->OuterRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect InnerRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->InnerRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->InnerRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect WorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect InnerClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->InnerClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->InnerClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect BgClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BgClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->BgClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect Bg0ClipRectForDrawCmd
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Bg0ClipRectForDrawCmd));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Bg0ClipRectForDrawCmd = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect Bg2ClipRectForDrawCmd
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->Bg2ClipRectForDrawCmd));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->Bg2ClipRectForDrawCmd = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostBackupWorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupWorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostBackupParentWorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupParentWorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupParentWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostBackupInnerClipRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupInnerClipRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupInnerClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 HostBackupPrevLineSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupPrevLineSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupPrevLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 HostBackupCurrLineSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupCurrLineSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupCurrLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 HostBackupCursorMaxPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupCursorMaxPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupCursorMaxPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 UserOuterSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->UserOuterSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->UserOuterSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec1 HostBackupColumnsOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupColumnsOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupColumnsOffset = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
+            }
+        }
+
+        public float HostBackupItemWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostBackupItemWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostBackupItemWidth = value;
+            }
+        }
+
+        public int HostBackupItemWidthStackSize
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostBackupItemWidthStackSize;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostBackupItemWidthStackSize = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow OuterWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->OuterWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->OuterWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiWindow InnerWindow
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->InnerWindow, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->InnerWindow = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTextBuffer ColumnsNames
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiTextBuffer.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->ColumnsNames));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->ColumnsNames = *(global::DearImguiSharp.ImGuiTextBuffer.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawListSplitter DrawSplitter
+        {
+            get
+            {
+                return global::DearImguiSharp.ImDrawListSplitter.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawSplitter));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DrawSplitter = *(global::DearImguiSharp.ImDrawListSplitter.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableColumnSortSpecs SortSpecsSingle
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiTableColumnSortSpecs.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SortSpecsSingle));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SortSpecsSingle = *(global::DearImguiSharp.ImGuiTableColumnSortSpecs.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs SortSpecsMulti
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SortSpecsMulti));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SortSpecsMulti = *(global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableSortSpecs SortSpecs
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiTableSortSpecs.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SortSpecs));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SortSpecs = *(global::DearImguiSharp.ImGuiTableSortSpecs.__Internal*) value.__Instance;
+            }
+        }
+
+        public sbyte SortSpecsCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortSpecsCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortSpecsCount = value;
+            }
+        }
+
+        public sbyte ColumnsEnabledCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColumnsEnabledCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColumnsEnabledCount = value;
+            }
+        }
+
+        public sbyte ColumnsEnabledFixedCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColumnsEnabledFixedCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColumnsEnabledFixedCount = value;
+            }
+        }
+
+        public sbyte DeclColumnsCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DeclColumnsCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DeclColumnsCount = value;
+            }
+        }
+
+        public sbyte HoveredColumnBody
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredColumnBody;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredColumnBody = value;
+            }
+        }
+
+        public sbyte HoveredColumnBorder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HoveredColumnBorder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HoveredColumnBorder = value;
+            }
+        }
+
+        public sbyte AutoFitSingleColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->AutoFitSingleColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->AutoFitSingleColumn = value;
+            }
+        }
+
+        public sbyte ResizedColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ResizedColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ResizedColumn = value;
+            }
+        }
+
+        public sbyte LastResizedColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastResizedColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastResizedColumn = value;
+            }
+        }
+
+        public sbyte HeldHeaderColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HeldHeaderColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HeldHeaderColumn = value;
+            }
+        }
+
+        public sbyte ReorderColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ReorderColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ReorderColumn = value;
+            }
+        }
+
+        public sbyte ReorderColumnDir
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ReorderColumnDir;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ReorderColumnDir = value;
+            }
+        }
+
+        public sbyte LeftMostStretchedColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LeftMostStretchedColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LeftMostStretchedColumn = value;
+            }
+        }
+
+        public sbyte RightMostStretchedColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RightMostStretchedColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RightMostStretchedColumn = value;
+            }
+        }
+
+        public sbyte RightMostEnabledColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RightMostEnabledColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RightMostEnabledColumn = value;
+            }
+        }
+
+        public sbyte ContextPopupColumn
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ContextPopupColumn;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ContextPopupColumn = value;
+            }
+        }
+
+        public sbyte FreezeRowsRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FreezeRowsRequest;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FreezeRowsRequest = value;
+            }
+        }
+
+        public sbyte FreezeRowsCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FreezeRowsCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FreezeRowsCount = value;
+            }
+        }
+
+        public sbyte FreezeColumnsRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FreezeColumnsRequest;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FreezeColumnsRequest = value;
+            }
+        }
+
+        public sbyte FreezeColumnsCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FreezeColumnsCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FreezeColumnsCount = value;
+            }
+        }
+
+        public sbyte RowCellDataCurrent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RowCellDataCurrent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RowCellDataCurrent = value;
+            }
+        }
+
+        public byte DummyDrawChannel
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DummyDrawChannel;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DummyDrawChannel = value;
+            }
+        }
+
+        public byte Bg2DrawChannelCurrent
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Bg2DrawChannelCurrent;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Bg2DrawChannelCurrent = value;
+            }
+        }
+
+        public byte Bg2DrawChannelUnfrozen
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Bg2DrawChannelUnfrozen;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Bg2DrawChannelUnfrozen = value;
+            }
+        }
+
+        public bool IsLayoutLocked
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsLayoutLocked != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsLayoutLocked = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsInsideRow
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsInsideRow != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsInsideRow = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsInitializing
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsInitializing != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsInitializing = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsSortSpecsDirty
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsSortSpecsDirty != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsSortSpecsDirty = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsUsingHeaders
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsUsingHeaders != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsUsingHeaders = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsContextPopupOpen
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsContextPopupOpen != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsContextPopupOpen = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsSettingsRequestLoad
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsSettingsRequestLoad != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsSettingsRequestLoad = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsSettingsDirty
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsSettingsDirty != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsSettingsDirty = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsDefaultDisplayOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsDefaultDisplayOrder != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsDefaultDisplayOrder = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsResetAllRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsResetAllRequest != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsResetAllRequest = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsResetDisplayOrderRequest
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsResetDisplayOrderRequest != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsResetDisplayOrderRequest = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsUnfrozenRows
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsUnfrozenRows != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsUnfrozenRows = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool IsDefaultSizingPolicy
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsDefaultSizingPolicy != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsDefaultSizingPolicy = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool MemoryCompacted
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->MemoryCompacted != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->MemoryCompacted = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool HostSkipItems
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostSkipItems != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostSkipItems = (byte) (value ? 1 : 0);
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiTableColumnSettings : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 12)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            public float WidthOrWeight;
+
+            [FieldOffset(4)]
+            public uint UserID;
+
+            [FieldOffset(8)]
+            public sbyte Index;
+
+            [FieldOffset(9)]
+            public sbyte DisplayOrder;
+
+            [FieldOffset(10)]
+            public sbyte SortOrder;
+
+            [FieldOffset(11)]
+            public byte SortDirection;
+
+            [FieldOffset(11)]
+            public byte IsEnabled;
+
+            [FieldOffset(11)]
+            public byte IsStretch;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTableColumnSettings@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableColumnSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableColumnSettings>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTableColumnSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTableColumnSettings(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTableColumnSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTableColumnSettings)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTableColumnSettings __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTableColumnSettings(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTableColumnSettings(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableColumnSettings(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTableColumnSettings()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableColumnSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableColumnSettings(global::DearImguiSharp.ImGuiTableColumnSettings _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableColumnSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTableColumnSettings.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTableColumnSettings.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public float WidthOrWeight
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WidthOrWeight;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WidthOrWeight = value;
+            }
+        }
+
+        public uint UserID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->UserID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->UserID = value;
+            }
+        }
+
+        public sbyte Index
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Index;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Index = value;
+            }
+        }
+
+        public sbyte DisplayOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->DisplayOrder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->DisplayOrder = value;
+            }
+        }
+
+        public sbyte SortOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortOrder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortOrder = value;
+            }
+        }
+
+        public byte SortDirection
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SortDirection;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SortDirection = value;
+            }
+        }
+
+        public byte IsEnabled
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsEnabled;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsEnabled = value;
+            }
+        }
+
+        public byte IsStretch
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->IsStretch;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->IsStretch = value;
+            }
+        }
+    }
+
+    public unsafe partial class ImGuiTableSettings : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public uint ID;
+            public int SaveFlags;
+            public float RefScale;
+            public sbyte ColumnsCount;
+            public sbyte ColumnsCountMax;
+            public byte WantApply;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTableSettings@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableSettings> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableSettings>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTableSettings __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTableSettings(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTableSettings __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTableSettings)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTableSettings __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTableSettings(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTableSettings(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableSettings(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTableSettings()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableSettings(global::DearImguiSharp.ImGuiTableSettings _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableSettings.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTableSettings.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTableSettings.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public uint ID
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ID;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ID = value;
+            }
+        }
+
+        public int SaveFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->SaveFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->SaveFlags = value;
+            }
+        }
+
+        public float RefScale
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->RefScale;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->RefScale = value;
+            }
+        }
+
+        public sbyte ColumnsCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColumnsCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColumnsCount = value;
+            }
+        }
+
+        public sbyte ColumnsCountMax
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ColumnsCountMax;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ColumnsCountMax = value;
+            }
+        }
+
+        public bool WantApply
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->WantApply != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->WantApply = (byte) (value ? 1 : 0);
+            }
+        }
+    }
+
+    public unsafe partial class ImFontBuilderIO : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 8)]
+        public partial struct __Internal
+        {
+            public __IntPtr FontBuilder_Build;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImFontBuilderIO@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImFontBuilderIO> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImFontBuilderIO>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImFontBuilderIO __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImFontBuilderIO(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImFontBuilderIO __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImFontBuilderIO)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImFontBuilderIO __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImFontBuilderIO(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImFontBuilderIO(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImFontBuilderIO(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImFontBuilderIO()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImFontBuilderIO.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImFontBuilderIO(global::DearImguiSharp.ImFontBuilderIO _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImFontBuilderIO.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImFontBuilderIO.__Internal*) __Instance) = *((global::DearImguiSharp.ImFontBuilderIO.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::DearImguiSharp.Delegates.Func_bool___IntPtr FontBuilderBuild
+        {
+            get
+            {
+                var __ptr0 = ((__Internal*)__Instance)->FontBuilder_Build;
+                return __ptr0 == IntPtr.Zero? null : (global::DearImguiSharp.Delegates.Func_bool___IntPtr) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::DearImguiSharp.Delegates.Func_bool___IntPtr));
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FontBuilder_Build = value == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(value);
+            }
+        }
+    }
+
     public unsafe partial class ImGui
     {
         public partial struct __Internal
@@ -10657,11 +29309,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetScrollY", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float GetScrollY();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollX", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollX(float scroll_x);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollXFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollXFloat(float scroll_x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollY", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollY(float scroll_y);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollYFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollYFloat(float scroll_y);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetScrollMaxX", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float GetScrollMaxX();
@@ -10675,11 +29327,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollHereY", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetScrollHereY(float center_y_ratio);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosX", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollFromPosX(float local_x, float center_x_ratio);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosXFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosXFloat(float local_x, float center_x_ratio);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosY", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollFromPosY(float local_y, float center_y_ratio);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosYFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosYFloat(float local_y, float center_y_ratio);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushFont", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PushFont(__IntPtr font);
@@ -10691,7 +29343,7 @@ namespace DearImguiSharp
             public static extern void PushStyleColorU32(int idx, uint col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleColorVec4", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void PushStyleColorVec4(int idx, __IntPtr col);
+            public static extern void PushStyleColorVec4(int idx, global::DearImguiSharp.ImVec4.__Internal col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopStyleColor", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PopStyleColor(int count);
@@ -10748,7 +29400,7 @@ namespace DearImguiSharp
             public static extern uint GetColorU32Col(int idx, float alpha_mul);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32Vec4", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint GetColorU32Vec4(__IntPtr col);
+            public static extern uint GetColorU32Vec4(global::DearImguiSharp.ImVec4.__Internal col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32U32", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint GetColorU32U32(uint col);
@@ -10856,7 +29508,7 @@ namespace DearImguiSharp
             public static extern void Text([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTextColored", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void TextColored(__IntPtr col, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
+            public static extern void TextColored(global::DearImguiSharp.ImVec4.__Internal col, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTextDisabled", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TextDisabled([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
@@ -10887,11 +29539,11 @@ namespace DearImguiSharp
             public static extern bool ArrowButton([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int dir);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImage", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void Image(__IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, __IntPtr tint_col, __IntPtr border_col);
+            public static extern void Image(__IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, global::DearImguiSharp.ImVec4.__Internal tint_col, global::DearImguiSharp.ImVec4.__Internal border_col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImageButton", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool ImageButton(__IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, int frame_padding, __IntPtr bg_col, __IntPtr tint_col);
+            public static extern bool ImageButton(__IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, int frame_padding, global::DearImguiSharp.ImVec4.__Internal bg_col, global::DearImguiSharp.ImVec4.__Internal tint_col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckbox", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
@@ -11116,7 +29768,7 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igColorButton", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool ColorButton([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string desc_id, __IntPtr col, int flags, global::DearImguiSharp.ImVec2.__Internal size);
+            public static extern bool ColorButton([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string desc_id, global::DearImguiSharp.ImVec4.__Internal col, int flags, global::DearImguiSharp.ImVec2.__Internal size);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetColorEditOptions", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetColorEditOptions(int flags);
@@ -11285,9 +29937,9 @@ namespace DearImguiSharp
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool BeginPopupContextVoid([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int popup_flags);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsPopupOpen", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsPopupOpenStr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool IsPopupOpen([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int flags);
+            public static extern bool IsPopupOpenStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginTable", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
@@ -11331,8 +29983,8 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetRowIndex", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int TableGetRowIndex();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnName", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern __IntPtr TableGetColumnName(int column_n);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnNameInt", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr TableGetColumnNameInt(int column_n);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnFlags", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int TableGetColumnFlags(int column_n);
@@ -11517,11 +30169,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFrameCount", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int GetFrameCount();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetBackgroundDrawList", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern __IntPtr GetBackgroundDrawList();
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetBackgroundDrawListNil", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetBackgroundDrawListNil();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawList", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern __IntPtr GetForegroundDrawList();
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawListNil", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetForegroundDrawListNil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetDrawListSharedData", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetDrawListSharedData();
@@ -11552,7 +30204,7 @@ namespace DearImguiSharp
             public static extern void ColorConvertU32ToFloat4(__IntPtr pOut, uint @in);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igColorConvertFloat4ToU32", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint ColorConvertFloat4ToU32(__IntPtr @in);
+            public static extern uint ColorConvertFloat4ToU32(global::DearImguiSharp.ImVec4.__Internal @in);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igColorConvertRGBtoHSV", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ColorConvertRGBtoHSV(float r, float g, float b, float* out_h, float* out_s, float* out_v);
@@ -11914,7 +30566,7 @@ namespace DearImguiSharp
             public static extern __IntPtr ImColorImColorFloat(float r, float g, float b, float a);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColorVec4", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern __IntPtr ImColorImColorVec4(__IntPtr col);
+            public static extern __IntPtr ImColorImColorVec4(global::DearImguiSharp.ImVec4.__Internal col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_SetHSV", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImColorSetHSV(__IntPtr self, float h, float s, float v, float a);
@@ -12313,7 +30965,7 @@ namespace DearImguiSharp
             public static extern void ImFontRenderChar(__IntPtr self, __IntPtr draw_list, float size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, ushort c);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImFont_RenderText", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImFontRenderText(__IntPtr self, __IntPtr draw_list, float size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, __IntPtr clip_rect, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, float wrap_width, bool cpu_fine_clip);
+            public static extern void ImFontRenderText(__IntPtr self, __IntPtr draw_list, float size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, global::DearImguiSharp.ImVec4.__Internal clip_rect, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, float wrap_width, bool cpu_fine_clip);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImFont_BuildLookupTable", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImFontBuildLookupTable(__IntPtr self);
@@ -12351,6 +31003,1498 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewport_GetWorkCenter", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiViewportGetWorkCenter(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImHashData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImHashData(__IntPtr data, IntPtr data_size, uint seed);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImHashStr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImHashStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string data, IntPtr data_size, uint seed);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAlphaBlendColors", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImAlphaBlendColors(uint col_a, uint col_b);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImIsPowerOfTwoInt", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImIsPowerOfTwoInt(int v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImIsPowerOfTwoU64", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImIsPowerOfTwoU64(ulong v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImUpperPowerOfTwo", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImUpperPowerOfTwo(int v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStricmp", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImStricmp([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str2);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrnicmp", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImStrnicmp([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str1, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str2, IntPtr count);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrncpy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImStrncpy(sbyte* dst, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string src, IntPtr count);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrdup", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern sbyte* ImStrdup([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrdupcpy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern sbyte* ImStrdupcpy(sbyte* dst, IntPtr* p_dst_size, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrchrRange", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImStrchrRange([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end, sbyte c);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrlenW", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImStrlenW(ushort* str);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStreolRange", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImStreolRange([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrbolW", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern ushort* ImStrbolW(ushort* buf_mid_line, ushort* buf_begin);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStristr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImStristr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string haystack, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string haystack_end, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string needle, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string needle_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrTrimBlanks", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImStrTrimBlanks(sbyte* str);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImStrSkipBlank", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImStrSkipBlank([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFormatString", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImFormatString(sbyte* buf, IntPtr buf_size, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImParseFormatFindStart", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImParseFormatFindStart([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImParseFormatFindEnd", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImParseFormatFindEnd([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImParseFormatTrimDecorations", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImParseFormatTrimDecorations([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format, sbyte* buf, IntPtr buf_size);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImParseFormatPrecision", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImParseFormatPrecision([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format, int default_value);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImCharIsBlankA", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImCharIsBlankA(sbyte c);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImCharIsBlankW", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImCharIsBlankW(uint c);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTextStrToUtf8", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImTextStrToUtf8(sbyte* buf, int buf_size, ushort* in_text, ushort* in_text_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTextCharFromUtf8", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImTextCharFromUtf8(uint* out_char, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTextStrFromUtf8", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImTextStrFromUtf8(ushort* buf, int buf_size, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text_end, sbyte** in_remaining);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTextCountCharsFromUtf8", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImTextCountCharsFromUtf8([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTextCountUtf8BytesFromChar", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImTextCountUtf8BytesFromChar([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_text_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTextCountUtf8BytesFromStr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImTextCountUtf8BytesFromStr(ushort* in_text, ushort* in_text_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFileOpen", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImFileOpen([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string filename, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string mode);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFileClose", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImFileClose(__IntPtr file);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFileGetSize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern ulong ImFileGetSize(__IntPtr file);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFileRead", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern ulong ImFileRead(__IntPtr data, ulong size, ulong count, __IntPtr file);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFileWrite", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern ulong ImFileWrite(__IntPtr data, ulong size, ulong count, __IntPtr file);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFileLoadToMemory", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImFileLoadToMemory([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string filename, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string mode, IntPtr* out_file_size, int padding_bytes);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImPowFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImPowFloat(float x, float y);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImPowdouble", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImPowdouble(double x, double y);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLogFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImLogFloat(float x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLogdouble", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImLogdouble(double x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAbsFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImAbsFloat(float x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAbsdouble", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImAbsdouble(double x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSignFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImSignFloat(float x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSigndouble", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImSigndouble(double x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImMin", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImMin(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImMax", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImMax(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImClamp", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImClamp(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v, global::DearImguiSharp.ImVec2.__Internal mn, global::DearImguiSharp.ImVec2.__Internal mx);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerpVec2Float", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImLerpVec2Float(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, float t);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerpVec2Vec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImLerpVec2Vec2(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal t);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerpVec4", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImLerpVec4(__IntPtr pOut, global::DearImguiSharp.ImVec4.__Internal a, global::DearImguiSharp.ImVec4.__Internal b, float t);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSaturate", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImSaturate(float f);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLengthSqrVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImLengthSqrVec2(global::DearImguiSharp.ImVec2.__Internal lhs);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLengthSqrVec4", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImLengthSqrVec4(global::DearImguiSharp.ImVec4.__Internal lhs);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImInvLength", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImInvLength(global::DearImguiSharp.ImVec2.__Internal lhs, float fail_value);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFloorFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImFloorFloat(float f);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFloorVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFloorVec2(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImModPositive", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImModPositive(int a, int b);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImDot", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImDot(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImRotate", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRotate(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v, float cos_a, float sin_a);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLinearSweep", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImLinearSweep(float current, float target, float speed);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImMul", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImMul(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBezierCubicCalc", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBezierCubicCalc(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, float t);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBezierCubicClosestPoint", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBezierCubicClosestPoint(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal p, int num_segments);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBezierCubicClosestPointCasteljau", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBezierCubicClosestPointCasteljau(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal p, float tess_tol);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBezierQuadraticCalc", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBezierQuadraticCalc(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, float t);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLineClosestPoint", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImLineClosestPoint(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal p);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTriangleContainsPoint", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImTriangleContainsPoint(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTriangleClosestPoint", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImTriangleClosestPoint(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTriangleBarycentricCoords", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImTriangleBarycentricCoords(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c, global::DearImguiSharp.ImVec2.__Internal p, float* out_u, float* out_v, float* out_w);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImTriangleArea", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImTriangleArea(global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal c);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImGetDirQuadrantFromDelta", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImGetDirQuadrantFromDelta(float dx, float dy);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_ImVec1Nil", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImVec1ImVec1Nil();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImVec1_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_ImVec1Float", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImVec1ImVec1Float(float _x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ihNil", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImVec2ihImVec2ihNil();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImVec2ih_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ihshort", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImVec2ihImVec2ihshort(short _x, short _y);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectNil", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImRectImRectNil();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRect_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImRectImRectVec2(global::DearImguiSharp.ImVec2.__Internal min, global::DearImguiSharp.ImVec2.__Internal max);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectVec4", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImRectImRectVec4(global::DearImguiSharp.ImVec4.__Internal v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImRectImRectFloat(float x1, float y1, float x2, float y2);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetCenter", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectGetCenter(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetSize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectGetSize(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetWidth", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImRectGetWidth(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetHeight", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImRectGetHeight(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetTL", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectGetTL(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetTR", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectGetTR(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetBL", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectGetBL(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetBR", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectGetBR(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ContainsVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImRectContainsVec2(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ContainsRect", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImRectContainsRect(__IntPtr self, __IntPtr r);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Overlaps", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImRectOverlaps(__IntPtr self, __IntPtr r);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_AddVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectAddVec2(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_AddRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectAddRect(__IntPtr self, __IntPtr r);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ExpandFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectExpandFloat(__IntPtr self, float amount);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ExpandVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectExpandVec2(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal amount);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Translate", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectTranslate(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal d);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_TranslateX", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectTranslateX(__IntPtr self, float dx);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_TranslateY", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectTranslateY(__IntPtr self, float dy);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ClipWith", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectClipWith(__IntPtr self, __IntPtr r);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ClipWithFull", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectClipWithFull(__IntPtr self, __IntPtr r);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Floor", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectFloor(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_IsInverted", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImRectIsInverted(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ToVec4", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImRectToVec4(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBitArrayTestBit", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImBitArrayTestBit(uint* arr, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBitArrayClearBit", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBitArrayClearBit(uint* arr, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBitArraySetBit", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBitArraySetBit(uint* arr, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImBitArraySetBitRange", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBitArraySetBitRange(uint* arr, int n, int n2);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImBitVector_Create", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBitVectorCreate(__IntPtr self, int sz);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImBitVector_Clear", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBitVectorClear(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImBitVector_TestBit", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImBitVectorTestBit(__IntPtr self, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImBitVector_SetBit", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBitVectorSetBit(__IntPtr self, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImBitVector_ClearBit", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImBitVectorClearBit(__IntPtr self, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawListSharedData_ImDrawListSharedData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImDrawListSharedDataImDrawListSharedData();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawListSharedData_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImDrawListSharedData_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawListSharedData_SetCircleSegmentMaxError", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImDrawListSharedDataSetCircleSegmentMaxError(__IntPtr self, float max_error);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawDataBuilder_Clear", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImDrawDataBuilderClear(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawDataBuilder_ClearFreeMemory", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImDrawDataBuilderClearFreeMemory(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawDataBuilder_GetDrawListCount", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImDrawDataBuilderGetDrawListCount(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawDataBuilder_FlattenIntoSingleLayer", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImDrawDataBuilderFlattenIntoSingleLayer(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleModInt", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiStyleModImGuiStyleModInt(int idx, int v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiStyleMod_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleModFloat", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiStyleModImGuiStyleModFloat(int idx, float v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleModVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiStyleModImGuiStyleModVec2(int idx, global::DearImguiSharp.ImVec2.__Internal v);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMenuColumns_ImGuiMenuColumns", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiMenuColumnsImGuiMenuColumns();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMenuColumns_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiMenuColumns_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMenuColumns_Update", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiMenuColumnsUpdate(__IntPtr self, int count, float spacing, bool clear);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMenuColumns_DeclColumns", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImGuiMenuColumnsDeclColumns(__IntPtr self, float w0, float w1, float w2);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMenuColumns_CalcExtraSpace", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImGuiMenuColumnsCalcExtraSpace(__IntPtr self, float avail_w);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_ImGuiInputTextState", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiInputTextStateImGuiInputTextState();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextState_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_ClearText", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextStateClearText(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_ClearFreeMemory", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextStateClearFreeMemory(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_GetUndoAvailCount", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImGuiInputTextStateGetUndoAvailCount(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_GetRedoAvailCount", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImGuiInputTextStateGetRedoAvailCount(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_OnKeyPressed", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextStateOnKeyPressed(__IntPtr self, int key);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_CursorAnimReset", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextStateCursorAnimReset(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_CursorClamp", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextStateCursorClamp(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_HasSelection", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImGuiInputTextStateHasSelection(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_ClearSelection", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextStateClearSelection(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiInputTextState_SelectAll", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiInputTextStateSelectAll(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPopupData_ImGuiPopupData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiPopupDataImGuiPopupData();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPopupData_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiPopupData_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavMoveResult_ImGuiNavMoveResult", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiNavMoveResultImGuiNavMoveResult();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavMoveResult_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNavMoveResult_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavMoveResult_Clear", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNavMoveResultClear(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextWindowData_ImGuiNextWindowData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiNextWindowDataImGuiNextWindowData();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextWindowData_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNextWindowData_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextWindowData_ClearFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNextWindowDataClearFlags(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextItemData_ImGuiNextItemData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiNextItemDataImGuiNextItemData();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextItemData_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNextItemData_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextItemData_ClearFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNextItemDataClearFlags(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexPtr(__IntPtr ptr);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiPtrOrIndex_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_ImGuiPtrOrIndexInt", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexInt(int index);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiOldColumnData_ImGuiOldColumnData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiOldColumnDataImGuiOldColumnData();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiOldColumnData_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiOldColumnData_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiOldColumns_ImGuiOldColumns", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiOldColumnsImGuiOldColumns();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiOldColumns_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiOldColumns_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_ImGuiViewportP", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiViewportP_ImGuiViewportP();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_GetMainRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_GetMainRect(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_GetWorkRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_GetWorkRect(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_UpdateWorkRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_UpdateWorkRect(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindowSettings_ImGuiWindowSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiWindowSettingsImGuiWindowSettings();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindowSettings_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiWindowSettings_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindowSettings_GetName", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern sbyte* ImGuiWindowSettingsGetName(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiSettingsHandler_ImGuiSettingsHandler", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiSettingsHandlerImGuiSettingsHandler();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiSettingsHandler_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiSettingsHandler_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMetricsConfig_ImGuiMetricsConfig", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiMetricsConfigImGuiMetricsConfig();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMetricsConfig_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiMetricsConfig_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStackSizes_ImGuiStackSizes", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiStackSizesImGuiStackSizes();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStackSizes_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiStackSizes_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStackSizes_SetToCurrentState", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiStackSizesSetToCurrentState(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStackSizes_CompareWithCurrentState", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiStackSizesCompareWithCurrentState(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiContextHook_ImGuiContextHook", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiContextHookImGuiContextHook();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiContextHook_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiContextHook_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiContext_ImGuiContext", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiContextImGuiContext(__IntPtr shared_font_atlas);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiContext_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiContext_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_ImGuiWindow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiWindowImGuiWindow(__IntPtr context, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiWindow_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDStr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetIDStr(__IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetIDPtr(__IntPtr self, __IntPtr ptr);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDInt", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetIDInt(__IntPtr self, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAliveStr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetIDNoKeepAliveStr(__IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAlivePtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetIDNoKeepAlivePtr(__IntPtr self, __IntPtr ptr);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAliveInt", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetIDNoKeepAliveInt(__IntPtr self, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDFromRectangle", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetIDFromRectangle(__IntPtr self, __IntPtr r_abs);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_Rect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiWindowRect(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_CalcFontSize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImGuiWindowCalcFontSize(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_TitleBarHeight", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImGuiWindowTitleBarHeight(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_TitleBarRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiWindowTitleBarRect(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_MenuBarHeight", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImGuiWindowMenuBarHeight(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_MenuBarRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiWindowMenuBarRect(__IntPtr pOut, __IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiLastItemDataBackup_ImGuiLastItemDataBackup", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiLastItemDataBackupImGuiLastItemDataBackup();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiLastItemDataBackup_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiLastItemDataBackup_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiLastItemDataBackup_Backup", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiLastItemDataBackupBackup(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiLastItemDataBackup_Restore", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiLastItemDataBackupRestore(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTabItem_ImGuiTabItem", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTabItemImGuiTabItem();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTabItem_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiTabItem_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTabBar_ImGuiTabBar", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTabBarImGuiTabBar();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTabBar_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiTabBar_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTabBar_GetTabOrder", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImGuiTabBarGetTabOrder(__IntPtr self, __IntPtr tab);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTabBar_GetTabName", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTabBarGetTabName(__IntPtr self, __IntPtr tab);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableColumn_ImGuiTableColumn", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTableColumnImGuiTableColumn();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableColumn_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiTableColumn_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTable_ImGuiTable", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTableImGuiTable();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTable_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiTable_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableColumnSettings_ImGuiTableColumnSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTableColumnSettingsImGuiTableColumnSettings();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableColumnSettings_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiTableColumnSettings_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableSettings_ImGuiTableSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTableSettingsImGuiTableSettings();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableSettings_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiTableSettings_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableSettings_GetColumnSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTableSettingsGetColumnSettings(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetCurrentWindowRead", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetCurrentWindowRead();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetCurrentWindow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetCurrentWindow();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindWindowByID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr FindWindowByID(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindWindowByName", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr FindWindowByName([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igUpdateWindowParentAndRootLinks", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void UpdateWindowParentAndRootLinks(__IntPtr window, int flags, __IntPtr parent_window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCalcWindowNextAutoFitSize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void CalcWindowNextAutoFitSize(__IntPtr pOut, __IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsWindowChildOf", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsWindowChildOf(__IntPtr window, __IntPtr potential_parent);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsWindowAbove", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsWindowAbove(__IntPtr potential_above, __IntPtr potential_below);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsWindowNavFocusable", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsWindowNavFocusable(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowAllowedExtentRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GetWindowAllowedExtentRect(__IntPtr pOut, __IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowPosWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetWindowPosWindowPtr(__IntPtr window, global::DearImguiSharp.ImVec2.__Internal pos, int cond);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowSizeWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetWindowSizeWindowPtr(__IntPtr window, global::DearImguiSharp.ImVec2.__Internal size, int cond);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowCollapsedWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetWindowCollapsedWindowPtr(__IntPtr window, bool collapsed, int cond);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowHitTestHole", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetWindowHitTestHole(__IntPtr window, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal size);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFocusWindow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void FocusWindow(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFocusTopMostWindowUnderOne", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void FocusTopMostWindowUnderOne(__IntPtr under_this_window, __IntPtr ignore_window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBringWindowToFocusFront", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void BringWindowToFocusFront(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBringWindowToDisplayFront", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void BringWindowToDisplayFront(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBringWindowToDisplayBack", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void BringWindowToDisplayBack(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetCurrentFont", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetCurrentFont(__IntPtr font);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetDefaultFont", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetDefaultFont();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawListWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetForegroundDrawListWindowPtr(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetBackgroundDrawListViewportPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetBackgroundDrawListViewportPtr(__IntPtr viewport);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawListViewportPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetForegroundDrawListViewportPtr(__IntPtr viewport);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igInitialize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void Initialize(__IntPtr context);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igShutdown", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void Shutdown(__IntPtr context);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igUpdateHoveredWindowAndCaptureFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void UpdateHoveredWindowAndCaptureFlags();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igStartMouseMovingWindow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void StartMouseMovingWindow(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igUpdateMouseMovingWindowNewFrame", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void UpdateMouseMovingWindowNewFrame();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igUpdateMouseMovingWindowEndFrame", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void UpdateMouseMovingWindowEndFrame();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igAddContextHook", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint AddContextHook(__IntPtr context, __IntPtr hook);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRemoveContextHook", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RemoveContextHook(__IntPtr context, uint hook_to_remove);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCallContextHooks", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void CallContextHooks(__IntPtr context, global::DearImguiSharp.ImGuiContextHookType type);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMarkIniSettingsDirtyNil", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void MarkIniSettingsDirtyNil();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMarkIniSettingsDirtyWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void MarkIniSettingsDirtyWindowPtr(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igClearIniSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ClearIniSettings();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCreateNewWindowSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr CreateNewWindowSettings([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindWindowSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr FindWindowSettings(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindOrCreateWindowSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr FindOrCreateWindowSettings([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindSettingsHandler", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr FindSettingsHandler([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string type_name);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNextWindowScroll", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetNextWindowScroll(global::DearImguiSharp.ImVec2.__Internal scroll);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollXWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollXWindowPtr(__IntPtr window, float scroll_x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollYWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollYWindowPtr(__IntPtr window, float scroll_y);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosXWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosXWindowPtr(__IntPtr window, float local_x, float center_x_ratio);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosYWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosYWindowPtr(__IntPtr window, float local_y, float center_y_ratio);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igScrollToBringRectIntoView", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ScrollToBringRectIntoView(__IntPtr pOut, __IntPtr window, __IntPtr item_rect);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetItemID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetItemID();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetItemStatusFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int GetItemStatusFlags();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetActiveID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetActiveID();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFocusID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetFocusID();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetItemsFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int GetItemsFlags();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetActiveID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetActiveID(uint id, __IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetFocusID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetFocusID(uint id, __IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igClearActiveID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ClearActiveID();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetHoveredID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetHoveredID();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetHoveredID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetHoveredID(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igKeepAliveID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void KeepAliveID(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMarkItemEdited", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void MarkItemEdited(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushOverrideID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushOverrideID(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetIDWithSeed", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetIDWithSeed([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_end, uint seed);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemSizeVec2", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ItemSizeVec2(global::DearImguiSharp.ImVec2.__Internal size, float text_baseline_y);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemSizeRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ItemSizeRect(__IntPtr bb, float text_baseline_y);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemAdd", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ItemAdd(__IntPtr bb, uint id, __IntPtr nav_bb);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemHoverable", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ItemHoverable(__IntPtr bb, uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsClippedEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsClippedEx(__IntPtr bb, uint id, bool clip_even_when_logged);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetLastItemData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetLastItemData(__IntPtr window, uint item_id, int status_flags, __IntPtr item_rect);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFocusableItemRegister", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool FocusableItemRegister(__IntPtr window, uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFocusableItemUnregister", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void FocusableItemUnregister(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCalcItemSize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void CalcItemSize(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal size, float default_w, float default_h);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCalcWrapWidthForPos", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float CalcWrapWidthForPos(global::DearImguiSharp.ImVec2.__Internal pos, float wrap_pos_x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushMultiItemsWidths", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushMultiItemsWidths(int components, float width_full);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushItemFlag", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushItemFlag(int option, bool enabled);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopItemFlag", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PopItemFlag();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsItemToggledSelection", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsItemToggledSelection();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetContentRegionMaxAbs", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GetContentRegionMaxAbs(__IntPtr pOut);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igShrinkWidths", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ShrinkWidths(__IntPtr items, int count, float width_excess);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igLogBegin", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void LogBegin(global::DearImguiSharp.ImGuiLogType type, int auto_open_depth);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igLogToBuffer", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void LogToBuffer(int auto_open_depth);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igLogRenderedText", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void LogRenderedText(__IntPtr ref_pos, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igLogSetNextTextDecoration", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void LogSetNextTextDecoration([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string prefix, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string suffix);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginChildEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool BeginChildEx([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name, uint id, global::DearImguiSharp.ImVec2.__Internal size_arg, bool border, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igOpenPopupEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void OpenPopupEx(uint id, int popup_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igClosePopupToLevel", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ClosePopupToLevel(int remaining, bool restore_focus_to_window_under_popup);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igClosePopupsOverWindow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ClosePopupsOverWindow(__IntPtr ref_window, bool restore_focus_to_window_under_popup);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsPopupOpenID", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsPopupOpenID(uint id, int popup_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginPopupEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool BeginPopupEx(uint id, int extra_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginTooltipEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void BeginTooltipEx(int extra_flags, int tooltip_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetTopMostPopupModal", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetTopMostPopupModal();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindBestWindowPosForPopup", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void FindBestWindowPosForPopup(__IntPtr pOut, __IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindBestWindowPosForPopupEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void FindBestWindowPosForPopupEx(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal ref_pos, global::DearImguiSharp.ImVec2.__Internal size, int* last_dir, __IntPtr r_outer, __IntPtr r_avoid, global::DearImguiSharp.ImGuiPopupPositionPolicy policy);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igNavInitWindow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void NavInitWindow(__IntPtr window, bool force_reinit);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igNavMoveRequestButNoResultYet", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool NavMoveRequestButNoResultYet();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igNavMoveRequestCancel", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void NavMoveRequestCancel();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igNavMoveRequestForward", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void NavMoveRequestForward(int move_dir, int clip_dir, __IntPtr bb_rel, int move_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igNavMoveRequestTryWrapping", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void NavMoveRequestTryWrapping(__IntPtr window, int move_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetNavInputAmount", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float GetNavInputAmount(int n, global::DearImguiSharp.ImGuiInputReadMode mode);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetNavInputAmount2d", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GetNavInputAmount2d(__IntPtr pOut, int dir_sources, global::DearImguiSharp.ImGuiInputReadMode mode, float slow_factor, float fast_factor);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCalcTypematicRepeatAmount", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int CalcTypematicRepeatAmount(float t0, float t1, float repeat_delay, float repeat_rate);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igActivateItem", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ActivateItem(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNavID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetNavID(uint id, int nav_layer, uint focus_scope_id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNavIDWithRectRel", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetNavIDWithRectRel(uint id, int nav_layer, uint focus_scope_id, __IntPtr rect_rel);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushFocusScope", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushFocusScope(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopFocusScope", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PopFocusScope();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFocusedFocusScope", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetFocusedFocusScope();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFocusScope", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetFocusScope();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetItemUsingMouseWheel", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetItemUsingMouseWheel();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsActiveIdUsingNavDir", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsActiveIdUsingNavDir(int dir);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsActiveIdUsingNavInput", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsActiveIdUsingNavInput(int input);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsActiveIdUsingKey", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsActiveIdUsingKey(int key);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsMouseDragPastThreshold", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsMouseDragPastThreshold(int button, float lock_threshold);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsKeyPressedMap", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsKeyPressedMap(int key, bool repeat);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsNavInputDown", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsNavInputDown(int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsNavInputTest", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsNavInputTest(int n, global::DearImguiSharp.ImGuiInputReadMode rm);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetMergedKeyModFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int GetMergedKeyModFlags();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginDragDropTargetCustom", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool BeginDragDropTargetCustom(__IntPtr bb, uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igClearDragDrop", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ClearDragDrop();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsDragDropPayloadBeingAccepted", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool IsDragDropPayloadBeingAccepted();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowClipRectBeforeSetChannel", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetWindowClipRectBeforeSetChannel(__IntPtr window, __IntPtr clip_rect);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginColumns", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void BeginColumns([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int count, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igEndColumns", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void EndColumns();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushColumnClipRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushColumnClipRect(int column_index);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushColumnsBackground", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushColumnsBackground();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopColumnsBackground", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PopColumnsBackground();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColumnsID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetColumnsID([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int count);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindOrCreateColumns", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr FindOrCreateColumns(__IntPtr window, uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColumnOffsetFromNorm", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float GetColumnOffsetFromNorm(__IntPtr columns, float offset_norm);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColumnNormFromOffset", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float GetColumnNormFromOffset(__IntPtr columns, float offset);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableOpenContextMenu", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableOpenContextMenu(int column_n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnEnabled", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSetColumnEnabled(int column_n, bool enabled);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnWidth", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSetColumnWidth(int column_n, float width);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnSortDirection", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSetColumnSortDirection(int column_n, int sort_direction, bool append_to_sort_specs);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetHoveredColumn", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int TableGetHoveredColumn();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetHeaderRowHeight", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float TableGetHeaderRowHeight();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTablePushBackgroundChannel", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TablePushBackgroundChannel();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTablePopBackgroundChannel", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TablePopBackgroundChannel();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableFindByID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr TableFindByID(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginTableEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool BeginTableEx([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name, uint id, int columns_count, int flags, global::DearImguiSharp.ImVec2.__Internal outer_size, float inner_width);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableBeginInitMemory", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableBeginInitMemory(__IntPtr table, int columns_count);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableBeginApplyRequests", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableBeginApplyRequests(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetupDrawChannels", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSetupDrawChannels(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableUpdateLayout", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableUpdateLayout(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableUpdateBorders", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableUpdateBorders(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableUpdateColumnsWeightFromWidth", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableUpdateColumnsWeightFromWidth(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableDrawBorders", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableDrawBorders(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableDrawContextMenu", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableDrawContextMenu(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableMergeDrawChannels", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableMergeDrawChannels(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSortSpecsSanitize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSortSpecsSanitize(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSortSpecsBuild", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSortSpecsBuild(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnNextSortDirection", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int TableGetColumnNextSortDirection(__IntPtr column);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableFixColumnSortDirection", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableFixColumnSortDirection(__IntPtr table, __IntPtr column);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnWidthAuto", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float TableGetColumnWidthAuto(__IntPtr table, __IntPtr column);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableBeginRow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableBeginRow(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableEndRow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableEndRow(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableBeginCell", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableBeginCell(__IntPtr table, int column_n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableEndCell", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableEndCell(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetCellBgRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableGetCellBgRect(__IntPtr pOut, __IntPtr table, int column_n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnNameTablePtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr TableGetColumnNameTablePtr(__IntPtr table, int column_n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnResizeID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint TableGetColumnResizeID(__IntPtr table, int column_n, int instance_no);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetMaxColumnWidth", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float TableGetMaxColumnWidth(__IntPtr table, int column_n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnWidthAutoSingle", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSetColumnWidthAutoSingle(__IntPtr table, int column_n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnWidthAutoAll", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSetColumnWidthAutoAll(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableRemove", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableRemove(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGcCompactTransientBuffers", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableGcCompactTransientBuffers(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGcCompactSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableGcCompactSettings();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableLoadSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableLoadSettings(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSaveSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSaveSettings(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableResetSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableResetSettings(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetBoundSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr TableGetBoundSettings(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSettingsInstallHandler", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSettingsInstallHandler(__IntPtr context);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSettingsCreate", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr TableSettingsCreate(uint id, int columns_count);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSettingsFindByID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr TableSettingsFindByID(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginTabBarEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool BeginTabBarEx(__IntPtr tab_bar, __IntPtr bb, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarFindTabByID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr TabBarFindTabByID(__IntPtr tab_bar, uint tab_id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarRemoveTab", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TabBarRemoveTab(__IntPtr tab_bar, uint tab_id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarCloseTab", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TabBarCloseTab(__IntPtr tab_bar, __IntPtr tab);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarQueueReorder", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TabBarQueueReorder(__IntPtr tab_bar, __IntPtr tab, int dir);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarProcessReorder", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool TabBarProcessReorder(__IntPtr tab_bar);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabItemEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool TabItemEx(__IntPtr tab_bar, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, bool* p_open, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabItemCalcSize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TabItemCalcSize(__IntPtr pOut, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, bool has_close_button);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabItemBackground", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TabItemBackground(__IntPtr draw_list, __IntPtr bb, int flags, uint col);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabItemLabelAndCloseButton", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TabItemLabelAndCloseButton(__IntPtr draw_list, __IntPtr bb, int flags, global::DearImguiSharp.ImVec2.__Internal frame_padding, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, uint tab_id, uint close_button_id, bool is_contents_visible, bool* out_just_closed, bool* out_text_clipped);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderText", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderText(global::DearImguiSharp.ImVec2.__Internal pos, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, bool hide_text_after_hash);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderTextWrapped", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderTextWrapped(global::DearImguiSharp.ImVec2.__Internal pos, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, float wrap_width);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderTextClipped", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderTextClipped(global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, __IntPtr text_size_if_known, global::DearImguiSharp.ImVec2.__Internal align, __IntPtr clip_rect);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderTextClippedEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderTextClippedEx(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, __IntPtr text_size_if_known, global::DearImguiSharp.ImVec2.__Internal align, __IntPtr clip_rect);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderTextEllipsis", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderTextEllipsis(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos_min, global::DearImguiSharp.ImVec2.__Internal pos_max, float clip_max_x, float ellipsis_max_x, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, __IntPtr text_size_if_known);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderFrame", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderFrame(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, bool border, float rounding);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderFrameBorder", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderFrameBorder(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, float rounding);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderColorRectWithAlphaCheckerboard", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderColorRectWithAlphaCheckerboard(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2.__Internal grid_off, float rounding, int rounding_corners_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderNavHighlight", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderNavHighlight(__IntPtr bb, uint id, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindRenderedTextEnd", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr FindRenderedTextEnd([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderArrow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderArrow(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, uint col, int dir, float scale);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderBullet", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderBullet(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, uint col);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderCheckMark", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderCheckMark(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, uint col, float sz);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderMouseCursor", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderMouseCursor(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, float scale, int mouse_cursor, uint col_fill, uint col_border, uint col_shadow);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderArrowPointingAt", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderArrowPointingAt(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal pos, global::DearImguiSharp.ImVec2.__Internal half_sz, int direction, uint col);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderRectFilledRangeH", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderRectFilledRangeH(__IntPtr draw_list, __IntPtr rect, uint col, float x_start_norm, float x_end_norm, float rounding);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderRectFilledWithHole", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void RenderRectFilledWithHole(__IntPtr draw_list, __IntPtr outer, __IntPtr inner, uint col, float rounding);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTextEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TextEx([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igButtonEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ButtonEx([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCloseButton", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool CloseButton(uint id, global::DearImguiSharp.ImVec2.__Internal pos);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCollapseButton", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool CollapseButton(uint id, global::DearImguiSharp.ImVec2.__Internal pos);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igArrowButtonEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ArrowButtonEx([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int dir, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igScrollbar", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void Scrollbar(global::DearImguiSharp.ImGuiAxis axis);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igScrollbarEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ScrollbarEx(__IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* p_scroll_v, float avail_v, float contents_v, int rounding_corners);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImageButtonEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ImageButtonEx(uint id, __IntPtr texture_id, global::DearImguiSharp.ImVec2.__Internal size, global::DearImguiSharp.ImVec2.__Internal uv0, global::DearImguiSharp.ImVec2.__Internal uv1, global::DearImguiSharp.ImVec2.__Internal padding, global::DearImguiSharp.ImVec4.__Internal bg_col, global::DearImguiSharp.ImVec4.__Internal tint_col);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowScrollbarRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GetWindowScrollbarRect(__IntPtr pOut, __IntPtr window, global::DearImguiSharp.ImGuiAxis axis);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowScrollbarID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetWindowScrollbarID(__IntPtr window, global::DearImguiSharp.ImGuiAxis axis);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowResizeID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetWindowResizeID(__IntPtr window, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSeparatorEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SeparatorEx(int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlagsS64Ptr", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool CheckboxFlagsS64Ptr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, long* flags, long flags_value);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlagsU64Ptr", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool CheckboxFlagsU64Ptr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, ulong* flags, ulong flags_value);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igButtonBehavior", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool ButtonBehavior(__IntPtr bb, uint id, bool* out_hovered, bool* out_held, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDragBehavior", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool DragBehavior(uint id, int data_type, __IntPtr p_v, float v_speed, __IntPtr p_min, __IntPtr p_max, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSliderBehavior", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool SliderBehavior(__IntPtr bb, uint id, int data_type, __IntPtr p_v, __IntPtr p_min, __IntPtr p_max, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format, int flags, __IntPtr out_grab_bb);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSplitterBehavior", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool SplitterBehavior(__IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* size1, float* size2, float min_size1, float min_size2, float hover_extend, float hover_visibility_delay);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeBehavior", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool TreeNodeBehavior(uint id, int flags, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label_end);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeBehaviorIsOpen", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool TreeNodeBehaviorIsOpen(uint id, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreePushOverrideID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TreePushOverrideID(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDataTypeGetInfo", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr DataTypeGetInfo(int data_type);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDataTypeFormatString", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int DataTypeFormatString(sbyte* buf, int buf_size, int data_type, __IntPtr p_data, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDataTypeApplyOp", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DataTypeApplyOp(int data_type, int op, __IntPtr output, __IntPtr arg_1, __IntPtr arg_2);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDataTypeApplyOpFromText", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool DataTypeApplyOpFromText([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string buf, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string initial_value_buf, int data_type, __IntPtr p_data, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDataTypeCompare", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int DataTypeCompare(int data_type, __IntPtr arg_1, __IntPtr arg_2);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDataTypeClamp", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool DataTypeClamp(int data_type, __IntPtr p_data, __IntPtr p_min, __IntPtr p_max);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igInputTextEx", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool InputTextEx([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string hint, sbyte* buf, int buf_size, global::DearImguiSharp.ImVec2.__Internal size_arg, int flags, __IntPtr callback, __IntPtr user_data);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTempInputText", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool TempInputText(__IntPtr bb, uint id, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, sbyte* buf, int buf_size, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTempInputScalar", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool TempInputScalar(__IntPtr bb, uint id, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int data_type, __IntPtr p_data, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string format, __IntPtr p_clamp_min, __IntPtr p_clamp_max);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTempInputIsActive", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool TempInputIsActive(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetInputTextState", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetInputTextState(uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igColorTooltip", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ColorTooltip([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, float* col, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igColorEditOptionsPopup", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ColorEditOptionsPopup(float* col, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igColorPickerOptionsPopup", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ColorPickerOptionsPopup(float* ref_col, int flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int PlotEx(global::DearImguiSharp.ImGuiPlotType plot_type, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, __IntPtr values_getter, __IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal frame_size);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igShadeVertsLinearColorGradientKeepAlpha", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ShadeVertsLinearColorGradientKeepAlpha(__IntPtr draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2.__Internal gradient_p0, global::DearImguiSharp.ImVec2.__Internal gradient_p1, uint col0, uint col1);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igShadeVertsLinearUV", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ShadeVertsLinearUV(__IntPtr draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal uv_a, global::DearImguiSharp.ImVec2.__Internal uv_b, bool clamp);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGcCompactTransientMiscBuffers", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GcCompactTransientMiscBuffers();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGcCompactTransientWindowBuffers", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GcCompactTransientWindowBuffers(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGcAwakeTransientWindowBuffers", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GcAwakeTransientWindowBuffers(__IntPtr window);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igErrorCheckEndFrameRecover", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ErrorCheckEndFrameRecover(__IntPtr log_callback, __IntPtr user_data);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugDrawItemRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugDrawItemRect(uint col);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugStartItemPicker", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugStartItemPicker();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeColumns", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeColumns(__IntPtr columns);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeDrawList", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeDrawList(__IntPtr window, __IntPtr draw_list, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeDrawCmdShowMeshAndBoundingBox", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeDrawCmdShowMeshAndBoundingBox(__IntPtr out_draw_list, __IntPtr draw_list, __IntPtr draw_cmd, bool show_mesh, bool show_aabb);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeStorage", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeStorage(__IntPtr storage, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeTabBar", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeTabBar(__IntPtr tab_bar, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeTable", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeTable(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeTableSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeTableSettings(__IntPtr settings);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeWindow", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeWindow(__IntPtr window, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeWindowSettings", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeWindowSettings(__IntPtr settings);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeWindowsList", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeWindowsList(__IntPtr windows, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugNodeViewport", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugNodeViewport(__IntPtr viewport);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDebugRenderViewportThumbnail", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void DebugRenderViewportThumbnail(__IntPtr draw_list, __IntPtr viewport, __IntPtr bb);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasGetBuilderForStbTruetype", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImFontAtlasGetBuilderForStbTruetype();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildInit", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildInit(__IntPtr atlas);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildSetupFont", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildSetupFont(__IntPtr atlas, __IntPtr font, __IntPtr font_config, float ascent, float descent);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildPackCustomRects", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildPackCustomRects(__IntPtr atlas, __IntPtr stbrp_context_opaque);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildFinish", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildFinish(__IntPtr atlas);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildRender8bppRectFromString", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildRender8bppRectFromString(__IntPtr atlas, int x, int y, int w, int h, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_str, sbyte in_marker_char, byte in_marker_pixel_value);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildRender32bppRectFromString", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildRender32bppRectFromString(__IntPtr atlas, int x, int y, int w, int h, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string in_str, sbyte in_marker_char, uint in_marker_pixel_value);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildMultiplyCalcLookupTable", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildMultiplyCalcLookupTable(byte[] out_table, float in_multiply_factor);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFontAtlasBuildMultiplyRectAlpha8", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImFontAtlasBuildMultiplyRectAlpha8(byte[] table, byte* pixels, int x, int y, int w, int h, int stride);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igLogText", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void LogText([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
@@ -12796,14 +32940,14 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static void SetScrollX(float scroll_x)
+        public static void SetScrollXFloat(float scroll_x)
         {
-            __Internal.SetScrollX(scroll_x);
+            __Internal.SetScrollXFloat(scroll_x);
         }
 
-        public static void SetScrollY(float scroll_y)
+        public static void SetScrollYFloat(float scroll_y)
         {
-            __Internal.SetScrollY(scroll_y);
+            __Internal.SetScrollYFloat(scroll_y);
         }
 
         public static float GetScrollMaxX()
@@ -12828,14 +32972,14 @@ namespace DearImguiSharp
             __Internal.SetScrollHereY(center_y_ratio);
         }
 
-        public static void SetScrollFromPosX(float local_x, float center_x_ratio)
+        public static void SetScrollFromPosXFloat(float local_x, float center_x_ratio)
         {
-            __Internal.SetScrollFromPosX(local_x, center_x_ratio);
+            __Internal.SetScrollFromPosXFloat(local_x, center_x_ratio);
         }
 
-        public static void SetScrollFromPosY(float local_y, float center_y_ratio)
+        public static void SetScrollFromPosYFloat(float local_y, float center_y_ratio)
         {
-            __Internal.SetScrollFromPosY(local_y, center_y_ratio);
+            __Internal.SetScrollFromPosYFloat(local_y, center_y_ratio);
         }
 
         public static void PushFont(global::DearImguiSharp.ImFont font)
@@ -12859,7 +33003,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(col, null))
                 throw new global::System.ArgumentNullException("col", "Cannot be null because it is passed by value.");
             var __arg1 = col.__Instance;
-            __Internal.PushStyleColorVec4(idx, __arg1);
+            __Internal.PushStyleColorVec4(idx, *(global::DearImguiSharp.ImVec4.__Internal*) __arg1);
         }
 
         public static void PopStyleColor(int count)
@@ -12966,7 +33110,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(col, null))
                 throw new global::System.ArgumentNullException("col", "Cannot be null because it is passed by value.");
             var __arg0 = col.__Instance;
-            var __ret = __Internal.GetColorU32Vec4(__arg0);
+            var __ret = __Internal.GetColorU32Vec4(*(global::DearImguiSharp.ImVec4.__Internal*) __arg0);
             return __ret;
         }
 
@@ -13174,7 +33318,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(col, null))
                 throw new global::System.ArgumentNullException("col", "Cannot be null because it is passed by value.");
             var __arg0 = col.__Instance;
-            __Internal.TextColored(__arg0, fmt);
+            __Internal.TextColored(*(global::DearImguiSharp.ImVec4.__Internal*) __arg0, fmt);
         }
 
         public static void TextDisabled(string fmt)
@@ -13244,7 +33388,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(border_col, null))
                 throw new global::System.ArgumentNullException("border_col", "Cannot be null because it is passed by value.");
             var __arg5 = border_col.__Instance;
-            __Internal.Image(user_texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, __arg4, __arg5);
+            __Internal.Image(user_texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec4.__Internal*) __arg4, *(global::DearImguiSharp.ImVec4.__Internal*) __arg5);
         }
 
         public static bool ImageButton(__IntPtr user_texture_id, global::DearImguiSharp.ImVec2 size, global::DearImguiSharp.ImVec2 uv0, global::DearImguiSharp.ImVec2 uv1, int frame_padding, global::DearImguiSharp.ImVec4 bg_col, global::DearImguiSharp.ImVec4 tint_col)
@@ -13264,7 +33408,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(tint_col, null))
                 throw new global::System.ArgumentNullException("tint_col", "Cannot be null because it is passed by value.");
             var __arg6 = tint_col.__Instance;
-            var __ret = __Internal.ImageButton(user_texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, frame_padding, __arg5, __arg6);
+            var __ret = __Internal.ImageButton(user_texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, frame_padding, *(global::DearImguiSharp.ImVec4.__Internal*) __arg5, *(global::DearImguiSharp.ImVec4.__Internal*) __arg6);
             return __ret;
         }
 
@@ -13760,7 +33904,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(size, null))
                 throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
             var __arg3 = size.__Instance;
-            var __ret = __Internal.ColorButton(desc_id, __arg1, flags, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3);
+            var __ret = __Internal.ColorButton(desc_id, *(global::DearImguiSharp.ImVec4.__Internal*) __arg1, flags, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3);
             return __ret;
         }
 
@@ -14084,9 +34228,9 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static bool IsPopupOpen(string str_id, int flags)
+        public static bool IsPopupOpenStr(string str_id, int flags)
         {
-            var __ret = __Internal.IsPopupOpen(str_id, flags);
+            var __ret = __Internal.IsPopupOpenStr(str_id, flags);
             return __ret;
         }
 
@@ -14166,9 +34310,9 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static string TableGetColumnName(int column_n)
+        public static string TableGetColumnNameInt(int column_n)
         {
-            var __ret = __Internal.TableGetColumnName(column_n);
+            var __ret = __Internal.TableGetColumnNameInt(column_n);
             return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
         }
 
@@ -14498,16 +34642,16 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static global::DearImguiSharp.ImDrawList GetBackgroundDrawList()
+        public static global::DearImguiSharp.ImDrawList GetBackgroundDrawListNil()
         {
-            var __ret = __Internal.GetBackgroundDrawList();
+            var __ret = __Internal.GetBackgroundDrawListNil();
             var __result0 = global::DearImguiSharp.ImDrawList.__GetOrCreateInstance(__ret, false);
             return __result0;
         }
 
-        public static global::DearImguiSharp.ImDrawList GetForegroundDrawList()
+        public static global::DearImguiSharp.ImDrawList GetForegroundDrawListNil()
         {
-            var __ret = __Internal.GetForegroundDrawList();
+            var __ret = __Internal.GetForegroundDrawListNil();
             var __result0 = global::DearImguiSharp.ImDrawList.__GetOrCreateInstance(__ret, false);
             return __result0;
         }
@@ -14582,7 +34726,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(@in, null))
                 throw new global::System.ArgumentNullException("@in", "Cannot be null because it is passed by value.");
             var __arg0 = @in.__Instance;
-            var __ret = __Internal.ColorConvertFloat4ToU32(__arg0);
+            var __ret = __Internal.ColorConvertFloat4ToU32(*(global::DearImguiSharp.ImVec4.__Internal*) __arg0);
             return __ret;
         }
 
@@ -15330,7 +35474,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(col, null))
                 throw new global::System.ArgumentNullException("col", "Cannot be null because it is passed by value.");
             var __arg0 = col.__Instance;
-            var __ret = __Internal.ImColorImColorVec4(__arg0);
+            var __ret = __Internal.ImColorImColorVec4(*(global::DearImguiSharp.ImVec4.__Internal*) __arg0);
             var __result0 = global::DearImguiSharp.ImColor.__GetOrCreateInstance(__ret, false);
             return __result0;
         }
@@ -16528,7 +36672,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(clip_rect, null))
                 throw new global::System.ArgumentNullException("clip_rect", "Cannot be null because it is passed by value.");
             var __arg5 = clip_rect.__Instance;
-            __Internal.ImFontRenderText(__arg0, __arg1, size, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, col, __arg5, text_begin, text_end, wrap_width, cpu_fine_clip);
+            __Internal.ImFontRenderText(__arg0, __arg1, size, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, col, *(global::DearImguiSharp.ImVec4.__Internal*) __arg5, text_begin, text_end, wrap_width, cpu_fine_clip);
         }
 
         public static void ImFontBuildLookupTable(global::DearImguiSharp.ImFont self)
@@ -16606,6 +36750,3550 @@ namespace DearImguiSharp
             var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
             var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
             __Internal.ImGuiViewportGetWorkCenter(__arg0, __arg1);
+        }
+
+        public static uint ImHashData(__IntPtr data, IntPtr data_size, uint seed)
+        {
+            var __ret = __Internal.ImHashData(data, data_size, seed);
+            return __ret;
+        }
+
+        public static uint ImHashStr(string data, IntPtr data_size, uint seed)
+        {
+            var __ret = __Internal.ImHashStr(data, data_size, seed);
+            return __ret;
+        }
+
+        public static uint ImAlphaBlendColors(uint col_a, uint col_b)
+        {
+            var __ret = __Internal.ImAlphaBlendColors(col_a, col_b);
+            return __ret;
+        }
+
+        public static bool ImIsPowerOfTwoInt(int v)
+        {
+            var __ret = __Internal.ImIsPowerOfTwoInt(v);
+            return __ret;
+        }
+
+        public static bool ImIsPowerOfTwoU64(ulong v)
+        {
+            var __ret = __Internal.ImIsPowerOfTwoU64(v);
+            return __ret;
+        }
+
+        public static int ImUpperPowerOfTwo(int v)
+        {
+            var __ret = __Internal.ImUpperPowerOfTwo(v);
+            return __ret;
+        }
+
+        public static int ImStricmp(string str1, string str2)
+        {
+            var __ret = __Internal.ImStricmp(str1, str2);
+            return __ret;
+        }
+
+        public static int ImStrnicmp(string str1, string str2, IntPtr count)
+        {
+            var __ret = __Internal.ImStrnicmp(str1, str2, count);
+            return __ret;
+        }
+
+        public static void ImStrncpy(sbyte* dst, string src, IntPtr count)
+        {
+            __Internal.ImStrncpy(dst, src, count);
+        }
+
+        public static sbyte* ImStrdup(string str)
+        {
+            var __ret = __Internal.ImStrdup(str);
+            return __ret;
+        }
+
+        public static sbyte* ImStrdupcpy(sbyte* dst, ref IntPtr p_dst_size, string str)
+        {
+            fixed (IntPtr* __p_dst_size1 = &p_dst_size)
+            {
+                var __arg1 = __p_dst_size1;
+                var __ret = __Internal.ImStrdupcpy(dst, __arg1, str);
+                return __ret;
+            }
+        }
+
+        public static string ImStrchrRange(string str_begin, string str_end, sbyte c)
+        {
+            var __ret = __Internal.ImStrchrRange(str_begin, str_end, c);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static int ImStrlenW(ref ushort str)
+        {
+            fixed (ushort* __str0 = &str)
+            {
+                var __arg0 = __str0;
+                var __ret = __Internal.ImStrlenW(__arg0);
+                return __ret;
+            }
+        }
+
+        public static string ImStreolRange(string str, string str_end)
+        {
+            var __ret = __Internal.ImStreolRange(str, str_end);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static ushort* ImStrbolW(ref ushort buf_mid_line, ref ushort buf_begin)
+        {
+            fixed (ushort* __buf_mid_line0 = &buf_mid_line)
+            {
+                var __arg0 = __buf_mid_line0;
+                fixed (ushort* __buf_begin1 = &buf_begin)
+                {
+                    var __arg1 = __buf_begin1;
+                    var __ret = __Internal.ImStrbolW(__arg0, __arg1);
+                    return __ret;
+                }
+            }
+        }
+
+        public static string ImStristr(string haystack, string haystack_end, string needle, string needle_end)
+        {
+            var __ret = __Internal.ImStristr(haystack, haystack_end, needle, needle_end);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static void ImStrTrimBlanks(sbyte* str)
+        {
+            __Internal.ImStrTrimBlanks(str);
+        }
+
+        public static string ImStrSkipBlank(string str)
+        {
+            var __ret = __Internal.ImStrSkipBlank(str);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static int ImFormatString(sbyte* buf, IntPtr buf_size, string fmt)
+        {
+            var __ret = __Internal.ImFormatString(buf, buf_size, fmt);
+            return __ret;
+        }
+
+        public static string ImParseFormatFindStart(string format)
+        {
+            var __ret = __Internal.ImParseFormatFindStart(format);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static string ImParseFormatFindEnd(string format)
+        {
+            var __ret = __Internal.ImParseFormatFindEnd(format);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static string ImParseFormatTrimDecorations(string format, sbyte* buf, IntPtr buf_size)
+        {
+            var __ret = __Internal.ImParseFormatTrimDecorations(format, buf, buf_size);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static int ImParseFormatPrecision(string format, int default_value)
+        {
+            var __ret = __Internal.ImParseFormatPrecision(format, default_value);
+            return __ret;
+        }
+
+        public static bool ImCharIsBlankA(sbyte c)
+        {
+            var __ret = __Internal.ImCharIsBlankA(c);
+            return __ret;
+        }
+
+        public static bool ImCharIsBlankW(uint c)
+        {
+            var __ret = __Internal.ImCharIsBlankW(c);
+            return __ret;
+        }
+
+        public static int ImTextStrToUtf8(sbyte* buf, int buf_size, ref ushort in_text, ref ushort in_text_end)
+        {
+            fixed (ushort* __in_text2 = &in_text)
+            {
+                var __arg2 = __in_text2;
+                fixed (ushort* __in_text_end3 = &in_text_end)
+                {
+                    var __arg3 = __in_text_end3;
+                    var __ret = __Internal.ImTextStrToUtf8(buf, buf_size, __arg2, __arg3);
+                    return __ret;
+                }
+            }
+        }
+
+        public static int ImTextCharFromUtf8(ref uint out_char, string in_text, string in_text_end)
+        {
+            fixed (uint* __out_char0 = &out_char)
+            {
+                var __arg0 = __out_char0;
+                var __ret = __Internal.ImTextCharFromUtf8(__arg0, in_text, in_text_end);
+                return __ret;
+            }
+        }
+
+        public static int ImTextStrFromUtf8(ref ushort buf, int buf_size, string in_text, string in_text_end, sbyte** in_remaining)
+        {
+            fixed (ushort* __buf0 = &buf)
+            {
+                var __arg0 = __buf0;
+                var __ret = __Internal.ImTextStrFromUtf8(__arg0, buf_size, in_text, in_text_end, in_remaining);
+                return __ret;
+            }
+        }
+
+        public static int ImTextCountCharsFromUtf8(string in_text, string in_text_end)
+        {
+            var __ret = __Internal.ImTextCountCharsFromUtf8(in_text, in_text_end);
+            return __ret;
+        }
+
+        public static int ImTextCountUtf8BytesFromChar(string in_text, string in_text_end)
+        {
+            var __ret = __Internal.ImTextCountUtf8BytesFromChar(in_text, in_text_end);
+            return __ret;
+        }
+
+        public static int ImTextCountUtf8BytesFromStr(ref ushort in_text, ref ushort in_text_end)
+        {
+            fixed (ushort* __in_text0 = &in_text)
+            {
+                var __arg0 = __in_text0;
+                fixed (ushort* __in_text_end1 = &in_text_end)
+                {
+                    var __arg1 = __in_text_end1;
+                    var __ret = __Internal.ImTextCountUtf8BytesFromStr(__arg0, __arg1);
+                    return __ret;
+                }
+            }
+        }
+
+        public static global::System.IntPtr ImFileOpen(string filename, string mode)
+        {
+            var __ret = __Internal.ImFileOpen(filename, mode);
+            return __ret;
+        }
+
+        public static bool ImFileClose(global::System.IntPtr file)
+        {
+            var __ret = __Internal.ImFileClose(file);
+            return __ret;
+        }
+
+        public static ulong ImFileGetSize(global::System.IntPtr file)
+        {
+            var __ret = __Internal.ImFileGetSize(file);
+            return __ret;
+        }
+
+        public static ulong ImFileRead(__IntPtr data, ulong size, ulong count, global::System.IntPtr file)
+        {
+            var __ret = __Internal.ImFileRead(data, size, count, file);
+            return __ret;
+        }
+
+        public static ulong ImFileWrite(__IntPtr data, ulong size, ulong count, global::System.IntPtr file)
+        {
+            var __ret = __Internal.ImFileWrite(data, size, count, file);
+            return __ret;
+        }
+
+        public static __IntPtr ImFileLoadToMemory(string filename, string mode, ref IntPtr out_file_size, int padding_bytes)
+        {
+            fixed (IntPtr* __out_file_size2 = &out_file_size)
+            {
+                var __arg2 = __out_file_size2;
+                var __ret = __Internal.ImFileLoadToMemory(filename, mode, __arg2, padding_bytes);
+                return __ret;
+            }
+        }
+
+        public static float ImPowFloat(float x, float y)
+        {
+            var __ret = __Internal.ImPowFloat(x, y);
+            return __ret;
+        }
+
+        public static double ImPowdouble(double x, double y)
+        {
+            var __ret = __Internal.ImPowdouble(x, y);
+            return __ret;
+        }
+
+        public static float ImLogFloat(float x)
+        {
+            var __ret = __Internal.ImLogFloat(x);
+            return __ret;
+        }
+
+        public static double ImLogdouble(double x)
+        {
+            var __ret = __Internal.ImLogdouble(x);
+            return __ret;
+        }
+
+        public static float ImAbsFloat(float x)
+        {
+            var __ret = __Internal.ImAbsFloat(x);
+            return __ret;
+        }
+
+        public static double ImAbsdouble(double x)
+        {
+            var __ret = __Internal.ImAbsdouble(x);
+            return __ret;
+        }
+
+        public static float ImSignFloat(float x)
+        {
+            var __ret = __Internal.ImSignFloat(x);
+            return __ret;
+        }
+
+        public static double ImSigndouble(double x)
+        {
+            var __ret = __Internal.ImSigndouble(x);
+            return __ret;
+        }
+
+        public static void ImMin(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 lhs, global::DearImguiSharp.ImVec2 rhs)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(lhs, null))
+                throw new global::System.ArgumentNullException("lhs", "Cannot be null because it is passed by value.");
+            var __arg1 = lhs.__Instance;
+            if (ReferenceEquals(rhs, null))
+                throw new global::System.ArgumentNullException("rhs", "Cannot be null because it is passed by value.");
+            var __arg2 = rhs.__Instance;
+            __Internal.ImMin(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2);
+        }
+
+        public static void ImMax(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 lhs, global::DearImguiSharp.ImVec2 rhs)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(lhs, null))
+                throw new global::System.ArgumentNullException("lhs", "Cannot be null because it is passed by value.");
+            var __arg1 = lhs.__Instance;
+            if (ReferenceEquals(rhs, null))
+                throw new global::System.ArgumentNullException("rhs", "Cannot be null because it is passed by value.");
+            var __arg2 = rhs.__Instance;
+            __Internal.ImMax(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2);
+        }
+
+        public static void ImClamp(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 v, global::DearImguiSharp.ImVec2 mn, global::DearImguiSharp.ImVec2 mx)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(v, null))
+                throw new global::System.ArgumentNullException("v", "Cannot be null because it is passed by value.");
+            var __arg1 = v.__Instance;
+            if (ReferenceEquals(mn, null))
+                throw new global::System.ArgumentNullException("mn", "Cannot be null because it is passed by value.");
+            var __arg2 = mn.__Instance;
+            if (ReferenceEquals(mx, null))
+                throw new global::System.ArgumentNullException("mx", "Cannot be null because it is passed by value.");
+            var __arg3 = mx.__Instance;
+            __Internal.ImClamp(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3);
+        }
+
+        public static void ImLerpVec2Float(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, float t)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg1 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg2 = b.__Instance;
+            __Internal.ImLerpVec2Float(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, t);
+        }
+
+        public static void ImLerpVec2Vec2(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, global::DearImguiSharp.ImVec2 t)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg1 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg2 = b.__Instance;
+            if (ReferenceEquals(t, null))
+                throw new global::System.ArgumentNullException("t", "Cannot be null because it is passed by value.");
+            var __arg3 = t.__Instance;
+            __Internal.ImLerpVec2Vec2(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3);
+        }
+
+        public static void ImLerpVec4(global::DearImguiSharp.ImVec4 pOut, global::DearImguiSharp.ImVec4 a, global::DearImguiSharp.ImVec4 b, float t)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg1 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg2 = b.__Instance;
+            __Internal.ImLerpVec4(__arg0, *(global::DearImguiSharp.ImVec4.__Internal*) __arg1, *(global::DearImguiSharp.ImVec4.__Internal*) __arg2, t);
+        }
+
+        public static float ImSaturate(float f)
+        {
+            var __ret = __Internal.ImSaturate(f);
+            return __ret;
+        }
+
+        public static float ImLengthSqrVec2(global::DearImguiSharp.ImVec2 lhs)
+        {
+            if (ReferenceEquals(lhs, null))
+                throw new global::System.ArgumentNullException("lhs", "Cannot be null because it is passed by value.");
+            var __arg0 = lhs.__Instance;
+            var __ret = __Internal.ImLengthSqrVec2(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0);
+            return __ret;
+        }
+
+        public static float ImLengthSqrVec4(global::DearImguiSharp.ImVec4 lhs)
+        {
+            if (ReferenceEquals(lhs, null))
+                throw new global::System.ArgumentNullException("lhs", "Cannot be null because it is passed by value.");
+            var __arg0 = lhs.__Instance;
+            var __ret = __Internal.ImLengthSqrVec4(*(global::DearImguiSharp.ImVec4.__Internal*) __arg0);
+            return __ret;
+        }
+
+        public static float ImInvLength(global::DearImguiSharp.ImVec2 lhs, float fail_value)
+        {
+            if (ReferenceEquals(lhs, null))
+                throw new global::System.ArgumentNullException("lhs", "Cannot be null because it is passed by value.");
+            var __arg0 = lhs.__Instance;
+            var __ret = __Internal.ImInvLength(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, fail_value);
+            return __ret;
+        }
+
+        public static float ImFloorFloat(float f)
+        {
+            var __ret = __Internal.ImFloorFloat(f);
+            return __ret;
+        }
+
+        public static void ImFloorVec2(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 v)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(v, null))
+                throw new global::System.ArgumentNullException("v", "Cannot be null because it is passed by value.");
+            var __arg1 = v.__Instance;
+            __Internal.ImFloorVec2(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+        }
+
+        public static int ImModPositive(int a, int b)
+        {
+            var __ret = __Internal.ImModPositive(a, b);
+            return __ret;
+        }
+
+        public static float ImDot(global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b)
+        {
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg0 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg1 = b.__Instance;
+            var __ret = __Internal.ImDot(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+            return __ret;
+        }
+
+        public static void ImRotate(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 v, float cos_a, float sin_a)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(v, null))
+                throw new global::System.ArgumentNullException("v", "Cannot be null because it is passed by value.");
+            var __arg1 = v.__Instance;
+            __Internal.ImRotate(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, cos_a, sin_a);
+        }
+
+        public static float ImLinearSweep(float current, float target, float speed)
+        {
+            var __ret = __Internal.ImLinearSweep(current, target, speed);
+            return __ret;
+        }
+
+        public static void ImMul(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 lhs, global::DearImguiSharp.ImVec2 rhs)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(lhs, null))
+                throw new global::System.ArgumentNullException("lhs", "Cannot be null because it is passed by value.");
+            var __arg1 = lhs.__Instance;
+            if (ReferenceEquals(rhs, null))
+                throw new global::System.ArgumentNullException("rhs", "Cannot be null because it is passed by value.");
+            var __arg2 = rhs.__Instance;
+            __Internal.ImMul(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2);
+        }
+
+        public static void ImBezierCubicCalc(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 p1, global::DearImguiSharp.ImVec2 p2, global::DearImguiSharp.ImVec2 p3, global::DearImguiSharp.ImVec2 p4, float t)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(p1, null))
+                throw new global::System.ArgumentNullException("p1", "Cannot be null because it is passed by value.");
+            var __arg1 = p1.__Instance;
+            if (ReferenceEquals(p2, null))
+                throw new global::System.ArgumentNullException("p2", "Cannot be null because it is passed by value.");
+            var __arg2 = p2.__Instance;
+            if (ReferenceEquals(p3, null))
+                throw new global::System.ArgumentNullException("p3", "Cannot be null because it is passed by value.");
+            var __arg3 = p3.__Instance;
+            if (ReferenceEquals(p4, null))
+                throw new global::System.ArgumentNullException("p4", "Cannot be null because it is passed by value.");
+            var __arg4 = p4.__Instance;
+            __Internal.ImBezierCubicCalc(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, t);
+        }
+
+        public static void ImBezierCubicClosestPoint(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 p1, global::DearImguiSharp.ImVec2 p2, global::DearImguiSharp.ImVec2 p3, global::DearImguiSharp.ImVec2 p4, global::DearImguiSharp.ImVec2 p, int num_segments)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(p1, null))
+                throw new global::System.ArgumentNullException("p1", "Cannot be null because it is passed by value.");
+            var __arg1 = p1.__Instance;
+            if (ReferenceEquals(p2, null))
+                throw new global::System.ArgumentNullException("p2", "Cannot be null because it is passed by value.");
+            var __arg2 = p2.__Instance;
+            if (ReferenceEquals(p3, null))
+                throw new global::System.ArgumentNullException("p3", "Cannot be null because it is passed by value.");
+            var __arg3 = p3.__Instance;
+            if (ReferenceEquals(p4, null))
+                throw new global::System.ArgumentNullException("p4", "Cannot be null because it is passed by value.");
+            var __arg4 = p4.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg5 = p.__Instance;
+            __Internal.ImBezierCubicClosestPoint(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, num_segments);
+        }
+
+        public static void ImBezierCubicClosestPointCasteljau(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 p1, global::DearImguiSharp.ImVec2 p2, global::DearImguiSharp.ImVec2 p3, global::DearImguiSharp.ImVec2 p4, global::DearImguiSharp.ImVec2 p, float tess_tol)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(p1, null))
+                throw new global::System.ArgumentNullException("p1", "Cannot be null because it is passed by value.");
+            var __arg1 = p1.__Instance;
+            if (ReferenceEquals(p2, null))
+                throw new global::System.ArgumentNullException("p2", "Cannot be null because it is passed by value.");
+            var __arg2 = p2.__Instance;
+            if (ReferenceEquals(p3, null))
+                throw new global::System.ArgumentNullException("p3", "Cannot be null because it is passed by value.");
+            var __arg3 = p3.__Instance;
+            if (ReferenceEquals(p4, null))
+                throw new global::System.ArgumentNullException("p4", "Cannot be null because it is passed by value.");
+            var __arg4 = p4.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg5 = p.__Instance;
+            __Internal.ImBezierCubicClosestPointCasteljau(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, tess_tol);
+        }
+
+        public static void ImBezierQuadraticCalc(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 p1, global::DearImguiSharp.ImVec2 p2, global::DearImguiSharp.ImVec2 p3, float t)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(p1, null))
+                throw new global::System.ArgumentNullException("p1", "Cannot be null because it is passed by value.");
+            var __arg1 = p1.__Instance;
+            if (ReferenceEquals(p2, null))
+                throw new global::System.ArgumentNullException("p2", "Cannot be null because it is passed by value.");
+            var __arg2 = p2.__Instance;
+            if (ReferenceEquals(p3, null))
+                throw new global::System.ArgumentNullException("p3", "Cannot be null because it is passed by value.");
+            var __arg3 = p3.__Instance;
+            __Internal.ImBezierQuadraticCalc(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, t);
+        }
+
+        public static void ImLineClosestPoint(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, global::DearImguiSharp.ImVec2 p)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg1 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg2 = b.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg3 = p.__Instance;
+            __Internal.ImLineClosestPoint(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3);
+        }
+
+        public static bool ImTriangleContainsPoint(global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, global::DearImguiSharp.ImVec2 c, global::DearImguiSharp.ImVec2 p)
+        {
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg0 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg1 = b.__Instance;
+            if (ReferenceEquals(c, null))
+                throw new global::System.ArgumentNullException("c", "Cannot be null because it is passed by value.");
+            var __arg2 = c.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg3 = p.__Instance;
+            var __ret = __Internal.ImTriangleContainsPoint(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3);
+            return __ret;
+        }
+
+        public static void ImTriangleClosestPoint(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, global::DearImguiSharp.ImVec2 c, global::DearImguiSharp.ImVec2 p)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg1 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg2 = b.__Instance;
+            if (ReferenceEquals(c, null))
+                throw new global::System.ArgumentNullException("c", "Cannot be null because it is passed by value.");
+            var __arg3 = c.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg4 = p.__Instance;
+            __Internal.ImTriangleClosestPoint(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4);
+        }
+
+        public static void ImTriangleBarycentricCoords(global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, global::DearImguiSharp.ImVec2 c, global::DearImguiSharp.ImVec2 p, ref float out_u, ref float out_v, ref float out_w)
+        {
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg0 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg1 = b.__Instance;
+            if (ReferenceEquals(c, null))
+                throw new global::System.ArgumentNullException("c", "Cannot be null because it is passed by value.");
+            var __arg2 = c.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg3 = p.__Instance;
+            fixed (float* __out_u4 = &out_u)
+            {
+                var __arg4 = __out_u4;
+                fixed (float* __out_v5 = &out_v)
+                {
+                    var __arg5 = __out_v5;
+                    fixed (float* __out_w6 = &out_w)
+                    {
+                        var __arg6 = __out_w6;
+                        __Internal.ImTriangleBarycentricCoords(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, __arg4, __arg5, __arg6);
+                    }
+                }
+            }
+        }
+
+        public static float ImTriangleArea(global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, global::DearImguiSharp.ImVec2 c)
+        {
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg0 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg1 = b.__Instance;
+            if (ReferenceEquals(c, null))
+                throw new global::System.ArgumentNullException("c", "Cannot be null because it is passed by value.");
+            var __arg2 = c.__Instance;
+            var __ret = __Internal.ImTriangleArea(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2);
+            return __ret;
+        }
+
+        public static int ImGetDirQuadrantFromDelta(float dx, float dy)
+        {
+            var __ret = __Internal.ImGetDirQuadrantFromDelta(dx, dy);
+            return __ret;
+        }
+
+        public static global::DearImguiSharp.ImVec1 ImVec1ImVec1Nil()
+        {
+            var __ret = __Internal.ImVec1ImVec1Nil();
+            var __result0 = global::DearImguiSharp.ImVec1.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImVec1_destroy(global::DearImguiSharp.ImVec1 self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImVec1_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImVec1 ImVec1ImVec1Float(float _x)
+        {
+            var __ret = __Internal.ImVec1ImVec1Float(_x);
+            var __result0 = global::DearImguiSharp.ImVec1.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImVec2ih ImVec2ihImVec2ihNil()
+        {
+            var __ret = __Internal.ImVec2ihImVec2ihNil();
+            var __result0 = global::DearImguiSharp.ImVec2ih.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImVec2ih_destroy(global::DearImguiSharp.ImVec2ih self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImVec2ih_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImVec2ih ImVec2ihImVec2ihshort(short _x, short _y)
+        {
+            var __ret = __Internal.ImVec2ihImVec2ihshort(_x, _y);
+            var __result0 = global::DearImguiSharp.ImVec2ih.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImRect ImRectImRectNil()
+        {
+            var __ret = __Internal.ImRectImRectNil();
+            var __result0 = global::DearImguiSharp.ImRect.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImRect_destroy(global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRect_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImRect ImRectImRectVec2(global::DearImguiSharp.ImVec2 min, global::DearImguiSharp.ImVec2 max)
+        {
+            if (ReferenceEquals(min, null))
+                throw new global::System.ArgumentNullException("min", "Cannot be null because it is passed by value.");
+            var __arg0 = min.__Instance;
+            if (ReferenceEquals(max, null))
+                throw new global::System.ArgumentNullException("max", "Cannot be null because it is passed by value.");
+            var __arg1 = max.__Instance;
+            var __ret = __Internal.ImRectImRectVec2(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+            var __result0 = global::DearImguiSharp.ImRect.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImRect ImRectImRectVec4(global::DearImguiSharp.ImVec4 v)
+        {
+            if (ReferenceEquals(v, null))
+                throw new global::System.ArgumentNullException("v", "Cannot be null because it is passed by value.");
+            var __arg0 = v.__Instance;
+            var __ret = __Internal.ImRectImRectVec4(*(global::DearImguiSharp.ImVec4.__Internal*) __arg0);
+            var __result0 = global::DearImguiSharp.ImRect.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImRect ImRectImRectFloat(float x1, float y1, float x2, float y2)
+        {
+            var __ret = __Internal.ImRectImRectFloat(x1, y1, x2, y2);
+            var __result0 = global::DearImguiSharp.ImRect.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImRectGetCenter(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectGetCenter(__arg0, __arg1);
+        }
+
+        public static void ImRectGetSize(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectGetSize(__arg0, __arg1);
+        }
+
+        public static float ImRectGetWidth(global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImRectGetWidth(__arg0);
+            return __ret;
+        }
+
+        public static float ImRectGetHeight(global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImRectGetHeight(__arg0);
+            return __ret;
+        }
+
+        public static void ImRectGetTL(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectGetTL(__arg0, __arg1);
+        }
+
+        public static void ImRectGetTR(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectGetTR(__arg0, __arg1);
+        }
+
+        public static void ImRectGetBL(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectGetBL(__arg0, __arg1);
+        }
+
+        public static void ImRectGetBR(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectGetBR(__arg0, __arg1);
+        }
+
+        public static bool ImRectContainsVec2(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImVec2 p)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg1 = p.__Instance;
+            var __ret = __Internal.ImRectContainsVec2(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+            return __ret;
+        }
+
+        public static bool ImRectContainsRect(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImRect r)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(r, null))
+                throw new global::System.ArgumentNullException("r", "Cannot be null because it is passed by value.");
+            var __arg1 = r.__Instance;
+            var __ret = __Internal.ImRectContainsRect(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool ImRectOverlaps(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImRect r)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(r, null))
+                throw new global::System.ArgumentNullException("r", "Cannot be null because it is passed by value.");
+            var __arg1 = r.__Instance;
+            var __ret = __Internal.ImRectOverlaps(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static void ImRectAddVec2(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImVec2 p)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(p, null))
+                throw new global::System.ArgumentNullException("p", "Cannot be null because it is passed by value.");
+            var __arg1 = p.__Instance;
+            __Internal.ImRectAddVec2(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+        }
+
+        public static void ImRectAddRect(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImRect r)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(r, null))
+                throw new global::System.ArgumentNullException("r", "Cannot be null because it is passed by value.");
+            var __arg1 = r.__Instance;
+            __Internal.ImRectAddRect(__arg0, __arg1);
+        }
+
+        public static void ImRectExpandFloat(global::DearImguiSharp.ImRect self, float amount)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectExpandFloat(__arg0, amount);
+        }
+
+        public static void ImRectExpandVec2(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImVec2 amount)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(amount, null))
+                throw new global::System.ArgumentNullException("amount", "Cannot be null because it is passed by value.");
+            var __arg1 = amount.__Instance;
+            __Internal.ImRectExpandVec2(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+        }
+
+        public static void ImRectTranslate(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImVec2 d)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(d, null))
+                throw new global::System.ArgumentNullException("d", "Cannot be null because it is passed by value.");
+            var __arg1 = d.__Instance;
+            __Internal.ImRectTranslate(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+        }
+
+        public static void ImRectTranslateX(global::DearImguiSharp.ImRect self, float dx)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectTranslateX(__arg0, dx);
+        }
+
+        public static void ImRectTranslateY(global::DearImguiSharp.ImRect self, float dy)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectTranslateY(__arg0, dy);
+        }
+
+        public static void ImRectClipWith(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImRect r)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(r, null))
+                throw new global::System.ArgumentNullException("r", "Cannot be null because it is passed by value.");
+            var __arg1 = r.__Instance;
+            __Internal.ImRectClipWith(__arg0, __arg1);
+        }
+
+        public static void ImRectClipWithFull(global::DearImguiSharp.ImRect self, global::DearImguiSharp.ImRect r)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(r, null))
+                throw new global::System.ArgumentNullException("r", "Cannot be null because it is passed by value.");
+            var __arg1 = r.__Instance;
+            __Internal.ImRectClipWithFull(__arg0, __arg1);
+        }
+
+        public static void ImRectFloor(global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectFloor(__arg0);
+        }
+
+        public static bool ImRectIsInverted(global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImRectIsInverted(__arg0);
+            return __ret;
+        }
+
+        public static void ImRectToVec4(global::DearImguiSharp.ImVec4 pOut, global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImRectToVec4(__arg0, __arg1);
+        }
+
+        public static bool ImBitArrayTestBit(ref uint arr, int n)
+        {
+            fixed (uint* __arr0 = &arr)
+            {
+                var __arg0 = __arr0;
+                var __ret = __Internal.ImBitArrayTestBit(__arg0, n);
+                return __ret;
+            }
+        }
+
+        public static void ImBitArrayClearBit(ref uint arr, int n)
+        {
+            fixed (uint* __arr0 = &arr)
+            {
+                var __arg0 = __arr0;
+                __Internal.ImBitArrayClearBit(__arg0, n);
+            }
+        }
+
+        public static void ImBitArraySetBit(ref uint arr, int n)
+        {
+            fixed (uint* __arr0 = &arr)
+            {
+                var __arg0 = __arr0;
+                __Internal.ImBitArraySetBit(__arg0, n);
+            }
+        }
+
+        public static void ImBitArraySetBitRange(ref uint arr, int n, int n2)
+        {
+            fixed (uint* __arr0 = &arr)
+            {
+                var __arg0 = __arr0;
+                __Internal.ImBitArraySetBitRange(__arg0, n, n2);
+            }
+        }
+
+        public static void ImBitVectorCreate(global::DearImguiSharp.ImBitVector self, int sz)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImBitVectorCreate(__arg0, sz);
+        }
+
+        public static void ImBitVectorClear(global::DearImguiSharp.ImBitVector self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImBitVectorClear(__arg0);
+        }
+
+        public static bool ImBitVectorTestBit(global::DearImguiSharp.ImBitVector self, int n)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImBitVectorTestBit(__arg0, n);
+            return __ret;
+        }
+
+        public static void ImBitVectorSetBit(global::DearImguiSharp.ImBitVector self, int n)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImBitVectorSetBit(__arg0, n);
+        }
+
+        public static void ImBitVectorClearBit(global::DearImguiSharp.ImBitVector self, int n)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImBitVectorClearBit(__arg0, n);
+        }
+
+        public static global::DearImguiSharp.ImDrawListSharedData ImDrawListSharedDataImDrawListSharedData()
+        {
+            var __ret = __Internal.ImDrawListSharedDataImDrawListSharedData();
+            var __result0 = global::DearImguiSharp.ImDrawListSharedData.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImDrawListSharedData_destroy(global::DearImguiSharp.ImDrawListSharedData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImDrawListSharedData_destroy(__arg0);
+        }
+
+        public static void ImDrawListSharedDataSetCircleSegmentMaxError(global::DearImguiSharp.ImDrawListSharedData self, float max_error)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImDrawListSharedDataSetCircleSegmentMaxError(__arg0, max_error);
+        }
+
+        public static void ImDrawDataBuilderClear(global::DearImguiSharp.ImDrawDataBuilder self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImDrawDataBuilderClear(__arg0);
+        }
+
+        public static void ImDrawDataBuilderClearFreeMemory(global::DearImguiSharp.ImDrawDataBuilder self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImDrawDataBuilderClearFreeMemory(__arg0);
+        }
+
+        public static int ImDrawDataBuilderGetDrawListCount(global::DearImguiSharp.ImDrawDataBuilder self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImDrawDataBuilderGetDrawListCount(__arg0);
+            return __ret;
+        }
+
+        public static void ImDrawDataBuilderFlattenIntoSingleLayer(global::DearImguiSharp.ImDrawDataBuilder self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImDrawDataBuilderFlattenIntoSingleLayer(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiStyleMod ImGuiStyleModImGuiStyleModInt(int idx, int v)
+        {
+            var __ret = __Internal.ImGuiStyleModImGuiStyleModInt(idx, v);
+            var __result0 = global::DearImguiSharp.ImGuiStyleMod.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiStyleMod_destroy(global::DearImguiSharp.ImGuiStyleMod self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiStyleMod_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiStyleMod ImGuiStyleModImGuiStyleModFloat(int idx, float v)
+        {
+            var __ret = __Internal.ImGuiStyleModImGuiStyleModFloat(idx, v);
+            var __result0 = global::DearImguiSharp.ImGuiStyleMod.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiStyleMod ImGuiStyleModImGuiStyleModVec2(int idx, global::DearImguiSharp.ImVec2 v)
+        {
+            if (ReferenceEquals(v, null))
+                throw new global::System.ArgumentNullException("v", "Cannot be null because it is passed by value.");
+            var __arg1 = v.__Instance;
+            var __ret = __Internal.ImGuiStyleModImGuiStyleModVec2(idx, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+            var __result0 = global::DearImguiSharp.ImGuiStyleMod.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiMenuColumns ImGuiMenuColumnsImGuiMenuColumns()
+        {
+            var __ret = __Internal.ImGuiMenuColumnsImGuiMenuColumns();
+            var __result0 = global::DearImguiSharp.ImGuiMenuColumns.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiMenuColumns_destroy(global::DearImguiSharp.ImGuiMenuColumns self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiMenuColumns_destroy(__arg0);
+        }
+
+        public static void ImGuiMenuColumnsUpdate(global::DearImguiSharp.ImGuiMenuColumns self, int count, float spacing, bool clear)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiMenuColumnsUpdate(__arg0, count, spacing, clear);
+        }
+
+        public static float ImGuiMenuColumnsDeclColumns(global::DearImguiSharp.ImGuiMenuColumns self, float w0, float w1, float w2)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiMenuColumnsDeclColumns(__arg0, w0, w1, w2);
+            return __ret;
+        }
+
+        public static float ImGuiMenuColumnsCalcExtraSpace(global::DearImguiSharp.ImGuiMenuColumns self, float avail_w)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiMenuColumnsCalcExtraSpace(__arg0, avail_w);
+            return __ret;
+        }
+
+        public static global::DearImguiSharp.ImGuiInputTextState ImGuiInputTextStateImGuiInputTextState()
+        {
+            var __ret = __Internal.ImGuiInputTextStateImGuiInputTextState();
+            var __result0 = global::DearImguiSharp.ImGuiInputTextState.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiInputTextState_destroy(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextState_destroy(__arg0);
+        }
+
+        public static void ImGuiInputTextStateClearText(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextStateClearText(__arg0);
+        }
+
+        public static void ImGuiInputTextStateClearFreeMemory(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextStateClearFreeMemory(__arg0);
+        }
+
+        public static int ImGuiInputTextStateGetUndoAvailCount(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiInputTextStateGetUndoAvailCount(__arg0);
+            return __ret;
+        }
+
+        public static int ImGuiInputTextStateGetRedoAvailCount(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiInputTextStateGetRedoAvailCount(__arg0);
+            return __ret;
+        }
+
+        public static void ImGuiInputTextStateOnKeyPressed(global::DearImguiSharp.ImGuiInputTextState self, int key)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextStateOnKeyPressed(__arg0, key);
+        }
+
+        public static void ImGuiInputTextStateCursorAnimReset(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextStateCursorAnimReset(__arg0);
+        }
+
+        public static void ImGuiInputTextStateCursorClamp(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextStateCursorClamp(__arg0);
+        }
+
+        public static bool ImGuiInputTextStateHasSelection(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiInputTextStateHasSelection(__arg0);
+            return __ret;
+        }
+
+        public static void ImGuiInputTextStateClearSelection(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextStateClearSelection(__arg0);
+        }
+
+        public static void ImGuiInputTextStateSelectAll(global::DearImguiSharp.ImGuiInputTextState self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiInputTextStateSelectAll(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiPopupData ImGuiPopupDataImGuiPopupData()
+        {
+            var __ret = __Internal.ImGuiPopupDataImGuiPopupData();
+            var __result0 = global::DearImguiSharp.ImGuiPopupData.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiPopupData_destroy(global::DearImguiSharp.ImGuiPopupData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiPopupData_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiNavMoveResult ImGuiNavMoveResultImGuiNavMoveResult()
+        {
+            var __ret = __Internal.ImGuiNavMoveResultImGuiNavMoveResult();
+            var __result0 = global::DearImguiSharp.ImGuiNavMoveResult.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiNavMoveResult_destroy(global::DearImguiSharp.ImGuiNavMoveResult self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiNavMoveResult_destroy(__arg0);
+        }
+
+        public static void ImGuiNavMoveResultClear(global::DearImguiSharp.ImGuiNavMoveResult self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiNavMoveResultClear(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiNextWindowData ImGuiNextWindowDataImGuiNextWindowData()
+        {
+            var __ret = __Internal.ImGuiNextWindowDataImGuiNextWindowData();
+            var __result0 = global::DearImguiSharp.ImGuiNextWindowData.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiNextWindowData_destroy(global::DearImguiSharp.ImGuiNextWindowData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiNextWindowData_destroy(__arg0);
+        }
+
+        public static void ImGuiNextWindowDataClearFlags(global::DearImguiSharp.ImGuiNextWindowData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiNextWindowDataClearFlags(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiNextItemData ImGuiNextItemDataImGuiNextItemData()
+        {
+            var __ret = __Internal.ImGuiNextItemDataImGuiNextItemData();
+            var __result0 = global::DearImguiSharp.ImGuiNextItemData.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiNextItemData_destroy(global::DearImguiSharp.ImGuiNextItemData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiNextItemData_destroy(__arg0);
+        }
+
+        public static void ImGuiNextItemDataClearFlags(global::DearImguiSharp.ImGuiNextItemData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiNextItemDataClearFlags(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiPtrOrIndex ImGuiPtrOrIndexImGuiPtrOrIndexPtr(__IntPtr ptr)
+        {
+            var __ret = __Internal.ImGuiPtrOrIndexImGuiPtrOrIndexPtr(ptr);
+            var __result0 = global::DearImguiSharp.ImGuiPtrOrIndex.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiPtrOrIndex_destroy(global::DearImguiSharp.ImGuiPtrOrIndex self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiPtrOrIndex_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiPtrOrIndex ImGuiPtrOrIndexImGuiPtrOrIndexInt(int index)
+        {
+            var __ret = __Internal.ImGuiPtrOrIndexImGuiPtrOrIndexInt(index);
+            var __result0 = global::DearImguiSharp.ImGuiPtrOrIndex.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiOldColumnData ImGuiOldColumnDataImGuiOldColumnData()
+        {
+            var __ret = __Internal.ImGuiOldColumnDataImGuiOldColumnData();
+            var __result0 = global::DearImguiSharp.ImGuiOldColumnData.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiOldColumnData_destroy(global::DearImguiSharp.ImGuiOldColumnData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiOldColumnData_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiOldColumns ImGuiOldColumnsImGuiOldColumns()
+        {
+            var __ret = __Internal.ImGuiOldColumnsImGuiOldColumns();
+            var __result0 = global::DearImguiSharp.ImGuiOldColumns.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiOldColumns_destroy(global::DearImguiSharp.ImGuiOldColumns self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiOldColumns_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiViewportP ImGuiViewportP_ImGuiViewportP()
+        {
+            var __ret = __Internal.ImGuiViewportP_ImGuiViewportP();
+            var __result0 = global::DearImguiSharp.ImGuiViewportP.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiViewportP_destroy(global::DearImguiSharp.ImGuiViewportP self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiViewportP_destroy(__arg0);
+        }
+
+        public static void ImGuiViewportP_GetMainRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiViewportP self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiViewportP_GetMainRect(__arg0, __arg1);
+        }
+
+        public static void ImGuiViewportP_GetWorkRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiViewportP self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiViewportP_GetWorkRect(__arg0, __arg1);
+        }
+
+        public static void ImGuiViewportP_UpdateWorkRect(global::DearImguiSharp.ImGuiViewportP self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiViewportP_UpdateWorkRect(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiWindowSettings ImGuiWindowSettingsImGuiWindowSettings()
+        {
+            var __ret = __Internal.ImGuiWindowSettingsImGuiWindowSettings();
+            var __result0 = global::DearImguiSharp.ImGuiWindowSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiWindowSettings_destroy(global::DearImguiSharp.ImGuiWindowSettings self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiWindowSettings_destroy(__arg0);
+        }
+
+        public static sbyte* ImGuiWindowSettingsGetName(global::DearImguiSharp.ImGuiWindowSettings self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowSettingsGetName(__arg0);
+            return __ret;
+        }
+
+        public static global::DearImguiSharp.ImGuiSettingsHandler ImGuiSettingsHandlerImGuiSettingsHandler()
+        {
+            var __ret = __Internal.ImGuiSettingsHandlerImGuiSettingsHandler();
+            var __result0 = global::DearImguiSharp.ImGuiSettingsHandler.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiSettingsHandler_destroy(global::DearImguiSharp.ImGuiSettingsHandler self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiSettingsHandler_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiMetricsConfig ImGuiMetricsConfigImGuiMetricsConfig()
+        {
+            var __ret = __Internal.ImGuiMetricsConfigImGuiMetricsConfig();
+            var __result0 = global::DearImguiSharp.ImGuiMetricsConfig.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiMetricsConfig_destroy(global::DearImguiSharp.ImGuiMetricsConfig self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiMetricsConfig_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiStackSizes ImGuiStackSizesImGuiStackSizes()
+        {
+            var __ret = __Internal.ImGuiStackSizesImGuiStackSizes();
+            var __result0 = global::DearImguiSharp.ImGuiStackSizes.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiStackSizes_destroy(global::DearImguiSharp.ImGuiStackSizes self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiStackSizes_destroy(__arg0);
+        }
+
+        public static void ImGuiStackSizesSetToCurrentState(global::DearImguiSharp.ImGuiStackSizes self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiStackSizesSetToCurrentState(__arg0);
+        }
+
+        public static void ImGuiStackSizesCompareWithCurrentState(global::DearImguiSharp.ImGuiStackSizes self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiStackSizesCompareWithCurrentState(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiContextHook ImGuiContextHookImGuiContextHook()
+        {
+            var __ret = __Internal.ImGuiContextHookImGuiContextHook();
+            var __result0 = global::DearImguiSharp.ImGuiContextHook.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiContextHook_destroy(global::DearImguiSharp.ImGuiContextHook self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiContextHook_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiContext ImGuiContextImGuiContext(global::DearImguiSharp.ImFontAtlas shared_font_atlas)
+        {
+            var __arg0 = shared_font_atlas is null ? __IntPtr.Zero : shared_font_atlas.__Instance;
+            var __ret = __Internal.ImGuiContextImGuiContext(__arg0);
+            var __result0 = global::DearImguiSharp.ImGuiContext.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiContext_destroy(global::DearImguiSharp.ImGuiContext self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiContext_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiWindow ImGuiWindowImGuiWindow(global::DearImguiSharp.ImGuiContext context, string name)
+        {
+            var __arg0 = context is null ? __IntPtr.Zero : context.__Instance;
+            var __ret = __Internal.ImGuiWindowImGuiWindow(__arg0, name);
+            var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiWindow_destroy(global::DearImguiSharp.ImGuiWindow self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiWindow_destroy(__arg0);
+        }
+
+        public static uint ImGuiWindowGetIDStr(global::DearImguiSharp.ImGuiWindow self, string str, string str_end)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowGetIDStr(__arg0, str, str_end);
+            return __ret;
+        }
+
+        public static uint ImGuiWindowGetIDPtr(global::DearImguiSharp.ImGuiWindow self, __IntPtr ptr)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowGetIDPtr(__arg0, ptr);
+            return __ret;
+        }
+
+        public static uint ImGuiWindowGetIDInt(global::DearImguiSharp.ImGuiWindow self, int n)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowGetIDInt(__arg0, n);
+            return __ret;
+        }
+
+        public static uint ImGuiWindowGetIDNoKeepAliveStr(global::DearImguiSharp.ImGuiWindow self, string str, string str_end)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowGetIDNoKeepAliveStr(__arg0, str, str_end);
+            return __ret;
+        }
+
+        public static uint ImGuiWindowGetIDNoKeepAlivePtr(global::DearImguiSharp.ImGuiWindow self, __IntPtr ptr)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowGetIDNoKeepAlivePtr(__arg0, ptr);
+            return __ret;
+        }
+
+        public static uint ImGuiWindowGetIDNoKeepAliveInt(global::DearImguiSharp.ImGuiWindow self, int n)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowGetIDNoKeepAliveInt(__arg0, n);
+            return __ret;
+        }
+
+        public static uint ImGuiWindowGetIDFromRectangle(global::DearImguiSharp.ImGuiWindow self, global::DearImguiSharp.ImRect r_abs)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(r_abs, null))
+                throw new global::System.ArgumentNullException("r_abs", "Cannot be null because it is passed by value.");
+            var __arg1 = r_abs.__Instance;
+            var __ret = __Internal.ImGuiWindowGetIDFromRectangle(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static void ImGuiWindowRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiWindow self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiWindowRect(__arg0, __arg1);
+        }
+
+        public static float ImGuiWindowCalcFontSize(global::DearImguiSharp.ImGuiWindow self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowCalcFontSize(__arg0);
+            return __ret;
+        }
+
+        public static float ImGuiWindowTitleBarHeight(global::DearImguiSharp.ImGuiWindow self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowTitleBarHeight(__arg0);
+            return __ret;
+        }
+
+        public static void ImGuiWindowTitleBarRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiWindow self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiWindowTitleBarRect(__arg0, __arg1);
+        }
+
+        public static float ImGuiWindowMenuBarHeight(global::DearImguiSharp.ImGuiWindow self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiWindowMenuBarHeight(__arg0);
+            return __ret;
+        }
+
+        public static void ImGuiWindowMenuBarRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiWindow self)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiWindowMenuBarRect(__arg0, __arg1);
+        }
+
+        public static global::DearImguiSharp.ImGuiLastItemDataBackup ImGuiLastItemDataBackupImGuiLastItemDataBackup()
+        {
+            var __ret = __Internal.ImGuiLastItemDataBackupImGuiLastItemDataBackup();
+            var __result0 = global::DearImguiSharp.ImGuiLastItemDataBackup.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiLastItemDataBackup_destroy(global::DearImguiSharp.ImGuiLastItemDataBackup self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiLastItemDataBackup_destroy(__arg0);
+        }
+
+        public static void ImGuiLastItemDataBackupBackup(global::DearImguiSharp.ImGuiLastItemDataBackup self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiLastItemDataBackupBackup(__arg0);
+        }
+
+        public static void ImGuiLastItemDataBackupRestore(global::DearImguiSharp.ImGuiLastItemDataBackup self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiLastItemDataBackupRestore(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTabItem ImGuiTabItemImGuiTabItem()
+        {
+            var __ret = __Internal.ImGuiTabItemImGuiTabItem();
+            var __result0 = global::DearImguiSharp.ImGuiTabItem.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiTabItem_destroy(global::DearImguiSharp.ImGuiTabItem self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiTabItem_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTabBar ImGuiTabBarImGuiTabBar()
+        {
+            var __ret = __Internal.ImGuiTabBarImGuiTabBar();
+            var __result0 = global::DearImguiSharp.ImGuiTabBar.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiTabBar_destroy(global::DearImguiSharp.ImGuiTabBar self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiTabBar_destroy(__arg0);
+        }
+
+        public static int ImGuiTabBarGetTabOrder(global::DearImguiSharp.ImGuiTabBar self, global::DearImguiSharp.ImGuiTabItem tab)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __arg1 = tab is null ? __IntPtr.Zero : tab.__Instance;
+            var __ret = __Internal.ImGuiTabBarGetTabOrder(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static string ImGuiTabBarGetTabName(global::DearImguiSharp.ImGuiTabBar self, global::DearImguiSharp.ImGuiTabItem tab)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __arg1 = tab is null ? __IntPtr.Zero : tab.__Instance;
+            var __ret = __Internal.ImGuiTabBarGetTabName(__arg0, __arg1);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static global::DearImguiSharp.ImGuiTableColumn ImGuiTableColumnImGuiTableColumn()
+        {
+            var __ret = __Internal.ImGuiTableColumnImGuiTableColumn();
+            var __result0 = global::DearImguiSharp.ImGuiTableColumn.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiTableColumn_destroy(global::DearImguiSharp.ImGuiTableColumn self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiTableColumn_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTable ImGuiTableImGuiTable()
+        {
+            var __ret = __Internal.ImGuiTableImGuiTable();
+            var __result0 = global::DearImguiSharp.ImGuiTable.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiTable_destroy(global::DearImguiSharp.ImGuiTable self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiTable_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTableColumnSettings ImGuiTableColumnSettingsImGuiTableColumnSettings()
+        {
+            var __ret = __Internal.ImGuiTableColumnSettingsImGuiTableColumnSettings();
+            var __result0 = global::DearImguiSharp.ImGuiTableColumnSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiTableColumnSettings_destroy(global::DearImguiSharp.ImGuiTableColumnSettings self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiTableColumnSettings_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTableSettings ImGuiTableSettingsImGuiTableSettings()
+        {
+            var __ret = __Internal.ImGuiTableSettingsImGuiTableSettings();
+            var __result0 = global::DearImguiSharp.ImGuiTableSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiTableSettings_destroy(global::DearImguiSharp.ImGuiTableSettings self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiTableSettings_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTableColumnSettings ImGuiTableSettingsGetColumnSettings(global::DearImguiSharp.ImGuiTableSettings self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImGuiTableSettingsGetColumnSettings(__arg0);
+            var __result0 = global::DearImguiSharp.ImGuiTableColumnSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiWindow GetCurrentWindowRead()
+        {
+            var __ret = __Internal.GetCurrentWindowRead();
+            var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiWindow GetCurrentWindow()
+        {
+            var __ret = __Internal.GetCurrentWindow();
+            var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiWindow FindWindowByID(uint id)
+        {
+            var __ret = __Internal.FindWindowByID(id);
+            var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiWindow FindWindowByName(string name)
+        {
+            var __ret = __Internal.FindWindowByName(name);
+            var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void UpdateWindowParentAndRootLinks(global::DearImguiSharp.ImGuiWindow window, int flags, global::DearImguiSharp.ImGuiWindow parent_window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __arg2 = parent_window is null ? __IntPtr.Zero : parent_window.__Instance;
+            __Internal.UpdateWindowParentAndRootLinks(__arg0, flags, __arg2);
+        }
+
+        public static void CalcWindowNextAutoFitSize(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.CalcWindowNextAutoFitSize(__arg0, __arg1);
+        }
+
+        public static bool IsWindowChildOf(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImGuiWindow potential_parent)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __arg1 = potential_parent is null ? __IntPtr.Zero : potential_parent.__Instance;
+            var __ret = __Internal.IsWindowChildOf(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool IsWindowAbove(global::DearImguiSharp.ImGuiWindow potential_above, global::DearImguiSharp.ImGuiWindow potential_below)
+        {
+            var __arg0 = potential_above is null ? __IntPtr.Zero : potential_above.__Instance;
+            var __arg1 = potential_below is null ? __IntPtr.Zero : potential_below.__Instance;
+            var __ret = __Internal.IsWindowAbove(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool IsWindowNavFocusable(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __ret = __Internal.IsWindowNavFocusable(__arg0);
+            return __ret;
+        }
+
+        public static void GetWindowAllowedExtentRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.GetWindowAllowedExtentRect(__arg0, __arg1);
+        }
+
+        public static void SetWindowPosWindowPtr(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImVec2 pos, int cond)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            __Internal.SetWindowPosWindowPtr(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, cond);
+        }
+
+        public static void SetWindowSizeWindowPtr(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImVec2 size, int cond)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            if (ReferenceEquals(size, null))
+                throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
+            var __arg1 = size.__Instance;
+            __Internal.SetWindowSizeWindowPtr(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, cond);
+        }
+
+        public static void SetWindowCollapsedWindowPtr(global::DearImguiSharp.ImGuiWindow window, bool collapsed, int cond)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.SetWindowCollapsedWindowPtr(__arg0, collapsed, cond);
+        }
+
+        public static void SetWindowHitTestHole(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImVec2 pos, global::DearImguiSharp.ImVec2 size)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            if (ReferenceEquals(size, null))
+                throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
+            var __arg2 = size.__Instance;
+            __Internal.SetWindowHitTestHole(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2);
+        }
+
+        public static void FocusWindow(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.FocusWindow(__arg0);
+        }
+
+        public static void FocusTopMostWindowUnderOne(global::DearImguiSharp.ImGuiWindow under_this_window, global::DearImguiSharp.ImGuiWindow ignore_window)
+        {
+            var __arg0 = under_this_window is null ? __IntPtr.Zero : under_this_window.__Instance;
+            var __arg1 = ignore_window is null ? __IntPtr.Zero : ignore_window.__Instance;
+            __Internal.FocusTopMostWindowUnderOne(__arg0, __arg1);
+        }
+
+        public static void BringWindowToFocusFront(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.BringWindowToFocusFront(__arg0);
+        }
+
+        public static void BringWindowToDisplayFront(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.BringWindowToDisplayFront(__arg0);
+        }
+
+        public static void BringWindowToDisplayBack(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.BringWindowToDisplayBack(__arg0);
+        }
+
+        public static void SetCurrentFont(global::DearImguiSharp.ImFont font)
+        {
+            var __arg0 = font is null ? __IntPtr.Zero : font.__Instance;
+            __Internal.SetCurrentFont(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImFont GetDefaultFont()
+        {
+            var __ret = __Internal.GetDefaultFont();
+            var __result0 = global::DearImguiSharp.ImFont.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImDrawList GetForegroundDrawListWindowPtr(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __ret = __Internal.GetForegroundDrawListWindowPtr(__arg0);
+            var __result0 = global::DearImguiSharp.ImDrawList.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImDrawList GetBackgroundDrawListViewportPtr(global::DearImguiSharp.ImGuiViewport viewport)
+        {
+            var __arg0 = viewport is null ? __IntPtr.Zero : viewport.__Instance;
+            var __ret = __Internal.GetBackgroundDrawListViewportPtr(__arg0);
+            var __result0 = global::DearImguiSharp.ImDrawList.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImDrawList GetForegroundDrawListViewportPtr(global::DearImguiSharp.ImGuiViewport viewport)
+        {
+            var __arg0 = viewport is null ? __IntPtr.Zero : viewport.__Instance;
+            var __ret = __Internal.GetForegroundDrawListViewportPtr(__arg0);
+            var __result0 = global::DearImguiSharp.ImDrawList.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void Initialize(global::DearImguiSharp.ImGuiContext context)
+        {
+            var __arg0 = context is null ? __IntPtr.Zero : context.__Instance;
+            __Internal.Initialize(__arg0);
+        }
+
+        public static void Shutdown(global::DearImguiSharp.ImGuiContext context)
+        {
+            var __arg0 = context is null ? __IntPtr.Zero : context.__Instance;
+            __Internal.Shutdown(__arg0);
+        }
+
+        public static void UpdateHoveredWindowAndCaptureFlags()
+        {
+            __Internal.UpdateHoveredWindowAndCaptureFlags();
+        }
+
+        public static void StartMouseMovingWindow(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.StartMouseMovingWindow(__arg0);
+        }
+
+        public static void UpdateMouseMovingWindowNewFrame()
+        {
+            __Internal.UpdateMouseMovingWindowNewFrame();
+        }
+
+        public static void UpdateMouseMovingWindowEndFrame()
+        {
+            __Internal.UpdateMouseMovingWindowEndFrame();
+        }
+
+        public static uint AddContextHook(global::DearImguiSharp.ImGuiContext context, global::DearImguiSharp.ImGuiContextHook hook)
+        {
+            var __arg0 = context is null ? __IntPtr.Zero : context.__Instance;
+            var __arg1 = hook is null ? __IntPtr.Zero : hook.__Instance;
+            var __ret = __Internal.AddContextHook(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static void RemoveContextHook(global::DearImguiSharp.ImGuiContext context, uint hook_to_remove)
+        {
+            var __arg0 = context is null ? __IntPtr.Zero : context.__Instance;
+            __Internal.RemoveContextHook(__arg0, hook_to_remove);
+        }
+
+        public static void CallContextHooks(global::DearImguiSharp.ImGuiContext context, global::DearImguiSharp.ImGuiContextHookType type)
+        {
+            var __arg0 = context is null ? __IntPtr.Zero : context.__Instance;
+            __Internal.CallContextHooks(__arg0, type);
+        }
+
+        public static void MarkIniSettingsDirtyNil()
+        {
+            __Internal.MarkIniSettingsDirtyNil();
+        }
+
+        public static void MarkIniSettingsDirtyWindowPtr(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.MarkIniSettingsDirtyWindowPtr(__arg0);
+        }
+
+        public static void ClearIniSettings()
+        {
+            __Internal.ClearIniSettings();
+        }
+
+        public static global::DearImguiSharp.ImGuiWindowSettings CreateNewWindowSettings(string name)
+        {
+            var __ret = __Internal.CreateNewWindowSettings(name);
+            var __result0 = global::DearImguiSharp.ImGuiWindowSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiWindowSettings FindWindowSettings(uint id)
+        {
+            var __ret = __Internal.FindWindowSettings(id);
+            var __result0 = global::DearImguiSharp.ImGuiWindowSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiWindowSettings FindOrCreateWindowSettings(string name)
+        {
+            var __ret = __Internal.FindOrCreateWindowSettings(name);
+            var __result0 = global::DearImguiSharp.ImGuiWindowSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiSettingsHandler FindSettingsHandler(string type_name)
+        {
+            var __ret = __Internal.FindSettingsHandler(type_name);
+            var __result0 = global::DearImguiSharp.ImGuiSettingsHandler.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void SetNextWindowScroll(global::DearImguiSharp.ImVec2 scroll)
+        {
+            if (ReferenceEquals(scroll, null))
+                throw new global::System.ArgumentNullException("scroll", "Cannot be null because it is passed by value.");
+            var __arg0 = scroll.__Instance;
+            __Internal.SetNextWindowScroll(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0);
+        }
+
+        public static void SetScrollXWindowPtr(global::DearImguiSharp.ImGuiWindow window, float scroll_x)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.SetScrollXWindowPtr(__arg0, scroll_x);
+        }
+
+        public static void SetScrollYWindowPtr(global::DearImguiSharp.ImGuiWindow window, float scroll_y)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.SetScrollYWindowPtr(__arg0, scroll_y);
+        }
+
+        public static void SetScrollFromPosXWindowPtr(global::DearImguiSharp.ImGuiWindow window, float local_x, float center_x_ratio)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.SetScrollFromPosXWindowPtr(__arg0, local_x, center_x_ratio);
+        }
+
+        public static void SetScrollFromPosYWindowPtr(global::DearImguiSharp.ImGuiWindow window, float local_y, float center_y_ratio)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.SetScrollFromPosYWindowPtr(__arg0, local_y, center_y_ratio);
+        }
+
+        public static void ScrollToBringRectIntoView(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImRect item_rect)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = window is null ? __IntPtr.Zero : window.__Instance;
+            if (ReferenceEquals(item_rect, null))
+                throw new global::System.ArgumentNullException("item_rect", "Cannot be null because it is passed by value.");
+            var __arg2 = item_rect.__Instance;
+            __Internal.ScrollToBringRectIntoView(__arg0, __arg1, __arg2);
+        }
+
+        public static uint GetItemID()
+        {
+            var __ret = __Internal.GetItemID();
+            return __ret;
+        }
+
+        public static int GetItemStatusFlags()
+        {
+            var __ret = __Internal.GetItemStatusFlags();
+            return __ret;
+        }
+
+        public static uint GetActiveID()
+        {
+            var __ret = __Internal.GetActiveID();
+            return __ret;
+        }
+
+        public static uint GetFocusID()
+        {
+            var __ret = __Internal.GetFocusID();
+            return __ret;
+        }
+
+        public static int GetItemsFlags()
+        {
+            var __ret = __Internal.GetItemsFlags();
+            return __ret;
+        }
+
+        public static void SetActiveID(uint id, global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg1 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.SetActiveID(id, __arg1);
+        }
+
+        public static void SetFocusID(uint id, global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg1 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.SetFocusID(id, __arg1);
+        }
+
+        public static void ClearActiveID()
+        {
+            __Internal.ClearActiveID();
+        }
+
+        public static uint GetHoveredID()
+        {
+            var __ret = __Internal.GetHoveredID();
+            return __ret;
+        }
+
+        public static void SetHoveredID(uint id)
+        {
+            __Internal.SetHoveredID(id);
+        }
+
+        public static void KeepAliveID(uint id)
+        {
+            __Internal.KeepAliveID(id);
+        }
+
+        public static void MarkItemEdited(uint id)
+        {
+            __Internal.MarkItemEdited(id);
+        }
+
+        public static void PushOverrideID(uint id)
+        {
+            __Internal.PushOverrideID(id);
+        }
+
+        public static uint GetIDWithSeed(string str_id_begin, string str_id_end, uint seed)
+        {
+            var __ret = __Internal.GetIDWithSeed(str_id_begin, str_id_end, seed);
+            return __ret;
+        }
+
+        public static void ItemSizeVec2(global::DearImguiSharp.ImVec2 size, float text_baseline_y)
+        {
+            if (ReferenceEquals(size, null))
+                throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
+            var __arg0 = size.__Instance;
+            __Internal.ItemSizeVec2(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, text_baseline_y);
+        }
+
+        public static void ItemSizeRect(global::DearImguiSharp.ImRect bb, float text_baseline_y)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            __Internal.ItemSizeRect(__arg0, text_baseline_y);
+        }
+
+        public static bool ItemAdd(global::DearImguiSharp.ImRect bb, uint id, global::DearImguiSharp.ImRect nav_bb)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            var __arg2 = nav_bb is null ? __IntPtr.Zero : nav_bb.__Instance;
+            var __ret = __Internal.ItemAdd(__arg0, id, __arg2);
+            return __ret;
+        }
+
+        public static bool ItemHoverable(global::DearImguiSharp.ImRect bb, uint id)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            var __ret = __Internal.ItemHoverable(__arg0, id);
+            return __ret;
+        }
+
+        public static bool IsClippedEx(global::DearImguiSharp.ImRect bb, uint id, bool clip_even_when_logged)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            var __ret = __Internal.IsClippedEx(__arg0, id, clip_even_when_logged);
+            return __ret;
+        }
+
+        public static void SetLastItemData(global::DearImguiSharp.ImGuiWindow window, uint item_id, int status_flags, global::DearImguiSharp.ImRect item_rect)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            if (ReferenceEquals(item_rect, null))
+                throw new global::System.ArgumentNullException("item_rect", "Cannot be null because it is passed by value.");
+            var __arg3 = item_rect.__Instance;
+            __Internal.SetLastItemData(__arg0, item_id, status_flags, __arg3);
+        }
+
+        public static bool FocusableItemRegister(global::DearImguiSharp.ImGuiWindow window, uint id)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __ret = __Internal.FocusableItemRegister(__arg0, id);
+            return __ret;
+        }
+
+        public static void FocusableItemUnregister(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.FocusableItemUnregister(__arg0);
+        }
+
+        public static void CalcItemSize(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 size, float default_w, float default_h)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(size, null))
+                throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
+            var __arg1 = size.__Instance;
+            __Internal.CalcItemSize(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, default_w, default_h);
+        }
+
+        public static float CalcWrapWidthForPos(global::DearImguiSharp.ImVec2 pos, float wrap_pos_x)
+        {
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg0 = pos.__Instance;
+            var __ret = __Internal.CalcWrapWidthForPos(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, wrap_pos_x);
+            return __ret;
+        }
+
+        public static void PushMultiItemsWidths(int components, float width_full)
+        {
+            __Internal.PushMultiItemsWidths(components, width_full);
+        }
+
+        public static void PushItemFlag(int option, bool enabled)
+        {
+            __Internal.PushItemFlag(option, enabled);
+        }
+
+        public static void PopItemFlag()
+        {
+            __Internal.PopItemFlag();
+        }
+
+        public static bool IsItemToggledSelection()
+        {
+            var __ret = __Internal.IsItemToggledSelection();
+            return __ret;
+        }
+
+        public static void GetContentRegionMaxAbs(global::DearImguiSharp.ImVec2 pOut)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            __Internal.GetContentRegionMaxAbs(__arg0);
+        }
+
+        public static void ShrinkWidths(global::DearImguiSharp.ImGuiShrinkWidthItem items, int count, float width_excess)
+        {
+            var __arg0 = items is null ? __IntPtr.Zero : items.__Instance;
+            __Internal.ShrinkWidths(__arg0, count, width_excess);
+        }
+
+        public static void LogBegin(global::DearImguiSharp.ImGuiLogType type, int auto_open_depth)
+        {
+            __Internal.LogBegin(type, auto_open_depth);
+        }
+
+        public static void LogToBuffer(int auto_open_depth)
+        {
+            __Internal.LogToBuffer(auto_open_depth);
+        }
+
+        public static void LogRenderedText(global::DearImguiSharp.ImVec2 ref_pos, string text, string text_end)
+        {
+            var __arg0 = ref_pos is null ? __IntPtr.Zero : ref_pos.__Instance;
+            __Internal.LogRenderedText(__arg0, text, text_end);
+        }
+
+        public static void LogSetNextTextDecoration(string prefix, string suffix)
+        {
+            __Internal.LogSetNextTextDecoration(prefix, suffix);
+        }
+
+        public static bool BeginChildEx(string name, uint id, global::DearImguiSharp.ImVec2 size_arg, bool border, int flags)
+        {
+            if (ReferenceEquals(size_arg, null))
+                throw new global::System.ArgumentNullException("size_arg", "Cannot be null because it is passed by value.");
+            var __arg2 = size_arg.__Instance;
+            var __ret = __Internal.BeginChildEx(name, id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, border, flags);
+            return __ret;
+        }
+
+        public static void OpenPopupEx(uint id, int popup_flags)
+        {
+            __Internal.OpenPopupEx(id, popup_flags);
+        }
+
+        public static void ClosePopupToLevel(int remaining, bool restore_focus_to_window_under_popup)
+        {
+            __Internal.ClosePopupToLevel(remaining, restore_focus_to_window_under_popup);
+        }
+
+        public static void ClosePopupsOverWindow(global::DearImguiSharp.ImGuiWindow ref_window, bool restore_focus_to_window_under_popup)
+        {
+            var __arg0 = ref_window is null ? __IntPtr.Zero : ref_window.__Instance;
+            __Internal.ClosePopupsOverWindow(__arg0, restore_focus_to_window_under_popup);
+        }
+
+        public static bool IsPopupOpenID(uint id, int popup_flags)
+        {
+            var __ret = __Internal.IsPopupOpenID(id, popup_flags);
+            return __ret;
+        }
+
+        public static bool BeginPopupEx(uint id, int extra_flags)
+        {
+            var __ret = __Internal.BeginPopupEx(id, extra_flags);
+            return __ret;
+        }
+
+        public static void BeginTooltipEx(int extra_flags, int tooltip_flags)
+        {
+            __Internal.BeginTooltipEx(extra_flags, tooltip_flags);
+        }
+
+        public static global::DearImguiSharp.ImGuiWindow GetTopMostPopupModal()
+        {
+            var __ret = __Internal.GetTopMostPopupModal();
+            var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void FindBestWindowPosForPopup(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.FindBestWindowPosForPopup(__arg0, __arg1);
+        }
+
+        public static void FindBestWindowPosForPopupEx(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 ref_pos, global::DearImguiSharp.ImVec2 size, ref int last_dir, global::DearImguiSharp.ImRect r_outer, global::DearImguiSharp.ImRect r_avoid, global::DearImguiSharp.ImGuiPopupPositionPolicy policy)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            if (ReferenceEquals(ref_pos, null))
+                throw new global::System.ArgumentNullException("ref_pos", "Cannot be null because it is passed by value.");
+            var __arg1 = ref_pos.__Instance;
+            if (ReferenceEquals(size, null))
+                throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
+            var __arg2 = size.__Instance;
+            fixed (int* __last_dir3 = &last_dir)
+            {
+                var __arg3 = __last_dir3;
+                if (ReferenceEquals(r_outer, null))
+                    throw new global::System.ArgumentNullException("r_outer", "Cannot be null because it is passed by value.");
+                var __arg4 = r_outer.__Instance;
+                if (ReferenceEquals(r_avoid, null))
+                    throw new global::System.ArgumentNullException("r_avoid", "Cannot be null because it is passed by value.");
+                var __arg5 = r_avoid.__Instance;
+                __Internal.FindBestWindowPosForPopupEx(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, __arg3, __arg4, __arg5, policy);
+            }
+        }
+
+        public static void NavInitWindow(global::DearImguiSharp.ImGuiWindow window, bool force_reinit)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.NavInitWindow(__arg0, force_reinit);
+        }
+
+        public static bool NavMoveRequestButNoResultYet()
+        {
+            var __ret = __Internal.NavMoveRequestButNoResultYet();
+            return __ret;
+        }
+
+        public static void NavMoveRequestCancel()
+        {
+            __Internal.NavMoveRequestCancel();
+        }
+
+        public static void NavMoveRequestForward(int move_dir, int clip_dir, global::DearImguiSharp.ImRect bb_rel, int move_flags)
+        {
+            if (ReferenceEquals(bb_rel, null))
+                throw new global::System.ArgumentNullException("bb_rel", "Cannot be null because it is passed by value.");
+            var __arg2 = bb_rel.__Instance;
+            __Internal.NavMoveRequestForward(move_dir, clip_dir, __arg2, move_flags);
+        }
+
+        public static void NavMoveRequestTryWrapping(global::DearImguiSharp.ImGuiWindow window, int move_flags)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.NavMoveRequestTryWrapping(__arg0, move_flags);
+        }
+
+        public static float GetNavInputAmount(int n, global::DearImguiSharp.ImGuiInputReadMode mode)
+        {
+            var __ret = __Internal.GetNavInputAmount(n, mode);
+            return __ret;
+        }
+
+        public static void GetNavInputAmount2d(global::DearImguiSharp.ImVec2 pOut, int dir_sources, global::DearImguiSharp.ImGuiInputReadMode mode, float slow_factor, float fast_factor)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            __Internal.GetNavInputAmount2d(__arg0, dir_sources, mode, slow_factor, fast_factor);
+        }
+
+        public static int CalcTypematicRepeatAmount(float t0, float t1, float repeat_delay, float repeat_rate)
+        {
+            var __ret = __Internal.CalcTypematicRepeatAmount(t0, t1, repeat_delay, repeat_rate);
+            return __ret;
+        }
+
+        public static void ActivateItem(uint id)
+        {
+            __Internal.ActivateItem(id);
+        }
+
+        public static void SetNavID(uint id, int nav_layer, uint focus_scope_id)
+        {
+            __Internal.SetNavID(id, nav_layer, focus_scope_id);
+        }
+
+        public static void SetNavIDWithRectRel(uint id, int nav_layer, uint focus_scope_id, global::DearImguiSharp.ImRect rect_rel)
+        {
+            if (ReferenceEquals(rect_rel, null))
+                throw new global::System.ArgumentNullException("rect_rel", "Cannot be null because it is passed by value.");
+            var __arg3 = rect_rel.__Instance;
+            __Internal.SetNavIDWithRectRel(id, nav_layer, focus_scope_id, __arg3);
+        }
+
+        public static void PushFocusScope(uint id)
+        {
+            __Internal.PushFocusScope(id);
+        }
+
+        public static void PopFocusScope()
+        {
+            __Internal.PopFocusScope();
+        }
+
+        public static uint GetFocusedFocusScope()
+        {
+            var __ret = __Internal.GetFocusedFocusScope();
+            return __ret;
+        }
+
+        public static uint GetFocusScope()
+        {
+            var __ret = __Internal.GetFocusScope();
+            return __ret;
+        }
+
+        public static void SetItemUsingMouseWheel()
+        {
+            __Internal.SetItemUsingMouseWheel();
+        }
+
+        public static bool IsActiveIdUsingNavDir(int dir)
+        {
+            var __ret = __Internal.IsActiveIdUsingNavDir(dir);
+            return __ret;
+        }
+
+        public static bool IsActiveIdUsingNavInput(int input)
+        {
+            var __ret = __Internal.IsActiveIdUsingNavInput(input);
+            return __ret;
+        }
+
+        public static bool IsActiveIdUsingKey(int key)
+        {
+            var __ret = __Internal.IsActiveIdUsingKey(key);
+            return __ret;
+        }
+
+        public static bool IsMouseDragPastThreshold(int button, float lock_threshold)
+        {
+            var __ret = __Internal.IsMouseDragPastThreshold(button, lock_threshold);
+            return __ret;
+        }
+
+        public static bool IsKeyPressedMap(int key, bool repeat)
+        {
+            var __ret = __Internal.IsKeyPressedMap(key, repeat);
+            return __ret;
+        }
+
+        public static bool IsNavInputDown(int n)
+        {
+            var __ret = __Internal.IsNavInputDown(n);
+            return __ret;
+        }
+
+        public static bool IsNavInputTest(int n, global::DearImguiSharp.ImGuiInputReadMode rm)
+        {
+            var __ret = __Internal.IsNavInputTest(n, rm);
+            return __ret;
+        }
+
+        public static int GetMergedKeyModFlags()
+        {
+            var __ret = __Internal.GetMergedKeyModFlags();
+            return __ret;
+        }
+
+        public static bool BeginDragDropTargetCustom(global::DearImguiSharp.ImRect bb, uint id)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            var __ret = __Internal.BeginDragDropTargetCustom(__arg0, id);
+            return __ret;
+        }
+
+        public static void ClearDragDrop()
+        {
+            __Internal.ClearDragDrop();
+        }
+
+        public static bool IsDragDropPayloadBeingAccepted()
+        {
+            var __ret = __Internal.IsDragDropPayloadBeingAccepted();
+            return __ret;
+        }
+
+        public static void SetWindowClipRectBeforeSetChannel(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImRect clip_rect)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            if (ReferenceEquals(clip_rect, null))
+                throw new global::System.ArgumentNullException("clip_rect", "Cannot be null because it is passed by value.");
+            var __arg1 = clip_rect.__Instance;
+            __Internal.SetWindowClipRectBeforeSetChannel(__arg0, __arg1);
+        }
+
+        public static void BeginColumns(string str_id, int count, int flags)
+        {
+            __Internal.BeginColumns(str_id, count, flags);
+        }
+
+        public static void EndColumns()
+        {
+            __Internal.EndColumns();
+        }
+
+        public static void PushColumnClipRect(int column_index)
+        {
+            __Internal.PushColumnClipRect(column_index);
+        }
+
+        public static void PushColumnsBackground()
+        {
+            __Internal.PushColumnsBackground();
+        }
+
+        public static void PopColumnsBackground()
+        {
+            __Internal.PopColumnsBackground();
+        }
+
+        public static uint GetColumnsID(string str_id, int count)
+        {
+            var __ret = __Internal.GetColumnsID(str_id, count);
+            return __ret;
+        }
+
+        public static global::DearImguiSharp.ImGuiOldColumns FindOrCreateColumns(global::DearImguiSharp.ImGuiWindow window, uint id)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __ret = __Internal.FindOrCreateColumns(__arg0, id);
+            var __result0 = global::DearImguiSharp.ImGuiOldColumns.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static float GetColumnOffsetFromNorm(global::DearImguiSharp.ImGuiOldColumns columns, float offset_norm)
+        {
+            var __arg0 = columns is null ? __IntPtr.Zero : columns.__Instance;
+            var __ret = __Internal.GetColumnOffsetFromNorm(__arg0, offset_norm);
+            return __ret;
+        }
+
+        public static float GetColumnNormFromOffset(global::DearImguiSharp.ImGuiOldColumns columns, float offset)
+        {
+            var __arg0 = columns is null ? __IntPtr.Zero : columns.__Instance;
+            var __ret = __Internal.GetColumnNormFromOffset(__arg0, offset);
+            return __ret;
+        }
+
+        public static void TableOpenContextMenu(int column_n)
+        {
+            __Internal.TableOpenContextMenu(column_n);
+        }
+
+        public static void TableSetColumnEnabled(int column_n, bool enabled)
+        {
+            __Internal.TableSetColumnEnabled(column_n, enabled);
+        }
+
+        public static void TableSetColumnWidth(int column_n, float width)
+        {
+            __Internal.TableSetColumnWidth(column_n, width);
+        }
+
+        public static void TableSetColumnSortDirection(int column_n, int sort_direction, bool append_to_sort_specs)
+        {
+            __Internal.TableSetColumnSortDirection(column_n, sort_direction, append_to_sort_specs);
+        }
+
+        public static int TableGetHoveredColumn()
+        {
+            var __ret = __Internal.TableGetHoveredColumn();
+            return __ret;
+        }
+
+        public static float TableGetHeaderRowHeight()
+        {
+            var __ret = __Internal.TableGetHeaderRowHeight();
+            return __ret;
+        }
+
+        public static void TablePushBackgroundChannel()
+        {
+            __Internal.TablePushBackgroundChannel();
+        }
+
+        public static void TablePopBackgroundChannel()
+        {
+            __Internal.TablePopBackgroundChannel();
+        }
+
+        public static global::DearImguiSharp.ImGuiTable TableFindByID(uint id)
+        {
+            var __ret = __Internal.TableFindByID(id);
+            var __result0 = global::DearImguiSharp.ImGuiTable.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static bool BeginTableEx(string name, uint id, int columns_count, int flags, global::DearImguiSharp.ImVec2 outer_size, float inner_width)
+        {
+            if (ReferenceEquals(outer_size, null))
+                throw new global::System.ArgumentNullException("outer_size", "Cannot be null because it is passed by value.");
+            var __arg4 = outer_size.__Instance;
+            var __ret = __Internal.BeginTableEx(name, id, columns_count, flags, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, inner_width);
+            return __ret;
+        }
+
+        public static void TableBeginInitMemory(global::DearImguiSharp.ImGuiTable table, int columns_count)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableBeginInitMemory(__arg0, columns_count);
+        }
+
+        public static void TableBeginApplyRequests(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableBeginApplyRequests(__arg0);
+        }
+
+        public static void TableSetupDrawChannels(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableSetupDrawChannels(__arg0);
+        }
+
+        public static void TableUpdateLayout(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableUpdateLayout(__arg0);
+        }
+
+        public static void TableUpdateBorders(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableUpdateBorders(__arg0);
+        }
+
+        public static void TableUpdateColumnsWeightFromWidth(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableUpdateColumnsWeightFromWidth(__arg0);
+        }
+
+        public static void TableDrawBorders(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableDrawBorders(__arg0);
+        }
+
+        public static void TableDrawContextMenu(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableDrawContextMenu(__arg0);
+        }
+
+        public static void TableMergeDrawChannels(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableMergeDrawChannels(__arg0);
+        }
+
+        public static void TableSortSpecsSanitize(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableSortSpecsSanitize(__arg0);
+        }
+
+        public static void TableSortSpecsBuild(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableSortSpecsBuild(__arg0);
+        }
+
+        public static int TableGetColumnNextSortDirection(global::DearImguiSharp.ImGuiTableColumn column)
+        {
+            var __arg0 = column is null ? __IntPtr.Zero : column.__Instance;
+            var __ret = __Internal.TableGetColumnNextSortDirection(__arg0);
+            return __ret;
+        }
+
+        public static void TableFixColumnSortDirection(global::DearImguiSharp.ImGuiTable table, global::DearImguiSharp.ImGuiTableColumn column)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            var __arg1 = column is null ? __IntPtr.Zero : column.__Instance;
+            __Internal.TableFixColumnSortDirection(__arg0, __arg1);
+        }
+
+        public static float TableGetColumnWidthAuto(global::DearImguiSharp.ImGuiTable table, global::DearImguiSharp.ImGuiTableColumn column)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            var __arg1 = column is null ? __IntPtr.Zero : column.__Instance;
+            var __ret = __Internal.TableGetColumnWidthAuto(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static void TableBeginRow(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableBeginRow(__arg0);
+        }
+
+        public static void TableEndRow(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableEndRow(__arg0);
+        }
+
+        public static void TableBeginCell(global::DearImguiSharp.ImGuiTable table, int column_n)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableBeginCell(__arg0, column_n);
+        }
+
+        public static void TableEndCell(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableEndCell(__arg0);
+        }
+
+        public static void TableGetCellBgRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiTable table, int column_n)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableGetCellBgRect(__arg0, __arg1, column_n);
+        }
+
+        public static string TableGetColumnNameTablePtr(global::DearImguiSharp.ImGuiTable table, int column_n)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            var __ret = __Internal.TableGetColumnNameTablePtr(__arg0, column_n);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static uint TableGetColumnResizeID(global::DearImguiSharp.ImGuiTable table, int column_n, int instance_no)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            var __ret = __Internal.TableGetColumnResizeID(__arg0, column_n, instance_no);
+            return __ret;
+        }
+
+        public static float TableGetMaxColumnWidth(global::DearImguiSharp.ImGuiTable table, int column_n)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            var __ret = __Internal.TableGetMaxColumnWidth(__arg0, column_n);
+            return __ret;
+        }
+
+        public static void TableSetColumnWidthAutoSingle(global::DearImguiSharp.ImGuiTable table, int column_n)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableSetColumnWidthAutoSingle(__arg0, column_n);
+        }
+
+        public static void TableSetColumnWidthAutoAll(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableSetColumnWidthAutoAll(__arg0);
+        }
+
+        public static void TableRemove(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableRemove(__arg0);
+        }
+
+        public static void TableGcCompactTransientBuffers(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableGcCompactTransientBuffers(__arg0);
+        }
+
+        public static void TableGcCompactSettings()
+        {
+            __Internal.TableGcCompactSettings();
+        }
+
+        public static void TableLoadSettings(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableLoadSettings(__arg0);
+        }
+
+        public static void TableSaveSettings(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableSaveSettings(__arg0);
+        }
+
+        public static void TableResetSettings(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableResetSettings(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTableSettings TableGetBoundSettings(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            var __ret = __Internal.TableGetBoundSettings(__arg0);
+            var __result0 = global::DearImguiSharp.ImGuiTableSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void TableSettingsInstallHandler(global::DearImguiSharp.ImGuiContext context)
+        {
+            var __arg0 = context is null ? __IntPtr.Zero : context.__Instance;
+            __Internal.TableSettingsInstallHandler(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTableSettings TableSettingsCreate(uint id, int columns_count)
+        {
+            var __ret = __Internal.TableSettingsCreate(id, columns_count);
+            var __result0 = global::DearImguiSharp.ImGuiTableSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static global::DearImguiSharp.ImGuiTableSettings TableSettingsFindByID(uint id)
+        {
+            var __ret = __Internal.TableSettingsFindByID(id);
+            var __result0 = global::DearImguiSharp.ImGuiTableSettings.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static bool BeginTabBarEx(global::DearImguiSharp.ImGuiTabBar tab_bar, global::DearImguiSharp.ImRect bb, int flags)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg1 = bb.__Instance;
+            var __ret = __Internal.BeginTabBarEx(__arg0, __arg1, flags);
+            return __ret;
+        }
+
+        public static global::DearImguiSharp.ImGuiTabItem TabBarFindTabByID(global::DearImguiSharp.ImGuiTabBar tab_bar, uint tab_id)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            var __ret = __Internal.TabBarFindTabByID(__arg0, tab_id);
+            var __result0 = global::DearImguiSharp.ImGuiTabItem.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void TabBarRemoveTab(global::DearImguiSharp.ImGuiTabBar tab_bar, uint tab_id)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            __Internal.TabBarRemoveTab(__arg0, tab_id);
+        }
+
+        public static void TabBarCloseTab(global::DearImguiSharp.ImGuiTabBar tab_bar, global::DearImguiSharp.ImGuiTabItem tab)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            var __arg1 = tab is null ? __IntPtr.Zero : tab.__Instance;
+            __Internal.TabBarCloseTab(__arg0, __arg1);
+        }
+
+        public static void TabBarQueueReorder(global::DearImguiSharp.ImGuiTabBar tab_bar, global::DearImguiSharp.ImGuiTabItem tab, int dir)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            var __arg1 = tab is null ? __IntPtr.Zero : tab.__Instance;
+            __Internal.TabBarQueueReorder(__arg0, __arg1, dir);
+        }
+
+        public static bool TabBarProcessReorder(global::DearImguiSharp.ImGuiTabBar tab_bar)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            var __ret = __Internal.TabBarProcessReorder(__arg0);
+            return __ret;
+        }
+
+        public static bool TabItemEx(global::DearImguiSharp.ImGuiTabBar tab_bar, string label, ref bool p_open, int flags)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            fixed (bool* __p_open2 = &p_open)
+            {
+                var __arg2 = __p_open2;
+                var __ret = __Internal.TabItemEx(__arg0, label, __arg2, flags);
+                return __ret;
+            }
+        }
+
+        public static void TabItemCalcSize(global::DearImguiSharp.ImVec2 pOut, string label, bool has_close_button)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            __Internal.TabItemCalcSize(__arg0, label, has_close_button);
+        }
+
+        public static void TabItemBackground(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImRect bb, int flags, uint col)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg1 = bb.__Instance;
+            __Internal.TabItemBackground(__arg0, __arg1, flags, col);
+        }
+
+        public static void TabItemLabelAndCloseButton(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImRect bb, int flags, global::DearImguiSharp.ImVec2 frame_padding, string label, uint tab_id, uint close_button_id, bool is_contents_visible, ref bool out_just_closed, ref bool out_text_clipped)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg1 = bb.__Instance;
+            if (ReferenceEquals(frame_padding, null))
+                throw new global::System.ArgumentNullException("frame_padding", "Cannot be null because it is passed by value.");
+            var __arg3 = frame_padding.__Instance;
+            fixed (bool* __out_just_closed8 = &out_just_closed)
+            {
+                var __arg8 = __out_just_closed8;
+                fixed (bool* __out_text_clipped9 = &out_text_clipped)
+                {
+                    var __arg9 = __out_text_clipped9;
+                    __Internal.TabItemLabelAndCloseButton(__arg0, __arg1, flags, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, label, tab_id, close_button_id, is_contents_visible, __arg8, __arg9);
+                }
+            }
+        }
+
+        public static void RenderText(global::DearImguiSharp.ImVec2 pos, string text, string text_end, bool hide_text_after_hash)
+        {
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg0 = pos.__Instance;
+            __Internal.RenderText(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, text, text_end, hide_text_after_hash);
+        }
+
+        public static void RenderTextWrapped(global::DearImguiSharp.ImVec2 pos, string text, string text_end, float wrap_width)
+        {
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg0 = pos.__Instance;
+            __Internal.RenderTextWrapped(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, text, text_end, wrap_width);
+        }
+
+        public static void RenderTextClipped(global::DearImguiSharp.ImVec2 pos_min, global::DearImguiSharp.ImVec2 pos_max, string text, string text_end, global::DearImguiSharp.ImVec2 text_size_if_known, global::DearImguiSharp.ImVec2 align, global::DearImguiSharp.ImRect clip_rect)
+        {
+            if (ReferenceEquals(pos_min, null))
+                throw new global::System.ArgumentNullException("pos_min", "Cannot be null because it is passed by value.");
+            var __arg0 = pos_min.__Instance;
+            if (ReferenceEquals(pos_max, null))
+                throw new global::System.ArgumentNullException("pos_max", "Cannot be null because it is passed by value.");
+            var __arg1 = pos_max.__Instance;
+            var __arg4 = text_size_if_known is null ? __IntPtr.Zero : text_size_if_known.__Instance;
+            if (ReferenceEquals(align, null))
+                throw new global::System.ArgumentNullException("align", "Cannot be null because it is passed by value.");
+            var __arg5 = align.__Instance;
+            var __arg6 = clip_rect is null ? __IntPtr.Zero : clip_rect.__Instance;
+            __Internal.RenderTextClipped(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, text, text_end, __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, __arg6);
+        }
+
+        public static void RenderTextClippedEx(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 pos_min, global::DearImguiSharp.ImVec2 pos_max, string text, string text_end, global::DearImguiSharp.ImVec2 text_size_if_known, global::DearImguiSharp.ImVec2 align, global::DearImguiSharp.ImRect clip_rect)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(pos_min, null))
+                throw new global::System.ArgumentNullException("pos_min", "Cannot be null because it is passed by value.");
+            var __arg1 = pos_min.__Instance;
+            if (ReferenceEquals(pos_max, null))
+                throw new global::System.ArgumentNullException("pos_max", "Cannot be null because it is passed by value.");
+            var __arg2 = pos_max.__Instance;
+            var __arg5 = text_size_if_known is null ? __IntPtr.Zero : text_size_if_known.__Instance;
+            if (ReferenceEquals(align, null))
+                throw new global::System.ArgumentNullException("align", "Cannot be null because it is passed by value.");
+            var __arg6 = align.__Instance;
+            var __arg7 = clip_rect is null ? __IntPtr.Zero : clip_rect.__Instance;
+            __Internal.RenderTextClippedEx(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, text, text_end, __arg5, *(global::DearImguiSharp.ImVec2.__Internal*) __arg6, __arg7);
+        }
+
+        public static void RenderTextEllipsis(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 pos_min, global::DearImguiSharp.ImVec2 pos_max, float clip_max_x, float ellipsis_max_x, string text, string text_end, global::DearImguiSharp.ImVec2 text_size_if_known)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(pos_min, null))
+                throw new global::System.ArgumentNullException("pos_min", "Cannot be null because it is passed by value.");
+            var __arg1 = pos_min.__Instance;
+            if (ReferenceEquals(pos_max, null))
+                throw new global::System.ArgumentNullException("pos_max", "Cannot be null because it is passed by value.");
+            var __arg2 = pos_max.__Instance;
+            var __arg7 = text_size_if_known is null ? __IntPtr.Zero : text_size_if_known.__Instance;
+            __Internal.RenderTextEllipsis(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, clip_max_x, ellipsis_max_x, text, text_end, __arg7);
+        }
+
+        public static void RenderFrame(global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint fill_col, bool border, float rounding)
+        {
+            if (ReferenceEquals(p_min, null))
+                throw new global::System.ArgumentNullException("p_min", "Cannot be null because it is passed by value.");
+            var __arg0 = p_min.__Instance;
+            if (ReferenceEquals(p_max, null))
+                throw new global::System.ArgumentNullException("p_max", "Cannot be null because it is passed by value.");
+            var __arg1 = p_max.__Instance;
+            __Internal.RenderFrame(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, fill_col, border, rounding);
+        }
+
+        public static void RenderFrameBorder(global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, float rounding)
+        {
+            if (ReferenceEquals(p_min, null))
+                throw new global::System.ArgumentNullException("p_min", "Cannot be null because it is passed by value.");
+            var __arg0 = p_min.__Instance;
+            if (ReferenceEquals(p_max, null))
+                throw new global::System.ArgumentNullException("p_max", "Cannot be null because it is passed by value.");
+            var __arg1 = p_max.__Instance;
+            __Internal.RenderFrameBorder(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, rounding);
+        }
+
+        public static void RenderColorRectWithAlphaCheckerboard(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2 grid_off, float rounding, int rounding_corners_flags)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(p_min, null))
+                throw new global::System.ArgumentNullException("p_min", "Cannot be null because it is passed by value.");
+            var __arg1 = p_min.__Instance;
+            if (ReferenceEquals(p_max, null))
+                throw new global::System.ArgumentNullException("p_max", "Cannot be null because it is passed by value.");
+            var __arg2 = p_max.__Instance;
+            if (ReferenceEquals(grid_off, null))
+                throw new global::System.ArgumentNullException("grid_off", "Cannot be null because it is passed by value.");
+            var __arg5 = grid_off.__Instance;
+            __Internal.RenderColorRectWithAlphaCheckerboard(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, fill_col, grid_step, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, rounding, rounding_corners_flags);
+        }
+
+        public static void RenderNavHighlight(global::DearImguiSharp.ImRect bb, uint id, int flags)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            __Internal.RenderNavHighlight(__arg0, id, flags);
+        }
+
+        public static string FindRenderedTextEnd(string text, string text_end)
+        {
+            var __ret = __Internal.FindRenderedTextEnd(text, text_end);
+            return CppSharp.Runtime.MarshalUtil.GetString(global::System.Text.Encoding.UTF8, __ret);
+        }
+
+        public static void RenderArrow(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 pos, uint col, int dir, float scale)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            __Internal.RenderArrow(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, col, dir, scale);
+        }
+
+        public static void RenderBullet(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 pos, uint col)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            __Internal.RenderBullet(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, col);
+        }
+
+        public static void RenderCheckMark(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 pos, uint col, float sz)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            __Internal.RenderCheckMark(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, col, sz);
+        }
+
+        public static void RenderMouseCursor(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 pos, float scale, int mouse_cursor, uint col_fill, uint col_border, uint col_shadow)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            __Internal.RenderMouseCursor(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, scale, mouse_cursor, col_fill, col_border, col_shadow);
+        }
+
+        public static void RenderArrowPointingAt(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 pos, global::DearImguiSharp.ImVec2 half_sz, int direction, uint col)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            if (ReferenceEquals(half_sz, null))
+                throw new global::System.ArgumentNullException("half_sz", "Cannot be null because it is passed by value.");
+            var __arg2 = half_sz.__Instance;
+            __Internal.RenderArrowPointingAt(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, direction, col);
+        }
+
+        public static void RenderRectFilledRangeH(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImRect rect, uint col, float x_start_norm, float x_end_norm, float rounding)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(rect, null))
+                throw new global::System.ArgumentNullException("rect", "Cannot be null because it is passed by value.");
+            var __arg1 = rect.__Instance;
+            __Internal.RenderRectFilledRangeH(__arg0, __arg1, col, x_start_norm, x_end_norm, rounding);
+        }
+
+        public static void RenderRectFilledWithHole(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImRect outer, global::DearImguiSharp.ImRect inner, uint col, float rounding)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(outer, null))
+                throw new global::System.ArgumentNullException("outer", "Cannot be null because it is passed by value.");
+            var __arg1 = outer.__Instance;
+            if (ReferenceEquals(inner, null))
+                throw new global::System.ArgumentNullException("inner", "Cannot be null because it is passed by value.");
+            var __arg2 = inner.__Instance;
+            __Internal.RenderRectFilledWithHole(__arg0, __arg1, __arg2, col, rounding);
+        }
+
+        public static void TextEx(string text, string text_end, int flags)
+        {
+            __Internal.TextEx(text, text_end, flags);
+        }
+
+        public static bool ButtonEx(string label, global::DearImguiSharp.ImVec2 size_arg, int flags)
+        {
+            if (ReferenceEquals(size_arg, null))
+                throw new global::System.ArgumentNullException("size_arg", "Cannot be null because it is passed by value.");
+            var __arg1 = size_arg.__Instance;
+            var __ret = __Internal.ButtonEx(label, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, flags);
+            return __ret;
+        }
+
+        public static bool CloseButton(uint id, global::DearImguiSharp.ImVec2 pos)
+        {
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            var __ret = __Internal.CloseButton(id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+            return __ret;
+        }
+
+        public static bool CollapseButton(uint id, global::DearImguiSharp.ImVec2 pos)
+        {
+            if (ReferenceEquals(pos, null))
+                throw new global::System.ArgumentNullException("pos", "Cannot be null because it is passed by value.");
+            var __arg1 = pos.__Instance;
+            var __ret = __Internal.CollapseButton(id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1);
+            return __ret;
+        }
+
+        public static bool ArrowButtonEx(string str_id, int dir, global::DearImguiSharp.ImVec2 size_arg, int flags)
+        {
+            if (ReferenceEquals(size_arg, null))
+                throw new global::System.ArgumentNullException("size_arg", "Cannot be null because it is passed by value.");
+            var __arg2 = size_arg.__Instance;
+            var __ret = __Internal.ArrowButtonEx(str_id, dir, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, flags);
+            return __ret;
+        }
+
+        public static void Scrollbar(global::DearImguiSharp.ImGuiAxis axis)
+        {
+            __Internal.Scrollbar(axis);
+        }
+
+        public static bool ScrollbarEx(global::DearImguiSharp.ImRect bb, uint id, global::DearImguiSharp.ImGuiAxis axis, ref float p_scroll_v, float avail_v, float contents_v, int rounding_corners)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            fixed (float* __p_scroll_v3 = &p_scroll_v)
+            {
+                var __arg3 = __p_scroll_v3;
+                var __ret = __Internal.ScrollbarEx(__arg0, id, axis, __arg3, avail_v, contents_v, rounding_corners);
+                return __ret;
+            }
+        }
+
+        public static bool ImageButtonEx(uint id, __IntPtr texture_id, global::DearImguiSharp.ImVec2 size, global::DearImguiSharp.ImVec2 uv0, global::DearImguiSharp.ImVec2 uv1, global::DearImguiSharp.ImVec2 padding, global::DearImguiSharp.ImVec4 bg_col, global::DearImguiSharp.ImVec4 tint_col)
+        {
+            if (ReferenceEquals(size, null))
+                throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
+            var __arg2 = size.__Instance;
+            if (ReferenceEquals(uv0, null))
+                throw new global::System.ArgumentNullException("uv0", "Cannot be null because it is passed by value.");
+            var __arg3 = uv0.__Instance;
+            if (ReferenceEquals(uv1, null))
+                throw new global::System.ArgumentNullException("uv1", "Cannot be null because it is passed by value.");
+            var __arg4 = uv1.__Instance;
+            if (ReferenceEquals(padding, null))
+                throw new global::System.ArgumentNullException("padding", "Cannot be null because it is passed by value.");
+            var __arg5 = padding.__Instance;
+            if (ReferenceEquals(bg_col, null))
+                throw new global::System.ArgumentNullException("bg_col", "Cannot be null because it is passed by value.");
+            var __arg6 = bg_col.__Instance;
+            if (ReferenceEquals(tint_col, null))
+                throw new global::System.ArgumentNullException("tint_col", "Cannot be null because it is passed by value.");
+            var __arg7 = tint_col.__Instance;
+            var __ret = __Internal.ImageButtonEx(id, texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, *(global::DearImguiSharp.ImVec4.__Internal*) __arg6, *(global::DearImguiSharp.ImVec4.__Internal*) __arg7);
+            return __ret;
+        }
+
+        public static void GetWindowScrollbarRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImGuiAxis axis)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.GetWindowScrollbarRect(__arg0, __arg1, axis);
+        }
+
+        public static uint GetWindowScrollbarID(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImGuiAxis axis)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __ret = __Internal.GetWindowScrollbarID(__arg0, axis);
+            return __ret;
+        }
+
+        public static uint GetWindowResizeID(global::DearImguiSharp.ImGuiWindow window, int n)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __ret = __Internal.GetWindowResizeID(__arg0, n);
+            return __ret;
+        }
+
+        public static void SeparatorEx(int flags)
+        {
+            __Internal.SeparatorEx(flags);
+        }
+
+        public static bool CheckboxFlagsS64Ptr(string label, ref long flags, long flags_value)
+        {
+            fixed (long* __flags1 = &flags)
+            {
+                var __arg1 = __flags1;
+                var __ret = __Internal.CheckboxFlagsS64Ptr(label, __arg1, flags_value);
+                return __ret;
+            }
+        }
+
+        public static bool CheckboxFlagsU64Ptr(string label, ref ulong flags, ulong flags_value)
+        {
+            fixed (ulong* __flags1 = &flags)
+            {
+                var __arg1 = __flags1;
+                var __ret = __Internal.CheckboxFlagsU64Ptr(label, __arg1, flags_value);
+                return __ret;
+            }
+        }
+
+        public static bool ButtonBehavior(global::DearImguiSharp.ImRect bb, uint id, ref bool out_hovered, ref bool out_held, int flags)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            fixed (bool* __out_hovered2 = &out_hovered)
+            {
+                var __arg2 = __out_hovered2;
+                fixed (bool* __out_held3 = &out_held)
+                {
+                    var __arg3 = __out_held3;
+                    var __ret = __Internal.ButtonBehavior(__arg0, id, __arg2, __arg3, flags);
+                    return __ret;
+                }
+            }
+        }
+
+        public static bool DragBehavior(uint id, int data_type, __IntPtr p_v, float v_speed, __IntPtr p_min, __IntPtr p_max, string format, int flags)
+        {
+            var __ret = __Internal.DragBehavior(id, data_type, p_v, v_speed, p_min, p_max, format, flags);
+            return __ret;
+        }
+
+        public static bool SliderBehavior(global::DearImguiSharp.ImRect bb, uint id, int data_type, __IntPtr p_v, __IntPtr p_min, __IntPtr p_max, string format, int flags, global::DearImguiSharp.ImRect out_grab_bb)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            var __arg8 = out_grab_bb is null ? __IntPtr.Zero : out_grab_bb.__Instance;
+            var __ret = __Internal.SliderBehavior(__arg0, id, data_type, p_v, p_min, p_max, format, flags, __arg8);
+            return __ret;
+        }
+
+        public static bool SplitterBehavior(global::DearImguiSharp.ImRect bb, uint id, global::DearImguiSharp.ImGuiAxis axis, ref float size1, ref float size2, float min_size1, float min_size2, float hover_extend, float hover_visibility_delay)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            fixed (float* __size13 = &size1)
+            {
+                var __arg3 = __size13;
+                fixed (float* __size24 = &size2)
+                {
+                    var __arg4 = __size24;
+                    var __ret = __Internal.SplitterBehavior(__arg0, id, axis, __arg3, __arg4, min_size1, min_size2, hover_extend, hover_visibility_delay);
+                    return __ret;
+                }
+            }
+        }
+
+        public static bool TreeNodeBehavior(uint id, int flags, string label, string label_end)
+        {
+            var __ret = __Internal.TreeNodeBehavior(id, flags, label, label_end);
+            return __ret;
+        }
+
+        public static bool TreeNodeBehaviorIsOpen(uint id, int flags)
+        {
+            var __ret = __Internal.TreeNodeBehaviorIsOpen(id, flags);
+            return __ret;
+        }
+
+        public static void TreePushOverrideID(uint id)
+        {
+            __Internal.TreePushOverrideID(id);
+        }
+
+        public static global::DearImguiSharp.ImGuiDataTypeInfo DataTypeGetInfo(int data_type)
+        {
+            var __ret = __Internal.DataTypeGetInfo(data_type);
+            var __result0 = global::DearImguiSharp.ImGuiDataTypeInfo.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static int DataTypeFormatString(sbyte* buf, int buf_size, int data_type, __IntPtr p_data, string format)
+        {
+            var __ret = __Internal.DataTypeFormatString(buf, buf_size, data_type, p_data, format);
+            return __ret;
+        }
+
+        public static void DataTypeApplyOp(int data_type, int op, __IntPtr output, __IntPtr arg_1, __IntPtr arg_2)
+        {
+            __Internal.DataTypeApplyOp(data_type, op, output, arg_1, arg_2);
+        }
+
+        public static bool DataTypeApplyOpFromText(string buf, string initial_value_buf, int data_type, __IntPtr p_data, string format)
+        {
+            var __ret = __Internal.DataTypeApplyOpFromText(buf, initial_value_buf, data_type, p_data, format);
+            return __ret;
+        }
+
+        public static int DataTypeCompare(int data_type, __IntPtr arg_1, __IntPtr arg_2)
+        {
+            var __ret = __Internal.DataTypeCompare(data_type, arg_1, arg_2);
+            return __ret;
+        }
+
+        public static bool DataTypeClamp(int data_type, __IntPtr p_data, __IntPtr p_min, __IntPtr p_max)
+        {
+            var __ret = __Internal.DataTypeClamp(data_type, p_data, p_min, p_max);
+            return __ret;
+        }
+
+        public static bool InputTextEx(string label, string hint, sbyte* buf, int buf_size, global::DearImguiSharp.ImVec2 size_arg, int flags, global::DearImguiSharp.ImGuiInputTextCallback callback, __IntPtr user_data)
+        {
+            if (ReferenceEquals(size_arg, null))
+                throw new global::System.ArgumentNullException("size_arg", "Cannot be null because it is passed by value.");
+            var __arg4 = size_arg.__Instance;
+            var __arg6 = callback == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(callback);
+            var __ret = __Internal.InputTextEx(label, hint, buf, buf_size, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, flags, __arg6, user_data);
+            return __ret;
+        }
+
+        public static bool TempInputText(global::DearImguiSharp.ImRect bb, uint id, string label, sbyte* buf, int buf_size, int flags)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            var __ret = __Internal.TempInputText(__arg0, id, label, buf, buf_size, flags);
+            return __ret;
+        }
+
+        public static bool TempInputScalar(global::DearImguiSharp.ImRect bb, uint id, string label, int data_type, __IntPtr p_data, string format, __IntPtr p_clamp_min, __IntPtr p_clamp_max)
+        {
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg0 = bb.__Instance;
+            var __ret = __Internal.TempInputScalar(__arg0, id, label, data_type, p_data, format, p_clamp_min, p_clamp_max);
+            return __ret;
+        }
+
+        public static bool TempInputIsActive(uint id)
+        {
+            var __ret = __Internal.TempInputIsActive(id);
+            return __ret;
+        }
+
+        public static global::DearImguiSharp.ImGuiInputTextState GetInputTextState(uint id)
+        {
+            var __ret = __Internal.GetInputTextState(id);
+            var __result0 = global::DearImguiSharp.ImGuiInputTextState.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ColorTooltip(string text, ref float col, int flags)
+        {
+            fixed (float* __col1 = &col)
+            {
+                var __arg1 = __col1;
+                __Internal.ColorTooltip(text, __arg1, flags);
+            }
+        }
+
+        public static void ColorEditOptionsPopup(ref float col, int flags)
+        {
+            fixed (float* __col0 = &col)
+            {
+                var __arg0 = __col0;
+                __Internal.ColorEditOptionsPopup(__arg0, flags);
+            }
+        }
+
+        public static void ColorPickerOptionsPopup(ref float ref_col, int flags)
+        {
+            fixed (float* __ref_col0 = &ref_col)
+            {
+                var __arg0 = __ref_col0;
+                __Internal.ColorPickerOptionsPopup(__arg0, flags);
+            }
+        }
+
+        public static int PlotEx(global::DearImguiSharp.ImGuiPlotType plot_type, string label, global::DearImguiSharp.Delegates.Func_float___IntPtr_int values_getter, __IntPtr data, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2 frame_size)
+        {
+            var __arg2 = values_getter == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(values_getter);
+            if (ReferenceEquals(frame_size, null))
+                throw new global::System.ArgumentNullException("frame_size", "Cannot be null because it is passed by value.");
+            var __arg9 = frame_size.__Instance;
+            var __ret = __Internal.PlotEx(plot_type, label, __arg2, data, values_count, values_offset, overlay_text, scale_min, scale_max, *(global::DearImguiSharp.ImVec2.__Internal*) __arg9);
+            return __ret;
+        }
+
+        public static void ShadeVertsLinearColorGradientKeepAlpha(global::DearImguiSharp.ImDrawList draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2 gradient_p0, global::DearImguiSharp.ImVec2 gradient_p1, uint col0, uint col1)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(gradient_p0, null))
+                throw new global::System.ArgumentNullException("gradient_p0", "Cannot be null because it is passed by value.");
+            var __arg3 = gradient_p0.__Instance;
+            if (ReferenceEquals(gradient_p1, null))
+                throw new global::System.ArgumentNullException("gradient_p1", "Cannot be null because it is passed by value.");
+            var __arg4 = gradient_p1.__Instance;
+            __Internal.ShadeVertsLinearColorGradientKeepAlpha(__arg0, vert_start_idx, vert_end_idx, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, col0, col1);
+        }
+
+        public static void ShadeVertsLinearUV(global::DearImguiSharp.ImDrawList draw_list, int vert_start_idx, int vert_end_idx, global::DearImguiSharp.ImVec2 a, global::DearImguiSharp.ImVec2 b, global::DearImguiSharp.ImVec2 uv_a, global::DearImguiSharp.ImVec2 uv_b, bool clamp)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is passed by value.");
+            var __arg3 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is passed by value.");
+            var __arg4 = b.__Instance;
+            if (ReferenceEquals(uv_a, null))
+                throw new global::System.ArgumentNullException("uv_a", "Cannot be null because it is passed by value.");
+            var __arg5 = uv_a.__Instance;
+            if (ReferenceEquals(uv_b, null))
+                throw new global::System.ArgumentNullException("uv_b", "Cannot be null because it is passed by value.");
+            var __arg6 = uv_b.__Instance;
+            __Internal.ShadeVertsLinearUV(__arg0, vert_start_idx, vert_end_idx, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, *(global::DearImguiSharp.ImVec2.__Internal*) __arg6, clamp);
+        }
+
+        public static void GcCompactTransientMiscBuffers()
+        {
+            __Internal.GcCompactTransientMiscBuffers();
+        }
+
+        public static void GcCompactTransientWindowBuffers(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.GcCompactTransientWindowBuffers(__arg0);
+        }
+
+        public static void GcAwakeTransientWindowBuffers(global::DearImguiSharp.ImGuiWindow window)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.GcAwakeTransientWindowBuffers(__arg0);
+        }
+
+        public static void ErrorCheckEndFrameRecover(global::DearImguiSharp.ImGuiErrorLogCallback log_callback, __IntPtr user_data)
+        {
+            var __arg0 = log_callback == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(log_callback);
+            __Internal.ErrorCheckEndFrameRecover(__arg0, user_data);
+        }
+
+        public static void DebugDrawItemRect(uint col)
+        {
+            __Internal.DebugDrawItemRect(col);
+        }
+
+        public static void DebugStartItemPicker()
+        {
+            __Internal.DebugStartItemPicker();
+        }
+
+        public static void DebugNodeColumns(global::DearImguiSharp.ImGuiOldColumns columns)
+        {
+            var __arg0 = columns is null ? __IntPtr.Zero : columns.__Instance;
+            __Internal.DebugNodeColumns(__arg0);
+        }
+
+        public static void DebugNodeDrawList(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImDrawList draw_list, string label)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __arg1 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            __Internal.DebugNodeDrawList(__arg0, __arg1, label);
+        }
+
+        public static void DebugNodeDrawCmdShowMeshAndBoundingBox(global::DearImguiSharp.ImDrawList out_draw_list, global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImDrawCmd draw_cmd, bool show_mesh, bool show_aabb)
+        {
+            var __arg0 = out_draw_list is null ? __IntPtr.Zero : out_draw_list.__Instance;
+            var __arg1 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            var __arg2 = draw_cmd is null ? __IntPtr.Zero : draw_cmd.__Instance;
+            __Internal.DebugNodeDrawCmdShowMeshAndBoundingBox(__arg0, __arg1, __arg2, show_mesh, show_aabb);
+        }
+
+        public static void DebugNodeStorage(global::DearImguiSharp.ImGuiStorage storage, string label)
+        {
+            var __arg0 = storage is null ? __IntPtr.Zero : storage.__Instance;
+            __Internal.DebugNodeStorage(__arg0, label);
+        }
+
+        public static void DebugNodeTabBar(global::DearImguiSharp.ImGuiTabBar tab_bar, string label)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            __Internal.DebugNodeTabBar(__arg0, label);
+        }
+
+        public static void DebugNodeTable(global::DearImguiSharp.ImGuiTable table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.DebugNodeTable(__arg0);
+        }
+
+        public static void DebugNodeTableSettings(global::DearImguiSharp.ImGuiTableSettings settings)
+        {
+            var __arg0 = settings is null ? __IntPtr.Zero : settings.__Instance;
+            __Internal.DebugNodeTableSettings(__arg0);
+        }
+
+        public static void DebugNodeWindow(global::DearImguiSharp.ImGuiWindow window, string label)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.DebugNodeWindow(__arg0, label);
+        }
+
+        public static void DebugNodeWindowSettings(global::DearImguiSharp.ImGuiWindowSettings settings)
+        {
+            var __arg0 = settings is null ? __IntPtr.Zero : settings.__Instance;
+            __Internal.DebugNodeWindowSettings(__arg0);
+        }
+
+        public static void DebugNodeWindowsList(global::DearImguiSharp.ImVectorImGuiWindowPtr windows, string label)
+        {
+            var __arg0 = windows is null ? __IntPtr.Zero : windows.__Instance;
+            __Internal.DebugNodeWindowsList(__arg0, label);
+        }
+
+        public static void DebugNodeViewport(global::DearImguiSharp.ImGuiViewportP viewport)
+        {
+            var __arg0 = viewport is null ? __IntPtr.Zero : viewport.__Instance;
+            __Internal.DebugNodeViewport(__arg0);
+        }
+
+        public static void DebugRenderViewportThumbnail(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImGuiViewportP viewport, global::DearImguiSharp.ImRect bb)
+        {
+            var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
+            var __arg1 = viewport is null ? __IntPtr.Zero : viewport.__Instance;
+            if (ReferenceEquals(bb, null))
+                throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
+            var __arg2 = bb.__Instance;
+            __Internal.DebugRenderViewportThumbnail(__arg0, __arg1, __arg2);
+        }
+
+        public static global::DearImguiSharp.ImFontBuilderIO ImFontAtlasGetBuilderForStbTruetype()
+        {
+            var __ret = __Internal.ImFontAtlasGetBuilderForStbTruetype();
+            var __result0 = global::DearImguiSharp.ImFontBuilderIO.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImFontAtlasBuildInit(global::DearImguiSharp.ImFontAtlas atlas)
+        {
+            var __arg0 = atlas is null ? __IntPtr.Zero : atlas.__Instance;
+            __Internal.ImFontAtlasBuildInit(__arg0);
+        }
+
+        public static void ImFontAtlasBuildSetupFont(global::DearImguiSharp.ImFontAtlas atlas, global::DearImguiSharp.ImFont font, global::DearImguiSharp.ImFontConfig font_config, float ascent, float descent)
+        {
+            var __arg0 = atlas is null ? __IntPtr.Zero : atlas.__Instance;
+            var __arg1 = font is null ? __IntPtr.Zero : font.__Instance;
+            var __arg2 = font_config is null ? __IntPtr.Zero : font_config.__Instance;
+            __Internal.ImFontAtlasBuildSetupFont(__arg0, __arg1, __arg2, ascent, descent);
+        }
+
+        public static void ImFontAtlasBuildPackCustomRects(global::DearImguiSharp.ImFontAtlas atlas, __IntPtr stbrp_context_opaque)
+        {
+            var __arg0 = atlas is null ? __IntPtr.Zero : atlas.__Instance;
+            __Internal.ImFontAtlasBuildPackCustomRects(__arg0, stbrp_context_opaque);
+        }
+
+        public static void ImFontAtlasBuildFinish(global::DearImguiSharp.ImFontAtlas atlas)
+        {
+            var __arg0 = atlas is null ? __IntPtr.Zero : atlas.__Instance;
+            __Internal.ImFontAtlasBuildFinish(__arg0);
+        }
+
+        public static void ImFontAtlasBuildRender8bppRectFromString(global::DearImguiSharp.ImFontAtlas atlas, int x, int y, int w, int h, string in_str, sbyte in_marker_char, byte in_marker_pixel_value)
+        {
+            var __arg0 = atlas is null ? __IntPtr.Zero : atlas.__Instance;
+            __Internal.ImFontAtlasBuildRender8bppRectFromString(__arg0, x, y, w, h, in_str, in_marker_char, in_marker_pixel_value);
+        }
+
+        public static void ImFontAtlasBuildRender32bppRectFromString(global::DearImguiSharp.ImFontAtlas atlas, int x, int y, int w, int h, string in_str, sbyte in_marker_char, uint in_marker_pixel_value)
+        {
+            var __arg0 = atlas is null ? __IntPtr.Zero : atlas.__Instance;
+            __Internal.ImFontAtlasBuildRender32bppRectFromString(__arg0, x, y, w, h, in_str, in_marker_char, in_marker_pixel_value);
+        }
+
+        public static void ImFontAtlasBuildMultiplyCalcLookupTable(byte[] out_table, float in_multiply_factor)
+        {
+            if (out_table == null || out_table.Length != 256)
+                throw new ArgumentOutOfRangeException("out_table", "The dimensions of the provided array don't match the required size.");
+            __Internal.ImFontAtlasBuildMultiplyCalcLookupTable(out_table, in_multiply_factor);
+        }
+
+        public static void ImFontAtlasBuildMultiplyRectAlpha8(byte[] table, byte* pixels, int x, int y, int w, int h, int stride)
+        {
+            if (table == null || table.Length != 256)
+                throw new ArgumentOutOfRangeException("table", "The dimensions of the provided array don't match the required size.");
+            __Internal.ImFontAtlasBuildMultiplyRectAlpha8(table, pixels, x, y, w, h, stride);
         }
 
         /// <summary>//////////////////////hand written functions</summary>
@@ -16990,6 +40678,22 @@ namespace DearImguiSharp
     namespace Delegates
     {
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.I1)]
+        public unsafe delegate bool Func_bool___IntPtr(__IntPtr atlas);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+        public unsafe delegate void Action___IntPtr___IntPtr(__IntPtr ctx, __IntPtr handler);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+        public unsafe delegate __IntPtr Func___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string(__IntPtr ctx, __IntPtr handler, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+        public unsafe delegate void Action___IntPtr___IntPtr___IntPtr__MarshalAs_UnmanagedType_CustomMarshaler__MarshalTypeRef___typeof_CppSharp_Runtime_UTF8Marshaller____string(__IntPtr ctx, __IntPtr handler, __IntPtr entry, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string line);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+        public unsafe delegate void Action___IntPtr___IntPtr___IntPtr(__IntPtr ctx, __IntPtr handler, __IntPtr out_buf);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
         public unsafe delegate __IntPtr Func___IntPtr___IntPtr(__IntPtr user_data);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
@@ -17007,8 +40711,5 @@ namespace DearImguiSharp
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
         public unsafe delegate __IntPtr Func___IntPtr_IntPtr___IntPtr(IntPtr sz, __IntPtr user_data);
-
-        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
-        public unsafe delegate void Action___IntPtr___IntPtr(__IntPtr ptr, __IntPtr user_data);
     }
 }
