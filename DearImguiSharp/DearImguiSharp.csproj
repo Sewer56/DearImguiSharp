@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Authors>Sewer56</Authors>
-    <Description>Wrapper for the Dear ImGui library with support for DX9, DX11 and Win32 implementations on Windows.</Description>
+    <Description>Wrapper for the Dear ImGui library (docking branch) with support for DX9, DX11 and Win32 implementations on Windows.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.75.4</Version>
+    <Version>1.81.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,8 +19,18 @@
       <PackagePath>runtimes/win-x64/native</PackagePath>
       <Pack>true</Pack>
     </Content>
-
-    <Content Include="build\net40\DearImguiSharp.targets" />
+	<Content Include="$(OutputPath)\CppSharp.Runtime.dll">
+	  <Pack>true</Pack>
+	  <PackagePath>lib\$(TargetFramework)</PackagePath>
+	</Content>
+	<Content Include="build\net40\DearImguiSharp.targets" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CppSharp.Runtime">
+      <HintPath>deps\CppSharp.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+	
 
 </Project>

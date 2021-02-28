@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CodeGenerator.Passes;
+using CppSharp.AST;
 using CppSharp.Generators;
 using CppSharp.Passes;
 using ASTContext = CppSharp.AST.ASTContext;
@@ -56,6 +57,17 @@ namespace CodeGenerator
             foreach (var decl in ctx.FindDecl<Declaration>("GImGui"))
                 decl.Ignore = true;
 
+            // Fix incorrect indirect value passes.
+            foreach (var parameter in from translationUnit in ctx.TranslationUnits 
+                                      from function in translationUnit.Functions 
+                                      from parameter in function.Parameters 
+                                      where parameter.DebugText.Contains("const ImVec4") 
+                                      select parameter)
+            {
+                parameter.IsIndirect = false;
+            }
+
+            // Remove Prefixes
             RemovePrefix(ctx);
         }
 
@@ -99,6 +111,10 @@ namespace CodeGenerator
             var cls = ctx.FindCompleteClass(className);
             var dataProperty = cls.Properties.First(x => x.OriginalName == propertyName);
             dataProperty.Ignore = true;
+        }
+
+        public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)
+        {
         }
     }
 }
