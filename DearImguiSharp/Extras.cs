@@ -40,4 +40,15 @@ namespace DearImguiSharp
             }
         }
     }
+
+    public unsafe partial class ImVector_const_charPtr
+    {
+        public sbyte** Data
+        {
+            get
+            {
+                return (sbyte**)((__Internal*)__Instance)->Data;
+            }
+        }
+    }
 }

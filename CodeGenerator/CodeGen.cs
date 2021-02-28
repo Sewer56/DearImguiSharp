@@ -78,6 +78,7 @@ namespace CodeGenerator
             // C# has no implicit cast for this.
             // We implement this property ourselves in the other project :3
             IgnoreProperty("ImVectorImTextureID", "Data", ctx);
+            IgnoreProperty("ImVector_const_charPtr", "Data", ctx);
         }
 
         private void RemovePrefix(ASTContext ctx)
