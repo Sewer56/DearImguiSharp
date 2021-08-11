@@ -38,10 +38,11 @@ namespace DearImguiSharp
     {
         ImGuiInputSourceNone = 0,
         ImGuiInputSourceMouse = 1,
-        ImGuiInputSourceNav = 2,
-        ImGuiInputSourceNavKeyboard = 3,
-        ImGuiInputSourceNavGamepad = 4,
-        ImGuiInputSourceCOUNT = 5
+        ImGuiInputSourceKeyboard = 2,
+        ImGuiInputSourceGamepad = 3,
+        ImGuiInputSourceNav = 4,
+        ImGuiInputSourceClipboard = 5,
+        ImGuiInputSourceCOUNT = 6
     }
 
     public enum ImGuiNavForward
@@ -125,15 +126,13 @@ namespace DearImguiSharp
         ImGuiInputTextFlagsAllowTabInput = 1024,
         ImGuiInputTextFlagsCtrlEnterForNewLine = 2048,
         ImGuiInputTextFlagsNoHorizontalScroll = 4096,
-        ImGuiInputTextFlagsAlwaysInsertMode = 8192,
+        ImGuiInputTextFlagsAlwaysOverwrite = 8192,
         ImGuiInputTextFlagsReadOnly = 16384,
         ImGuiInputTextFlagsPassword = 32768,
         ImGuiInputTextFlagsNoUndoRedo = 65536,
         ImGuiInputTextFlagsCharsScientific = 131072,
         ImGuiInputTextFlagsCallbackResize = 262144,
-        ImGuiInputTextFlagsCallbackEdit = 524288,
-        ImGuiInputTextFlagsMultiline = 1048576,
-        ImGuiInputTextFlagsNoMarkEdited = 2097152
+        ImGuiInputTextFlagsCallbackEdit = 524288
     }
 
     public enum ImGuiTreeNodeFlags
@@ -659,18 +658,22 @@ namespace DearImguiSharp
         ImGuiCondAppearing = 8
     }
 
-    public enum ImDrawCornerFlags
+    public enum ImDrawFlags
     {
-        ImDrawCornerFlagsNone = 0,
-        ImDrawCornerFlagsTopLeft = 1,
-        ImDrawCornerFlagsTopRight = 2,
-        ImDrawCornerFlagsBotLeft = 4,
-        ImDrawCornerFlagsBotRight = 8,
-        ImDrawCornerFlagsTop = 3,
-        ImDrawCornerFlagsBot = 12,
-        ImDrawCornerFlagsLeft = 5,
-        ImDrawCornerFlagsRight = 10,
-        ImDrawCornerFlagsAll = 15
+        ImDrawFlagsNone = 0,
+        ImDrawFlagsClosed = 1,
+        ImDrawFlagsRoundCornersTopLeft = 16,
+        ImDrawFlagsRoundCornersTopRight = 32,
+        ImDrawFlagsRoundCornersBottomLeft = 64,
+        ImDrawFlagsRoundCornersBottomRight = 128,
+        ImDrawFlagsRoundCornersNone = 256,
+        ImDrawFlagsRoundCornersTop = 48,
+        ImDrawFlagsRoundCornersBottom = 192,
+        ImDrawFlagsRoundCornersLeft = 80,
+        ImDrawFlagsRoundCornersRight = 160,
+        ImDrawFlagsRoundCornersAll = 240,
+        ImDrawFlagsRoundCornersDefault = 240,
+        ImDrawFlagsRoundCornersMask = 496
     }
 
     [Flags]
@@ -722,11 +725,15 @@ namespace DearImguiSharp
         ImGuiItemFlagsNoNavDefaultFocus = 16,
         ImGuiItemFlagsSelectableDontClosePopup = 32,
         ImGuiItemFlagsMixedValue = 64,
-        ImGuiItemFlagsReadOnly = 128,
-        ImGuiItemFlagsDefault = 0
+        ImGuiItemFlagsReadOnly = 128
     }
 
-    [Flags]
+    public enum ImGuiItemAddFlags
+    {
+        ImGuiItemAddFlagsNone = 0,
+        ImGuiItemAddFlagsFocusable = 1
+    }
+
     public enum ImGuiItemStatusFlags
     {
         ImGuiItemStatusFlagsNone = 0,
@@ -736,7 +743,19 @@ namespace DearImguiSharp
         ImGuiItemStatusFlagsToggledSelection = 8,
         ImGuiItemStatusFlagsToggledOpen = 16,
         ImGuiItemStatusFlagsHasDeactivated = 32,
-        ImGuiItemStatusFlagsDeactivated = 64
+        ImGuiItemStatusFlagsDeactivated = 64,
+        ImGuiItemStatusFlagsHoveredWindow = 128,
+        ImGuiItemStatusFlagsFocusedByCode = 256,
+        ImGuiItemStatusFlagsFocusedByTabbing = 512,
+        ImGuiItemStatusFlagsFocused = 768
+    }
+
+    [Flags]
+    public enum ImGuiInputTextFlagsPrivate
+    {
+        ImGuiInputTextFlagsMultiline = 67108864,
+        ImGuiInputTextFlagsNoMarkEdited = 134217728,
+        ImGuiInputTextFlagsMergedItem = 268435456
     }
 
     public enum ImGuiButtonFlagsPrivate
@@ -958,9 +977,9 @@ namespace DearImguiSharp
         ImGuiTabBarFlagsSaveSettings = 4194304
     }
 
-    [Flags]
     public enum ImGuiTabItemFlagsPrivate
     {
+        ImGuiTabItemFlagsSectionMask = 192,
         ImGuiTabItemFlagsNoCloseButton = 1048576,
         ImGuiTabItemFlagsButton = 2097152,
         ImGuiTabItemFlagsUnsorted = 4194304,
@@ -978,6 +997,12 @@ namespace DearImguiSharp
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
     public unsafe delegate void ImGuiContextHookCallback(__IntPtr ctx, __IntPtr hook);
+
+    [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+    public unsafe delegate __IntPtr ImGuiMemAllocFunc(IntPtr sz, __IntPtr user_data);
+
+    [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
+    public unsafe delegate void ImGuiMemFreeFunc(__IntPtr ptr, __IntPtr user_data);
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
     public unsafe delegate void ImGuiErrorLogCallback(__IntPtr user_data, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
@@ -5708,6 +5733,139 @@ namespace DearImguiSharp
         }
     }
 
+    public unsafe partial class ImVectorImGuiTableTempData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 16)]
+        public partial struct __Internal
+        {
+            public int Size;
+            public int Capacity;
+            public __IntPtr Data;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVector_ImGuiTableTempData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTableTempData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImVectorImGuiTableTempData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImVectorImGuiTableTempData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTableTempData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImVectorImGuiTableTempData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImVectorImGuiTableTempData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImVectorImGuiTableTempData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImVectorImGuiTableTempData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImVectorImGuiTableTempData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTableTempData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImVectorImGuiTableTempData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTableTempData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImVectorImGuiTableTempData(global::DearImguiSharp.ImVectorImGuiTableTempData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImVectorImGuiTableTempData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImVectorImGuiTableTempData.__Internal*) __Instance) = *((global::DearImguiSharp.ImVectorImGuiTableTempData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int Size
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Size;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Size = value;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Capacity;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Capacity = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableTempData Data
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableTempData.__GetOrCreateInstance(((__Internal*)__Instance)->Data, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Data = value is null ? __IntPtr.Zero : value.__Instance;
+            }
+        }
+    }
+
     public unsafe partial class ImVectorImGuiTextRange : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 16)]
@@ -7418,7 +7576,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImVec2@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ihVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ih_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr IhImVec2ihVec2(__IntPtr __instance);
         }
 
@@ -8396,7 +8554,6 @@ namespace DearImguiSharp
             public __IntPtr FontDefault;
             public global::DearImguiSharp.ImVec2.__Internal DisplayFramebufferScale;
             public byte ConfigDockingNoSplit;
-            public byte ConfigDockingWithShift;
             public byte ConfigDockingAlwaysTabBar;
             public byte ConfigDockingTransparentPayload;
             public byte ConfigViewportsNoAutoMerge;
@@ -8822,19 +8979,6 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->ConfigDockingNoSplit = (byte) (value ? 1 : 0);
-            }
-        }
-
-        public bool ConfigDockingWithShift
-        {
-            get
-            {
-                return ((__Internal*)__Instance)->ConfigDockingWithShift != 0;
-            }
-
-            set
-            {
-                ((__Internal*)__Instance)->ConfigDockingWithShift = (byte) (value ? 1 : 0);
             }
         }
 
@@ -14697,14 +14841,15 @@ namespace DearImguiSharp
 
     public unsafe partial class ImFontAtlas : IDisposable
     {
-        [StructLayout(LayoutKind.Sequential, Size = 1160)]
+        [StructLayout(LayoutKind.Sequential, Size = 1168)]
         public partial struct __Internal
         {
-            public byte Locked;
             public int Flags;
             public __IntPtr TexID;
             public int TexDesiredWidth;
             public int TexGlyphPadding;
+            public byte Locked;
+            public byte TexPixelsUseColors;
             public __IntPtr TexPixelsAlpha8;
             public __IntPtr TexPixelsRGBA32;
             public int TexWidth;
@@ -14803,19 +14948,6 @@ namespace DearImguiSharp
             __Instance = IntPtr.Zero;
         }
 
-        public bool Locked
-        {
-            get
-            {
-                return ((__Internal*)__Instance)->Locked != 0;
-            }
-
-            set
-            {
-                ((__Internal*)__Instance)->Locked = (byte) (value ? 1 : 0);
-            }
-        }
-
         public int Flags
         {
             get
@@ -14865,6 +14997,32 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->TexGlyphPadding = value;
+            }
+        }
+
+        public bool Locked
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->Locked != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->Locked = (byte) (value ? 1 : 0);
+            }
+        }
+
+        public bool TexPixelsUseColors
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TexPixelsUseColors != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TexPixelsUseColors = (byte) (value ? 1 : 0);
             }
         }
 
@@ -17625,7 +17783,7 @@ namespace DearImguiSharp
 
     public unsafe partial class ImDrawListSharedData : IDisposable
     {
-        [StructLayout(LayoutKind.Sequential, Size = 216)]
+        [StructLayout(LayoutKind.Sequential, Size = 512)]
         public partial struct __Internal
         {
             public global::DearImguiSharp.ImVec2.__Internal TexUvWhitePixel;
@@ -17635,7 +17793,8 @@ namespace DearImguiSharp
             public float CircleSegmentMaxError;
             public global::DearImguiSharp.ImVec4.__Internal ClipRectFullscreen;
             public int InitialFlags;
-            public fixed byte ArcFastVtx[96];
+            public fixed byte ArcFastVtx[384];
+            public float ArcFastRadiusCutoff;
             public fixed byte CircleSegmentCounts[64];
             public __IntPtr TexUvLines;
 
@@ -17825,8 +17984,8 @@ namespace DearImguiSharp
                 global::DearImguiSharp.ImVec2[] __value = null;
                 if (((__Internal*)__Instance)->ArcFastVtx != null)
                 {
-                    __value = new global::DearImguiSharp.ImVec2[12];
-                    for (int i = 0; i < 12; i++)
+                    __value = new global::DearImguiSharp.ImVec2[48];
+                    for (int i = 0; i < 48; i++)
                         __value[i] = global::DearImguiSharp.ImVec2.__CreateInstance(*((global::DearImguiSharp.ImVec2.__Internal*)&(((__Internal*)__Instance)->ArcFastVtx[i * sizeof(global::DearImguiSharp.ImVec2.__Internal)])));
                 }
                 return __value;
@@ -17836,11 +17995,24 @@ namespace DearImguiSharp
             {
                 if (value != null)
                 {
-                    if (value.Length != 12)
+                    if (value.Length != 48)
                         throw new ArgumentOutOfRangeException("value", "The dimensions of the provided array don't match the required size.");
-                    for (int i = 0; i < 12; i++)
+                    for (int i = 0; i < 48; i++)
                         *(global::DearImguiSharp.ImVec2.__Internal*) &((__Internal*)__Instance)->ArcFastVtx[i * sizeof(global::DearImguiSharp.ImVec2.__Internal)] = *(global::DearImguiSharp.ImVec2.__Internal*)value[i].__Instance;
                 }
+            }
+        }
+
+        public float ArcFastRadiusCutoff
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->ArcFastRadiusCutoff;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->ArcFastRadiusCutoff = value;
             }
         }
 
@@ -18533,6 +18705,7 @@ namespace DearImguiSharp
             public float BackupCurrLineTextBaseOffset;
             public uint BackupActiveIdIsAlive;
             public byte BackupActiveIdPreviousFrameIsAlive;
+            public byte BackupHoveredIdIsAlive;
             public byte EmitItem;
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiGroupData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
@@ -18745,6 +18918,19 @@ namespace DearImguiSharp
             }
         }
 
+        public bool BackupHoveredIdIsAlive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->BackupHoveredIdIsAlive != 0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->BackupHoveredIdIsAlive = (byte) (value ? 1 : 0);
+            }
+        }
+
         public bool EmitItem
         {
             get
@@ -18946,7 +19132,7 @@ namespace DearImguiSharp
             public byte CursorFollow;
             public byte SelectedAllMouseLock;
             public byte Edited;
-            public int UserFlags;
+            public int Flags;
             public __IntPtr UserCallback;
             public __IntPtr UserCallbackData;
 
@@ -19223,16 +19409,16 @@ namespace DearImguiSharp
             }
         }
 
-        public int UserFlags
+        public int Flags
         {
             get
             {
-                return ((__Internal*)__Instance)->UserFlags;
+                return ((__Internal*)__Instance)->Flags;
             }
 
             set
             {
-                ((__Internal*)__Instance)->UserFlags = value;
+                ((__Internal*)__Instance)->Flags = value;
             }
         }
 
@@ -19458,7 +19644,7 @@ namespace DearImguiSharp
         }
     }
 
-    public unsafe partial class ImGuiNavMoveResult : IDisposable
+    public unsafe partial class ImGuiNavItemData : IDisposable
     {
         [StructLayout(LayoutKind.Sequential, Size = 48)]
         public partial struct __Internal
@@ -19466,41 +19652,41 @@ namespace DearImguiSharp
             public __IntPtr Window;
             public uint ID;
             public uint FocusScopeId;
+            public global::DearImguiSharp.ImRect.__Internal RectRel;
             public float DistBox;
             public float DistCenter;
             public float DistAxial;
-            public global::DearImguiSharp.ImRect.__Internal RectRel;
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiNavMoveResult@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiNavItemData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
         }
 
         public __IntPtr __Instance { get; protected set; }
 
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNavMoveResult> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNavMoveResult>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNavItemData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiNavItemData>();
 
         protected bool __ownsNativeInstance;
 
-        internal static ImGuiNavMoveResult __CreateInstance(__IntPtr native, bool skipVTables = false)
+        internal static ImGuiNavItemData __CreateInstance(__IntPtr native, bool skipVTables = false)
         {
-            return new ImGuiNavMoveResult(native.ToPointer(), skipVTables);
+            return new ImGuiNavItemData(native.ToPointer(), skipVTables);
         }
 
-        internal static ImGuiNavMoveResult __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        internal static ImGuiNavItemData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
         {
             if (native == __IntPtr.Zero)
                 return null;
             if (NativeToManagedMap.TryGetValue(native, out var managed))
-                return (ImGuiNavMoveResult)managed;
+                return (ImGuiNavItemData)managed;
             var result = __CreateInstance(native, skipVTables);
             if (saveInstance)
                 NativeToManagedMap[native] = result;
             return result;
         }
 
-        internal static ImGuiNavMoveResult __CreateInstance(__Internal native, bool skipVTables = false)
+        internal static ImGuiNavItemData __CreateInstance(__Internal native, bool skipVTables = false)
         {
-            return new ImGuiNavMoveResult(native, skipVTables);
+            return new ImGuiNavItemData(native, skipVTables);
         }
 
         private static void* __CopyValue(__Internal native)
@@ -19510,33 +19696,33 @@ namespace DearImguiSharp
             return ret.ToPointer();
         }
 
-        private ImGuiNavMoveResult(__Internal native, bool skipVTables = false)
+        private ImGuiNavItemData(__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
         }
 
-        public ImGuiNavMoveResult(void* native, bool skipVTables = false)
+        public ImGuiNavItemData(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
             __Instance = new __IntPtr(native);
         }
 
-        public ImGuiNavMoveResult()
+        public ImGuiNavItemData()
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNavMoveResult.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNavItemData.__Internal));
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
         }
 
-        public ImGuiNavMoveResult(global::DearImguiSharp.ImGuiNavMoveResult _0)
+        public ImGuiNavItemData(global::DearImguiSharp.ImGuiNavItemData _0)
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNavMoveResult.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiNavItemData.__Internal));
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
-            *((global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) _0.__Instance);
+            *((global::DearImguiSharp.ImGuiNavItemData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiNavItemData.__Internal*) _0.__Instance);
         }
 
         public void Dispose()
@@ -19594,6 +19780,21 @@ namespace DearImguiSharp
             }
         }
 
+        public global::DearImguiSharp.ImRect RectRel
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->RectRel));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->RectRel = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
         public float DistBox
         {
             get
@@ -19630,21 +19831,6 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->DistAxial = value;
-            }
-        }
-
-        public global::DearImguiSharp.ImRect RectRel
-        {
-            get
-            {
-                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->RectRel));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->RectRel = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
             }
         }
     }
@@ -21897,8 +22083,8 @@ namespace DearImguiSharp
             public global::DearImguiSharp.ImVec2.__Internal LastRendererSize;
             public global::DearImguiSharp.ImVec2.__Internal WorkOffsetMin;
             public global::DearImguiSharp.ImVec2.__Internal WorkOffsetMax;
-            public global::DearImguiSharp.ImVec2.__Internal CurrWorkOffsetMin;
-            public global::DearImguiSharp.ImVec2.__Internal CurrWorkOffsetMax;
+            public global::DearImguiSharp.ImVec2.__Internal BuildWorkOffsetMin;
+            public global::DearImguiSharp.ImVec2.__Internal BuildWorkOffsetMax;
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiViewportP@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
@@ -22279,33 +22465,33 @@ namespace DearImguiSharp
             }
         }
 
-        public global::DearImguiSharp.ImVec2 CurrWorkOffsetMin
+        public global::DearImguiSharp.ImVec2 BuildWorkOffsetMin
         {
             get
             {
-                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrWorkOffsetMin));
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BuildWorkOffsetMin));
             }
 
             set
             {
                 if (ReferenceEquals(value, null))
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->CurrWorkOffsetMin = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+                ((__Internal*)__Instance)->BuildWorkOffsetMin = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
             }
         }
 
-        public global::DearImguiSharp.ImVec2 CurrWorkOffsetMax
+        public global::DearImguiSharp.ImVec2 BuildWorkOffsetMax
         {
             get
             {
-                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrWorkOffsetMax));
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->BuildWorkOffsetMax));
             }
 
             set
             {
                 if (ReferenceEquals(value, null))
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->CurrWorkOffsetMax = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+                ((__Internal*)__Instance)->BuildWorkOffsetMax = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
             }
         }
     }
@@ -23325,7 +23511,7 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiContext : IDisposable
     {
-        [StructLayout(LayoutKind.Sequential, Size = 16224)]
+        [StructLayout(LayoutKind.Sequential, Size = 16568)]
         public partial struct __Internal
         {
             public byte Initialized;
@@ -23357,15 +23543,16 @@ namespace DearImguiSharp
             public global::DearImguiSharp.ImVectorImGuiWindowPtr.__Internal CurrentWindowStack;
             public global::DearImguiSharp.ImGuiStorage.__Internal WindowsById;
             public int WindowsActiveCount;
+            public global::DearImguiSharp.ImVec2.__Internal WindowsHoverPadding;
             public __IntPtr CurrentWindow;
             public __IntPtr HoveredWindow;
-            public __IntPtr HoveredRootWindow;
             public __IntPtr HoveredWindowUnderMovingWindow;
             public __IntPtr HoveredDockNode;
             public __IntPtr MovingWindow;
             public __IntPtr WheelingWindow;
             public global::DearImguiSharp.ImVec2.__Internal WheelingWindowRefMousePos;
             public float WheelingWindowTimer;
+            public int CurrentItemFlags;
             public uint HoveredId;
             public uint HoveredIdPreviousFrame;
             public byte HoveredIdAllowOverlap;
@@ -23413,6 +23600,7 @@ namespace DearImguiSharp
             public __IntPtr MouseViewport;
             public __IntPtr MouseLastHoveredViewport;
             public uint PlatformLastFocusedViewportId;
+            public global::DearImguiSharp.ImGuiPlatformMonitor.__Internal FallbackMonitor;
             public int ViewportFrontMostStampCount;
             public __IntPtr NavWindow;
             public uint NavId;
@@ -23447,9 +23635,9 @@ namespace DearImguiSharp
             public int NavMoveDir;
             public int NavMoveDirLast;
             public int NavMoveClipDir;
-            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocal;
-            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultLocalVisibleSet;
-            public global::DearImguiSharp.ImGuiNavMoveResult.__Internal NavMoveResultOther;
+            public global::DearImguiSharp.ImGuiNavItemData.__Internal NavMoveResultLocal;
+            public global::DearImguiSharp.ImGuiNavItemData.__Internal NavMoveResultLocalVisibleSet;
+            public global::DearImguiSharp.ImGuiNavItemData.__Internal NavMoveResultOther;
             public __IntPtr NavWrapRequestWindow;
             public int NavWrapRequestFlags;
             public __IntPtr NavWindowingTarget;
@@ -23458,13 +23646,13 @@ namespace DearImguiSharp
             public float NavWindowingTimer;
             public float NavWindowingHighlightAlpha;
             public byte NavWindowingToggleLayer;
-            public __IntPtr FocusRequestCurrWindow;
-            public __IntPtr FocusRequestNextWindow;
-            public int FocusRequestCurrCounterRegular;
-            public int FocusRequestCurrCounterTabStop;
-            public int FocusRequestNextCounterRegular;
-            public int FocusRequestNextCounterTabStop;
-            public byte FocusTabPressed;
+            public __IntPtr TabFocusRequestCurrWindow;
+            public __IntPtr TabFocusRequestNextWindow;
+            public int TabFocusRequestCurrCounterRegular;
+            public int TabFocusRequestCurrCounterTabStop;
+            public int TabFocusRequestNextCounterRegular;
+            public int TabFocusRequestNextCounterTabStop;
+            public byte TabFocusPressed;
             public float DimBgRatio;
             public int MouseCursor;
             public byte DragDropActive;
@@ -23485,8 +23673,9 @@ namespace DearImguiSharp
             public global::DearImguiSharp.ImVector_unsigned_char.__Internal DragDropPayloadBufHeap;
             public fixed byte DragDropPayloadBufLocal[16];
             public __IntPtr CurrentTable;
+            public int CurrentTableStackIdx;
             public global::DearImguiSharp.ImPoolImGuiTable.__Internal Tables;
-            public global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal CurrentTableStack;
+            public global::DearImguiSharp.ImVectorImGuiTableTempData.__Internal TablesTempDataStack;
             public global::DearImguiSharp.ImVector_float.__Internal TablesLastTimeActive;
             public global::DearImguiSharp.ImVectorImDrawChannel.__Internal DrawChannelsTempMergeBuffer;
             public __IntPtr CurrentTabBar;
@@ -23541,6 +23730,7 @@ namespace DearImguiSharp
             public global::DearImguiSharp.ImGuiMetricsConfig.__Internal DebugMetricsConfig;
             public fixed float FramerateSecPerFrame[120];
             public int FramerateSecPerFrameIdx;
+            public int FramerateSecPerFrameCount;
             public float FramerateSecPerFrameAccum;
             public int WantCaptureMouseNextFrame;
             public int WantCaptureKeyboardNextFrame;
@@ -24026,6 +24216,21 @@ namespace DearImguiSharp
             }
         }
 
+        public global::DearImguiSharp.ImVec2 WindowsHoverPadding
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->WindowsHoverPadding));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->WindowsHoverPadding = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
         public global::DearImguiSharp.ImGuiWindow CurrentWindow
         {
             get
@@ -24051,20 +24256,6 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->HoveredWindow = value is null ? __IntPtr.Zero : value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImGuiWindow HoveredRootWindow
-        {
-            get
-            {
-                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->HoveredRootWindow, false);
-                return __result0;
-            }
-
-            set
-            {
-                ((__Internal*)__Instance)->HoveredRootWindow = value is null ? __IntPtr.Zero : value.__Instance;
             }
         }
 
@@ -24149,6 +24340,19 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->WheelingWindowTimer = value;
+            }
+        }
+
+        public int CurrentItemFlags
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrentItemFlags;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentItemFlags = value;
             }
         }
 
@@ -24792,6 +24996,21 @@ namespace DearImguiSharp
             }
         }
 
+        public global::DearImguiSharp.ImGuiPlatformMonitor FallbackMonitor
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiPlatformMonitor.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->FallbackMonitor));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->FallbackMonitor = *(global::DearImguiSharp.ImGuiPlatformMonitor.__Internal*) value.__Instance;
+            }
+        }
+
         public int ViewportFrontMostStampCount
         {
             get
@@ -25239,48 +25458,48 @@ namespace DearImguiSharp
             }
         }
 
-        public global::DearImguiSharp.ImGuiNavMoveResult NavMoveResultLocal
+        public global::DearImguiSharp.ImGuiNavItemData NavMoveResultLocal
         {
             get
             {
-                return global::DearImguiSharp.ImGuiNavMoveResult.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultLocal));
+                return global::DearImguiSharp.ImGuiNavItemData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultLocal));
             }
 
             set
             {
                 if (ReferenceEquals(value, null))
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->NavMoveResultLocal = *(global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) value.__Instance;
+                ((__Internal*)__Instance)->NavMoveResultLocal = *(global::DearImguiSharp.ImGuiNavItemData.__Internal*) value.__Instance;
             }
         }
 
-        public global::DearImguiSharp.ImGuiNavMoveResult NavMoveResultLocalVisibleSet
+        public global::DearImguiSharp.ImGuiNavItemData NavMoveResultLocalVisibleSet
         {
             get
             {
-                return global::DearImguiSharp.ImGuiNavMoveResult.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultLocalVisibleSet));
+                return global::DearImguiSharp.ImGuiNavItemData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultLocalVisibleSet));
             }
 
             set
             {
                 if (ReferenceEquals(value, null))
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->NavMoveResultLocalVisibleSet = *(global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) value.__Instance;
+                ((__Internal*)__Instance)->NavMoveResultLocalVisibleSet = *(global::DearImguiSharp.ImGuiNavItemData.__Internal*) value.__Instance;
             }
         }
 
-        public global::DearImguiSharp.ImGuiNavMoveResult NavMoveResultOther
+        public global::DearImguiSharp.ImGuiNavItemData NavMoveResultOther
         {
             get
             {
-                return global::DearImguiSharp.ImGuiNavMoveResult.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultOther));
+                return global::DearImguiSharp.ImGuiNavItemData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->NavMoveResultOther));
             }
 
             set
             {
                 if (ReferenceEquals(value, null))
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->NavMoveResultOther = *(global::DearImguiSharp.ImGuiNavMoveResult.__Internal*) value.__Instance;
+                ((__Internal*)__Instance)->NavMoveResultOther = *(global::DearImguiSharp.ImGuiNavItemData.__Internal*) value.__Instance;
             }
         }
 
@@ -25392,96 +25611,96 @@ namespace DearImguiSharp
             }
         }
 
-        public global::DearImguiSharp.ImGuiWindow FocusRequestCurrWindow
+        public global::DearImguiSharp.ImGuiWindow TabFocusRequestCurrWindow
         {
             get
             {
-                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->FocusRequestCurrWindow, false);
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->TabFocusRequestCurrWindow, false);
                 return __result0;
             }
 
             set
             {
-                ((__Internal*)__Instance)->FocusRequestCurrWindow = value is null ? __IntPtr.Zero : value.__Instance;
+                ((__Internal*)__Instance)->TabFocusRequestCurrWindow = value is null ? __IntPtr.Zero : value.__Instance;
             }
         }
 
-        public global::DearImguiSharp.ImGuiWindow FocusRequestNextWindow
+        public global::DearImguiSharp.ImGuiWindow TabFocusRequestNextWindow
         {
             get
             {
-                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->FocusRequestNextWindow, false);
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->TabFocusRequestNextWindow, false);
                 return __result0;
             }
 
             set
             {
-                ((__Internal*)__Instance)->FocusRequestNextWindow = value is null ? __IntPtr.Zero : value.__Instance;
+                ((__Internal*)__Instance)->TabFocusRequestNextWindow = value is null ? __IntPtr.Zero : value.__Instance;
             }
         }
 
-        public int FocusRequestCurrCounterRegular
+        public int TabFocusRequestCurrCounterRegular
         {
             get
             {
-                return ((__Internal*)__Instance)->FocusRequestCurrCounterRegular;
+                return ((__Internal*)__Instance)->TabFocusRequestCurrCounterRegular;
             }
 
             set
             {
-                ((__Internal*)__Instance)->FocusRequestCurrCounterRegular = value;
+                ((__Internal*)__Instance)->TabFocusRequestCurrCounterRegular = value;
             }
         }
 
-        public int FocusRequestCurrCounterTabStop
+        public int TabFocusRequestCurrCounterTabStop
         {
             get
             {
-                return ((__Internal*)__Instance)->FocusRequestCurrCounterTabStop;
+                return ((__Internal*)__Instance)->TabFocusRequestCurrCounterTabStop;
             }
 
             set
             {
-                ((__Internal*)__Instance)->FocusRequestCurrCounterTabStop = value;
+                ((__Internal*)__Instance)->TabFocusRequestCurrCounterTabStop = value;
             }
         }
 
-        public int FocusRequestNextCounterRegular
+        public int TabFocusRequestNextCounterRegular
         {
             get
             {
-                return ((__Internal*)__Instance)->FocusRequestNextCounterRegular;
+                return ((__Internal*)__Instance)->TabFocusRequestNextCounterRegular;
             }
 
             set
             {
-                ((__Internal*)__Instance)->FocusRequestNextCounterRegular = value;
+                ((__Internal*)__Instance)->TabFocusRequestNextCounterRegular = value;
             }
         }
 
-        public int FocusRequestNextCounterTabStop
+        public int TabFocusRequestNextCounterTabStop
         {
             get
             {
-                return ((__Internal*)__Instance)->FocusRequestNextCounterTabStop;
+                return ((__Internal*)__Instance)->TabFocusRequestNextCounterTabStop;
             }
 
             set
             {
-                ((__Internal*)__Instance)->FocusRequestNextCounterTabStop = value;
+                ((__Internal*)__Instance)->TabFocusRequestNextCounterTabStop = value;
             }
         }
 
-        public bool FocusTabPressed
+        public bool TabFocusPressed
         {
             get
             {
-                return ((__Internal*)__Instance)->FocusTabPressed != 0;
+                return ((__Internal*)__Instance)->TabFocusPressed != 0;
             }
 
             set
             {
-                ((__Internal*)__Instance)->FocusTabPressed = (byte) (value ? 1 : 0);
+                ((__Internal*)__Instance)->TabFocusPressed = (byte) (value ? 1 : 0);
             }
         }
 
@@ -25756,6 +25975,19 @@ namespace DearImguiSharp
             }
         }
 
+        public int CurrentTableStackIdx
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->CurrentTableStackIdx;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->CurrentTableStackIdx = value;
+            }
+        }
+
         public global::DearImguiSharp.ImPoolImGuiTable Tables
         {
             get
@@ -25771,18 +26003,18 @@ namespace DearImguiSharp
             }
         }
 
-        public global::DearImguiSharp.ImVectorImGuiPtrOrIndex CurrentTableStack
+        public global::DearImguiSharp.ImVectorImGuiTableTempData TablesTempDataStack
         {
             get
             {
-                return global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->CurrentTableStack));
+                return global::DearImguiSharp.ImVectorImGuiTableTempData.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->TablesTempDataStack));
             }
 
             set
             {
                 if (ReferenceEquals(value, null))
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->CurrentTableStack = *(global::DearImguiSharp.ImVectorImGuiPtrOrIndex.__Internal*) value.__Instance;
+                ((__Internal*)__Instance)->TablesTempDataStack = *(global::DearImguiSharp.ImVectorImGuiTableTempData.__Internal*) value.__Instance;
             }
         }
 
@@ -26548,6 +26780,19 @@ namespace DearImguiSharp
             }
         }
 
+        public int FramerateSecPerFrameCount
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FramerateSecPerFrameCount;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FramerateSecPerFrameCount = value;
+            }
+        }
+
         public float FramerateSecPerFrameAccum
         {
             get
@@ -26620,7 +26865,7 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiWindowTempData : IDisposable
     {
-        [StructLayout(LayoutKind.Sequential, Size = 304)]
+        [StructLayout(LayoutKind.Sequential, Size = 296)]
         public partial struct __Internal
         {
             public global::DearImguiSharp.ImVec2.__Internal CursorPos;
@@ -26640,8 +26885,8 @@ namespace DearImguiSharp
             public global::DearImguiSharp.ImRect.__Internal LastItemRect;
             public global::DearImguiSharp.ImRect.__Internal LastItemDisplayRect;
             public global::DearImguiSharp.ImGuiNavLayer NavLayerCurrent;
-            public int NavLayerActiveMask;
-            public int NavLayerActiveMaskNext;
+            public short NavLayersActiveMask;
+            public short NavLayersActiveMaskNext;
             public uint NavFocusScopeIdCurrent;
             public byte NavHideHighlightOneFrame;
             public byte NavHasScroll;
@@ -26658,7 +26903,6 @@ namespace DearImguiSharp
             public int ParentLayoutType;
             public int FocusCounterRegular;
             public int FocusCounterTabStop;
-            public int ItemFlags;
             public float ItemWidth;
             public float TextWrapPos;
             public global::DearImguiSharp.ImVector_float.__Internal ItemWidthStack;
@@ -26993,29 +27237,29 @@ namespace DearImguiSharp
             }
         }
 
-        public int NavLayerActiveMask
+        public short NavLayersActiveMask
         {
             get
             {
-                return ((__Internal*)__Instance)->NavLayerActiveMask;
+                return ((__Internal*)__Instance)->NavLayersActiveMask;
             }
 
             set
             {
-                ((__Internal*)__Instance)->NavLayerActiveMask = value;
+                ((__Internal*)__Instance)->NavLayersActiveMask = value;
             }
         }
 
-        public int NavLayerActiveMaskNext
+        public short NavLayersActiveMaskNext
         {
             get
             {
-                return ((__Internal*)__Instance)->NavLayerActiveMaskNext;
+                return ((__Internal*)__Instance)->NavLayersActiveMaskNext;
             }
 
             set
             {
-                ((__Internal*)__Instance)->NavLayerActiveMaskNext = value;
+                ((__Internal*)__Instance)->NavLayersActiveMaskNext = value;
             }
         }
 
@@ -27235,19 +27479,6 @@ namespace DearImguiSharp
             }
         }
 
-        public int ItemFlags
-        {
-            get
-            {
-                return ((__Internal*)__Instance)->ItemFlags;
-            }
-
-            set
-            {
-                ((__Internal*)__Instance)->ItemFlags = value;
-            }
-        }
-
         public float ItemWidth
         {
             get
@@ -27322,7 +27553,7 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiWindow : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 1144)]
+        [StructLayout(LayoutKind.Explicit, Size = 1136)]
         public partial struct __Internal
         {
             [FieldOffset(0)]
@@ -27458,51 +27689,54 @@ namespace DearImguiSharp
             public short BeginOrderWithinContext;
 
             [FieldOffset(224)]
-            public uint PopupId;
+            public short FocusOrder;
 
             [FieldOffset(228)]
-            public sbyte AutoFitFramesX;
-
-            [FieldOffset(229)]
-            public sbyte AutoFitFramesY;
-
-            [FieldOffset(230)]
-            public sbyte AutoFitChildAxises;
-
-            [FieldOffset(231)]
-            public byte AutoFitOnlyGrows;
+            public uint PopupId;
 
             [FieldOffset(232)]
-            public int AutoPosLastDirection;
+            public sbyte AutoFitFramesX;
+
+            [FieldOffset(233)]
+            public sbyte AutoFitFramesY;
+
+            [FieldOffset(234)]
+            public sbyte AutoFitChildAxises;
+
+            [FieldOffset(235)]
+            public byte AutoFitOnlyGrows;
 
             [FieldOffset(236)]
-            public sbyte HiddenFramesCanSkipItems;
-
-            [FieldOffset(237)]
-            public sbyte HiddenFramesCannotSkipItems;
-
-            [FieldOffset(238)]
-            public sbyte HiddenFramesForRenderOnly;
-
-            [FieldOffset(239)]
-            public sbyte DisableInputsFrames;
+            public int AutoPosLastDirection;
 
             [FieldOffset(240)]
-            public int SetWindowPosAllowFlags;
+            public sbyte HiddenFramesCanSkipItems;
 
             [FieldOffset(241)]
-            public int SetWindowSizeAllowFlags;
+            public sbyte HiddenFramesCannotSkipItems;
 
             [FieldOffset(242)]
-            public int SetWindowCollapsedAllowFlags;
+            public sbyte HiddenFramesForRenderOnly;
 
             [FieldOffset(243)]
-            public int SetWindowDockAllowFlags;
+            public sbyte DisableInputsFrames;
 
             [FieldOffset(244)]
+            public int SetWindowPosAllowFlags;
+
+            [FieldOffset(245)]
+            public int SetWindowSizeAllowFlags;
+
+            [FieldOffset(246)]
+            public int SetWindowCollapsedAllowFlags;
+
+            [FieldOffset(247)]
+            public int SetWindowDockAllowFlags;
+
+            [FieldOffset(248)]
             public global::DearImguiSharp.ImVec2.__Internal SetWindowPosVal;
 
-            [FieldOffset(252)]
+            [FieldOffset(256)]
             public global::DearImguiSharp.ImVec2.__Internal SetWindowPosPivot;
 
             [FieldOffset(264)]
@@ -27511,127 +27745,127 @@ namespace DearImguiSharp
             [FieldOffset(280)]
             public global::DearImguiSharp.ImGuiWindowTempData.__Internal DC;
 
-            [FieldOffset(584)]
+            [FieldOffset(576)]
             public global::DearImguiSharp.ImRect.__Internal OuterRectClipped;
 
-            [FieldOffset(600)]
+            [FieldOffset(592)]
             public global::DearImguiSharp.ImRect.__Internal InnerRect;
 
-            [FieldOffset(616)]
+            [FieldOffset(608)]
             public global::DearImguiSharp.ImRect.__Internal InnerClipRect;
 
-            [FieldOffset(632)]
+            [FieldOffset(624)]
             public global::DearImguiSharp.ImRect.__Internal WorkRect;
 
-            [FieldOffset(648)]
+            [FieldOffset(640)]
             public global::DearImguiSharp.ImRect.__Internal ParentWorkRect;
 
-            [FieldOffset(664)]
+            [FieldOffset(656)]
             public global::DearImguiSharp.ImRect.__Internal ClipRect;
 
-            [FieldOffset(680)]
+            [FieldOffset(672)]
             public global::DearImguiSharp.ImRect.__Internal ContentRegionRect;
 
-            [FieldOffset(696)]
+            [FieldOffset(688)]
             public global::DearImguiSharp.ImVec2ih.__Internal HitTestHoleSize;
 
-            [FieldOffset(700)]
+            [FieldOffset(692)]
             public global::DearImguiSharp.ImVec2ih.__Internal HitTestHoleOffset;
 
-            [FieldOffset(704)]
+            [FieldOffset(696)]
             public int LastFrameActive;
 
-            [FieldOffset(708)]
+            [FieldOffset(700)]
             public int LastFrameJustFocused;
 
-            [FieldOffset(712)]
+            [FieldOffset(704)]
             public float LastTimeActive;
 
-            [FieldOffset(716)]
+            [FieldOffset(708)]
             public float ItemWidthDefault;
 
-            [FieldOffset(720)]
+            [FieldOffset(712)]
             public global::DearImguiSharp.ImGuiStorage.__Internal StateStorage;
 
-            [FieldOffset(736)]
+            [FieldOffset(728)]
             public global::DearImguiSharp.ImVectorImGuiOldColumns.__Internal ColumnsStorage;
 
-            [FieldOffset(752)]
+            [FieldOffset(744)]
             public float FontWindowScale;
 
-            [FieldOffset(756)]
+            [FieldOffset(748)]
             public float FontDpiScale;
 
-            [FieldOffset(760)]
+            [FieldOffset(752)]
             public int SettingsOffset;
 
-            [FieldOffset(768)]
+            [FieldOffset(760)]
             public __IntPtr DrawList;
 
-            [FieldOffset(776)]
+            [FieldOffset(768)]
             public global::DearImguiSharp.ImDrawList.__Internal DrawListInst;
 
-            [FieldOffset(976)]
+            [FieldOffset(968)]
             public __IntPtr ParentWindow;
 
-            [FieldOffset(984)]
+            [FieldOffset(976)]
             public __IntPtr RootWindow;
 
-            [FieldOffset(992)]
-            public __IntPtr RootWindowDockStop;
+            [FieldOffset(984)]
+            public __IntPtr RootWindowDockTree;
 
-            [FieldOffset(1000)]
+            [FieldOffset(992)]
             public __IntPtr RootWindowForTitleBarHighlight;
 
-            [FieldOffset(1008)]
+            [FieldOffset(1000)]
             public __IntPtr RootWindowForNav;
 
-            [FieldOffset(1016)]
+            [FieldOffset(1008)]
             public __IntPtr NavLastChildNavWindow;
 
-            [FieldOffset(1024)]
+            [FieldOffset(1016)]
             public fixed uint NavLastIds[2];
 
-            [FieldOffset(1032)]
+            [FieldOffset(1024)]
             public fixed byte NavRectRel[32];
 
-            [FieldOffset(1064)]
+            [FieldOffset(1056)]
             public int MemoryDrawListIdxCapacity;
 
-            [FieldOffset(1068)]
+            [FieldOffset(1060)]
             public int MemoryDrawListVtxCapacity;
 
-            [FieldOffset(1072)]
+            [FieldOffset(1064)]
             public byte MemoryCompacted;
 
-            [FieldOffset(1073)]
+            [FieldOffset(1065)]
             public byte DockIsActive;
 
-            [FieldOffset(1073)]
+            [FieldOffset(1065)]
             public byte DockTabIsVisible;
 
-            [FieldOffset(1073)]
+            [FieldOffset(1065)]
             public byte DockTabWantClose;
 
-            [FieldOffset(1074)]
+            [FieldOffset(1066)]
             public short DockOrder;
 
-            [FieldOffset(1076)]
+            [FieldOffset(1068)]
             public global::DearImguiSharp.ImGuiWindowDockStyle.__Internal DockStyle;
 
-            [FieldOffset(1104)]
+            [FieldOffset(1096)]
             public __IntPtr DockNode;
 
-            [FieldOffset(1112)]
+            [FieldOffset(1104)]
             public __IntPtr DockNodeAsHost;
 
-            [FieldOffset(1120)]
+            [FieldOffset(1112)]
             public uint DockId;
 
-            [FieldOffset(1124)]
+            [FieldOffset(1116)]
             public int DockTabItemStatusFlags;
 
-            [FieldOffset(1128)]
+            [FieldOffset(1120)]
             public global::DearImguiSharp.ImRect.__Internal DockTabItemRect;
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiWindow@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
@@ -28320,6 +28554,19 @@ namespace DearImguiSharp
             }
         }
 
+        public short FocusOrder
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->FocusOrder;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->FocusOrder = value;
+            }
+        }
+
         public uint PopupId
         {
             get
@@ -28875,17 +29122,17 @@ namespace DearImguiSharp
             }
         }
 
-        public global::DearImguiSharp.ImGuiWindow RootWindowDockStop
+        public global::DearImguiSharp.ImGuiWindow RootWindowDockTree
         {
             get
             {
-                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->RootWindowDockStop, false);
+                var __result0 = global::DearImguiSharp.ImGuiWindow.__GetOrCreateInstance(((__Internal*)__Instance)->RootWindowDockTree, false);
                 return __result0;
             }
 
             set
             {
-                ((__Internal*)__Instance)->RootWindowDockStop = value is null ? __IntPtr.Zero : value.__Instance;
+                ((__Internal*)__Instance)->RootWindowDockTree = value is null ? __IntPtr.Zero : value.__Instance;
             }
         }
 
@@ -29584,7 +29831,7 @@ namespace DearImguiSharp
             public float ScrollingRectMinX;
             public float ScrollingRectMaxX;
             public uint ReorderRequestTabId;
-            public sbyte ReorderRequestDir;
+            public short ReorderRequestOffset;
             public sbyte BeginCount;
             public byte WantLayout;
             public byte VisibleTabWasSubmitted;
@@ -29943,16 +30190,16 @@ namespace DearImguiSharp
             }
         }
 
-        public sbyte ReorderRequestDir
+        public short ReorderRequestOffset
         {
             get
             {
-                return ((__Internal*)__Instance)->ReorderRequestDir;
+                return ((__Internal*)__Instance)->ReorderRequestOffset;
             }
 
             set
             {
-                ((__Internal*)__Instance)->ReorderRequestDir = value;
+                ((__Internal*)__Instance)->ReorderRequestOffset = value;
             }
         }
 
@@ -30944,12 +31191,13 @@ namespace DearImguiSharp
 
     public unsafe partial class ImGuiTable : IDisposable
     {
-        [StructLayout(LayoutKind.Sequential, Size = 600)]
+        [StructLayout(LayoutKind.Sequential, Size = 488)]
         public partial struct __Internal
         {
             public uint ID;
             public int Flags;
             public __IntPtr RawData;
+            public __IntPtr TempData;
             public global::DearImguiSharp.ImSpanImGuiTableColumn.__Internal Columns;
             public global::DearImguiSharp.ImSpanImGuiTableColumnIdx.__Internal DisplayOrderToIndex;
             public global::DearImguiSharp.ImSpanImGuiTableCellData.__Internal RowCellData;
@@ -31001,22 +31249,11 @@ namespace DearImguiSharp
             public global::DearImguiSharp.ImRect.__Internal Bg0ClipRectForDrawCmd;
             public global::DearImguiSharp.ImRect.__Internal Bg2ClipRectForDrawCmd;
             public global::DearImguiSharp.ImRect.__Internal HostClipRect;
-            public global::DearImguiSharp.ImRect.__Internal HostBackupWorkRect;
-            public global::DearImguiSharp.ImRect.__Internal HostBackupParentWorkRect;
             public global::DearImguiSharp.ImRect.__Internal HostBackupInnerClipRect;
-            public global::DearImguiSharp.ImVec2.__Internal HostBackupPrevLineSize;
-            public global::DearImguiSharp.ImVec2.__Internal HostBackupCurrLineSize;
-            public global::DearImguiSharp.ImVec2.__Internal HostBackupCursorMaxPos;
-            public global::DearImguiSharp.ImVec2.__Internal UserOuterSize;
-            public global::DearImguiSharp.ImVec1.__Internal HostBackupColumnsOffset;
-            public float HostBackupItemWidth;
-            public int HostBackupItemWidthStackSize;
             public __IntPtr OuterWindow;
             public __IntPtr InnerWindow;
             public global::DearImguiSharp.ImGuiTextBuffer.__Internal ColumnsNames;
-            public global::DearImguiSharp.ImDrawListSplitter.__Internal DrawSplitter;
-            public global::DearImguiSharp.ImGuiTableColumnSortSpecs.__Internal SortSpecsSingle;
-            public global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal SortSpecsMulti;
+            public __IntPtr DrawSplitter;
             public global::DearImguiSharp.ImGuiTableSortSpecs.__Internal SortSpecs;
             public sbyte SortSpecsCount;
             public sbyte ColumnsEnabledCount;
@@ -31178,6 +31415,20 @@ namespace DearImguiSharp
             set
             {
                 ((__Internal*)__Instance)->RawData = (__IntPtr) value;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableTempData TempData
+        {
+            get
+            {
+                var __result0 = global::DearImguiSharp.ImGuiTableTempData.__GetOrCreateInstance(((__Internal*)__Instance)->TempData, false);
+                return __result0;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TempData = value is null ? __IntPtr.Zero : value.__Instance;
             }
         }
 
@@ -31870,36 +32121,6 @@ namespace DearImguiSharp
             }
         }
 
-        public global::DearImguiSharp.ImRect HostBackupWorkRect
-        {
-            get
-            {
-                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupWorkRect));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->HostBackupWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImRect HostBackupParentWorkRect
-        {
-            get
-            {
-                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupParentWorkRect));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->HostBackupParentWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
-            }
-        }
-
         public global::DearImguiSharp.ImRect HostBackupInnerClipRect
         {
             get
@@ -31912,107 +32133,6 @@ namespace DearImguiSharp
                 if (ReferenceEquals(value, null))
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
                 ((__Internal*)__Instance)->HostBackupInnerClipRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImVec2 HostBackupPrevLineSize
-        {
-            get
-            {
-                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupPrevLineSize));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->HostBackupPrevLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImVec2 HostBackupCurrLineSize
-        {
-            get
-            {
-                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupCurrLineSize));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->HostBackupCurrLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImVec2 HostBackupCursorMaxPos
-        {
-            get
-            {
-                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupCursorMaxPos));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->HostBackupCursorMaxPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImVec2 UserOuterSize
-        {
-            get
-            {
-                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->UserOuterSize));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->UserOuterSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImVec1 HostBackupColumnsOffset
-        {
-            get
-            {
-                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupColumnsOffset));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->HostBackupColumnsOffset = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
-            }
-        }
-
-        public float HostBackupItemWidth
-        {
-            get
-            {
-                return ((__Internal*)__Instance)->HostBackupItemWidth;
-            }
-
-            set
-            {
-                ((__Internal*)__Instance)->HostBackupItemWidth = value;
-            }
-        }
-
-        public int HostBackupItemWidthStackSize
-        {
-            get
-            {
-                return ((__Internal*)__Instance)->HostBackupItemWidthStackSize;
-            }
-
-            set
-            {
-                ((__Internal*)__Instance)->HostBackupItemWidthStackSize = value;
             }
         }
 
@@ -32063,44 +32183,13 @@ namespace DearImguiSharp
         {
             get
             {
-                return global::DearImguiSharp.ImDrawListSplitter.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawSplitter));
+                var __result0 = global::DearImguiSharp.ImDrawListSplitter.__GetOrCreateInstance(((__Internal*)__Instance)->DrawSplitter, false);
+                return __result0;
             }
 
             set
             {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->DrawSplitter = *(global::DearImguiSharp.ImDrawListSplitter.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImGuiTableColumnSortSpecs SortSpecsSingle
-        {
-            get
-            {
-                return global::DearImguiSharp.ImGuiTableColumnSortSpecs.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SortSpecsSingle));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->SortSpecsSingle = *(global::DearImguiSharp.ImGuiTableColumnSortSpecs.__Internal*) value.__Instance;
-            }
-        }
-
-        public global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs SortSpecsMulti
-        {
-            get
-            {
-                return global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SortSpecsMulti));
-            }
-
-            set
-            {
-                if (ReferenceEquals(value, null))
-                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
-                ((__Internal*)__Instance)->SortSpecsMulti = *(global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal*) value.__Instance;
+                ((__Internal*)__Instance)->DrawSplitter = value is null ? __IntPtr.Zero : value.__Instance;
             }
         }
 
@@ -32640,6 +32729,312 @@ namespace DearImguiSharp
         }
     }
 
+    public unsafe partial class ImGuiTableTempData : IDisposable
+    {
+        [StructLayout(LayoutKind.Sequential, Size = 144)]
+        public partial struct __Internal
+        {
+            public int TableIndex;
+            public float LastTimeActive;
+            public global::DearImguiSharp.ImVec2.__Internal UserOuterSize;
+            public global::DearImguiSharp.ImDrawListSplitter.__Internal DrawSplitter;
+            public global::DearImguiSharp.ImGuiTableColumnSortSpecs.__Internal SortSpecsSingle;
+            public global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal SortSpecsMulti;
+            public global::DearImguiSharp.ImRect.__Internal HostBackupWorkRect;
+            public global::DearImguiSharp.ImRect.__Internal HostBackupParentWorkRect;
+            public global::DearImguiSharp.ImVec2.__Internal HostBackupPrevLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal HostBackupCurrLineSize;
+            public global::DearImguiSharp.ImVec2.__Internal HostBackupCursorMaxPos;
+            public global::DearImguiSharp.ImVec1.__Internal HostBackupColumnsOffset;
+            public float HostBackupItemWidth;
+            public int HostBackupItemWidthStackSize;
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "??0ImGuiTableTempData@@QEAA@AEBU0@@Z", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr cctor(__IntPtr __instance, __IntPtr _0);
+        }
+
+        public __IntPtr __Instance { get; protected set; }
+
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableTempData> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::DearImguiSharp.ImGuiTableTempData>();
+
+        protected bool __ownsNativeInstance;
+
+        internal static ImGuiTableTempData __CreateInstance(__IntPtr native, bool skipVTables = false)
+        {
+            return new ImGuiTableTempData(native.ToPointer(), skipVTables);
+        }
+
+        internal static ImGuiTableTempData __GetOrCreateInstance(__IntPtr native, bool saveInstance = false, bool skipVTables = false)
+        {
+            if (native == __IntPtr.Zero)
+                return null;
+            if (NativeToManagedMap.TryGetValue(native, out var managed))
+                return (ImGuiTableTempData)managed;
+            var result = __CreateInstance(native, skipVTables);
+            if (saveInstance)
+                NativeToManagedMap[native] = result;
+            return result;
+        }
+
+        internal static ImGuiTableTempData __CreateInstance(__Internal native, bool skipVTables = false)
+        {
+            return new ImGuiTableTempData(native, skipVTables);
+        }
+
+        private static void* __CopyValue(__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(__Internal));
+            *(__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ImGuiTableTempData(__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableTempData(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new __IntPtr(native);
+        }
+
+        public ImGuiTableTempData()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableTempData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public ImGuiTableTempData(global::DearImguiSharp.ImGuiTableTempData _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::DearImguiSharp.ImGuiTableTempData.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::DearImguiSharp.ImGuiTableTempData.__Internal*) __Instance) = *((global::DearImguiSharp.ImGuiTableTempData.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            NativeToManagedMap.TryRemove(__Instance, out _);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public int TableIndex
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->TableIndex;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->TableIndex = value;
+            }
+        }
+
+        public float LastTimeActive
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->LastTimeActive;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->LastTimeActive = value;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 UserOuterSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->UserOuterSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->UserOuterSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImDrawListSplitter DrawSplitter
+        {
+            get
+            {
+                return global::DearImguiSharp.ImDrawListSplitter.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->DrawSplitter));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->DrawSplitter = *(global::DearImguiSharp.ImDrawListSplitter.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImGuiTableColumnSortSpecs SortSpecsSingle
+        {
+            get
+            {
+                return global::DearImguiSharp.ImGuiTableColumnSortSpecs.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SortSpecsSingle));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SortSpecsSingle = *(global::DearImguiSharp.ImGuiTableColumnSortSpecs.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs SortSpecsMulti
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->SortSpecsMulti));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->SortSpecsMulti = *(global::DearImguiSharp.ImVectorImGuiTableColumnSortSpecs.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostBackupWorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupWorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImRect HostBackupParentWorkRect
+        {
+            get
+            {
+                return global::DearImguiSharp.ImRect.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupParentWorkRect));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupParentWorkRect = *(global::DearImguiSharp.ImRect.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 HostBackupPrevLineSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupPrevLineSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupPrevLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 HostBackupCurrLineSize
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupCurrLineSize));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupCurrLineSize = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec2 HostBackupCursorMaxPos
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec2.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupCursorMaxPos));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupCursorMaxPos = *(global::DearImguiSharp.ImVec2.__Internal*) value.__Instance;
+            }
+        }
+
+        public global::DearImguiSharp.ImVec1 HostBackupColumnsOffset
+        {
+            get
+            {
+                return global::DearImguiSharp.ImVec1.__CreateInstance(new __IntPtr(&((__Internal*)__Instance)->HostBackupColumnsOffset));
+            }
+
+            set
+            {
+                if (ReferenceEquals(value, null))
+                    throw new global::System.ArgumentNullException("value", "Cannot be null because it is passed by value.");
+                ((__Internal*)__Instance)->HostBackupColumnsOffset = *(global::DearImguiSharp.ImVec1.__Internal*) value.__Instance;
+            }
+        }
+
+        public float HostBackupItemWidth
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostBackupItemWidth;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostBackupItemWidth = value;
+            }
+        }
+
+        public int HostBackupItemWidthStackSize
+        {
+            get
+            {
+                return ((__Internal*)__Instance)->HostBackupItemWidthStackSize;
+            }
+
+            set
+            {
+                ((__Internal*)__Instance)->HostBackupItemWidthStackSize = value;
+            }
+        }
+    }
+
     public unsafe partial class ImGuiTableColumnSettings : IDisposable
     {
         [StructLayout(LayoutKind.Explicit, Size = 12)]
@@ -33140,22 +33535,22 @@ namespace DearImguiSharp
     {
         public partial struct __Internal
         {
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2_ImVec2Nil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2_ImVec2_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImVec2ImVec2Nil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImVec2_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2_ImVec2Float", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2_ImVec2_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImVec2ImVec2Float(float _x, float _y);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec4_ImVec4Nil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec4_ImVec4_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImVec4ImVec4Nil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec4_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImVec4_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec4_ImVec4Float", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec4_ImVec4_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImVec4ImVec4Float(float _x, float _y, float _z, float _w);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCreateContext", CallingConvention = __CallingConvention.Cdecl)]
@@ -33229,11 +33624,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igEnd", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void End();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginChildStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginChild_Str", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool BeginChildStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, global::DearImguiSharp.ImVec2.__Internal size, bool border, int flags);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginChildID", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginChild_ID", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool BeginChildID(uint id, global::DearImguiSharp.ImVec2.__Internal size, bool border, int flags);
 
@@ -33301,31 +33696,31 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNextWindowViewport", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetNextWindowViewport(uint viewport_id);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowPosVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowPos_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowPosVec2(global::DearImguiSharp.ImVec2.__Internal pos, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowSizeVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowSize_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowSizeVec2(global::DearImguiSharp.ImVec2.__Internal size, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowCollapsedBool", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowCollapsed_Bool", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowCollapsedBool(bool collapsed, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowFocusNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowFocus_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowFocusNil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowFontScale", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowFontScale(float scale);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowPosStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowPos_Str", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowPosStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name, global::DearImguiSharp.ImVec2.__Internal pos, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowSizeStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowSize_Str", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowSizeStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name, global::DearImguiSharp.ImVec2.__Internal size, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowCollapsedStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowCollapsed_Str", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowCollapsedStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name, bool collapsed, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowFocusStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowFocus_Str", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowFocusStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetContentRegionAvail", CallingConvention = __CallingConvention.Cdecl)]
@@ -33349,11 +33744,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetScrollY", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float GetScrollY();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollXFloat", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollXFloat(float scroll_x);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollX_Float", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollX_Float(float scroll_x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollYFloat", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollYFloat(float scroll_y);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollY_Float", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollY_Float(float scroll_y);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetScrollMaxX", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float GetScrollMaxX();
@@ -33367,11 +33762,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollHereY", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetScrollHereY(float center_y_ratio);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosXFloat", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollFromPosXFloat(float local_x, float center_x_ratio);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosX_Float", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosX_Float(float local_x, float center_x_ratio);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosYFloat", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollFromPosYFloat(float local_y, float center_y_ratio);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosY_Float", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosY_Float(float local_y, float center_y_ratio);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushFont", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PushFont(__IntPtr font);
@@ -33379,19 +33774,19 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopFont", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PopFont();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleColorU32", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleColor_U32", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PushStyleColorU32(int idx, uint col);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleColorVec4", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleColor_Vec4", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PushStyleColorVec4(int idx, global::DearImguiSharp.ImVec4.__Internal col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopStyleColor", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PopStyleColor(int count);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleVarFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleVar_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PushStyleVarFloat(int idx, float val);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleVarVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushStyleVar_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PushStyleVarVec2(int idx, global::DearImguiSharp.ImVec2.__Internal val);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopStyleVar", CallingConvention = __CallingConvention.Cdecl)]
@@ -33436,13 +33831,13 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFontTexUvWhitePixel", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void GetFontTexUvWhitePixel(__IntPtr pOut);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32Col", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32_Col", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint GetColorU32Col(int idx, float alpha_mul);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32Vec4", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32_Vec4", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint GetColorU32Vec4(global::DearImguiSharp.ImVec4.__Internal col);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32U32", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetColorU32_U32", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint GetColorU32U32(uint col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetStyleColorVec4", CallingConvention = __CallingConvention.Cdecl)]
@@ -33517,29 +33912,29 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFrameHeightWithSpacing", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float GetFrameHeightWithSpacing();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushIDStr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void PushIDStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushID_Str", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushID_Str([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushIDStrStr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void PushIDStrStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_end);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushID_StrStr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushID_StrStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_end);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushIDPtr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void PushIDPtr(__IntPtr ptr_id);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushID_Ptr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushID_Ptr(__IntPtr ptr_id);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushIDInt", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void PushIDInt(int int_id);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushID_Int", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void PushID_Int(int int_id);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPopID", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PopID();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetIDStr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint GetIDStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetID_Str", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetID_Str([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetIDStrStr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint GetIDStrStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_end);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetID_StrStr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetID_StrStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_end);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetIDPtr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint GetIDPtr(__IntPtr ptr_id);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetID_Ptr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetID_Ptr(__IntPtr ptr_id);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTextUnformatted", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TextUnformatted([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end);
@@ -33589,19 +33984,19 @@ namespace DearImguiSharp
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool Checkbox([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, bool* v);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlagsIntPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlags_IntPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool CheckboxFlagsIntPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int* flags, int flags_value);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlagsUintPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlags_UintPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool CheckboxFlagsUintPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, uint* flags, uint flags_value);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRadioButtonBool", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRadioButton_Bool", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool RadioButtonBool([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, bool active);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRadioButtonIntPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRadioButton_IntPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool RadioButtonIntPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int* v, int v_button);
 
@@ -33618,15 +34013,15 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igEndCombo", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void EndCombo();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igComboStr_arr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCombo_Str_arr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ComboStr_arr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int* current_item, [MarshalAs(UnmanagedType.LPArray)] string[] items, int items_count, int popup_max_height_in_items);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igComboStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCombo_Str", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ComboStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int* current_item, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string items_separated_by_zeros, int popup_max_height_in_items);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igComboFnBoolPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCombo_FnBoolPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ComboFnBoolPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int* current_item, __IntPtr items_getter, __IntPtr data, int items_count, int popup_max_height_in_items);
 
@@ -33813,34 +34208,34 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetColorEditOptions", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetColorEditOptions(int flags);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNode_Str", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool TreeNodeStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeStrStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNode_StrStr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool TreeNodeStrStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodePtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNode_Ptr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool TreeNodePtr(__IntPtr ptr_id, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeExStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeEx_Str", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool TreeNodeExStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int flags);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeExStrStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeEx_StrStr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool TreeNodeExStrStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int flags, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeExPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreeNodeEx_Ptr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool TreeNodeExPtr(__IntPtr ptr_id, int flags, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string fmt);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreePushStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreePush_Str", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TreePushStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreePushPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreePush_Ptr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TreePushPtr(__IntPtr ptr_id);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTreePop", CallingConvention = __CallingConvention.Cdecl)]
@@ -33849,22 +34244,22 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetTreeNodeToLabelSpacing", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float GetTreeNodeToLabelSpacing();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCollapsingHeaderTreeNodeFlags", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCollapsingHeader_TreeNodeFlags", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool CollapsingHeaderTreeNodeFlags([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int flags);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCollapsingHeaderBoolPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCollapsingHeader_BoolPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool CollapsingHeaderBoolPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, bool* p_visible, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNextItemOpen", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetNextItemOpen(bool is_open, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSelectableBool", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSelectable_Bool", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool SelectableBool([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, bool selected, int flags, global::DearImguiSharp.ImVec2.__Internal size);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSelectableBoolPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSelectable_BoolPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool SelectableBoolPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, bool* p_selected, int flags, global::DearImguiSharp.ImVec2.__Internal size);
 
@@ -33875,36 +34270,36 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igEndListBox", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void EndListBox();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igListBoxStr_arr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igListBox_Str_arr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ListBoxStr_arr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int* current_item, [MarshalAs(UnmanagedType.LPArray)] string[] items, int items_count, int height_in_items);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igListBoxFnBoolPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igListBox_FnBoolPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ListBoxFnBoolPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, int* current_item, __IntPtr items_getter, __IntPtr data, int items_count, int height_in_items);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotLinesFloatPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotLines_FloatPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PlotLinesFloatPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, float* values, int values_count, int values_offset, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size, int stride);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotLinesFnFloatPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotLines_FnFloatPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PlotLinesFnFloatPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, __IntPtr values_getter, __IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotHistogramFloatPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotHistogram_FloatPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PlotHistogramFloatPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, float* values, int values_count, int values_offset, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size, int stride);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotHistogramFnFloatPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPlotHistogram_FnFloatPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PlotHistogramFnFloatPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, __IntPtr values_getter, __IntPtr data, int values_count, int values_offset, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string overlay_text, float scale_min, float scale_max, global::DearImguiSharp.ImVec2.__Internal graph_size);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValueBool", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValue_Bool", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ValueBool([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string prefix, bool b);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValueInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValue_Int", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ValueInt([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string prefix, int v);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValueUint", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValue_Uint", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ValueUint([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string prefix, uint v);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValueFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igValue_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ValueFloat([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string prefix, float v, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string float_format);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginMenuBar", CallingConvention = __CallingConvention.Cdecl)]
@@ -33928,11 +34323,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igEndMenu", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void EndMenu();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMenuItemBool", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMenuItem_Bool", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool MenuItemBool([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string shortcut, bool selected, bool enabled);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMenuItemBoolPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMenuItem_BoolPtr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool MenuItemBoolPtr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string shortcut, bool* p_selected, bool enabled);
 
@@ -33956,8 +34351,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igEndPopup", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void EndPopup();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igOpenPopup", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void OpenPopup([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int popup_flags);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igOpenPopup_Str", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void OpenPopupStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int popup_flags);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igOpenPopup_ID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void OpenPopupID(uint id, int popup_flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igOpenPopupOnItemClick", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void OpenPopupOnItemClick([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int popup_flags);
@@ -33977,7 +34375,7 @@ namespace DearImguiSharp
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool BeginPopupContextVoid([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int popup_flags);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsPopupOpenStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsPopupOpen_Str", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool IsPopupOpenStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id, int flags);
 
@@ -34023,11 +34421,14 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetRowIndex", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int TableGetRowIndex();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnNameInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnName_Int", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr TableGetColumnNameInt(int column_n);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnFlags", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int TableGetColumnFlags(int column_n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnEnabled", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableSetColumnEnabled(int column_n, bool v);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetBgColor", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TableSetBgColor(int target, uint color, int column_n);
@@ -34078,7 +34479,7 @@ namespace DearImguiSharp
             public static extern void SetTabItemClosed([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string tab_or_docked_window_label);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDockSpace", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void DockSpace(uint id, global::DearImguiSharp.ImVec2.__Internal size, int flags, __IntPtr window_class);
+            public static extern uint DockSpace(uint id, global::DearImguiSharp.ImVec2.__Internal size, int flags, __IntPtr window_class);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDockSpaceOverViewport", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint DockSpaceOverViewport(__IntPtr viewport, int flags, __IntPtr window_class);
@@ -34214,11 +34615,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetMainViewport", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetMainViewport();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsRectVisibleNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsRectVisible_Nil", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool IsRectVisibleNil(global::DearImguiSharp.ImVec2.__Internal size);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsRectVisibleVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsRectVisible_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool IsRectVisibleVec2(global::DearImguiSharp.ImVec2.__Internal rect_min, global::DearImguiSharp.ImVec2.__Internal rect_max);
 
@@ -34228,16 +34629,16 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFrameCount", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int GetFrameCount();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetBackgroundDrawListNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetBackgroundDrawList_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetBackgroundDrawListNil();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawListNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawList_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetForegroundDrawListNil();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetBackgroundDrawListViewportPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetBackgroundDrawList_ViewportPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetBackgroundDrawListViewportPtr(__IntPtr viewport);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawListViewportPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawList_ViewportPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetForegroundDrawListViewportPtr(__IntPtr viewport);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetDrawListSharedData", CallingConvention = __CallingConvention.Cdecl)]
@@ -34375,6 +34776,9 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetAllocatorFunctions", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetAllocatorFunctions(__IntPtr alloc_func, __IntPtr free_func, __IntPtr user_data);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetAllocatorFunctions", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void GetAllocatorFunctions(__IntPtr p_alloc_func, __IntPtr p_free_func, void** p_user_data);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMemAlloc", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr MemAlloc(IntPtr size);
@@ -34518,13 +34922,13 @@ namespace DearImguiSharp
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImGuiTextFilterIsActive(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTextRange_ImGuiTextRangeNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTextRange_ImGuiTextRange_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiTextRangeImGuiTextRangeNil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTextRange_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiTextRange_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTextRange_ImGuiTextRangeStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTextRange_ImGuiTextRange_Str", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiTextRangeImGuiTextRangeStr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string _b, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string _e);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTextRange_empty", CallingConvention = __CallingConvention.Cdecl)]
@@ -34565,16 +34969,16 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTextBuffer_append", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiTextBuffer_append(__IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStoragePair_ImGuiStoragePairInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStoragePair_ImGuiStoragePair_Int", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiStoragePairImGuiStoragePairInt(uint _key, int _val_i);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStoragePair_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiStoragePair_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStoragePair_ImGuiStoragePairFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStoragePair_ImGuiStoragePair_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiStoragePairImGuiStoragePairFloat(uint _key, float _val_f);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStoragePair_ImGuiStoragePairPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStoragePair_ImGuiStoragePair_Ptr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiStoragePairImGuiStoragePairPtr(uint _key, __IntPtr _val_p);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStorage_Clear", CallingConvention = __CallingConvention.Cdecl)]
@@ -34639,22 +35043,22 @@ namespace DearImguiSharp
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImGuiListClipperStep(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColorNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColor_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImColorImColorNil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImColor_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColorInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColor_Int", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImColorImColorInt(int r, int g, int b, int a);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColorU32", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColor_U32", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImColorImColorU32(uint rgba);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColorFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColor_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImColorImColorFloat(float r, float g, float b, float a);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColorVec4", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_ImColor_Vec4", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImColorImColorVec4(global::DearImguiSharp.ImVec4.__Internal col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImColor_SetHSV", CallingConvention = __CallingConvention.Cdecl)]
@@ -34668,6 +35072,9 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawCmd_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawCmd_destroy(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawCmd_GetTexID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImDrawCmdGetTexID(__IntPtr self);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawListSplitter_ImDrawListSplitter", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImDrawListSplitterImDrawListSplitter();
@@ -34721,10 +35128,10 @@ namespace DearImguiSharp
             public static extern void ImDrawListAddLine(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, uint col, float thickness);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddRect", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImDrawListAddRect(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int rounding_corners, float thickness);
+            public static extern void ImDrawListAddRect(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int flags, float thickness);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddRectFilled", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImDrawListAddRectFilled(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int rounding_corners);
+            public static extern void ImDrawListAddRectFilled(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col, float rounding, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddRectFilledMultiColor", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListAddRectFilledMultiColor(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left);
@@ -34753,14 +35160,14 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddNgonFilled", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListAddNgonFilled(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, uint col, int num_segments);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddTextVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddText_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListAddTextVec2(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal pos, uint col, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddTextFontPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddText_FontPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListAddTextFontPtr(__IntPtr self, __IntPtr font, float font_size, global::DearImguiSharp.ImVec2.__Internal pos, uint col, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string text_end, float wrap_width, __IntPtr cpu_fine_clip_rect);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddPolyline", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImDrawListAddPolyline(__IntPtr self, __IntPtr points, int num_points, uint col, bool closed, float thickness);
+            public static extern void ImDrawListAddPolyline(__IntPtr self, __IntPtr points, int num_points, uint col, int flags, float thickness);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddConvexPolyFilled", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListAddConvexPolyFilled(__IntPtr self, __IntPtr points, int num_points, uint col);
@@ -34778,7 +35185,7 @@ namespace DearImguiSharp
             public static extern void ImDrawListAddImageQuad(__IntPtr self, __IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p1, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, global::DearImguiSharp.ImVec2.__Internal p4, global::DearImguiSharp.ImVec2.__Internal uv1, global::DearImguiSharp.ImVec2.__Internal uv2, global::DearImguiSharp.ImVec2.__Internal uv3, global::DearImguiSharp.ImVec2.__Internal uv4, uint col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddImageRounded", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImDrawListAddImageRounded(__IntPtr self, __IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, global::DearImguiSharp.ImVec2.__Internal uv_min, global::DearImguiSharp.ImVec2.__Internal uv_max, uint col, float rounding, int rounding_corners);
+            public static extern void ImDrawListAddImageRounded(__IntPtr self, __IntPtr user_texture_id, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, global::DearImguiSharp.ImVec2.__Internal uv_min, global::DearImguiSharp.ImVec2.__Internal uv_max, uint col, float rounding, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_PathClear", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListPathClear(__IntPtr self);
@@ -34793,7 +35200,7 @@ namespace DearImguiSharp
             public static extern void ImDrawListPathFillConvex(__IntPtr self, uint col);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_PathStroke", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImDrawListPathStroke(__IntPtr self, uint col, bool closed, float thickness);
+            public static extern void ImDrawListPathStroke(__IntPtr self, uint col, int flags, float thickness);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_PathArcTo", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListPathArcTo(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, float a_min, float a_max, int num_segments);
@@ -34808,7 +35215,7 @@ namespace DearImguiSharp
             public static extern void ImDrawListPathBezierQuadraticCurveTo(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p2, global::DearImguiSharp.ImVec2.__Internal p3, int num_segments);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_PathRect", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImDrawListPathRect(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal rect_min, global::DearImguiSharp.ImVec2.__Internal rect_max, float rounding, int rounding_corners);
+            public static extern void ImDrawListPathRect(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal rect_min, global::DearImguiSharp.ImVec2.__Internal rect_max, float rounding, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList_AddCallback", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawListAddCallback(__IntPtr self, __IntPtr callback, __IntPtr callback_data);
@@ -34872,6 +35279,12 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList__CalcCircleAutoSegmentCount", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int ImDrawListCalcCircleAutoSegmentCount(__IntPtr self, float radius);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList__PathArcToFastEx", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImDrawListPathArcToFastEx(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, int a_min_sample, int a_max_sample, int a_step);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawList__PathArcToN", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImDrawListPathArcToN(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal center, float radius, float a_min, float a_max, int num_segments);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawData_ImDrawData", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImDrawDataImDrawData();
@@ -35117,11 +35530,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAlphaBlendColors", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint ImAlphaBlendColors(uint col_a, uint col_b);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImIsPowerOfTwoInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImIsPowerOfTwo_Int", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImIsPowerOfTwoInt(int v);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImIsPowerOfTwoU64", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImIsPowerOfTwo_U64", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImIsPowerOfTwoU64(ulong v);
 
@@ -35224,29 +35637,38 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFileLoadToMemory", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImFileLoadToMemory([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string filename, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string mode, IntPtr* out_file_size, int padding_bytes);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImPowFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImPow_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImPowFloat(float x, float y);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImPowdouble", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern double ImPowdouble(double x, double y);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImPow_double", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImPow_double(double x, double y);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLogFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLog_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImLogFloat(float x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLogdouble", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern double ImLogdouble(double x);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLog_double", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImLog_double(double x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAbsFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAbs_Int", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int ImAbsInt(int x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAbs_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImAbsFloat(float x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAbsdouble", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern double ImAbsdouble(double x);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImAbs_double", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImAbs_double(double x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSignFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSign_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImSignFloat(float x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSigndouble", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern double ImSigndouble(double x);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSign_double", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImSign_double(double x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImRsqrt_Float", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImRsqrtFloat(float x);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImRsqrt_double", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern double ImRsqrt_double(double x);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImMin", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImMin(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal lhs, global::DearImguiSharp.ImVec2.__Internal rhs);
@@ -35257,31 +35679,34 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImClamp", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImClamp(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v, global::DearImguiSharp.ImVec2.__Internal mn, global::DearImguiSharp.ImVec2.__Internal mx);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerpVec2Float", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerp_Vec2Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImLerpVec2Float(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, float t);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerpVec2Vec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerp_Vec2Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImLerpVec2Vec2(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal a, global::DearImguiSharp.ImVec2.__Internal b, global::DearImguiSharp.ImVec2.__Internal t);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerpVec4", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLerp_Vec4", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImLerpVec4(__IntPtr pOut, global::DearImguiSharp.ImVec4.__Internal a, global::DearImguiSharp.ImVec4.__Internal b, float t);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImSaturate", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImSaturate(float f);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLengthSqrVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLengthSqr_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImLengthSqrVec2(global::DearImguiSharp.ImVec2.__Internal lhs);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLengthSqrVec4", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImLengthSqr_Vec4", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImLengthSqrVec4(global::DearImguiSharp.ImVec4.__Internal lhs);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImInvLength", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImInvLength(global::DearImguiSharp.ImVec2.__Internal lhs, float fail_value);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFloorFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFloor_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImFloorFloat(float f);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFloorVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFloorSigned", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImFloorSigned(float f);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImFloor_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImFloorVec2(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal v);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImModPositive", CallingConvention = __CallingConvention.Cdecl)]
@@ -35330,37 +35755,37 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImGetDirQuadrantFromDelta", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int ImGetDirQuadrantFromDelta(float dx, float dy);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_ImVec1Nil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_ImVec1_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImVec1ImVec1Nil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImVec1_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_ImVec1Float", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec1_ImVec1_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImVec1ImVec1Float(float _x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ihNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ih_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImVec2ihImVec2ihNil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImVec2ih_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ihshort", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern __IntPtr ImVec2ihImVec2ihshort(short _x, short _y);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImVec2ih_ImVec2ih_short", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImVec2ihImVec2ih_short(short _x, short _y);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRect_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImRectImRectNil();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImRect_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRect_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImRectImRectVec2(global::DearImguiSharp.ImVec2.__Internal min, global::DearImguiSharp.ImVec2.__Internal max);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectVec4", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRect_Vec4", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImRectImRectVec4(global::DearImguiSharp.ImVec4.__Internal v);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRectFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ImRect_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImRectImRectFloat(float x1, float y1, float x2, float y2);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetCenter", CallingConvention = __CallingConvention.Cdecl)]
@@ -35375,6 +35800,9 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetHeight", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImRectGetHeight(__IntPtr self);
 
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetArea", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern float ImRectGetArea(__IntPtr self);
+
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetTL", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImRectGetTL(__IntPtr pOut, __IntPtr self);
 
@@ -35387,11 +35815,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_GetBR", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImRectGetBR(__IntPtr pOut, __IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ContainsVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Contains_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImRectContainsVec2(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ContainsRect", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Contains_Rect", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImRectContainsRect(__IntPtr self, __IntPtr r);
 
@@ -35399,16 +35827,16 @@ namespace DearImguiSharp
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImRectOverlaps(__IntPtr self, __IntPtr r);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_AddVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Add_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImRectAddVec2(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal p);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_AddRect", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Add_Rect", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImRectAddRect(__IntPtr self, __IntPtr r);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ExpandFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Expand_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImRectExpandFloat(__IntPtr self, float amount);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_ExpandVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Expand_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImRectExpandVec2(__IntPtr self, global::DearImguiSharp.ImVec2.__Internal amount);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImRect_Translate", CallingConvention = __CallingConvention.Cdecl)]
@@ -35486,16 +35914,16 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImDrawDataBuilder_FlattenIntoSingleLayer", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImDrawDataBuilderFlattenIntoSingleLayer(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleModInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleMod_Int", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiStyleModImGuiStyleModInt(int idx, int v);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiStyleMod_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleModFloat", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleMod_Float", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiStyleModImGuiStyleModFloat(int idx, float v);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleModVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiStyleMod_ImGuiStyleMod_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiStyleModImGuiStyleModVec2(int idx, global::DearImguiSharp.ImVec2.__Internal v);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiMenuColumns_ImGuiMenuColumns", CallingConvention = __CallingConvention.Cdecl)]
@@ -35556,14 +35984,14 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPopupData_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiPopupData_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavMoveResult_ImGuiNavMoveResult", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern __IntPtr ImGuiNavMoveResultImGuiNavMoveResult();
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavItemData_ImGuiNavItemData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiNavItemDataImGuiNavItemData();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavMoveResult_destroy", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImGuiNavMoveResult_destroy(__IntPtr self);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavItemData_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNavItemData_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavMoveResult_Clear", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImGuiNavMoveResultClear(__IntPtr self);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNavItemData_Clear", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiNavItemDataClear(__IntPtr self);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextWindowData_ImGuiNextWindowData", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiNextWindowDataImGuiNextWindowData();
@@ -35583,13 +36011,13 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiNextItemData_ClearFlags", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiNextItemDataClearFlags(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_ImGuiPtrOrIndex_Ptr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexPtr(__IntPtr ptr);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiPtrOrIndex_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_ImGuiPtrOrIndexInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiPtrOrIndex_ImGuiPtrOrIndex_Int", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiPtrOrIndexImGuiPtrOrIndexInt(int index);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiOldColumnData_ImGuiOldColumnData", CallingConvention = __CallingConvention.Cdecl)]
@@ -35664,17 +36092,26 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiViewportP_destroy(__IntPtr self);
 
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_ClearRequestFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_ClearRequestFlags(__IntPtr self);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_CalcWorkRectPos", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_CalcWorkRectPos(__IntPtr pOut, __IntPtr self, global::DearImguiSharp.ImVec2.__Internal off_min);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_CalcWorkRectSize", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_CalcWorkRectSize(__IntPtr pOut, __IntPtr self, global::DearImguiSharp.ImVec2.__Internal off_min, global::DearImguiSharp.ImVec2.__Internal off_max);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_UpdateWorkRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_UpdateWorkRect(__IntPtr self);
+
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_GetMainRect", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiViewportP_GetMainRect(__IntPtr pOut, __IntPtr self);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_GetWorkRect", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiViewportP_GetWorkRect(__IntPtr pOut, __IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_UpdateWorkRect", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImGuiViewportP_UpdateWorkRect(__IntPtr self);
-
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_ClearRequestFlags", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void ImGuiViewportP_ClearRequestFlags(__IntPtr self);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiViewportP_GetBuildWorkRect", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiViewportP_GetBuildWorkRect(__IntPtr pOut, __IntPtr self);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindowSettings_ImGuiWindowSettings", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiWindowSettingsImGuiWindowSettings();
@@ -35727,22 +36164,22 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiWindow_destroy(__IntPtr self);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDStr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint ImGuiWindowGetIDStr(__IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetID_Str", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetID_Str(__IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDPtr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint ImGuiWindowGetIDPtr(__IntPtr self, __IntPtr ptr);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetID_Ptr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetID_Ptr(__IntPtr self, __IntPtr ptr);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDInt", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint ImGuiWindowGetIDInt(__IntPtr self, int n);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetID_Int", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint ImGuiWindowGetID_Int(__IntPtr self, int n);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAliveStr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAlive_Str", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint ImGuiWindowGetIDNoKeepAliveStr(__IntPtr self, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_end);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAlivePtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAlive_Ptr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint ImGuiWindowGetIDNoKeepAlivePtr(__IntPtr self, __IntPtr ptr);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAliveInt", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDNoKeepAlive_Int", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint ImGuiWindowGetIDNoKeepAliveInt(__IntPtr self, int n);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiWindow_GetIDFromRectangle", CallingConvention = __CallingConvention.Cdecl)]
@@ -35808,6 +36245,12 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTable_destroy", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ImGuiTable_destroy(__IntPtr self);
 
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableTempData_ImGuiTableTempData", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr ImGuiTableTempDataImGuiTableTempData();
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableTempData_destroy", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiTableTempData_destroy(__IntPtr self);
+
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGuiTableColumnSettings_ImGuiTableColumnSettings", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr ImGuiTableColumnSettingsImGuiTableColumnSettings();
 
@@ -35856,13 +36299,13 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowAllowedExtentRect", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void GetWindowAllowedExtentRect(__IntPtr pOut, __IntPtr window);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowPosWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowPos_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowPosWindowPtr(__IntPtr window, global::DearImguiSharp.ImVec2.__Internal pos, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowSizeWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowSize_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowSizeWindowPtr(__IntPtr window, global::DearImguiSharp.ImVec2.__Internal size, int cond);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowCollapsedWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowCollapsed_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetWindowCollapsedWindowPtr(__IntPtr window, bool collapsed, int cond);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetWindowHitTestHole", CallingConvention = __CallingConvention.Cdecl)]
@@ -35889,7 +36332,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetDefaultFont", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetDefaultFont();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawListWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetForegroundDrawList_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetForegroundDrawListWindowPtr(__IntPtr window);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igInitialize", CallingConvention = __CallingConvention.Cdecl)]
@@ -35931,10 +36374,16 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDestroyPlatformWindow", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void DestroyPlatformWindow(__IntPtr viewport);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMarkIniSettingsDirtyNil", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetCurrentViewport", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetCurrentViewport(__IntPtr window, __IntPtr viewport);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetViewportPlatformMonitor", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern __IntPtr GetViewportPlatformMonitor(__IntPtr viewport);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMarkIniSettingsDirty_Nil", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void MarkIniSettingsDirtyNil();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMarkIniSettingsDirtyWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igMarkIniSettingsDirty_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void MarkIniSettingsDirtyWindowPtr(__IntPtr window);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igClearIniSettings", CallingConvention = __CallingConvention.Cdecl)]
@@ -35955,17 +36404,17 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNextWindowScroll", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetNextWindowScroll(global::DearImguiSharp.ImVec2.__Internal scroll);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollXWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollXWindowPtr(__IntPtr window, float scroll_x);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollX_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollX_WindowPtr(__IntPtr window, float scroll_x);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollYWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollYWindowPtr(__IntPtr window, float scroll_y);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollY_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollY_WindowPtr(__IntPtr window, float scroll_y);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosXWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollFromPosXWindowPtr(__IntPtr window, float local_x, float center_x_ratio);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosX_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosX_WindowPtr(__IntPtr window, float local_x, float center_x_ratio);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosYWindowPtr", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetScrollFromPosYWindowPtr(__IntPtr window, float local_y, float center_y_ratio);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetScrollFromPosY_WindowPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void SetScrollFromPosY_WindowPtr(__IntPtr window, float local_y, float center_y_ratio);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igScrollToBringRectIntoView", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ScrollToBringRectIntoView(__IntPtr pOut, __IntPtr window, __IntPtr item_rect);
@@ -35982,8 +36431,8 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetFocusID", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint GetFocusID();
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetItemsFlags", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern int GetItemsFlags();
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetItemFlags", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern int GetItemFlags();
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetActiveID", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetActiveID(uint id, __IntPtr window);
@@ -36012,19 +36461,22 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetIDWithSeed", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint GetIDWithSeed([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_begin, [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string str_id_end, uint seed);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemSizeVec2", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemSize_Vec2", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ItemSizeVec2(global::DearImguiSharp.ImVec2.__Internal size, float text_baseline_y);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemSizeRect", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemSize_Rect", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ItemSizeRect(__IntPtr bb, float text_baseline_y);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemAdd", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool ItemAdd(__IntPtr bb, uint id, __IntPtr nav_bb);
+            public static extern bool ItemAdd(__IntPtr bb, uint id, __IntPtr nav_bb, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemHoverable", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ItemHoverable(__IntPtr bb, uint id);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igItemFocusable", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ItemFocusable(__IntPtr window, uint id);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsClippedEx", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
@@ -36032,13 +36484,6 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetLastItemData", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SetLastItemData(__IntPtr window, uint item_id, int status_flags, __IntPtr item_rect);
-
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFocusableItemRegister", CallingConvention = __CallingConvention.Cdecl)]
-            [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool FocusableItemRegister(__IntPtr window, uint id);
-
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFocusableItemUnregister", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void FocusableItemUnregister(__IntPtr window);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCalcItemSize", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void CalcItemSize(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal size, float default_w, float default_h);
@@ -36090,7 +36535,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igClosePopupsOverWindow", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void ClosePopupsOverWindow(__IntPtr ref_window, bool restore_focus_to_window_under_popup);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsPopupOpenID", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igIsPopupOpen_ID", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool IsPopupOpenID(uint id, int popup_flags);
 
@@ -36109,6 +36554,10 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igFindBestWindowPosForPopupEx", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void FindBestWindowPosForPopupEx(__IntPtr pOut, global::DearImguiSharp.ImVec2.__Internal ref_pos, global::DearImguiSharp.ImVec2.__Internal size, int* last_dir, __IntPtr r_outer, __IntPtr r_avoid, global::DearImguiSharp.ImGuiPopupPositionPolicy policy);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igBeginViewportSideBar", CallingConvention = __CallingConvention.Cdecl)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public static extern bool BeginViewportSideBar([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string name, __IntPtr viewport, int dir, float size, int window_flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igNavInitWindow", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void NavInitWindow(__IntPtr window, bool force_reinit);
@@ -36139,10 +36588,7 @@ namespace DearImguiSharp
             public static extern void ActivateItem(uint id);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNavID", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetNavID(uint id, int nav_layer, uint focus_scope_id);
-
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSetNavIDWithRectRel", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void SetNavIDWithRectRel(uint id, int nav_layer, uint focus_scope_id, __IntPtr rect_rel);
+            public static extern void SetNavID(uint id, global::DearImguiSharp.ImGuiNavLayer nav_layer, uint focus_scope_id, __IntPtr rect_rel);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igPushFocusScope", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void PushFocusScope(uint id);
@@ -36236,6 +36682,9 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDockNodeGetDepth", CallingConvention = __CallingConvention.Cdecl)]
             public static extern int DockNodeGetDepth(__IntPtr node);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igDockNodeGetWindowMenuButtonId", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint DockNodeGetWindowMenuButtonId(__IntPtr node);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowDockNode", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr GetWindowDockNode();
@@ -36342,9 +36791,6 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableOpenContextMenu", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TableOpenContextMenu(int column_n);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnEnabled", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void TableSetColumnEnabled(int column_n, bool enabled);
-
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableSetColumnWidth", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TableSetColumnWidth(int column_n, float width);
 
@@ -36430,7 +36876,7 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetCellBgRect", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TableGetCellBgRect(__IntPtr pOut, __IntPtr table, int column_n);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnNameTablePtr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnName_TablePtr", CallingConvention = __CallingConvention.Cdecl)]
             public static extern __IntPtr TableGetColumnNameTablePtr(__IntPtr table, int column_n);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGetColumnResizeID", CallingConvention = __CallingConvention.Cdecl)]
@@ -36448,8 +36894,11 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableRemove", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TableRemove(__IntPtr table);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGcCompactTransientBuffers", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void TableGcCompactTransientBuffers(__IntPtr table);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGcCompactTransientBuffers_TablePtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableGcCompactTransientBuffersTablePtr(__IntPtr table);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGcCompactTransientBuffers_TableTempDataPtr", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TableGcCompactTransientBuffersTableTempDataPtr(__IntPtr table);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTableGcCompactSettings", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void TableGcCompactSettings();
@@ -36495,7 +36944,10 @@ namespace DearImguiSharp
             public static extern void TabBarCloseTab(__IntPtr tab_bar, __IntPtr tab);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarQueueReorder", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void TabBarQueueReorder(__IntPtr tab_bar, __IntPtr tab, int dir);
+            public static extern void TabBarQueueReorder(__IntPtr tab_bar, __IntPtr tab, int offset);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarQueueReorderFromMousePos", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void TabBarQueueReorderFromMousePos(__IntPtr tab_bar, __IntPtr tab, global::DearImguiSharp.ImVec2.__Internal mouse_pos);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igTabBarProcessReorder", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
@@ -36536,7 +36988,7 @@ namespace DearImguiSharp
             public static extern void RenderFrameBorder(global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, float rounding);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderColorRectWithAlphaCheckerboard", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern void RenderColorRectWithAlphaCheckerboard(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2.__Internal grid_off, float rounding, int rounding_corners_flags);
+            public static extern void RenderColorRectWithAlphaCheckerboard(__IntPtr draw_list, global::DearImguiSharp.ImVec2.__Internal p_min, global::DearImguiSharp.ImVec2.__Internal p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2.__Internal grid_off, float rounding, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igRenderNavHighlight", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void RenderNavHighlight(__IntPtr bb, uint id, int flags);
@@ -36592,7 +37044,7 @@ namespace DearImguiSharp
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igScrollbarEx", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool ScrollbarEx(__IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* p_scroll_v, float avail_v, float contents_v, int rounding_corners);
+            public static extern bool ScrollbarEx(__IntPtr bb, uint id, global::DearImguiSharp.ImGuiAxis axis, float* p_scroll_v, float avail_v, float contents_v, int flags);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igImageButtonEx", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
@@ -36604,17 +37056,20 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowScrollbarID", CallingConvention = __CallingConvention.Cdecl)]
             public static extern uint GetWindowScrollbarID(__IntPtr window, global::DearImguiSharp.ImGuiAxis axis);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowResizeID", CallingConvention = __CallingConvention.Cdecl)]
-            public static extern uint GetWindowResizeID(__IntPtr window, int n);
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowResizeCornerID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetWindowResizeCornerID(__IntPtr window, int n);
+
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igGetWindowResizeBorderID", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern uint GetWindowResizeBorderID(__IntPtr window, int dir);
 
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igSeparatorEx", CallingConvention = __CallingConvention.Cdecl)]
             public static extern void SeparatorEx(int flags);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlagsS64Ptr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlags_S64Ptr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool CheckboxFlagsS64Ptr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, long* flags, long flags_value);
 
-            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlagsU64Ptr", CallingConvention = __CallingConvention.Cdecl)]
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "igCheckboxFlags_U64Ptr", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool CheckboxFlagsU64Ptr([MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(CppSharp.Runtime.UTF8Marshaller))] string label, ulong* flags, ulong flags_value);
 
@@ -37248,14 +37703,14 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static void SetScrollXFloat(float scroll_x)
+        public static void SetScrollX_Float(float scroll_x)
         {
-            __Internal.SetScrollXFloat(scroll_x);
+            __Internal.SetScrollX_Float(scroll_x);
         }
 
-        public static void SetScrollYFloat(float scroll_y)
+        public static void SetScrollY_Float(float scroll_y)
         {
-            __Internal.SetScrollYFloat(scroll_y);
+            __Internal.SetScrollY_Float(scroll_y);
         }
 
         public static float GetScrollMaxX()
@@ -37280,14 +37735,14 @@ namespace DearImguiSharp
             __Internal.SetScrollHereY(center_y_ratio);
         }
 
-        public static void SetScrollFromPosXFloat(float local_x, float center_x_ratio)
+        public static void SetScrollFromPosX_Float(float local_x, float center_x_ratio)
         {
-            __Internal.SetScrollFromPosXFloat(local_x, center_x_ratio);
+            __Internal.SetScrollFromPosX_Float(local_x, center_x_ratio);
         }
 
-        public static void SetScrollFromPosYFloat(float local_y, float center_y_ratio)
+        public static void SetScrollFromPosY_Float(float local_y, float center_y_ratio)
         {
-            __Internal.SetScrollFromPosYFloat(local_y, center_y_ratio);
+            __Internal.SetScrollFromPosY_Float(local_y, center_y_ratio);
         }
 
         public static void PushFont(global::DearImguiSharp.ImFont font)
@@ -37568,24 +38023,24 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static void PushIDStr(string str_id)
+        public static void PushID_Str(string str_id)
         {
-            __Internal.PushIDStr(str_id);
+            __Internal.PushID_Str(str_id);
         }
 
-        public static void PushIDStrStr(string str_id_begin, string str_id_end)
+        public static void PushID_StrStr(string str_id_begin, string str_id_end)
         {
-            __Internal.PushIDStrStr(str_id_begin, str_id_end);
+            __Internal.PushID_StrStr(str_id_begin, str_id_end);
         }
 
-        public static void PushIDPtr(__IntPtr ptr_id)
+        public static void PushID_Ptr(__IntPtr ptr_id)
         {
-            __Internal.PushIDPtr(ptr_id);
+            __Internal.PushID_Ptr(ptr_id);
         }
 
-        public static void PushIDInt(int int_id)
+        public static void PushID_Int(int int_id)
         {
-            __Internal.PushIDInt(int_id);
+            __Internal.PushID_Int(int_id);
         }
 
         public static void PopID()
@@ -37593,21 +38048,21 @@ namespace DearImguiSharp
             __Internal.PopID();
         }
 
-        public static uint GetIDStr(string str_id)
+        public static uint GetID_Str(string str_id)
         {
-            var __ret = __Internal.GetIDStr(str_id);
+            var __ret = __Internal.GetID_Str(str_id);
             return __ret;
         }
 
-        public static uint GetIDStrStr(string str_id_begin, string str_id_end)
+        public static uint GetID_StrStr(string str_id_begin, string str_id_end)
         {
-            var __ret = __Internal.GetIDStrStr(str_id_begin, str_id_end);
+            var __ret = __Internal.GetID_StrStr(str_id_begin, str_id_end);
             return __ret;
         }
 
-        public static uint GetIDPtr(__IntPtr ptr_id)
+        public static uint GetID_Ptr(__IntPtr ptr_id)
         {
-            var __ret = __Internal.GetIDPtr(ptr_id);
+            var __ret = __Internal.GetID_Ptr(ptr_id);
             return __ret;
         }
 
@@ -38503,9 +38958,14 @@ namespace DearImguiSharp
             __Internal.EndPopup();
         }
 
-        public static void OpenPopup(string str_id, int popup_flags)
+        public static void OpenPopupStr(string str_id, int popup_flags)
         {
-            __Internal.OpenPopup(str_id, popup_flags);
+            __Internal.OpenPopupStr(str_id, popup_flags);
+        }
+
+        public static void OpenPopupID(uint id, int popup_flags)
+        {
+            __Internal.OpenPopupID(id, popup_flags);
         }
 
         public static void OpenPopupOnItemClick(string str_id, int popup_flags)
@@ -38630,6 +39090,11 @@ namespace DearImguiSharp
             return __ret;
         }
 
+        public static void TableSetColumnEnabled(int column_n, bool v)
+        {
+            __Internal.TableSetColumnEnabled(column_n, v);
+        }
+
         public static void TableSetBgColor(int target, uint color, int column_n)
         {
             __Internal.TableSetBgColor(target, color, column_n);
@@ -38716,13 +39181,14 @@ namespace DearImguiSharp
             __Internal.SetTabItemClosed(tab_or_docked_window_label);
         }
 
-        public static void DockSpace(uint id, global::DearImguiSharp.ImVec2 size, int flags, global::DearImguiSharp.ImGuiWindowClass window_class)
+        public static uint DockSpace(uint id, global::DearImguiSharp.ImVec2 size, int flags, global::DearImguiSharp.ImGuiWindowClass window_class)
         {
             if (ReferenceEquals(size, null))
                 throw new global::System.ArgumentNullException("size", "Cannot be null because it is passed by value.");
             var __arg1 = size.__Instance;
             var __arg3 = window_class is null ? __IntPtr.Zero : window_class.__Instance;
-            __Internal.DockSpace(id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, flags, __arg3);
+            var __ret = __Internal.DockSpace(id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, flags, __arg3);
+            return __ret;
         }
 
         public static uint DockSpaceOverViewport(global::DearImguiSharp.ImGuiViewport viewport, int flags, global::DearImguiSharp.ImGuiWindowClass window_class)
@@ -39299,11 +39765,18 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static void SetAllocatorFunctions(global::DearImguiSharp.Delegates.Func___IntPtr_IntPtr___IntPtr alloc_func, global::DearImguiSharp.Delegates.Action___IntPtr___IntPtr free_func, __IntPtr user_data)
+        public static void SetAllocatorFunctions(global::DearImguiSharp.ImGuiMemAllocFunc alloc_func, global::DearImguiSharp.ImGuiMemFreeFunc free_func, __IntPtr user_data)
         {
             var __arg0 = alloc_func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(alloc_func);
             var __arg1 = free_func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(free_func);
             __Internal.SetAllocatorFunctions(__arg0, __arg1, user_data);
+        }
+
+        public static void GetAllocatorFunctions(global::DearImguiSharp.ImGuiMemAllocFunc p_alloc_func, global::DearImguiSharp.ImGuiMemFreeFunc p_free_func, void** p_user_data)
+        {
+            var __arg0 = p_alloc_func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(p_alloc_func);
+            var __arg1 = p_free_func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(p_free_func);
+            __Internal.GetAllocatorFunctions(__arg0, __arg1, p_user_data);
         }
 
         public static __IntPtr MemAlloc(IntPtr size)
@@ -39917,6 +40390,13 @@ namespace DearImguiSharp
             __Internal.ImDrawCmd_destroy(__arg0);
         }
 
+        public static __IntPtr ImDrawCmdGetTexID(global::DearImguiSharp.ImDrawCmd self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImDrawCmdGetTexID(__arg0);
+            return __ret;
+        }
+
         public static global::DearImguiSharp.ImDrawListSplitter ImDrawListSplitterImDrawListSplitter()
         {
             var __ret = __Internal.ImDrawListSplitterImDrawListSplitter();
@@ -40039,7 +40519,7 @@ namespace DearImguiSharp
             __Internal.ImDrawListAddLine(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, col, thickness);
         }
 
-        public static void ImDrawListAddRect(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint col, float rounding, int rounding_corners, float thickness)
+        public static void ImDrawListAddRect(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint col, float rounding, int flags, float thickness)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             if (ReferenceEquals(p_min, null))
@@ -40048,10 +40528,10 @@ namespace DearImguiSharp
             if (ReferenceEquals(p_max, null))
                 throw new global::System.ArgumentNullException("p_max", "Cannot be null because it is passed by value.");
             var __arg2 = p_max.__Instance;
-            __Internal.ImDrawListAddRect(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, col, rounding, rounding_corners, thickness);
+            __Internal.ImDrawListAddRect(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, col, rounding, flags, thickness);
         }
 
-        public static void ImDrawListAddRectFilled(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint col, float rounding, int rounding_corners)
+        public static void ImDrawListAddRectFilled(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint col, float rounding, int flags)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             if (ReferenceEquals(p_min, null))
@@ -40060,7 +40540,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(p_max, null))
                 throw new global::System.ArgumentNullException("p_max", "Cannot be null because it is passed by value.");
             var __arg2 = p_max.__Instance;
-            __Internal.ImDrawListAddRectFilled(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, col, rounding, rounding_corners);
+            __Internal.ImDrawListAddRectFilled(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, col, rounding, flags);
         }
 
         public static void ImDrawListAddRectFilledMultiColor(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left)
@@ -40197,11 +40677,11 @@ namespace DearImguiSharp
             __Internal.ImDrawListAddTextFontPtr(__arg0, __arg1, font_size, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, col, text_begin, text_end, wrap_width, __arg8);
         }
 
-        public static void ImDrawListAddPolyline(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 points, int num_points, uint col, bool closed, float thickness)
+        public static void ImDrawListAddPolyline(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 points, int num_points, uint col, int flags, float thickness)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             var __arg1 = points is null ? __IntPtr.Zero : points.__Instance;
-            __Internal.ImDrawListAddPolyline(__arg0, __arg1, num_points, col, closed, thickness);
+            __Internal.ImDrawListAddPolyline(__arg0, __arg1, num_points, col, flags, thickness);
         }
 
         public static void ImDrawListAddConvexPolyFilled(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 points, int num_points, uint col)
@@ -40292,7 +40772,7 @@ namespace DearImguiSharp
             __Internal.ImDrawListAddImageQuad(__arg0, user_texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, *(global::DearImguiSharp.ImVec2.__Internal*) __arg6, *(global::DearImguiSharp.ImVec2.__Internal*) __arg7, *(global::DearImguiSharp.ImVec2.__Internal*) __arg8, *(global::DearImguiSharp.ImVec2.__Internal*) __arg9, col);
         }
 
-        public static void ImDrawListAddImageRounded(global::DearImguiSharp.ImDrawList self, __IntPtr user_texture_id, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, global::DearImguiSharp.ImVec2 uv_min, global::DearImguiSharp.ImVec2 uv_max, uint col, float rounding, int rounding_corners)
+        public static void ImDrawListAddImageRounded(global::DearImguiSharp.ImDrawList self, __IntPtr user_texture_id, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, global::DearImguiSharp.ImVec2 uv_min, global::DearImguiSharp.ImVec2 uv_max, uint col, float rounding, int flags)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             if (ReferenceEquals(p_min, null))
@@ -40307,7 +40787,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(uv_max, null))
                 throw new global::System.ArgumentNullException("uv_max", "Cannot be null because it is passed by value.");
             var __arg5 = uv_max.__Instance;
-            __Internal.ImDrawListAddImageRounded(__arg0, user_texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, col, rounding, rounding_corners);
+            __Internal.ImDrawListAddImageRounded(__arg0, user_texture_id, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3, *(global::DearImguiSharp.ImVec2.__Internal*) __arg4, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, col, rounding, flags);
         }
 
         public static void ImDrawListPathClear(global::DearImguiSharp.ImDrawList self)
@@ -40340,10 +40820,10 @@ namespace DearImguiSharp
             __Internal.ImDrawListPathFillConvex(__arg0, col);
         }
 
-        public static void ImDrawListPathStroke(global::DearImguiSharp.ImDrawList self, uint col, bool closed, float thickness)
+        public static void ImDrawListPathStroke(global::DearImguiSharp.ImDrawList self, uint col, int flags, float thickness)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            __Internal.ImDrawListPathStroke(__arg0, col, closed, thickness);
+            __Internal.ImDrawListPathStroke(__arg0, col, flags, thickness);
         }
 
         public static void ImDrawListPathArcTo(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 center, float radius, float a_min, float a_max, int num_segments)
@@ -40391,7 +40871,7 @@ namespace DearImguiSharp
             __Internal.ImDrawListPathBezierQuadraticCurveTo(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, num_segments);
         }
 
-        public static void ImDrawListPathRect(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 rect_min, global::DearImguiSharp.ImVec2 rect_max, float rounding, int rounding_corners)
+        public static void ImDrawListPathRect(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 rect_min, global::DearImguiSharp.ImVec2 rect_max, float rounding, int flags)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             if (ReferenceEquals(rect_min, null))
@@ -40400,7 +40880,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(rect_max, null))
                 throw new global::System.ArgumentNullException("rect_max", "Cannot be null because it is passed by value.");
             var __arg2 = rect_max.__Instance;
-            __Internal.ImDrawListPathRect(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, rounding, rounding_corners);
+            __Internal.ImDrawListPathRect(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, rounding, flags);
         }
 
         public static void ImDrawListAddCallback(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImDrawCallback callback, __IntPtr callback_data)
@@ -40585,6 +41065,24 @@ namespace DearImguiSharp
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             var __ret = __Internal.ImDrawListCalcCircleAutoSegmentCount(__arg0, radius);
             return __ret;
+        }
+
+        public static void ImDrawListPathArcToFastEx(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 center, float radius, int a_min_sample, int a_max_sample, int a_step)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(center, null))
+                throw new global::System.ArgumentNullException("center", "Cannot be null because it is passed by value.");
+            var __arg1 = center.__Instance;
+            __Internal.ImDrawListPathArcToFastEx(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, radius, a_min_sample, a_max_sample, a_step);
+        }
+
+        public static void ImDrawListPathArcToN(global::DearImguiSharp.ImDrawList self, global::DearImguiSharp.ImVec2 center, float radius, float a_min, float a_max, int num_segments)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(center, null))
+                throw new global::System.ArgumentNullException("center", "Cannot be null because it is passed by value.");
+            var __arg1 = center.__Instance;
+            __Internal.ImDrawListPathArcToN(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, radius, a_min, a_max, num_segments);
         }
 
         public static global::DearImguiSharp.ImDrawData ImDrawDataImDrawData()
@@ -41468,9 +41966,9 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static double ImPowdouble(double x, double y)
+        public static double ImPow_double(double x, double y)
         {
-            var __ret = __Internal.ImPowdouble(x, y);
+            var __ret = __Internal.ImPow_double(x, y);
             return __ret;
         }
 
@@ -41480,9 +41978,15 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static double ImLogdouble(double x)
+        public static double ImLog_double(double x)
         {
-            var __ret = __Internal.ImLogdouble(x);
+            var __ret = __Internal.ImLog_double(x);
+            return __ret;
+        }
+
+        public static int ImAbsInt(int x)
+        {
+            var __ret = __Internal.ImAbsInt(x);
             return __ret;
         }
 
@@ -41492,9 +41996,9 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static double ImAbsdouble(double x)
+        public static double ImAbs_double(double x)
         {
-            var __ret = __Internal.ImAbsdouble(x);
+            var __ret = __Internal.ImAbs_double(x);
             return __ret;
         }
 
@@ -41504,9 +42008,21 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static double ImSigndouble(double x)
+        public static double ImSign_double(double x)
         {
-            var __ret = __Internal.ImSigndouble(x);
+            var __ret = __Internal.ImSign_double(x);
+            return __ret;
+        }
+
+        public static float ImRsqrtFloat(float x)
+        {
+            var __ret = __Internal.ImRsqrtFloat(x);
+            return __ret;
+        }
+
+        public static double ImRsqrt_double(double x)
+        {
+            var __ret = __Internal.ImRsqrt_double(x);
             return __ret;
         }
 
@@ -41624,6 +42140,12 @@ namespace DearImguiSharp
         public static float ImFloorFloat(float f)
         {
             var __ret = __Internal.ImFloorFloat(f);
+            return __ret;
+        }
+
+        public static float ImFloorSigned(float f)
+        {
+            var __ret = __Internal.ImFloorSigned(f);
             return __ret;
         }
 
@@ -41890,9 +42412,9 @@ namespace DearImguiSharp
             __Internal.ImVec2ih_destroy(__arg0);
         }
 
-        public static global::DearImguiSharp.ImVec2ih ImVec2ihImVec2ihshort(short _x, short _y)
+        public static global::DearImguiSharp.ImVec2ih ImVec2ihImVec2ih_short(short _x, short _y)
         {
-            var __ret = __Internal.ImVec2ihImVec2ihshort(_x, _y);
+            var __ret = __Internal.ImVec2ihImVec2ih_short(_x, _y);
             var __result0 = global::DearImguiSharp.ImVec2ih.__GetOrCreateInstance(__ret, false);
             return __result0;
         }
@@ -41965,6 +42487,13 @@ namespace DearImguiSharp
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             var __ret = __Internal.ImRectGetHeight(__arg0);
+            return __ret;
+        }
+
+        public static float ImRectGetArea(global::DearImguiSharp.ImRect self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            var __ret = __Internal.ImRectGetArea(__arg0);
             return __ret;
         }
 
@@ -42382,23 +42911,23 @@ namespace DearImguiSharp
             __Internal.ImGuiPopupData_destroy(__arg0);
         }
 
-        public static global::DearImguiSharp.ImGuiNavMoveResult ImGuiNavMoveResultImGuiNavMoveResult()
+        public static global::DearImguiSharp.ImGuiNavItemData ImGuiNavItemDataImGuiNavItemData()
         {
-            var __ret = __Internal.ImGuiNavMoveResultImGuiNavMoveResult();
-            var __result0 = global::DearImguiSharp.ImGuiNavMoveResult.__GetOrCreateInstance(__ret, false);
+            var __ret = __Internal.ImGuiNavItemDataImGuiNavItemData();
+            var __result0 = global::DearImguiSharp.ImGuiNavItemData.__GetOrCreateInstance(__ret, false);
             return __result0;
         }
 
-        public static void ImGuiNavMoveResult_destroy(global::DearImguiSharp.ImGuiNavMoveResult self)
+        public static void ImGuiNavItemData_destroy(global::DearImguiSharp.ImGuiNavItemData self)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            __Internal.ImGuiNavMoveResult_destroy(__arg0);
+            __Internal.ImGuiNavItemData_destroy(__arg0);
         }
 
-        public static void ImGuiNavMoveResultClear(global::DearImguiSharp.ImGuiNavMoveResult self)
+        public static void ImGuiNavItemDataClear(global::DearImguiSharp.ImGuiNavItemData self)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            __Internal.ImGuiNavMoveResultClear(__arg0);
+            __Internal.ImGuiNavItemDataClear(__arg0);
         }
 
         public static global::DearImguiSharp.ImGuiNextWindowData ImGuiNextWindowDataImGuiNextWindowData()
@@ -42601,6 +43130,41 @@ namespace DearImguiSharp
             __Internal.ImGuiViewportP_destroy(__arg0);
         }
 
+        public static void ImGuiViewportP_ClearRequestFlags(global::DearImguiSharp.ImGuiViewportP self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiViewportP_ClearRequestFlags(__arg0);
+        }
+
+        public static void ImGuiViewportP_CalcWorkRectPos(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImGuiViewportP self, global::DearImguiSharp.ImVec2 off_min)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(off_min, null))
+                throw new global::System.ArgumentNullException("off_min", "Cannot be null because it is passed by value.");
+            var __arg2 = off_min.__Instance;
+            __Internal.ImGuiViewportP_CalcWorkRectPos(__arg0, __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2);
+        }
+
+        public static void ImGuiViewportP_CalcWorkRectSize(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImGuiViewportP self, global::DearImguiSharp.ImVec2 off_min, global::DearImguiSharp.ImVec2 off_max)
+        {
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            if (ReferenceEquals(off_min, null))
+                throw new global::System.ArgumentNullException("off_min", "Cannot be null because it is passed by value.");
+            var __arg2 = off_min.__Instance;
+            if (ReferenceEquals(off_max, null))
+                throw new global::System.ArgumentNullException("off_max", "Cannot be null because it is passed by value.");
+            var __arg3 = off_max.__Instance;
+            __Internal.ImGuiViewportP_CalcWorkRectSize(__arg0, __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, *(global::DearImguiSharp.ImVec2.__Internal*) __arg3);
+        }
+
+        public static void ImGuiViewportP_UpdateWorkRect(global::DearImguiSharp.ImGuiViewportP self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiViewportP_UpdateWorkRect(__arg0);
+        }
+
         public static void ImGuiViewportP_GetMainRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiViewportP self)
         {
             var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
@@ -42615,16 +43179,11 @@ namespace DearImguiSharp
             __Internal.ImGuiViewportP_GetWorkRect(__arg0, __arg1);
         }
 
-        public static void ImGuiViewportP_UpdateWorkRect(global::DearImguiSharp.ImGuiViewportP self)
+        public static void ImGuiViewportP_GetBuildWorkRect(global::DearImguiSharp.ImRect pOut, global::DearImguiSharp.ImGuiViewportP self)
         {
-            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            __Internal.ImGuiViewportP_UpdateWorkRect(__arg0);
-        }
-
-        public static void ImGuiViewportP_ClearRequestFlags(global::DearImguiSharp.ImGuiViewportP self)
-        {
-            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            __Internal.ImGuiViewportP_ClearRequestFlags(__arg0);
+            var __arg0 = pOut is null ? __IntPtr.Zero : pOut.__Instance;
+            var __arg1 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiViewportP_GetBuildWorkRect(__arg0, __arg1);
         }
 
         public static global::DearImguiSharp.ImGuiWindowSettings ImGuiWindowSettingsImGuiWindowSettings()
@@ -42739,24 +43298,24 @@ namespace DearImguiSharp
             __Internal.ImGuiWindow_destroy(__arg0);
         }
 
-        public static uint ImGuiWindowGetIDStr(global::DearImguiSharp.ImGuiWindow self, string str, string str_end)
+        public static uint ImGuiWindowGetID_Str(global::DearImguiSharp.ImGuiWindow self, string str, string str_end)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            var __ret = __Internal.ImGuiWindowGetIDStr(__arg0, str, str_end);
+            var __ret = __Internal.ImGuiWindowGetID_Str(__arg0, str, str_end);
             return __ret;
         }
 
-        public static uint ImGuiWindowGetIDPtr(global::DearImguiSharp.ImGuiWindow self, __IntPtr ptr)
+        public static uint ImGuiWindowGetID_Ptr(global::DearImguiSharp.ImGuiWindow self, __IntPtr ptr)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            var __ret = __Internal.ImGuiWindowGetIDPtr(__arg0, ptr);
+            var __ret = __Internal.ImGuiWindowGetID_Ptr(__arg0, ptr);
             return __ret;
         }
 
-        public static uint ImGuiWindowGetIDInt(global::DearImguiSharp.ImGuiWindow self, int n)
+        public static uint ImGuiWindowGetID_Int(global::DearImguiSharp.ImGuiWindow self, int n)
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
-            var __ret = __Internal.ImGuiWindowGetIDInt(__arg0, n);
+            var __ret = __Internal.ImGuiWindowGetID_Int(__arg0, n);
             return __ret;
         }
 
@@ -42924,6 +43483,19 @@ namespace DearImguiSharp
         {
             var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
             __Internal.ImGuiTable_destroy(__arg0);
+        }
+
+        public static global::DearImguiSharp.ImGuiTableTempData ImGuiTableTempDataImGuiTableTempData()
+        {
+            var __ret = __Internal.ImGuiTableTempDataImGuiTableTempData();
+            var __result0 = global::DearImguiSharp.ImGuiTableTempData.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
+        public static void ImGuiTableTempData_destroy(global::DearImguiSharp.ImGuiTableTempData self)
+        {
+            var __arg0 = self is null ? __IntPtr.Zero : self.__Instance;
+            __Internal.ImGuiTableTempData_destroy(__arg0);
         }
 
         public static global::DearImguiSharp.ImGuiTableColumnSettings ImGuiTableColumnSettingsImGuiTableColumnSettings()
@@ -43204,6 +43776,21 @@ namespace DearImguiSharp
             __Internal.DestroyPlatformWindow(__arg0);
         }
 
+        public static void SetCurrentViewport(global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImGuiViewportP viewport)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __arg1 = viewport is null ? __IntPtr.Zero : viewport.__Instance;
+            __Internal.SetCurrentViewport(__arg0, __arg1);
+        }
+
+        public static global::DearImguiSharp.ImGuiPlatformMonitor GetViewportPlatformMonitor(global::DearImguiSharp.ImGuiViewport viewport)
+        {
+            var __arg0 = viewport is null ? __IntPtr.Zero : viewport.__Instance;
+            var __ret = __Internal.GetViewportPlatformMonitor(__arg0);
+            var __result0 = global::DearImguiSharp.ImGuiPlatformMonitor.__GetOrCreateInstance(__ret, false);
+            return __result0;
+        }
+
         public static void MarkIniSettingsDirtyNil()
         {
             __Internal.MarkIniSettingsDirtyNil();
@@ -43256,28 +43843,28 @@ namespace DearImguiSharp
             __Internal.SetNextWindowScroll(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0);
         }
 
-        public static void SetScrollXWindowPtr(global::DearImguiSharp.ImGuiWindow window, float scroll_x)
+        public static void SetScrollX_WindowPtr(global::DearImguiSharp.ImGuiWindow window, float scroll_x)
         {
             var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
-            __Internal.SetScrollXWindowPtr(__arg0, scroll_x);
+            __Internal.SetScrollX_WindowPtr(__arg0, scroll_x);
         }
 
-        public static void SetScrollYWindowPtr(global::DearImguiSharp.ImGuiWindow window, float scroll_y)
+        public static void SetScrollY_WindowPtr(global::DearImguiSharp.ImGuiWindow window, float scroll_y)
         {
             var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
-            __Internal.SetScrollYWindowPtr(__arg0, scroll_y);
+            __Internal.SetScrollY_WindowPtr(__arg0, scroll_y);
         }
 
-        public static void SetScrollFromPosXWindowPtr(global::DearImguiSharp.ImGuiWindow window, float local_x, float center_x_ratio)
+        public static void SetScrollFromPosX_WindowPtr(global::DearImguiSharp.ImGuiWindow window, float local_x, float center_x_ratio)
         {
             var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
-            __Internal.SetScrollFromPosXWindowPtr(__arg0, local_x, center_x_ratio);
+            __Internal.SetScrollFromPosX_WindowPtr(__arg0, local_x, center_x_ratio);
         }
 
-        public static void SetScrollFromPosYWindowPtr(global::DearImguiSharp.ImGuiWindow window, float local_y, float center_y_ratio)
+        public static void SetScrollFromPosY_WindowPtr(global::DearImguiSharp.ImGuiWindow window, float local_y, float center_y_ratio)
         {
             var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
-            __Internal.SetScrollFromPosYWindowPtr(__arg0, local_y, center_y_ratio);
+            __Internal.SetScrollFromPosY_WindowPtr(__arg0, local_y, center_y_ratio);
         }
 
         public static void ScrollToBringRectIntoView(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImGuiWindow window, global::DearImguiSharp.ImRect item_rect)
@@ -43314,9 +43901,9 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static int GetItemsFlags()
+        public static int GetItemFlags()
         {
-            var __ret = __Internal.GetItemsFlags();
+            var __ret = __Internal.GetItemFlags();
             return __ret;
         }
 
@@ -43385,13 +43972,13 @@ namespace DearImguiSharp
             __Internal.ItemSizeRect(__arg0, text_baseline_y);
         }
 
-        public static bool ItemAdd(global::DearImguiSharp.ImRect bb, uint id, global::DearImguiSharp.ImRect nav_bb)
+        public static bool ItemAdd(global::DearImguiSharp.ImRect bb, uint id, global::DearImguiSharp.ImRect nav_bb, int flags)
         {
             if (ReferenceEquals(bb, null))
                 throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
             var __arg0 = bb.__Instance;
             var __arg2 = nav_bb is null ? __IntPtr.Zero : nav_bb.__Instance;
-            var __ret = __Internal.ItemAdd(__arg0, id, __arg2);
+            var __ret = __Internal.ItemAdd(__arg0, id, __arg2, flags);
             return __ret;
         }
 
@@ -43402,6 +43989,12 @@ namespace DearImguiSharp
             var __arg0 = bb.__Instance;
             var __ret = __Internal.ItemHoverable(__arg0, id);
             return __ret;
+        }
+
+        public static void ItemFocusable(global::DearImguiSharp.ImGuiWindow window, uint id)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            __Internal.ItemFocusable(__arg0, id);
         }
 
         public static bool IsClippedEx(global::DearImguiSharp.ImRect bb, uint id, bool clip_even_when_logged)
@@ -43420,19 +44013,6 @@ namespace DearImguiSharp
                 throw new global::System.ArgumentNullException("item_rect", "Cannot be null because it is passed by value.");
             var __arg3 = item_rect.__Instance;
             __Internal.SetLastItemData(__arg0, item_id, status_flags, __arg3);
-        }
-
-        public static bool FocusableItemRegister(global::DearImguiSharp.ImGuiWindow window, uint id)
-        {
-            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
-            var __ret = __Internal.FocusableItemRegister(__arg0, id);
-            return __ret;
-        }
-
-        public static void FocusableItemUnregister(global::DearImguiSharp.ImGuiWindow window)
-        {
-            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
-            __Internal.FocusableItemUnregister(__arg0);
         }
 
         public static void CalcItemSize(global::DearImguiSharp.ImVec2 pOut, global::DearImguiSharp.ImVec2 size, float default_w, float default_h)
@@ -43585,6 +44165,13 @@ namespace DearImguiSharp
             }
         }
 
+        public static bool BeginViewportSideBar(string name, global::DearImguiSharp.ImGuiViewport viewport, int dir, float size, int window_flags)
+        {
+            var __arg1 = viewport is null ? __IntPtr.Zero : viewport.__Instance;
+            var __ret = __Internal.BeginViewportSideBar(name, __arg1, dir, size, window_flags);
+            return __ret;
+        }
+
         public static void NavInitWindow(global::DearImguiSharp.ImGuiWindow window, bool force_reinit)
         {
             var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
@@ -43639,17 +44226,12 @@ namespace DearImguiSharp
             __Internal.ActivateItem(id);
         }
 
-        public static void SetNavID(uint id, int nav_layer, uint focus_scope_id)
-        {
-            __Internal.SetNavID(id, nav_layer, focus_scope_id);
-        }
-
-        public static void SetNavIDWithRectRel(uint id, int nav_layer, uint focus_scope_id, global::DearImguiSharp.ImRect rect_rel)
+        public static void SetNavID(uint id, global::DearImguiSharp.ImGuiNavLayer nav_layer, uint focus_scope_id, global::DearImguiSharp.ImRect rect_rel)
         {
             if (ReferenceEquals(rect_rel, null))
                 throw new global::System.ArgumentNullException("rect_rel", "Cannot be null because it is passed by value.");
             var __arg3 = rect_rel.__Instance;
-            __Internal.SetNavIDWithRectRel(id, nav_layer, focus_scope_id, __arg3);
+            __Internal.SetNavID(id, nav_layer, focus_scope_id, __arg3);
         }
 
         public static void PushFocusScope(uint id)
@@ -43827,6 +44409,13 @@ namespace DearImguiSharp
         {
             var __arg0 = node is null ? __IntPtr.Zero : node.__Instance;
             var __ret = __Internal.DockNodeGetDepth(__arg0);
+            return __ret;
+        }
+
+        public static uint DockNodeGetWindowMenuButtonId(global::DearImguiSharp.ImGuiDockNode node)
+        {
+            var __arg0 = node is null ? __IntPtr.Zero : node.__Instance;
+            var __ret = __Internal.DockNodeGetWindowMenuButtonId(__arg0);
             return __ret;
         }
 
@@ -44051,11 +44640,6 @@ namespace DearImguiSharp
             __Internal.TableOpenContextMenu(column_n);
         }
 
-        public static void TableSetColumnEnabled(int column_n, bool enabled)
-        {
-            __Internal.TableSetColumnEnabled(column_n, enabled);
-        }
-
         public static void TableSetColumnWidth(int column_n, float width)
         {
             __Internal.TableSetColumnWidth(column_n, width);
@@ -44269,10 +44853,16 @@ namespace DearImguiSharp
             __Internal.TableRemove(__arg0);
         }
 
-        public static void TableGcCompactTransientBuffers(global::DearImguiSharp.ImGuiTable table)
+        public static void TableGcCompactTransientBuffersTablePtr(global::DearImguiSharp.ImGuiTable table)
         {
             var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
-            __Internal.TableGcCompactTransientBuffers(__arg0);
+            __Internal.TableGcCompactTransientBuffersTablePtr(__arg0);
+        }
+
+        public static void TableGcCompactTransientBuffersTableTempDataPtr(global::DearImguiSharp.ImGuiTableTempData table)
+        {
+            var __arg0 = table is null ? __IntPtr.Zero : table.__Instance;
+            __Internal.TableGcCompactTransientBuffersTableTempDataPtr(__arg0);
         }
 
         public static void TableGcCompactSettings()
@@ -44373,11 +44963,21 @@ namespace DearImguiSharp
             __Internal.TabBarCloseTab(__arg0, __arg1);
         }
 
-        public static void TabBarQueueReorder(global::DearImguiSharp.ImGuiTabBar tab_bar, global::DearImguiSharp.ImGuiTabItem tab, int dir)
+        public static void TabBarQueueReorder(global::DearImguiSharp.ImGuiTabBar tab_bar, global::DearImguiSharp.ImGuiTabItem tab, int offset)
         {
             var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
             var __arg1 = tab is null ? __IntPtr.Zero : tab.__Instance;
-            __Internal.TabBarQueueReorder(__arg0, __arg1, dir);
+            __Internal.TabBarQueueReorder(__arg0, __arg1, offset);
+        }
+
+        public static void TabBarQueueReorderFromMousePos(global::DearImguiSharp.ImGuiTabBar tab_bar, global::DearImguiSharp.ImGuiTabItem tab, global::DearImguiSharp.ImVec2 mouse_pos)
+        {
+            var __arg0 = tab_bar is null ? __IntPtr.Zero : tab_bar.__Instance;
+            var __arg1 = tab is null ? __IntPtr.Zero : tab.__Instance;
+            if (ReferenceEquals(mouse_pos, null))
+                throw new global::System.ArgumentNullException("mouse_pos", "Cannot be null because it is passed by value.");
+            var __arg2 = mouse_pos.__Instance;
+            __Internal.TabBarQueueReorderFromMousePos(__arg0, __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2);
         }
 
         public static bool TabBarProcessReorder(global::DearImguiSharp.ImGuiTabBar tab_bar)
@@ -44518,7 +45118,7 @@ namespace DearImguiSharp
             __Internal.RenderFrameBorder(*(global::DearImguiSharp.ImVec2.__Internal*) __arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, rounding);
         }
 
-        public static void RenderColorRectWithAlphaCheckerboard(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2 grid_off, float rounding, int rounding_corners_flags)
+        public static void RenderColorRectWithAlphaCheckerboard(global::DearImguiSharp.ImDrawList draw_list, global::DearImguiSharp.ImVec2 p_min, global::DearImguiSharp.ImVec2 p_max, uint fill_col, float grid_step, global::DearImguiSharp.ImVec2 grid_off, float rounding, int flags)
         {
             var __arg0 = draw_list is null ? __IntPtr.Zero : draw_list.__Instance;
             if (ReferenceEquals(p_min, null))
@@ -44530,7 +45130,7 @@ namespace DearImguiSharp
             if (ReferenceEquals(grid_off, null))
                 throw new global::System.ArgumentNullException("grid_off", "Cannot be null because it is passed by value.");
             var __arg5 = grid_off.__Instance;
-            __Internal.RenderColorRectWithAlphaCheckerboard(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, fill_col, grid_step, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, rounding, rounding_corners_flags);
+            __Internal.RenderColorRectWithAlphaCheckerboard(__arg0, *(global::DearImguiSharp.ImVec2.__Internal*) __arg1, *(global::DearImguiSharp.ImVec2.__Internal*) __arg2, fill_col, grid_step, *(global::DearImguiSharp.ImVec2.__Internal*) __arg5, rounding, flags);
         }
 
         public static void RenderNavHighlight(global::DearImguiSharp.ImRect bb, uint id, int flags)
@@ -44672,7 +45272,7 @@ namespace DearImguiSharp
             __Internal.Scrollbar(axis);
         }
 
-        public static bool ScrollbarEx(global::DearImguiSharp.ImRect bb, uint id, global::DearImguiSharp.ImGuiAxis axis, ref float p_scroll_v, float avail_v, float contents_v, int rounding_corners)
+        public static bool ScrollbarEx(global::DearImguiSharp.ImRect bb, uint id, global::DearImguiSharp.ImGuiAxis axis, ref float p_scroll_v, float avail_v, float contents_v, int flags)
         {
             if (ReferenceEquals(bb, null))
                 throw new global::System.ArgumentNullException("bb", "Cannot be null because it is passed by value.");
@@ -44680,7 +45280,7 @@ namespace DearImguiSharp
             fixed (float* __p_scroll_v3 = &p_scroll_v)
             {
                 var __arg3 = __p_scroll_v3;
-                var __ret = __Internal.ScrollbarEx(__arg0, id, axis, __arg3, avail_v, contents_v, rounding_corners);
+                var __ret = __Internal.ScrollbarEx(__arg0, id, axis, __arg3, avail_v, contents_v, flags);
                 return __ret;
             }
         }
@@ -44723,10 +45323,17 @@ namespace DearImguiSharp
             return __ret;
         }
 
-        public static uint GetWindowResizeID(global::DearImguiSharp.ImGuiWindow window, int n)
+        public static uint GetWindowResizeCornerID(global::DearImguiSharp.ImGuiWindow window, int n)
         {
             var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
-            var __ret = __Internal.GetWindowResizeID(__arg0, n);
+            var __ret = __Internal.GetWindowResizeCornerID(__arg0, n);
+            return __ret;
+        }
+
+        public static uint GetWindowResizeBorderID(global::DearImguiSharp.ImGuiWindow window, int dir)
+        {
+            var __arg0 = window is null ? __IntPtr.Zero : window.__Instance;
+            var __ret = __Internal.GetWindowResizeBorderID(__arg0, dir);
             return __ret;
         }
 
@@ -45379,6 +45986,9 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGui_ImplWin32_GetDpiScaleForMonitor", CallingConvention = __CallingConvention.Cdecl)]
             public static extern float ImGuiImplWin32GetDpiScaleForMonitor(__IntPtr monitor);
 
+            [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGui_ImplWin32_EnableAlphaCompositing", CallingConvention = __CallingConvention.Cdecl)]
+            public static extern void ImGuiImplWin32EnableAlphaCompositing(__IntPtr hwnd);
+
             [SuppressUnmanagedCodeSecurity, DllImport("cimgui.dll", EntryPoint = "ImGui_ImplDX9_Init", CallingConvention = __CallingConvention.Cdecl)]
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool ImGuiImplDX9Init(__IntPtr device);
@@ -45451,6 +46061,11 @@ namespace DearImguiSharp
         {
             var __ret = __Internal.ImGuiImplWin32GetDpiScaleForMonitor(monitor);
             return __ret;
+        }
+
+        public static void ImGuiImplWin32EnableAlphaCompositing(__IntPtr hwnd)
+        {
+            __Internal.ImGuiImplWin32EnableAlphaCompositing(hwnd);
         }
 
         public static bool ImGuiImplDX9Init(global::DearImguiSharp.IDirect3DDevice9 device)
@@ -45571,8 +46186,5 @@ namespace DearImguiSharp
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
         public unsafe delegate float Func_float___IntPtr_int(__IntPtr data, int idx);
-
-        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(__CallingConvention.Cdecl)]
-        public unsafe delegate __IntPtr Func___IntPtr_IntPtr___IntPtr(IntPtr sz, __IntPtr user_data);
     }
 }
