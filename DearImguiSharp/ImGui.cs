@@ -17,32 +17,32 @@ namespace DearImguiSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderInt2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d");
+            public static extern bool SliderInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderInt3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d");
+            public static extern bool SliderInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderInt4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d");
+            public static extern bool SliderInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int v_min, int v_max, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragInt2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min = 0, int v_max = 0, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d");
+            public static extern unsafe bool DragInt2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min = 0, int v_max = 0, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragInt3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min = 0, int v_max = 0, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d");
+            public static extern unsafe bool DragInt3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min = 0, int v_max = 0, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragInt4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min = 0, int v_max = 0, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d");
+            public static extern unsafe bool DragInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, float v_speed, int v_min = 0, int v_max = 0, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%d", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igInputInt2")]
@@ -59,70 +59,68 @@ namespace DearImguiSharp
             [return: MarshalAs(UnmanagedType.I1)]
             public static extern bool InputInt4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, int* v, int flags);
             
-            
             #endregion
-
 
             #region Float Widgets w/ Raw Pointers
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragFloat2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern unsafe bool DragFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragFloat3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern unsafe bool DragFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragFloat4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern unsafe bool DragFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragFloat2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector2* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern unsafe bool DragFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector2* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragFloat3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector3* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern unsafe bool DragFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector3* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igDragFloat4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern unsafe bool DragFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector4* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern unsafe bool DragFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector4* v, float v_speed, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderFloat2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern bool SliderFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderFloat3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern bool SliderFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderFloat4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern bool SliderFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, float* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderFloat2")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector2* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern bool SliderFloat2([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector2* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderFloat3")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector3* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern bool SliderFloat3([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector3* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igSliderFloat4")]
             [return: MarshalAs(UnmanagedType.I1)]
-            public static extern bool SliderFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector4* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", float power = 1);
+            public static extern bool SliderFloat4([MarshalAs(UnmanagedType.LPUTF8Str)] string label, Vector4* v, float v_min = float.MinValue, float v_max = float.MaxValue, [MarshalAs(UnmanagedType.LPUTF8Str)] string format = "%.3f", int flags = 0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("cimgui.dll", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl, EntryPoint = "igInputFloat2")]
