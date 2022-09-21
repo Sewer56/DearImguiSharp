@@ -1,13 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Authors>Sewer56</Authors>
-    <Description>Wrapper for the Dear ImGui library (docking branch) with support for DX9, DX11 and Win32 implementations on Windows.</Description>
+    <Description>Wrapper for the Dear ImGui library (docking branch) with internal API exposed and support for Win32, D3D9/10/11, OpenGL 2/3, SDL2, GLFW &amp; Vulkan backends.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.83.1</Version>
+    <Version>1.88.2</Version>
+    <PackageProjectUrl>https://github.com/Sewer56/DearImguiSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Sewer56/DearImguiSharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,10 +22,26 @@
       <PackagePath>runtimes/win-x64/native</PackagePath>
       <Pack>true</Pack>
     </Content>
-	<Content Include="$(OutputPath)\CppSharp.Runtime.dll">
-	  <Pack>true</Pack>
-	  <PackagePath>lib\$(TargetFramework)</PackagePath>
-	</Content>
+    <Content Include="deps\cimgui\win-arm\cimgui.dll">
+      <PackagePath>runtimes/win-arm/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\win-arm64\cimgui.dll">
+      <PackagePath>runtimes/win-arm64/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\linux-x64\cimgui.so">
+      <PackagePath>runtimes/linux-x64/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\osx-x64\cimgui.dylib">
+      <PackagePath>runtimes/osx-x64/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\CppSharp.Runtime.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib/$(TargetFramework)</PackagePath>
+    </Content>
 	<Content Include="build\net40\DearImguiSharp.targets" />
   </ItemGroup>
 
@@ -31,6 +50,5 @@
       <HintPath>deps\CppSharp.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-	
 
 </Project>

@@ -19,6 +19,12 @@ namespace DearImguiSharp
         public unsafe ID3D11Device(void* native) : this(native, false) { }
         public static unsafe implicit operator ID3D11Device(void* b) => new ID3D11Device(b);
     }
+    
+    public partial class ID3D12Device
+    {
+        public unsafe ID3D12Device(void* native) : this(native, false) { }
+        public static unsafe implicit operator ID3D12Device(void* b) => new ID3D12Device(b);
+    }
 
     public partial class ID3D11DeviceContext
     {
