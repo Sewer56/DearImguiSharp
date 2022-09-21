@@ -1,5 +1,7 @@
 # DearImguiSharp
 
+![Nuget](https://img.shields.io/nuget/v/DearImguiSharp)
+
 DearImguiSharp is a minimalistic *personal use* .NET wrapper for the immediate mode GUI library, Dear ImGui (https://github.com/ocornut/imgui) built ontop of [cimgui](https://github.com/Extrawurst/cimgui). The goal of Dear ImGui is to allow a developer to build graphical interfaces using a simple immediate-mode style. 
 
 By itself, Dear ImGui does not care what technology you use for rendering; it simply outputs textured triangles. Many example renderers exist such as ones for popular graphics APIs: OGL2, OGL3, D3D9 and D3D11 etc.
