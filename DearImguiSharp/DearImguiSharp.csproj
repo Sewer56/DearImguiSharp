@@ -7,7 +7,7 @@
     <Description>Wrapper for the Dear ImGui library (docking branch) with support for DX9, DX11 and Win32 implementations on Windows.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.88.0</Version>
+    <Version>1.88.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +17,22 @@
     </Content>
     <Content Include="deps\cimgui\win-x64\cimgui.dll">
       <PackagePath>runtimes/win-x64/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\win-arm\cimgui.dll">
+      <PackagePath>runtimes/win-arm/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\win-arm64\cimgui.dll">
+      <PackagePath>runtimes/win-arm64/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\linux-x64\cimgui.so">
+      <PackagePath>runtimes/linux-x64/native</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="deps\cimgui\osx-x64\cimgui.dylib">
+      <PackagePath>runtimes/osx-x64/native</PackagePath>
       <Pack>true</Pack>
     </Content>
 	<Content Include="$(OutputPath)\CppSharp.Runtime.dll">
