@@ -1,9 +1,12 @@
-﻿using CppSharp;
+﻿using System;
+using CppSharp;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using CodeGenerator.Passes;
 using CppSharp.AST;
 using CppSharp.Generators;
+using CppSharp.Parser;
 using CppSharp.Passes;
 using ASTContext = CppSharp.AST.ASTContext;
 using Declaration = CppSharp.AST.Declaration;
@@ -15,22 +18,41 @@ namespace CodeGenerator
     {
         public void Setup(Driver driver)
         {
-            const string libraryName = "cimgui.dll";
+            const string libraryName = "cimgui";
             string[] imguiDirectories = new[]
             {
-                "./",
+                Path.GetFullPath("."),
+                Path.GetFullPath("include/vulkan"),
             };
 
             var options = driver.Options;
             options.GeneratorKind = GeneratorKind.CSharp;
+            options.GenerateFinalizers = true;
             options.GenerateDefaultValuesForArguments = true;
             options.GenerateSequentialLayout = true;
+            options.Verbose = true;
 
             var module = options.AddModule(libraryName);
             module.OutputNamespace = "DearImguiSharp";
             module.Defines.Add("CIMGUI_DEFINE_ENUMS_AND_STRUCTS");
+            module.Defines.Add("CIMGUI_USE_WIN32");
+            module.Defines.Add("CIMGUI_USE_DX9");
+            module.Defines.Add("CIMGUI_USE_DX11");
+            module.Defines.Add("CIMGUI_USE_DX12");
+            module.Defines.Add("CIMGUI_USE_VULKAN");
+            module.Defines.Add("CIMGUI_USE_GLFW");
+            module.Defines.Add("CIMGUI_USE_OPENGL3");
+            module.Defines.Add("CIMGUI_USE_OPENGL2");
+            module.Defines.Add("CIMGUI_USE_SDL");
+            module.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             foreach (var directory in imguiDirectories)
                 module.IncludeDirs.Add(directory);
+
+            foreach (var vkHeader in Directory.GetFiles(Path.GetFullPath("include/vulkan"), "*.h"))
+                module.Headers.Add(vkHeader);
+            
+            foreach (var vkHeader in Directory.GetFiles(Path.GetFullPath("include/vulkan"), "*.hpp"))
+                module.Headers.Add(vkHeader);
 
             module.Headers.Add("cimgui.h");
             module.Headers.Add("cimgui_impl.h");
@@ -50,6 +72,7 @@ namespace CodeGenerator
             driver.Context.TranslationUnitPasses.AddPass(new ConstructorToConversionOperatorPass());
             driver.Context.GeneratorOutputPasses.AddPass(new RenameOutputPass());
             driver.Context.GeneratorOutputPasses.AddPass(new SetComponentsPublicPass());
+            driver.Context.GeneratorOutputPasses.AddPass(new RemoveEnumValuesPrefixPass());
         }
 
         public void Preprocess(Driver driver, ASTContext ctx)
@@ -77,6 +100,7 @@ namespace CodeGenerator
             // This causes the type to expand to void**, but C# sets the field as IntPtr.
             // C# has no implicit cast for this.
             // We implement this property ourselves in the other project :3
+            
             IgnoreProperty("ImVectorImTextureID", "Data", ctx);
             IgnoreProperty("ImVector_const_charPtr", "Data", ctx);
         }
@@ -110,12 +134,15 @@ namespace CodeGenerator
         private void IgnoreProperty(string className, string propertyName, ASTContext ctx)
         {
             var cls = ctx.FindCompleteClass(className);
-            var dataProperty = cls.Properties.First(x => x.OriginalName == propertyName);
-            dataProperty.Ignore = true;
+
+            var dataProperty = cls?.Properties.FirstOrDefault(x => x.OriginalName != null && x.OriginalName == propertyName);
+            if (dataProperty != null)
+                dataProperty.Ignore = true;
         }
 
         public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)
         {
+            
         }
     }
 }

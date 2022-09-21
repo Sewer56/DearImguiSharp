@@ -31,6 +31,10 @@
       <HintPath>deps\CppSharp.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CppSharp.Runtime" Version="1.0.24.23072" />
+  </ItemGroup>
 	
 
 </Project>
