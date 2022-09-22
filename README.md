@@ -122,13 +122,11 @@ This library is a *minimal effort* library. We try to manually fix the least amo
 - Optimize wrapper by using more efficient bindings. (e.g. Map `ImVec2` to `System.Numerics.Vector2`).
 
 - Support other operating systems:
-  - Modify `DearImguiSharp.targets` to add support for other platforms.
-  - Implement CI/CD or Github Actions to build `cimgui` for other platforms. 
   - Some kind of reasonable test; maybe use [Veldrid](https://github.com/mellinoe/veldrid).
 
 I plan to address these in the future but it likely wouldn't be any time soon.
 
-This is my first time using CppSharp, so there's still plenty of stuff to still learn.
+This project was my first time using CppSharp, so there might still be stuff to still learn.
 I'll happily accept pull requests for any of these features or general quality of life improvements.
 
 ## Related Projects
