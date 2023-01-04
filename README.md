@@ -137,5 +137,6 @@ I'll happily accept pull requests for any of these features or general quality o
 - [ImGui.Net (Evergine)](https://github.com/EvergineTeam/ImGui.Net): Team Evergine's take on a custom generator for ImGui. Looks inspired by the original.  
 - [ImGuiSharp](https://github.com/MarioGK/ImGuiSharp): Fairly recent wrapper based on CppSharp, similar to this project. Inspired by the original ImGui.NET and this project.  
 - [Mochi.DearImGui](https://github.com/MochiLibraries/Mochi.DearImGui): Wrapper for win-x64, win-arm64 & linux-x64 with surprisingly clean codegen & good performance 👍.  
+- [DearImGui](https://github.com/aybe/DearImGui): imgui + implot with OpenTK controller, close to zero heap allocations + original documentation in IntelliSense
 
 I was pretty surprised by `Mochi.DearImGui` when I discovered it (Sept. 2022) personally; but cannot unfortunately use it as there isn't `win-x86` support and adding it to the code generator would unfortunately be a lot of work, with the mess that ABIs are under `win-x86`.  
