@@ -7,7 +7,7 @@
     <Description>Wrapper for the Dear ImGui library (docking branch) with internal API exposed and support for Win32, D3D9/10/11, OpenGL 2/3, SDL2, GLFW &amp; Vulkan backends.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.88.3</Version>
+    <Version>1.89.3</Version>
     <PackageProjectUrl>https://github.com/Sewer56/DearImguiSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Sewer56/DearImguiSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
