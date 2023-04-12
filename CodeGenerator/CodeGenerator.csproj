@@ -36,4 +36,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cimgui.cpp" />
+  </ItemGroup>
 </Project>
